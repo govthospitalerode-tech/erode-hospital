@@ -4,14 +4,14 @@
     { "src": "server.js", "use": "@vercel/node" },
     { "src": "style.css", "use": "@vercel/static" },
     { "src": "shared.js", "use": "@vercel/static" },
-    { "src": "*.html", "use": "@vercel/static" }
+    { "src": "*.html",    "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/waste",       "dest": "/server.js" },
-    { "src": "/hospital",    "dest": "/server.js" },
-    { "src": "/style.css",   "dest": "/style.css" },
-    { "src": "/shared.js",   "dest": "/shared.js" },
-    { "src": "/(.*\\.html)", "dest": "/$1" },
-    { "src": "/(.*)",        "dest": "/server.js" }
+    { "src": "/waste",        "dest": "/server.js" },
+    { "src": "/hospital",     "dest": "/server.js" },
+    { "src": "/style.css",    "dest": "/style.css" },
+    { "src": "/shared.js",    "dest": "/shared.js" },
+    { "src": "/(.*\\.html)",  "dest": "/$1" },
+    { "src": "/(.*)",         "dest": "/server.js" }
   ]
 }
