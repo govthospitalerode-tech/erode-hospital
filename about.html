@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>About — Thanthai Periyar Govt Hospital Erode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    .about-body { max-width:1100px; margin:0 auto; padding:64px 48px; display:grid; grid-template-columns:1fr 360px; gap:56px; align-items:start; }
+    .about-content h2 { font-size:clamp(22px,3vw,32px); margin-bottom:16px; }
+    .about-content p { font-size:15px; color:var(--body-text); line-height:1.8; margin-bottom:20px; }
+    .about-content p strong { color:var(--primary); }
+    .timeline { margin-top:40px; }
+    .timeline h3 { font-size:20px; margin-bottom:24px; }
+    .tl-item { display:flex; gap:20px; margin-bottom:24px; }
+    .tl-year { background:var(--primary); color:var(--white); font-family:'Playfair Display',serif; font-size:15px; font-weight:700; padding:6px 12px; border-radius:6px; white-space:nowrap; height:fit-content; min-width:56px; text-align:center; }
+    .tl-body { font-size:14px; color:var(--body-text); line-height:1.65; border-left:2px solid var(--border); padding-left:20px; padding-bottom:12px; }
+    .tl-body strong { display:block; color:var(--primary); font-size:15px; margin-bottom:4px; }
+
+    .about-sidebar { display:flex; flex-direction:column; gap:20px; }
+    .info-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; }
+    .info-card h4 { font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--secondary); margin-bottom:16px; font-family:'DM Sans',sans-serif; }
+    .info-row { display:flex; gap:10px; margin-bottom:12px; align-items:flex-start; font-size:13.5px; }
+    .info-row span:first-child { font-size:16px; flex-shrink:0; width:20px; }
+    .info-row strong { color:var(--primary); display:block; font-size:12px; }
+
+    @media(max-width:900px) {
+      .about-body { grid-template-columns:1fr; padding:40px 20px; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › About</div>
+    <h1>About the Hospital</h1>
+    <p>A legacy of over 70 years of free, accessible healthcare for the people of Erode.</p>
+  </div>
+</div>
+
+<div class="about-body">
+  <div class="about-content">
+    <h2>Thanthai Periyar Government Headquarters Hospital</h2>
+    <p>Originally functioning near the Abdul Gani Textile Market in Panneerselvam Park, the hospital was shifted to its present location on <strong>EVN Road, Kaikolar Thottam</strong> in <strong>1955</strong>. Named after the great social reformer Thanthai Periyar E.V. Ramasamy — who himself sponsored a share for this hospital — it stands as a symbol of the Dravidian movement's commitment to social equity and public welfare.</p>
+    <p>Today, it functions as the <strong>District Headquarters Hospital</strong> of Erode and is classified as a <strong>700-bed Tertiary Care Hospital</strong> with 75 medical officers. It serves not only Erode district but also patients from Tiruppur, Namakkal, Salem, and Coimbatore who seek free specialist care.</p>
+    <p>In <strong>2019</strong>, the Government of Tamil Nadu announced its upgrade to a <strong>Multi Super Speciality Hospital</strong>. A B+G+8 storeyed additional block of 2,32,602 sq ft was constructed at a cost of <strong>₹80.81 Crores</strong>, and was inaugurated by Chief Minister M.K. Stalin in 2024, bringing cardiac surgery, neurosurgery, and other super-speciality services directly to government patients.</p>
+    <p>During the <strong>COVID-19 pandemic (April 2020)</strong>, the hospital was designated as a Corona Speciality Hospital with 184 dedicated isolation beds, playing a pivotal role in Erode's pandemic response alongside Erode Medical College Hospital.</p>
+    <p>The hospital operates under the oversight of the <strong>Tamil Nadu Directorate of Medical and Rural Health Services</strong> and adheres to all national and state health protocols for patient care, infrastructure, and biomedical waste management.</p>
+
+    <div class="timeline">
+      <h3>Key Milestones</h3>
+      <div class="tl-item"><div class="tl-year">1955</div><div class="tl-body"><strong>Shifted to Present Location</strong>Hospital moved to EVN Road, Kaikolar Thottam. Periyar E.V. Ramasamy sponsored a share for the hospital during this period.</div></div>
+      <div class="tl-item"><div class="tl-year">2019</div><div class="tl-body"><strong>Super Speciality Upgrade Announced</strong>Government of Tamil Nadu announced ₹80.81 Crore upgrade to Multi Super Speciality Hospital. 20 new medical officers appointed.</div></div>
+      <div class="tl-item"><div class="tl-year">2020</div><div class="tl-body"><strong>COVID-19 Speciality Hospital</strong>Designated as Corona Speciality Hospital with 184 isolation beds for treating COVID-19 patients across Erode district.</div></div>
+      <div class="tl-item"><div class="tl-year">2022</div><div class="tl-body"><strong>Zero Maternal Mortality</strong>Achieved zero maternal deaths for two consecutive quarters — recognised by TN Directorate of Health Services.</div></div>
+      <div class="tl-item"><div class="tl-year">2023</div><div class="tl-body"><strong>BMW Compliance & NICU Expansion</strong>ISO-compliant biomedical waste system launched. NICU expanded from 12 to 28 beds; neonatal survival rate improved to 89%.</div></div>
+      <div class="tl-item"><div class="tl-year">2024</div><div class="tl-body"><strong>Super Speciality Block Inaugurated</strong>B+G+8 storeyed super speciality block of 2,32,602 sq ft inaugurated. 20-bed pay ward launched for enhanced patient options.</div></div>
+    </div>
+  </div>
+
+  <div class="about-sidebar">
+    <div class="info-card">
+      <h4>Quick Info</h4>
+      <div class="info-row"><span>📍</span><div><strong>Address</strong>EVN Road, Kaikolar Thottam, Erode – 638 009</div></div>
+      <div class="info-row"><span>📞</span><div><strong>Phone</strong>0424-2253676 / 2258355</div></div>
+      <div class="info-row"><span>🚑</span><div><strong>Emergency</strong>108 (Free Ambulance)</div></div>
+      <div class="info-row"><span>🩸</span><div><strong>Blood Bank</strong>0424-2252356 (24/7)</div></div>
+      <div class="info-row"><span>🕐</span><div><strong>OPD Hours</strong>Mon–Sat: 8AM – 1PM</div></div>
+      <div class="info-row"><span>🌐</span><div><strong>Authority</strong>TN Directorate of Medical & Rural Health Services</div></div>
+    </div>
+    <div class="info-card">
+      <h4>At a Glance</h4>
+      <div class="info-row"><span>🛏️</span><div><strong>Total Beds</strong>700</div></div>
+      <div class="info-row"><span>👨‍⚕️</span><div><strong>Medical Officers</strong>75</div></div>
+      <div class="info-row"><span>🏛️</span><div><strong>Departments</strong>14 + Super Speciality</div></div>
+      <div class="info-row"><span>🏗️</span><div><strong>New Block</strong>2,32,602 sq ft · ₹80.81 Cr</div></div>
+      <div class="info-row"><span>📅</span><div><strong>Established</strong>1955</div></div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer" id="footer"></footer>
+<script src="/shared.js"></script>
+</body>
+</html>

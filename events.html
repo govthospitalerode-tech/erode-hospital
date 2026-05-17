@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Events & Camps — Thanthai Periyar Govt Hospital Erode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    .events-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
+    .filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; align-items:center; }
+    .filter-btn { padding:8px 18px; border-radius:20px; border:1.5px solid var(--border); background:var(--white); color:var(--body-text); font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; cursor:pointer; transition:var(--transition); }
+    .filter-btn:hover, .filter-btn.active { background:var(--primary); border-color:var(--primary); color:var(--white); }
+    .filter-label { font-size:13px; color:var(--muted); font-weight:600; margin-right:4px; }
+
+    .events-list { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+    .ev-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; display:flex; flex-direction:column; transition:var(--transition); }
+    .ev-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
+    .ev-card-header { background:linear-gradient(135deg,var(--primary),var(--primary-lt)); padding:24px 24px 20px; display:flex; gap:16px; align-items:flex-start; }
+    .ev-icon { font-size:36px; flex-shrink:0; }
+    .ev-cat { margin-bottom:6px; }
+    .ev-title { font-family:'Playfair Display',serif; font-size:19px; color:var(--white); line-height:1.25; }
+    .ev-card-body { padding:20px 24px; flex:1; }
+    .ev-date { font-size:12px; color:var(--muted); margin-bottom:10px; font-weight:600; }
+    .ev-location { font-size:12px; color:var(--secondary); margin-bottom:14px; font-weight:600; }
+    .ev-desc { font-size:14px; color:var(--body-text); line-height:1.7; }
+    .ev-card-footer { padding:16px 24px; border-top:1px solid var(--border); display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .ev-stat { font-size:12px; }
+    .ev-stat strong { display:block; font-size:15px; color:var(--primary); font-family:'Playfair Display',serif; }
+    .ev-stat span { color:var(--muted); }
+    .ev-outcome { grid-column:1/-1; font-size:12.5px; color:var(--teal); font-weight:600; background:var(--cream); padding:8px 12px; border-radius:6px; }
+
+    .no-results { text-align:center; padding:60px 20px; color:var(--muted); }
+    @media(max-width:900px) { .events-body { padding:40px 20px; } .events-list { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Events & Camps</div>
+    <h1>Events & Health Camps</h1>
+    <p>Free surgical camps, mass screening drives, health awareness programmes, and community outreach by Erode Govt Hospital teams.</p>
+  </div>
+</div>
+
+<div class="events-body">
+  <div class="filter-bar" id="filterBar">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" data-cat="all">All</button>
+  </div>
+  <div class="events-list" id="eventsList">
+    <div class="loading-box"><div class="spinner"></div>Loading events...</div>
+  </div>
+</div>
+
+<footer class="footer" id="footer"></footer>
+<script src="/shared.js"></script>
+<script>
+let allEvents = [];
+
+async function loadEvents() {
+  try {
+    const res  = await fetch('/hospital?section=events');
+    const data = await res.json();
+    allEvents  = data.events || [];
+
+    // Build filter buttons from unique categories
+    const cats = [...new Set(allEvents.map(e => e.category))];
+    const filterBar = document.getElementById('filterBar');
+    cats.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn'; btn.dataset.cat = c; btn.textContent = c;
+      btn.addEventListener('click', () => applyFilter(c));
+      filterBar.appendChild(btn);
+    });
+
+    document.querySelectorAll('.filter-btn[data-cat="all"]')[0]?.addEventListener('click', () => applyFilter('all'));
+    renderEvents(allEvents);
+  } catch(e) { console.error(e); }
+}
+
+function applyFilter(cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  const filtered = cat === 'all' ? allEvents : allEvents.filter(e => e.category === cat);
+  renderEvents(filtered);
+}
+
+function renderEvents(events) {
+  if (!events.length) { document.getElementById('eventsList').innerHTML = '<div class="no-results">No events found for this category.</div>'; return; }
+  document.getElementById('eventsList').innerHTML = events.map((e,i) => `
+    <div class="ev-card fade-up" style="animation-delay:${i*0.06}s">
+      <div class="ev-card-header">
+        <div class="ev-icon">${e.icon}</div>
+        <div>
+          <div class="ev-cat"><span class="badge badge-secondary">${e.category}</span></div>
+          <h2 class="ev-title">${e.title}</h2>
+        </div>
+      </div>
+      <div class="ev-card-body">
+        <div class="ev-date">📅 ${new Date(e.date).toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</div>
+        <div class="ev-location">📍 ${e.location}</div>
+        <p class="ev-desc">${e.desc}</p>
+      </div>
+      <div class="ev-card-footer">
+        <div class="ev-stat"><strong>${e.beneficiaries.toLocaleString()}+</strong><span>Beneficiaries</span></div>
+        <div class="ev-stat"><strong>${new Date(e.date).getFullYear()}</strong><span>Year</span></div>
+        <div class="ev-outcome">✅ Outcome: ${e.outcome}</div>
+      </div>
+    </div>`).join('');
+}
+
+loadEvents();
+</script>
+</body>
+</html>

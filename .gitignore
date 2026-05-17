@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.local
+
+# NEVER commit service account keys
+serviceAccountKey.json
+
+# Local waste data (optional — remove if you want to seed from git)
+waste.json
+
+# OS files
+.DS_Store
+Thumbs.db

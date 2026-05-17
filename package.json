@@ -1,0 +1,17 @@
+{
+  "name": "erode-govt-hospital",
+  "version": "2.0.0",
+  "description": "Thanthai Periyar Govt Hospital Erode — public website with biomedical waste dashboard",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "firebase": "^12.13.0",
+    "firebase-admin": "^13.10.0"
+  }
+}

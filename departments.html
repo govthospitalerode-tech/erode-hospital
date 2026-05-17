@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Departments — Thanthai Periyar Govt Hospital Erode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    .dept-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
+    .dept-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .dept-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:28px; transition:var(--transition); position:relative; overflow:hidden; }
+    .dept-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg,var(--primary),var(--secondary)); }
+    .dept-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
+    .dept-icon { font-size:36px; margin-bottom:14px; }
+    .dept-name { font-size:19px; margin-bottom:8px; }
+    .dept-head { font-size:12px; color:var(--muted); margin-bottom:4px; }
+    .dept-head strong { color:var(--primary); font-size:13px; }
+    .dept-desc { font-size:13.5px; color:var(--muted); line-height:1.65; margin-top:12px; margin-bottom:16px; }
+    .dept-meta { display:flex; gap:12px; flex-wrap:wrap; }
+    .dept-badge { display:flex; align-items:center; gap:5px; font-size:12px; font-weight:600; color:var(--primary); background:var(--cream); padding:5px 10px; border-radius:4px; }
+    @media(max-width:900px) { .dept-grid { grid-template-columns:repeat(2,1fr); } .dept-body { padding:40px 20px; } }
+    @media(max-width:560px) { .dept-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Departments</div>
+    <h1>Our Departments</h1>
+    <p>14 specialised departments providing free diagnosis, treatment, and surgery to all patients.</p>
+  </div>
+</div>
+
+<div class="dept-body">
+  <div class="dept-grid" id="deptGrid">
+    <div class="loading-box"><div class="spinner"></div>Loading departments...</div>
+  </div>
+</div>
+
+<footer class="footer" id="footer"></footer>
+<script src="/shared.js"></script>
+<script>
+async function loadDepts() {
+  try {
+    const res  = await fetch('/hospital?section=departments');
+    const data = await res.json();
+    const depts = data.departments || [];
+    document.getElementById('deptGrid').innerHTML = depts.map((d,i) => `
+      <div class="dept-card fade-up" style="animation-delay:${i*0.05}s">
+        <div class="dept-icon">${d.icon}</div>
+        <h2 class="dept-name">${d.name}</h2>
+        <div class="dept-head">Head of Department: <strong>${d.head}</strong></div>
+        <p class="dept-desc">${d.desc}</p>
+        <div class="dept-meta">
+          ${d.beds > 0 ? `<span class="dept-badge">🛏️ ${d.beds} Beds</span>` : ''}
+          <span class="dept-badge">🕐 ${d.opd_days}</span>
+        </div>
+      </div>`).join('');
+  } catch(e) { console.error(e); }
+}
+loadDepts();
+</script>
+</body>
+</html>

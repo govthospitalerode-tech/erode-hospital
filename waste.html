@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>Biomedical Waste Dashboard — Erode Govt Hospital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+      /* ── LAYOUT ──────────────────────────────── */
+      .waste-body { max-width:1200px; margin:0 auto; padding:48px 48px 80px; }
+
+      /* ── STAT TILES ──────────────────────────── */
+      .stat-tiles { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:40px; }
+      .st { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:22px 24px; position:relative; overflow:hidden; }
+      .st::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:var(--primary); }
+      .st.orange::before { background:var(--secondary); }
+      .st.teal::before   { background:var(--teal); }
+      .st.green::before  { background:#27ae60; }
+      .st-lbl { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:8px; }
+      .st-val { font-family:'Playfair Display',serif; font-size:30px; color:var(--primary); font-weight:700; line-height:1; }
+      .st-sub { font-size:12px; color:var(--muted); margin-top:4px; }
+
+      /* ── MAIN GRID ───────────────────────────── */
+      .main-grid { display:grid; grid-template-columns:340px 1fr; gap:28px; align-items:start; }
+
+      /* ── FORM ────────────────────────────────── */
+      .form-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:28px; position:sticky; top:88px; }
+      .form-card h2 { font-size:20px; margin-bottom:6px; }
+      .form-card p { font-size:13px; color:var(--muted); margin-bottom:24px; line-height:1.5; }
+      .form-group { margin-bottom:16px; }
+      label { display:block; font-size:11px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:var(--primary); margin-bottom:6px; }
+      select, input[type=date], input[type=number] {
+        width:100%; padding:10px 14px; border:1.5px solid var(--border); border-radius:var(--radius-sm);
+        font-family:'DM Sans',sans-serif; font-size:14px; color:var(--primary); background:var(--cream);
+        outline:none; transition:var(--transition); appearance:none;
+      }
+      select:focus, input:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(26,60,110,0.08); background:var(--white); }
+      select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; background-color:var(--cream); padding-right:36px; }
+      .btn-submit { width:100%; background:var(--primary); color:var(--white); border:none; border-radius:var(--radius-sm); padding:13px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:var(--transition); margin-top:4px; }
+      .btn-submit:hover { background:var(--primary-lt); transform:translateY(-1px); }
+      .btn-submit:disabled { background:var(--muted); cursor:not-allowed; transform:none; }
+      .status-msg { margin-top:12px; font-size:13px; font-weight:600; text-align:center; padding:8px 12px; border-radius:6px; min-height:20px; }
+      .status-msg.success { background:#d1fae5; color:#065f46; }
+      .status-msg.error   { background:#fee2e2; color:#991b1b; }
+
+      /* ── CHARTS ──────────────────────────────── */
+      .charts-col { display:flex; flex-direction:column; gap:24px; }
+      .chart-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; }
+      .chart-card-header { margin-bottom:20px; }
+      .chart-card-header h3 { font-size:17px; margin-bottom:4px; }
+      .chart-card-header p { font-size:13px; color:var(--muted); }
+      .chart-wrap { position:relative; height:240px; }
+      .chart-wrap.tall { height:280px; }
+
+      /* ── TABLE ───────────────────────────────── */
+      .table-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; }
+      .table-card-header { padding:20px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+      .table-card-header h3 { font-size:17px; }
+      table { width:100%; border-collapse:collapse; }
+      thead th { background:#f9fafb; padding:11px 16px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted); text-align:left; border-bottom:1px solid var(--border); }
+      tbody td { padding:11px 16px; font-size:13px; color:var(--primary); border-bottom:1px solid #f3f4f6; }
+      tbody tr:last-child td { border-bottom:none; }
+      tbody tr:hover { background:#f9fafb; }
+
+      @media(max-width:1100px) {
+        .main-grid { grid-template-columns:1fr; }
+        .form-card { position:static; }
+        .stat-tiles { grid-template-columns:repeat(2,1fr); }
+      }
+      @media(max-width:600px) {
+        .waste-body { padding:32px 20px 60px; }
+        .stat-tiles { grid-template-columns:1fr 1fr; gap:12px; }
+      }
+    </style>
+  </head>
+  <body>
+  <nav class="navbar" id="navbar"></nav>
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Waste Dashboard</div>
+      <h1>Biomedical Waste Dashboard</h1>
+      <p>Transparent, real-time tracking of biomedical waste generated, categorised, and disposed — publicly accessible. No login required.</p>
+    </div>
+  </div>
+
+  <div class="waste-body">
+
+    <!-- STAT TILES -->
+    <div class="stat-tiles">
+      <div class="st"><div class="st-lbl">Total Waste Logged</div><div class="st-val" id="statTotal">—</div><div class="st-sub">kilograms</div></div>
+      <div class="st orange"><div class="st-lbl">This Month</div><div class="st-val" id="statMonth">—</div><div class="st-sub">kilograms</div></div>
+      <div class="st teal"><div class="st-lbl">Total Records</div><div class="st-val" id="statCount">—</div><div class="st-sub">entries</div></div>
+      <div class="st green"><div class="st-lbl">Top Category</div><div class="st-val" style="font-size:14px;padding-top:6px" id="statTop">—</div></div>
+    </div>
+
+    <div class="main-grid">
+
+      <!-- FORM -->
+      <div class="form-card">
+        <h2>Add Waste Entry</h2>
+        <p>Submit daily biomedical waste records. Saved directly to JSON — charts update immediately.</p>
+        <div class="form-group"><label>Date</label><input type="date" id="dateInput"/></div>
+        <div class="form-group">
+          <label>Ward / Department</label>
+          <select id="wardInput">
+            <option value="">— Select Ward —</option>
+            <option>OPD</option><option>IPD - General Medicine</option><option>IPD - Surgery</option>
+            <option>ICU</option><option>Emergency</option><option>Maternity Ward</option>
+            <option>Paediatrics</option><option>Operation Theatre</option>
+            <option>Laboratory</option><option>Radiology</option><option>Pharmacy</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Waste Category</label>
+          <select id="categoryInput">
+            <option value="">— Select Category —</option>
+            <option>Infectious Waste</option><option>Sharps (Needles/Blades)</option>
+            <option>Pharmaceutical Waste</option><option>Chemical Waste</option>
+            <option>Pathological Waste</option><option>Radioactive Waste</option>
+            <option>Recyclable Waste</option><option>General Waste</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Disposal Method</label>
+          <select id="disposalInput">
+            <option value="">— Select Method —</option>
+            <option>Incineration</option><option>Autoclave (Steam Sterilisation)</option>
+            <option>Deep Burial</option><option>Chemical Disinfection</option>
+            <option>Microwaving</option><option>Secure Landfill</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Quantity (kg)</label><input type="number" id="quantityInput" placeholder="e.g. 12.5" min="0.1" step="0.1"/></div>
+        <button class="btn-submit" id="submitBtn" onclick="submitEntry()">Submit Entry</button>
+        <div class="status-msg" id="statusMsg"></div>
+      </div>
+
+      <!-- CHARTS -->
+      <div class="charts-col">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+          <div class="chart-card">
+            <div class="chart-card-header"><h3>By Category</h3><p>Total kg per waste type</p></div>
+            <div class="chart-wrap"><canvas id="catChart"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-card-header"><h3>By Ward</h3><p>Waste generated per department</p></div>
+            <div class="chart-wrap"><canvas id="wardChart"></canvas></div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-header"><h3>Monthly Trend</h3><p>Total biomedical waste per month in kg</p></div>
+          <div class="chart-wrap tall"><canvas id="monthChart"></canvas></div>
+        </div>
+        <div class="table-card">
+          <div class="table-card-header">
+            <h3>Recent Entries</h3>
+            <span class="badge badge-primary" id="recCount">0 records</span>
+          </div>
+          <div id="tableWrap"><div class="loading-box"><div class="spinner"></div>Loading...</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" id="footer"></footer>
+  <script src="/shared.js"></script>
+  <script>
+  document.getElementById('dateInput').value = new Date().toISOString().substring(0,10);
+
+  const COLORS = ['#1a3c6e','#e67e22','#0a7c6e','#e74c3c','#9b59b6','#f1c40f','#27ae60','#e91e63'];
+  let catInst, wardInst, monthInst;
+
+  window.addEventListener('DOMContentLoaded', loadDashboard);
+
+  async function loadDashboard() {
+    try {
+      const res  = await fetch('/waste');
+      const data = await res.json();
+      render(data);
+    } catch(e) { console.error(e); }
+  }
+
+  function render({ records, byCategory, byMonth, byWard, summary }) {
+    document.getElementById('statTotal').textContent = summary.totalKg.toFixed(1);
+    document.getElementById('statMonth').textContent = summary.thisMonthKg.toFixed(1);
+    document.getElementById('statCount').textContent = summary.count;
+    document.getElementById('statTop').textContent   = summary.topCategory;
+    document.getElementById('recCount').textContent  = summary.count + ' records';
+
+    const mkChart = (id, cfg) => { const inst = Chart.getChart(id); if(inst) inst.destroy(); return new Chart(document.getElementById(id), cfg); };
+
+    catInst = mkChart('catChart', {
+      type:'doughnut',
+      data:{ labels:Object.keys(byCategory), datasets:[{ data:Object.values(byCategory), backgroundColor:COLORS, borderWidth:2, borderColor:'#fff' }] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{ font:{size:10,family:'DM Sans'}, padding:8 } } }, cutout:'52%' }
+    });
+
+    wardInst = mkChart('wardChart', {
+      type:'bar',
+      data:{ labels:Object.keys(byWard), datasets:[{ data:Object.values(byWard), backgroundColor:COLORS, borderRadius:4 }] },
+      options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} }, scales:{ x:{beginAtZero:true,grid:{color:'#f0f0f0'},ticks:{font:{family:'DM Sans',size:10}}}, y:{grid:{display:false},ticks:{font:{family:'DM Sans',size:10}}} } }
+    });
+
+    monthInst = mkChart('monthChart', {
+      type:'bar',
+      data:{ labels:Object.keys(byMonth), datasets:[{ label:'Total kg', data:Object.values(byMonth), backgroundColor:'#1a3c6e', borderRadius:6 }] },
+      options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} }, scales:{ y:{beginAtZero:true,grid:{color:'#f0f0f0'},ticks:{font:{family:'DM Sans'}}}, x:{grid:{display:false},ticks:{font:{family:'DM Sans'}}} } }
+    });
+
+    const recent = [...records].reverse().slice(0,10);
+    document.getElementById('tableWrap').innerHTML = recent.length === 0
+      ? '<div class="loading-box">No entries yet. Submit the first one!</div>'
+      : `<table><thead><tr><th>Date</th><th>Ward</th><th>Category</th><th>Disposal</th><th>Qty (kg)</th></tr></thead><tbody>
+          ${recent.map(r=>`<tr><td>${r.date}</td><td>${r.ward}</td><td><span class="badge badge-primary">${r.category}</span></td><td>${r.disposal}</td><td><strong>${Number(r.quantity_kg).toFixed(1)}</strong></td></tr>`).join('')}
+        </tbody></table>`;
+  }
+
+  async function submitEntry() {
+    const date     = document.getElementById('dateInput').value;
+    const ward     = document.getElementById('wardInput').value;
+    const category = document.getElementById('categoryInput').value;
+    const disposal = document.getElementById('disposalInput').value;
+    const qty      = document.getElementById('quantityInput').value;
+    const msg      = document.getElementById('statusMsg');
+
+    if (!date||!ward||!category||!disposal||!qty||Number(qty)<=0) {
+      msg.textContent='⚠️ Please fill all fields correctly.'; msg.className='status-msg error'; return;
+    }
+    const btn = document.getElementById('submitBtn');
+    btn.disabled=true; btn.textContent='Saving...'; msg.textContent=''; msg.className='status-msg';
+
+    try {
+      const res = await fetch('/waste', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({date,ward,category,disposal,quantity_kg:Number(qty)}) });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      msg.textContent='✅ Entry saved!'; msg.className='status-msg success';
+      document.getElementById('wardInput').value=''; document.getElementById('categoryInput').value='';
+      document.getElementById('disposalInput').value=''; document.getElementById('quantityInput').value='';
+      await loadDashboard();
+    } catch(e) {
+      msg.textContent='❌ Error: '+e.message; msg.className='status-msg error';
+    } finally {
+      btn.disabled=false; btn.textContent='Submit Entry';
+    }
+  }
+  </script>
+  </body>
+  </html>
