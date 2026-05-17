@@ -1,8 +1,5 @@
-try {
-  require('dotenv').config();
-} catch (e) {
-  // dotenv is optional in this environment — continue without it
-}
+try { require('dotenv').config(); } catch (e) {}
+
 const express = require('express');
 const cors    = require('cors');
 const path    = require('path');
@@ -12,20 +9,25 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 
-// ── API routes ───────────────────────────────────────────────
-const wasteHandler    = require('./waste');
-const hospitalHandler = require('./hospital');
+// ── API routes ────────────────────────────────────────────
+app.all('/waste',    (req, res) => require('./waste')(req, res));
+app.all('/hospital', (req, res) => require('./hospital')(req, res));
 
-app.all('/waste',    wasteHandler);
-app.all('/hospital', hospitalHandler);
+// ── Static HTML pages ─────────────────────────────────────
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
-// ── SPA fallback ─────────────────────────────────────────────
+// ── SPA fallback ──────────────────────────────────────────
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  const file = path.join(__dirname, req.path);
+  const fs = require('fs');
+  if (fs.existsSync(file) && fs.statSync(file).isFile()) {
+    res.sendFile(file);
+  } else {
+    res.sendFile(path.join(__dirname, 'index.html'));
+  }
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`\n🏥  Erode Govt Hospital site running`);
-  console.log(`    → http://localhost:${PORT}\n`);
+  console.log(`\n🏥  Erode Govt Hospital running → http://localhost:${PORT}\n`);
 });
