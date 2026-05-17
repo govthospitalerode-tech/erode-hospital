@@ -10,4 +10,6 @@ waste.json
 
 # OS files
 .DS_Store
-Thumbs.db
+Thumbs.dbserviceAccountKey.json
+*.json
+firebase-adminsdk*.json
