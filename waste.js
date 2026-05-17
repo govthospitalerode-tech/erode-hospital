@@ -4,7 +4,7 @@
 const path = require("path");
 
 // Load Firebase Admin config from project root
-const { db } = require("../firebase.config");
+const { db } = require("./firebase.config");
 
 // ── AGGREGATION ─────────────────────────────────────
 function aggregate(records) {
