@@ -4,12 +4,3 @@ node_modules/
 
 # NEVER commit service account keys
 serviceAccountKey.json
-
-# Local waste data (optional — remove if you want to seed from git)
-waste.json
-
-# OS files
-.DS_Store
-Thumbs.dbserviceAccountKey.json
-*.json
-firebase-adminsdk*.json
