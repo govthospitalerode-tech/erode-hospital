@@ -1,23 +1,13 @@
-// waste.js — Firebase Firestore backend, fully self-contained
+// waste.js — Firestore backend using firebase.config.js
 
-let db = null;
-
-// ── INIT FIREBASE INLINE (no external config file needed) ──
-try {
-  const admin = require('firebase-admin');
-  if (!admin.apps.length) {
-    if (!process.env.FIREBASE_SERVICE_ACCOUNT) {
-      throw new Error('FIREBASE_SERVICE_ACCOUNT env var is not set');
-    }
-    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-    admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
+// Support both filename conventions (firebase.config.js and firebase_config.js)
+let db;
+try { db = require('./firebase.config').db; } catch(e) {
+  try { db = require('./firebase_config').db; } catch(e2) {
+    console.error('[waste.js] Could not load Firebase config:', e2.message);
   }
-  db = admin.firestore();
-} catch (e) {
-  console.error('[waste.js] Firebase init failed:', e.message);
 }
 
-// ── AGGREGATION ─────────────────────────────────────────────
 function aggregate(records) {
   const byCategory = {};
   const byMonth    = {};
@@ -35,10 +25,12 @@ function aggregate(records) {
   const thisMonthKg  = byMonth[currentMonth] || 0;
   const topCategory  = Object.entries(byCategory).sort((a, b) => b[1] - a[1])[0]?.[0] || 'N/A';
 
-  return { byCategory, byMonth, byWard, summary: { totalKg, thisMonthKg, topCategory, count: records.length } };
+  return {
+    byCategory, byMonth, byWard,
+    summary: { totalKg, thisMonthKg, topCategory, count: records.length }
+  };
 }
 
-// ── MAIN HANDLER ────────────────────────────────────────────
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -46,38 +38,33 @@ module.exports = async (req, res) => {
 
   if (req.method === 'OPTIONS') return res.status(200).end();
 
-  // Check Firebase is ready
+  // Guard: Firebase not ready
   if (!db) {
     return res.status(500).json({
       success: false,
-      error: 'Firebase not initialised. Check FIREBASE_SERVICE_ACCOUNT environment variable on Vercel.'
+      error: 'Firebase not initialised. Check FIREBASE_SERVICE_ACCOUNT in Vercel Environment Variables.'
     });
   }
 
   try {
-    // ── GET ──────────────────────────────────────────────────
+    // GET
     if (req.method === 'GET') {
       const snapshot = await db.collection('waste_records').orderBy('date').get();
       const records  = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       return res.status(200).json({ success: true, records, ...aggregate(records) });
     }
 
-    // ── POST ─────────────────────────────────────────────────
+    // POST
     if (req.method === 'POST') {
       const { date, ward, category, disposal, quantity_kg } = req.body;
       if (!date || !ward || !category || !disposal || !quantity_kg) {
         return res.status(400).json({ success: false, error: 'All fields are required' });
       }
-
       const newRecord = {
-        date,
-        ward,
-        category,
-        disposal,
+        date, ward, category, disposal,
         quantity_kg: Number(quantity_kg),
-        createdAt: new Date().toISOString()
+        createdAt:   new Date().toISOString()
       };
-
       const docRef = await db.collection('waste_records').add(newRecord);
       return res.status(201).json({ success: true, record: { id: docRef.id, ...newRecord } });
     }
