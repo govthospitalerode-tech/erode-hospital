@@ -178,8 +178,19 @@
     try {
       const res  = await fetch('/waste');
       const data = await res.json();
+      if (!res.ok || !data.success || !data.summary) {
+        const errMsg = data?.error || 'Server error. Check Firebase configuration.';
+        document.getElementById('tableWrap').innerHTML =
+          `<div class="loading-box" style="color:#991b1b">❌ ${errMsg}</div>`;
+        ['statTotal','statMonth','statCount','statTop'].forEach(id => document.getElementById(id).textContent = '—');
+        return;
+      }
       render(data);
-    } catch(e) { console.error(e); }
+    } catch(e) {
+      console.error(e);
+      document.getElementById('tableWrap').innerHTML =
+        `<div class="loading-box" style="color:#991b1b">❌ Could not connect to server: ${e.message}</div>`;
+    }
   }
 
   function render({ records, byCategory, byMonth, byWard, summary }) {
