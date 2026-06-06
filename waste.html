@@ -50,6 +50,17 @@
     }
     .public-notice strong { display:block; margin-bottom:2px; }
 
+    /* ── PASSWORD TOGGLE ─────────────────────── */
+    .pw-wrap { position:relative; }
+    .pw-wrap input { padding-right:42px !important; }
+    .pw-toggle {
+      position:absolute; right:12px; top:50%; transform:translateY(-50%);
+      background:none; border:none; cursor:pointer; padding:4px;
+      color:var(--muted); display:flex; align-items:center;
+    }
+    .pw-toggle:hover { color:var(--primary); }
+    .pw-toggle svg { width:18px; height:18px; }
+
     /* ── ENTRY PANEL ─────────────────────────── */
     #entryPanel { display:none; }
     #entryPanel h2 { font-size:20px; margin-bottom:4px; }
@@ -210,7 +221,20 @@
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password"/>
+          <div class="pw-wrap">
+            <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password"/>
+            <button type="button" class="pw-toggle" onclick="togglePw()" id="pwToggleBtn" aria-label="Show password">
+              <!-- Eye icon (show) -->
+              <svg id="eyeShow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+              <!-- Eye-off icon (hide) — hidden by default -->
+              <svg id="eyeHide" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.97 9.97 0 012.05-3.37M6.53 6.53A9.97 9.97 0 0112 5c4.477 0 8.268 2.943 9.542 7a9.97 9.97 0 01-4.423 5.306M3 3l18 18"/>
+              </svg>
+            </button>
+          </div>
         </div>
         <button class="btn-primary" id="loginBtn" onclick="doLogin()">Sign In</button>
         <div class="status-msg" id="loginMsg"></div>
@@ -393,7 +417,7 @@ const firebaseConfig = {
   projectId: "govthospitalerode-ebb83",
   storageBucket: "govthospitalerode-ebb83.firebasestorage.app",
   messagingSenderId: "780734256389",
-  appId: "1:780734256389:web:148d94267deb60295f936c"
+  appId: "1:780734256389:web:148d94267deb60295f936c",
 };
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
@@ -429,10 +453,12 @@ async function doLogin() {
     // onAuthStateChanged handles the UI switch
   } catch (e) {
     const friendly = {
-      'auth/user-not-found':  'No account found with this email.',
-      'auth/wrong-password':  'Incorrect password.',
-      'auth/invalid-email':   'Invalid email address.',
-      'auth/too-many-requests': 'Too many attempts. Try again later.'
+      'auth/user-not-found':     'No account found with this email.',
+      'auth/wrong-password':     'Incorrect password.',
+      'auth/invalid-email':      'Invalid email address.',
+      'auth/invalid-credential': 'Incorrect email or password.',
+      'auth/too-many-requests':  'Too many attempts. Try again later.',
+      'auth/network-request-failed': 'Network error. Check your connection.'
     };
     msg.textContent = '❌ ' + (friendly[e.code] || e.message);
     msg.className   = 'status-msg error';
@@ -443,6 +469,16 @@ async function doLogin() {
 
 async function doLogout() {
   await auth.signOut();
+}
+
+function togglePw() {
+  const input   = document.getElementById('loginPass');
+  const show    = document.getElementById('eyeShow');
+  const hide    = document.getElementById('eyeHide');
+  const isHidden = input.type === 'password';
+  input.type    = isHidden ? 'text' : 'password';
+  show.style.display = isHidden ? 'none'  : '';
+  hide.style.display = isHidden ? ''      : 'none';
 }
 
 // ── Allow Enter key on login form ────────────────────────────
