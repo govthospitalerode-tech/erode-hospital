@@ -484,11 +484,11 @@ function togglePw() {
 // ── Allow Enter key on login form ────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   // Always sign out on page load so login form is always empty on every refresh
-  auth.signOut().finally(() => {
-    // Clear any browser-autofilled values
+  auth.signOut();
+  setTimeout(() => {
     document.getElementById('loginEmail').value = '';
     document.getElementById('loginPass').value  = '';
-  });
+  }, 300);
 
   ['loginEmail','loginPass'].forEach(id => {
     document.getElementById(id).addEventListener('keydown', e => {
