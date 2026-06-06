@@ -1,261 +1,681 @@
 <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <title>Biomedical Waste Dashboard — Erode Govt Hospital</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="/style.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <style>
-      /* ── LAYOUT ──────────────────────────────── */
-      .waste-body { max-width:1200px; margin:0 auto; padding:48px 48px 80px; }
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Biomedical Waste Dashboard — Erode Govt Hospital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
-      /* ── STAT TILES ──────────────────────────── */
-      .stat-tiles { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:40px; }
-      .st { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:22px 24px; position:relative; overflow:hidden; }
-      .st::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:var(--primary); }
-      .st.orange::before { background:var(--secondary); }
-      .st.teal::before   { background:var(--teal); }
-      .st.green::before  { background:#27ae60; }
-      .st-lbl { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:8px; }
-      .st-val { font-family:'Playfair Display',serif; font-size:30px; color:var(--primary); font-weight:700; line-height:1; }
-      .st-sub { font-size:12px; color:var(--muted); margin-top:4px; }
+  <!-- Firebase SDK (compat) for client-side Auth -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 
-      /* ── MAIN GRID ───────────────────────────── */
-      .main-grid { display:grid; grid-template-columns:340px 1fr; gap:28px; align-items:start; }
+  <style>
+    /* ── LAYOUT ──────────────────────────────── */
+    .waste-body { max-width:1200px; margin:0 auto; padding:48px 48px 80px; }
 
-      /* ── FORM ────────────────────────────────── */
-      .form-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:28px; position:sticky; top:88px; }
-      .form-card h2 { font-size:20px; margin-bottom:6px; }
-      .form-card p { font-size:13px; color:var(--muted); margin-bottom:24px; line-height:1.5; }
-      .form-group { margin-bottom:16px; }
-      label { display:block; font-size:11px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:var(--primary); margin-bottom:6px; }
-      select, input[type=date], input[type=number] {
-        width:100%; padding:10px 14px; border:1.5px solid var(--border); border-radius:var(--radius-sm);
-        font-family:'DM Sans',sans-serif; font-size:14px; color:var(--primary); background:var(--cream);
-        outline:none; transition:var(--transition); appearance:none;
-      }
-      select:focus, input:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(26,60,110,0.08); background:var(--white); }
-      select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; background-color:var(--cream); padding-right:36px; }
-      .btn-submit { width:100%; background:var(--primary); color:var(--white); border:none; border-radius:var(--radius-sm); padding:13px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:700; cursor:pointer; transition:var(--transition); margin-top:4px; }
-      .btn-submit:hover { background:var(--primary-lt); transform:translateY(-1px); }
-      .btn-submit:disabled { background:var(--muted); cursor:not-allowed; transform:none; }
-      .status-msg { margin-top:12px; font-size:13px; font-weight:600; text-align:center; padding:8px 12px; border-radius:6px; min-height:20px; }
-      .status-msg.success { background:#d1fae5; color:#065f46; }
-      .status-msg.error   { background:#fee2e2; color:#991b1b; }
+    /* ── STAT TILES ──────────────────────────── */
+    .stat-tiles { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:40px; }
+    .st { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:22px 24px; position:relative; overflow:hidden; }
+    .st::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:var(--primary); }
+    .st.orange::before { background:var(--secondary); }
+    .st.teal::before   { background:var(--teal); }
+    .st.green::before  { background:#27ae60; }
+    .st-lbl { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:8px; }
+    .st-val { font-family:'Playfair Display',serif; font-size:30px; color:var(--primary); font-weight:700; line-height:1; }
+    .st-sub { font-size:12px; color:var(--muted); margin-top:4px; }
 
-      /* ── CHARTS ──────────────────────────────── */
-      .charts-col { display:flex; flex-direction:column; gap:24px; }
-      .chart-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; }
-      .chart-card-header { margin-bottom:20px; }
-      .chart-card-header h3 { font-size:17px; margin-bottom:4px; }
-      .chart-card-header p { font-size:13px; color:var(--muted); }
-      .chart-wrap { position:relative; height:240px; }
-      .chart-wrap.tall { height:280px; }
+    /* ── MAIN GRID ───────────────────────────── */
+    .main-grid { display:grid; grid-template-columns:360px 1fr; gap:28px; align-items:start; }
 
-      /* ── TABLE ───────────────────────────────── */
-      .table-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; }
-      .table-card-header { padding:20px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
-      .table-card-header h3 { font-size:17px; }
-      table { width:100%; border-collapse:collapse; }
-      thead th { background:#f9fafb; padding:11px 16px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted); text-align:left; border-bottom:1px solid var(--border); }
-      tbody td { padding:11px 16px; font-size:13px; color:var(--primary); border-bottom:1px solid #f3f4f6; }
-      tbody tr:last-child td { border-bottom:none; }
-      tbody tr:hover { background:#f9fafb; }
+    /* ── FORM CARD ───────────────────────────── */
+    .form-card {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:var(--radius-md);
+      padding:28px;
+      position:sticky;
+      top:88px;
+    }
 
-      @media(max-width:1100px) {
-        .main-grid { grid-template-columns:1fr; }
-        .form-card { position:static; }
-        .stat-tiles { grid-template-columns:repeat(2,1fr); }
-      }
-      @media(max-width:600px) {
-        .waste-body { padding:32px 20px 60px; }
-        .stat-tiles { grid-template-columns:1fr 1fr; gap:12px; }
-      }
-    </style>
-  </head>
-  <body>
-  <nav class="navbar" id="navbar"></nav>
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Waste Dashboard</div>
-      <h1>Biomedical Waste Dashboard</h1>
-      <p>Transparent, real-time tracking of biomedical waste generated, categorised, and disposed — publicly accessible. No login required.</p>
+    /* ── LOGIN PANEL ─────────────────────────── */
+    #loginPanel h2 { font-size:20px; margin-bottom:6px; }
+    #loginPanel .subtitle { font-size:13px; color:var(--muted); margin-bottom:24px; line-height:1.5; }
+    .public-notice {
+      background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px;
+      padding:10px 14px; font-size:12px; color:#166534; margin-bottom:20px; line-height:1.5;
+    }
+    .public-notice strong { display:block; margin-bottom:2px; }
+
+    /* ── ENTRY PANEL ─────────────────────────── */
+    #entryPanel { display:none; }
+    #entryPanel h2 { font-size:20px; margin-bottom:4px; }
+    #entryPanel .subtitle { font-size:13px; color:var(--muted); margin-bottom:20px; line-height:1.5; }
+
+    .user-bar {
+      display:flex; align-items:center; justify-content:space-between;
+      background:#f0f9ff; border:1px solid #bae6fd; border-radius:8px;
+      padding:9px 14px; margin-bottom:20px; font-size:13px;
+    }
+    .user-bar span { color:#0369a1; font-weight:600; }
+    .user-bar button {
+      font-size:12px; color:#64748b; background:none; border:none;
+      cursor:pointer; padding:0; text-decoration:underline;
+    }
+
+    /* ── BAG INPUTS ──────────────────────────── */
+    .bag-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+    .bag-input-wrap { position:relative; }
+    .bag-color-dot {
+      width:10px; height:10px; border-radius:50%; position:absolute; left:12px; top:50%; transform:translateY(-50%);
+    }
+    .bag-input-wrap input[type=number] { padding-left:30px !important; }
+
+    .dot-yellow { background:#f59e0b; }
+    .dot-red    { background:#ef4444; }
+    .dot-blue   { background:#3b82f6; }
+    .dot-white  { background:#d1d5db; border:1px solid #9ca3af; }
+
+    .total-preview {
+      background:#f8fafc; border:1px solid var(--border); border-radius:8px;
+      padding:10px 14px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;
+    }
+    .total-preview span { font-size:12px; color:var(--muted); }
+    .total-preview strong { font-size:14px; color:var(--primary); }
+
+    /* ── SHARED FORM STYLES ──────────────────── */
+    .form-group { margin-bottom:16px; }
+    label { display:block; font-size:11px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:var(--primary); margin-bottom:6px; }
+    select, input[type=date], input[type=number], input[type=email], input[type=password] {
+      width:100%; padding:10px 14px; border:1.5px solid var(--border); border-radius:var(--radius-sm);
+      font-family:'DM Sans',sans-serif; font-size:14px; color:var(--primary); background:var(--cream);
+      outline:none; transition:var(--transition); appearance:none; box-sizing:border-box;
+    }
+    select:focus, input:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(26,60,110,0.08); background:var(--white); }
+    select {
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right 12px center; background-color:var(--cream); padding-right:36px;
+    }
+    .btn-primary {
+      width:100%; background:var(--primary); color:var(--white); border:none;
+      border-radius:var(--radius-sm); padding:13px; font-family:'DM Sans',sans-serif;
+      font-size:15px; font-weight:700; cursor:pointer; transition:var(--transition); margin-top:4px;
+    }
+    .btn-primary:hover { background:var(--primary-lt); transform:translateY(-1px); }
+    .btn-primary:disabled { background:var(--muted); cursor:not-allowed; transform:none; }
+    .status-msg { margin-top:12px; font-size:13px; font-weight:600; text-align:center; padding:8px 12px; border-radius:6px; min-height:20px; }
+    .status-msg.success { background:#d1fae5; color:#065f46; }
+    .status-msg.error   { background:#fee2e2; color:#991b1b; }
+
+    /* ── CHARTS ──────────────────────────────── */
+    .charts-col { display:flex; flex-direction:column; gap:24px; }
+    .chart-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:24px; }
+    .chart-card-header { margin-bottom:20px; }
+    .chart-card-header h3 { font-size:17px; margin-bottom:4px; }
+    .chart-card-header p { font-size:13px; color:var(--muted); }
+    .chart-wrap { position:relative; height:240px; }
+    .chart-wrap.tall { height:280px; }
+
+    /* ── BAG COLOR LEGEND ────────────────────── */
+    .bag-legend { display:flex; gap:16px; flex-wrap:wrap; margin-top:10px; }
+    .bag-legend-item { display:flex; align-items:center; gap:6px; font-size:12px; color:var(--muted); }
+    .bag-legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+
+    /* ── TABLE ───────────────────────────────── */
+    .table-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; }
+    .table-card-header { padding:20px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+    .table-card-header h3 { font-size:17px; }
+    table { width:100%; border-collapse:collapse; }
+    thead th {
+      background:#f9fafb; padding:11px 16px; font-size:11px; font-weight:700;
+      letter-spacing:1px; text-transform:uppercase; color:var(--muted);
+      text-align:left; border-bottom:1px solid var(--border);
+    }
+    tbody td { padding:11px 16px; font-size:13px; color:var(--primary); border-bottom:1px solid #f3f4f6; }
+    tbody tr:last-child td { border-bottom:none; }
+    tbody tr:hover { background:#f9fafb; }
+
+    /* ── BAG BADGES ──────────────────────────── */
+    .badge-y { background:#fef3c7; color:#92400e; padding:2px 7px; border-radius:4px; font-size:11px; font-weight:600; }
+    .badge-r { background:#fee2e2; color:#991b1b; padding:2px 7px; border-radius:4px; font-size:11px; font-weight:600; }
+    .badge-b { background:#dbeafe; color:#1e40af; padding:2px 7px; border-radius:4px; font-size:11px; font-weight:600; }
+    .badge-w { background:#f3f4f6; color:#374151; padding:2px 7px; border-radius:4px; font-size:11px; font-weight:600; border:1px solid #e5e7eb; }
+
+    @media(max-width:1100px) {
+      .main-grid { grid-template-columns:1fr; }
+      .form-card { position:static; }
+      .stat-tiles { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:600px) {
+      .waste-body { padding:32px 20px 60px; }
+      .stat-tiles { grid-template-columns:1fr 1fr; gap:12px; }
+      .bag-grid { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Waste Dashboard</div>
+    <h1>Biomedical Waste Dashboard</h1>
+    <p>Transparent, real-time tracking of biomedical waste generated and disposed — publicly accessible. No login required to view.</p>
+  </div>
+</div>
+
+<div class="waste-body">
+
+  <!-- STAT TILES -->
+  <div class="stat-tiles">
+    <div class="st">
+      <div class="st-lbl">Total Weight Logged</div>
+      <div class="st-val" id="statTotal">—</div>
+      <div class="st-sub">kilograms</div>
+    </div>
+    <div class="st orange">
+      <div class="st-lbl">This Month</div>
+      <div class="st-val" id="statMonth">—</div>
+      <div class="st-sub">kilograms</div>
+    </div>
+    <div class="st teal">
+      <div class="st-lbl">Total Bags</div>
+      <div class="st-val" id="statBags">—</div>
+      <div class="st-sub">bags collected</div>
+    </div>
+    <div class="st green">
+      <div class="st-lbl">Top Ward</div>
+      <div class="st-val" style="font-size:16px;padding-top:6px" id="statTop">—</div>
     </div>
   </div>
 
-  <div class="waste-body">
+  <div class="main-grid">
 
-    <!-- STAT TILES -->
-    <div class="stat-tiles">
-      <div class="st"><div class="st-lbl">Total Waste Logged</div><div class="st-val" id="statTotal">—</div><div class="st-sub">kilograms</div></div>
-      <div class="st orange"><div class="st-lbl">This Month</div><div class="st-val" id="statMonth">—</div><div class="st-sub">kilograms</div></div>
-      <div class="st teal"><div class="st-lbl">Total Records</div><div class="st-val" id="statCount">—</div><div class="st-sub">entries</div></div>
-      <div class="st green"><div class="st-lbl">Top Category</div><div class="st-val" style="font-size:14px;padding-top:6px" id="statTop">—</div></div>
-    </div>
+    <!-- ── LEFT: FORM CARD ────────────────────── -->
+    <div class="form-card">
 
-    <div class="main-grid">
+      <!-- LOGIN PANEL -->
+      <div id="loginPanel">
+        <h2>Staff Login</h2>
+        <p class="subtitle">Authorised hospital staff only. Dashboard is publicly visible without login.</p>
+        <div class="public-notice">
+          <strong>📊 Public view active</strong>
+          All charts and records below are visible to everyone. Login is only required to add new entries.
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="staff@govthospital.in" autocomplete="email"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password"/>
+        </div>
+        <button class="btn-primary" id="loginBtn" onclick="doLogin()">Sign In</button>
+        <div class="status-msg" id="loginMsg"></div>
+      </div>
 
-      <!-- FORM -->
-      <div class="form-card">
+      <!-- ENTRY PANEL (shown after login) -->
+      <div id="entryPanel">
         <h2>Add Waste Entry</h2>
-        <p>Submit daily biomedical waste records. Saved directly to JSON — charts update immediately.</p>
-        <div class="form-group"><label>Date</label><input type="date" id="dateInput"/></div>
+        <p class="subtitle">Record daily biomedical waste by bag colour. Charts update immediately.</p>
+
+        <div class="user-bar">
+          <span id="loggedUserEmail">—</span>
+          <button onclick="doLogout()">Sign out</button>
+        </div>
+
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" id="dateInput"/>
+        </div>
+
         <div class="form-group">
           <label>Ward / Department</label>
           <select id="wardInput">
             <option value="">— Select Ward —</option>
-            <option>OPD</option><option>IPD - General Medicine</option><option>IPD - Surgery</option>
-            <option>ICU</option><option>Emergency</option><option>Maternity Ward</option>
-            <option>Paediatrics</option><option>Operation Theatre</option>
-            <option>Laboratory</option><option>Radiology</option><option>Pharmacy</option>
+            <option>AE</option>
+            <option>AN</option>
+            <option>LABOUR</option>
+            <option>BLOOD BANK</option>
+            <option>CASUALTY</option>
+            <option>IMCU</option>
+            <option>ICCU</option>
+            <option>SNCU</option>
+            <option>PICU</option>
+            <option>FM</option>
+            <option>FPO</option>
+            <option>LABORATORY</option>
+            <option>FS1</option>
+            <option>FS2 &amp; PP</option>
+            <option>MS1</option>
+            <option>MS3 ANNEX</option>
+            <option>MPO2</option>
+            <option>AOT</option>
+            <option>BOT</option>
+            <option>FS3</option>
+            <option>MORTUARY</option>
+            <option>MOP</option>
+            <option>FOP</option>
+            <option>TB OP</option>
+            <option>ART</option>
+            <option>ICTC</option>
+            <option>DIALYSIS</option>
+            <option>HDU</option>
+            <option>DRESSING</option>
+            <option>NEPHRO</option>
+            <option>NCD</option>
+            <option>AE OT</option>
+            <option>ONCOLOGY</option>
+            <option>OLIRUMERODE</option>
+            <option>PAY WD</option>
+            <option>CEMONC ICU</option>
+            <option>CH OP</option>
+            <option>CEMONC OT</option>
+            <option>PHARMACY</option>
+            <option>ORTHO OT</option>
+            <option>MILK BANK</option>
+            <option>MS2</option>
+            <option>MS3</option>
+            <option>MPO1</option>
+            <option>ID &amp; TB</option>
+            <option>PSYCHIATRIC</option>
+            <option>EYE</option>
+            <option>PN</option>
+            <option>MM1</option>
+            <option>MM2</option>
+            <option>CH WARD</option>
           </select>
         </div>
+
+        <!-- BAG COLOUR INPUTS -->
+        <label style="margin-bottom:8px;display:block">Bag Quantities (kg)</label>
+        <div class="bag-grid">
+          <div class="bag-input-wrap">
+            <div class="bag-color-dot dot-yellow"></div>
+            <input type="number" id="yellowKg" placeholder="Yellow kg" min="0" step="0.001" oninput="updateTotal()"/>
+          </div>
+          <div class="bag-input-wrap">
+            <div class="bag-color-dot dot-red"></div>
+            <input type="number" id="redKg" placeholder="Red kg" min="0" step="0.001" oninput="updateTotal()"/>
+          </div>
+          <div class="bag-input-wrap">
+            <div class="bag-color-dot dot-blue"></div>
+            <input type="number" id="blueKg" placeholder="Blue kg" min="0" step="0.001" oninput="updateTotal()"/>
+          </div>
+          <div class="bag-input-wrap">
+            <div class="bag-color-dot dot-white"></div>
+            <input type="number" id="whiteKg" placeholder="White kg" min="0" step="0.001" oninput="updateTotal()"/>
+          </div>
+        </div>
+
         <div class="form-group">
-          <label>Waste Category</label>
-          <select id="categoryInput">
-            <option value="">— Select Category —</option>
-            <option>Infectious Waste</option><option>Sharps (Needles/Blades)</option>
-            <option>Pharmaceutical Waste</option><option>Chemical Waste</option>
-            <option>Pathological Waste</option><option>Radioactive Waste</option>
-            <option>Recyclable Waste</option><option>General Waste</option>
-          </select>
+          <label>Total Bags (count)</label>
+          <input type="number" id="totalBags" placeholder="e.g. 6" min="0" step="1"/>
         </div>
-        <div class="form-group">
-          <label>Disposal Method</label>
-          <select id="disposalInput">
-            <option value="">— Select Method —</option>
-            <option>Incineration</option><option>Autoclave (Steam Sterilisation)</option>
-            <option>Deep Burial</option><option>Chemical Disinfection</option>
-            <option>Microwaving</option><option>Secure Landfill</option>
-          </select>
+
+        <div class="total-preview">
+          <span>Total weight (auto)</span>
+          <strong id="totalPreview">0.000 kg</strong>
         </div>
-        <div class="form-group"><label>Quantity (kg)</label><input type="number" id="quantityInput" placeholder="e.g. 12.5" min="0.1" step="0.1"/></div>
-        <button class="btn-submit" id="submitBtn" onclick="submitEntry()">Submit Entry</button>
+
+        <button class="btn-primary" id="submitBtn" onclick="submitEntry()">Submit Entry</button>
         <div class="status-msg" id="statusMsg"></div>
       </div>
+    </div>
+    <!-- END LEFT CARD -->
 
-      <!-- CHARTS -->
-      <div class="charts-col">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-          <div class="chart-card">
-            <div class="chart-card-header"><h3>By Category</h3><p>Total kg per waste type</p></div>
-            <div class="chart-wrap"><canvas id="catChart"></canvas></div>
+    <!-- ── RIGHT: CHARTS ──────────────────────── -->
+    <div class="charts-col">
+
+      <!-- Row 1: Bag colour + By Ward -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3>By Bag Colour</h3>
+            <p>Total kg per bag category</p>
           </div>
-          <div class="chart-card">
-            <div class="chart-card-header"><h3>By Ward</h3><p>Waste generated per department</p></div>
-            <div class="chart-wrap"><canvas id="wardChart"></canvas></div>
+          <div class="chart-wrap"><canvas id="bagChart"></canvas></div>
+          <div class="bag-legend">
+            <div class="bag-legend-item"><div class="bag-legend-dot" style="background:#f59e0b"></div>Yellow</div>
+            <div class="bag-legend-item"><div class="bag-legend-dot" style="background:#ef4444"></div>Red</div>
+            <div class="bag-legend-item"><div class="bag-legend-dot" style="background:#3b82f6"></div>Blue</div>
+            <div class="bag-legend-item"><div class="bag-legend-dot" style="background:#9ca3af"></div>White</div>
           </div>
         </div>
         <div class="chart-card">
-          <div class="chart-card-header"><h3>Monthly Trend</h3><p>Total biomedical waste per month in kg</p></div>
-          <div class="chart-wrap tall"><canvas id="monthChart"></canvas></div>
-        </div>
-        <div class="table-card">
-          <div class="table-card-header">
-            <h3>Recent Entries</h3>
-            <span class="badge badge-primary" id="recCount">0 records</span>
+          <div class="chart-card-header">
+            <h3>Top Wards</h3>
+            <p>Waste generated per department (kg)</p>
           </div>
-          <div id="tableWrap"><div class="loading-box"><div class="spinner"></div>Loading...</div></div>
+          <div class="chart-wrap"><canvas id="wardChart"></canvas></div>
         </div>
       </div>
+
+      <!-- Row 2: Monthly trend -->
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <h3>Monthly Trend</h3>
+          <p>Total biomedical waste per month (kg)</p>
+        </div>
+        <div class="chart-wrap tall"><canvas id="monthChart"></canvas></div>
+      </div>
+
+      <!-- Row 3: Recent records table -->
+      <div class="table-card">
+        <div class="table-card-header">
+          <h3>Recent Entries</h3>
+          <span class="badge badge-primary" id="recCount">0 records</span>
+        </div>
+        <div id="tableWrap">
+          <div class="loading-box"><div class="spinner"></div>Loading...</div>
+        </div>
+      </div>
+
     </div>
+    <!-- END RIGHT CHARTS -->
+
   </div>
+</div>
 
-  <footer class="footer" id="footer"></footer>
-  <script src="/shared.js"></script>
-  <script>
+<footer class="footer" id="footer"></footer>
+<script src="/shared.js"></script>
+
+<script>
+// ─────────────────────────────────────────────────────────────────
+// IMPORTANT: Replace the firebaseConfig object below with your own
+// project's config from Firebase Console → Project Settings → Your apps
+// ─────────────────────────────────────────────────────────────────
+const firebaseConfig = {
+  apiKey:            "REPLACE_WITH_YOUR_API_KEY",
+  authDomain:        "REPLACE_WITH_YOUR_AUTH_DOMAIN",
+  projectId:         "REPLACE_WITH_YOUR_PROJECT_ID",
+  storageBucket:     "REPLACE_WITH_YOUR_STORAGE_BUCKET",
+  messagingSenderId: "REPLACE_WITH_YOUR_MESSAGING_SENDER_ID",
+  appId:             "REPLACE_WITH_YOUR_APP_ID"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// ── Auth state listener ────────────────────────────────────────
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    document.getElementById('loginPanel').style.display    = 'none';
+    document.getElementById('entryPanel').style.display    = 'block';
+    document.getElementById('loggedUserEmail').textContent = user.email;
+  } else {
+    document.getElementById('loginPanel').style.display    = 'block';
+    document.getElementById('entryPanel').style.display    = 'none';
+  }
+});
+
+async function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass  = document.getElementById('loginPass').value;
+  const msg   = document.getElementById('loginMsg');
+  const btn   = document.getElementById('loginBtn');
+
+  if (!email || !pass) {
+    msg.textContent = '⚠️ Enter your email and password.';
+    msg.className   = 'status-msg error';
+    return;
+  }
+  btn.disabled = true; btn.textContent = 'Signing in…';
+  msg.textContent = ''; msg.className = 'status-msg';
+
+  try {
+    await auth.signInWithEmailAndPassword(email, pass);
+    // onAuthStateChanged handles the UI switch
+  } catch (e) {
+    const friendly = {
+      'auth/user-not-found':  'No account found with this email.',
+      'auth/wrong-password':  'Incorrect password.',
+      'auth/invalid-email':   'Invalid email address.',
+      'auth/too-many-requests': 'Too many attempts. Try again later.'
+    };
+    msg.textContent = '❌ ' + (friendly[e.code] || e.message);
+    msg.className   = 'status-msg error';
+  } finally {
+    btn.disabled = false; btn.textContent = 'Sign In';
+  }
+}
+
+async function doLogout() {
+  await auth.signOut();
+}
+
+// ── Allow Enter key on login form ────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  ['loginEmail','loginPass'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => {
+      if (e.key === 'Enter') doLogin();
+    });
+  });
   document.getElementById('dateInput').value = new Date().toISOString().substring(0,10);
+  loadDashboard();
+});
 
-  const COLORS = ['#1a3c6e','#e67e22','#0a7c6e','#e74c3c','#9b59b6','#f1c40f','#27ae60','#e91e63'];
-  let catInst, wardInst, monthInst;
+// ── Total weight preview ────────────────────────────────────
+function updateTotal() {
+  const y  = parseFloat(document.getElementById('yellowKg').value) || 0;
+  const r  = parseFloat(document.getElementById('redKg').value)    || 0;
+  const bl = parseFloat(document.getElementById('blueKg').value)   || 0;
+  const w  = parseFloat(document.getElementById('whiteKg').value)  || 0;
+  document.getElementById('totalPreview').textContent = (y + r + bl + w).toFixed(3) + ' kg';
+}
 
-  window.addEventListener('DOMContentLoaded', loadDashboard);
+// ── Charts ─────────────────────────────────────────────────
+let bagInst, wardInst, monthInst;
 
-  async function loadDashboard() {
-    try {
-      const res  = await fetch('/waste');
-      const data = await res.json();
-      if (!res.ok || !data.success || !data.summary) {
-        const errMsg = data?.error || 'Server error. Check Firebase configuration.';
-        document.getElementById('tableWrap').innerHTML =
-          `<div class="loading-box" style="color:#991b1b">❌ ${errMsg}</div>`;
-        ['statTotal','statMonth','statCount','statTop'].forEach(id => document.getElementById(id).textContent = '—');
-        return;
-      }
-      render(data);
-    } catch(e) {
-      console.error(e);
+const WARD_COLORS = [
+  '#1a3c6e','#e67e22','#0a7c6e','#e74c3c','#9b59b6',
+  '#f1c40f','#27ae60','#e91e63','#00bcd4','#ff5722',
+  '#607d8b','#8bc34a','#ff9800','#673ab7','#009688'
+];
+
+async function loadDashboard() {
+  try {
+    const res  = await fetch('/waste');
+    const data = await res.json();
+    if (!res.ok || !data.success || !data.summary) {
+      const errMsg = data?.error || 'Server error. Check Firebase configuration.';
       document.getElementById('tableWrap').innerHTML =
-        `<div class="loading-box" style="color:#991b1b">❌ Could not connect to server: ${e.message}</div>`;
+        `<div class="loading-box" style="color:#991b1b">❌ ${errMsg}</div>`;
+      ['statTotal','statMonth','statBags','statTop'].forEach(id =>
+        document.getElementById(id).textContent = '—');
+      return;
     }
+    renderDashboard(data);
+  } catch(e) {
+    console.error(e);
+    document.getElementById('tableWrap').innerHTML =
+      `<div class="loading-box" style="color:#991b1b">❌ Could not connect: ${e.message}</div>`;
+  }
+}
+
+function renderDashboard({ records, byBagColor, byMonth, byWard, summary }) {
+  // Stat tiles
+  document.getElementById('statTotal').textContent = summary.totalKg.toFixed(1);
+  document.getElementById('statMonth').textContent = summary.thisMonthKg.toFixed(1);
+  document.getElementById('statBags').textContent  = summary.totalBags;
+  document.getElementById('statTop').textContent   = summary.topWard;
+  document.getElementById('recCount').textContent  = summary.count + ' records';
+
+  const mkChart = (id, cfg) => {
+    const inst = Chart.getChart(id);
+    if (inst) inst.destroy();
+    return new Chart(document.getElementById(id), cfg);
+  };
+
+  // Bag colour doughnut
+  bagInst = mkChart('bagChart', {
+    type: 'doughnut',
+    data: {
+      labels: ['Yellow', 'Red', 'Blue', 'White'],
+      datasets: [{
+        data: [
+          byBagColor.yellow || 0,
+          byBagColor.red    || 0,
+          byBagColor.blue   || 0,
+          byBagColor.white  || 0
+        ],
+        backgroundColor: ['#f59e0b','#ef4444','#3b82f6','#d1d5db'],
+        borderWidth: 2,
+        borderColor: '#fff'
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      cutout: '55%'
+    }
+  });
+
+  // Top wards bar (show top 15 only to keep chart readable)
+  const wardEntries = Object.entries(byWard).slice(0, 15);
+  wardInst = mkChart('wardChart', {
+    type: 'bar',
+    data: {
+      labels: wardEntries.map(e => e[0]),
+      datasets: [{
+        data: wardEntries.map(e => e[1]),
+        backgroundColor: WARD_COLORS,
+        borderRadius: 4
+      }]
+    },
+    options: {
+      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { beginAtZero:true, grid:{ color:'#f0f0f0' }, ticks:{ font:{ family:'DM Sans', size:10 } } },
+        y: { grid:{ display:false }, ticks:{ font:{ family:'DM Sans', size:10 } } }
+      }
+    }
+  });
+
+  // Monthly trend
+  monthInst = mkChart('monthChart', {
+    type: 'bar',
+    data: {
+      labels: Object.keys(byMonth),
+      datasets: [{
+        label: 'Total kg',
+        data: Object.values(byMonth),
+        backgroundColor: '#1a3c6e',
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero:true, grid:{ color:'#f0f0f0' }, ticks:{ font:{ family:'DM Sans' } } },
+        x: { grid:{ display:false }, ticks:{ font:{ family:'DM Sans' } } }
+      }
+    }
+  });
+
+  // Recent records table
+  const recent = [...records].reverse().slice(0, 15);
+  document.getElementById('tableWrap').innerHTML = recent.length === 0
+    ? '<div class="loading-box">No entries yet. Submit the first one!</div>'
+    : `<div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Ward</th>
+              <th>Yellow</th>
+              <th>Red</th>
+              <th>Blue</th>
+              <th>White</th>
+              <th>Bags</th>
+              <th>Total kg</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${recent.map(r => `
+              <tr>
+                <td>${r.date}</td>
+                <td><strong>${r.ward}</strong></td>
+                <td><span class="badge-y">${Number(r.yellow_kg||0).toFixed(3)}</span></td>
+                <td><span class="badge-r">${Number(r.red_kg||0).toFixed(3)}</span></td>
+                <td><span class="badge-b">${Number(r.blue_kg||0).toFixed(3)}</span></td>
+                <td><span class="badge-w">${Number(r.white_kg||0).toFixed(3)}</span></td>
+                <td>${r.total_bags || '—'}</td>
+                <td><strong>${Number(r.total_weight_kg||0).toFixed(3)}</strong></td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+}
+
+// ── Submit entry ─────────────────────────────────────────────
+async function submitEntry() {
+  const date      = document.getElementById('dateInput').value;
+  const ward      = document.getElementById('wardInput').value;
+  const yellow_kg = parseFloat(document.getElementById('yellowKg').value)  || 0;
+  const red_kg    = parseFloat(document.getElementById('redKg').value)     || 0;
+  const blue_kg   = parseFloat(document.getElementById('blueKg').value)    || 0;
+  const white_kg  = parseFloat(document.getElementById('whiteKg').value)   || 0;
+  const total_bags = parseInt(document.getElementById('totalBags').value)  || 0;
+  const msg       = document.getElementById('statusMsg');
+
+  if (!date || !ward) {
+    msg.textContent = '⚠️ Please select a date and ward.';
+    msg.className   = 'status-msg error';
+    return;
+  }
+  if ((yellow_kg + red_kg + blue_kg + white_kg) <= 0) {
+    msg.textContent = '⚠️ Enter weight for at least one bag colour.';
+    msg.className   = 'status-msg error';
+    return;
   }
 
-  function render({ records, byCategory, byMonth, byWard, summary }) {
-    document.getElementById('statTotal').textContent = summary.totalKg.toFixed(1);
-    document.getElementById('statMonth').textContent = summary.thisMonthKg.toFixed(1);
-    document.getElementById('statCount').textContent = summary.count;
-    document.getElementById('statTop').textContent   = summary.topCategory;
-    document.getElementById('recCount').textContent  = summary.count + ' records';
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Saving…';
+  msg.textContent = ''; msg.className = 'status-msg';
 
-    const mkChart = (id, cfg) => { const inst = Chart.getChart(id); if(inst) inst.destroy(); return new Chart(document.getElementById(id), cfg); };
+  try {
+    const currentUser  = auth.currentUser;
+    const submittedBy  = currentUser ? currentUser.email : 'unknown';
+    const total_weight_kg = parseFloat((yellow_kg + red_kg + blue_kg + white_kg).toFixed(3));
 
-    catInst = mkChart('catChart', {
-      type:'doughnut',
-      data:{ labels:Object.keys(byCategory), datasets:[{ data:Object.values(byCategory), backgroundColor:COLORS, borderWidth:2, borderColor:'#fff' }] },
-      options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{ font:{size:10,family:'DM Sans'}, padding:8 } } }, cutout:'52%' }
+    const res = await fetch('/waste', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        date, ward,
+        yellow_kg, red_kg, blue_kg, white_kg,
+        total_bags, total_weight_kg,
+        submittedBy
+      })
     });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error);
 
-    wardInst = mkChart('wardChart', {
-      type:'bar',
-      data:{ labels:Object.keys(byWard), datasets:[{ data:Object.values(byWard), backgroundColor:COLORS, borderRadius:4 }] },
-      options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} }, scales:{ x:{beginAtZero:true,grid:{color:'#f0f0f0'},ticks:{font:{family:'DM Sans',size:10}}}, y:{grid:{display:false},ticks:{font:{family:'DM Sans',size:10}}} } }
-    });
+    msg.textContent = '✅ Entry saved successfully!';
+    msg.className   = 'status-msg success';
 
-    monthInst = mkChart('monthChart', {
-      type:'bar',
-      data:{ labels:Object.keys(byMonth), datasets:[{ label:'Total kg', data:Object.values(byMonth), backgroundColor:'#1a3c6e', borderRadius:6 }] },
-      options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} }, scales:{ y:{beginAtZero:true,grid:{color:'#f0f0f0'},ticks:{font:{family:'DM Sans'}}}, x:{grid:{display:false},ticks:{font:{family:'DM Sans'}}} } }
-    });
+    // Reset form
+    document.getElementById('wardInput').value  = '';
+    document.getElementById('yellowKg').value   = '';
+    document.getElementById('redKg').value      = '';
+    document.getElementById('blueKg').value     = '';
+    document.getElementById('whiteKg').value    = '';
+    document.getElementById('totalBags').value  = '';
+    document.getElementById('totalPreview').textContent = '0.000 kg';
+    document.getElementById('dateInput').value  = new Date().toISOString().substring(0,10);
 
-    const recent = [...records].reverse().slice(0,10);
-    document.getElementById('tableWrap').innerHTML = recent.length === 0
-      ? '<div class="loading-box">No entries yet. Submit the first one!</div>'
-      : `<table><thead><tr><th>Date</th><th>Ward</th><th>Category</th><th>Disposal</th><th>Qty (kg)</th></tr></thead><tbody>
-          ${recent.map(r=>`<tr><td>${r.date}</td><td>${r.ward}</td><td><span class="badge badge-primary">${r.category}</span></td><td>${r.disposal}</td><td><strong>${Number(r.quantity_kg).toFixed(1)}</strong></td></tr>`).join('')}
-        </tbody></table>`;
+    await loadDashboard();
+  } catch(e) {
+    msg.textContent = '❌ Error: ' + e.message;
+    msg.className   = 'status-msg error';
+  } finally {
+    btn.disabled = false; btn.textContent = 'Submit Entry';
   }
-
-  async function submitEntry() {
-    const date     = document.getElementById('dateInput').value;
-    const ward     = document.getElementById('wardInput').value;
-    const category = document.getElementById('categoryInput').value;
-    const disposal = document.getElementById('disposalInput').value;
-    const qty      = document.getElementById('quantityInput').value;
-    const msg      = document.getElementById('statusMsg');
-
-    if (!date||!ward||!category||!disposal||!qty||Number(qty)<=0) {
-      msg.textContent='⚠️ Please fill all fields correctly.'; msg.className='status-msg error'; return;
-    }
-    const btn = document.getElementById('submitBtn');
-    btn.disabled=true; btn.textContent='Saving...'; msg.textContent=''; msg.className='status-msg';
-
-    try {
-      const res = await fetch('/waste', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({date,ward,category,disposal,quantity_kg:Number(qty)}) });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
-      msg.textContent='✅ Entry saved!'; msg.className='status-msg success';
-      document.getElementById('wardInput').value=''; document.getElementById('categoryInput').value='';
-      document.getElementById('disposalInput').value=''; document.getElementById('quantityInput').value='';
-      await loadDashboard();
-    } catch(e) {
-      msg.textContent='❌ Error: '+e.message; msg.className='status-msg error';
-    } finally {
-      btn.disabled=false; btn.textContent='Submit Entry';
-    }
-  }
-  </script>
-  </body>
-  </html>
+}
+</script>
+</body>
+</html>
