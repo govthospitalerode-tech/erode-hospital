@@ -10,18 +10,151 @@
   <style>
     .dept-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
     .dept-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-    .dept-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:28px; transition:var(--transition); position:relative; overflow:hidden; }
-    .dept-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg,var(--primary),var(--secondary)); }
-    .dept-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
+
+    /* ── FLIP CARD ── */
+    .flip-wrap {
+      perspective: 1000px;
+      height: 260px;
+      cursor: pointer;
+    }
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+      transform-style: preserve-3d;
+    }
+    .flip-wrap:hover .flip-inner,
+    .flip-wrap.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-front, .flip-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: var(--radius-md, 12px);
+      overflow: hidden;
+    }
+
+    /* FRONT */
+    .flip-front {
+      background: var(--white, #fff);
+      border: 1px solid var(--border, #e5e7eb);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .flip-front::before {
+      content:'';
+      position:absolute; top:0; left:0;
+      width:100%; height:4px;
+      background:linear-gradient(90deg,var(--primary,#0d2b45),var(--secondary,#e67e22));
+    }
     .dept-icon { font-size:36px; margin-bottom:14px; }
-    .dept-name { font-size:19px; margin-bottom:8px; }
-    .dept-head { font-size:12px; color:var(--muted); margin-bottom:4px; }
-    .dept-head strong { color:var(--primary); font-size:13px; }
-    .dept-desc { font-size:13.5px; color:var(--muted); line-height:1.65; margin-top:12px; margin-bottom:16px; }
-    .dept-meta { display:flex; gap:12px; flex-wrap:wrap; }
-    .dept-badge { display:flex; align-items:center; gap:5px; font-size:12px; font-weight:600; color:var(--primary); background:var(--cream); padding:5px 10px; border-radius:4px; }
-    @media(max-width:900px) { .dept-grid { grid-template-columns:repeat(2,1fr); } .dept-body { padding:40px 20px; } }
-    @media(max-width:560px) { .dept-grid { grid-template-columns:1fr; } }
+    .dept-name { font-size:18px; margin-bottom:6px; font-family:'Playfair Display',serif; color:var(--primary,#0d2b45); }
+    .dept-head { font-size:12px; color:var(--muted,#6b7280); margin-bottom:4px; }
+    .dept-head strong { color:var(--primary,#0d2b45); font-size:13px; }
+    .dept-desc { font-size:13px; color:var(--muted,#6b7280); line-height:1.6; margin-top:10px; flex:1; }
+    .dept-meta { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    .dept-badge { display:flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:var(--primary,#0d2b45); background:var(--cream,#f8f5f0); padding:4px 9px; border-radius:4px; }
+    .flip-hint { font-size:11px; color:var(--secondary,#e67e22); font-weight:600; margin-top:10px; letter-spacing:0.5px; }
+
+    /* BACK */
+    .flip-back {
+      background: linear-gradient(135deg, var(--primary,#0d2b45) 0%, #1a5276 100%);
+      transform: rotateY(180deg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .flip-back-title {
+      font-size:13px; letter-spacing:1.5px; text-transform:uppercase;
+      color:var(--secondary,#e67e22); font-family:'DM Sans',sans-serif;
+      margin-bottom:12px; font-weight:700;
+    }
+    .flip-doctors {
+      flex:1; overflow-y:auto;
+      display:flex; flex-direction:column; gap:6px;
+    }
+    .flip-doctors::-webkit-scrollbar { width:3px; }
+    .flip-doctors::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.2); border-radius:2px; }
+    .flip-doctor-item {
+      font-size:12.5px; color:rgba(255,255,255,0.88);
+      padding:5px 8px;
+      background:rgba(255,255,255,0.07);
+      border-radius:5px;
+      border-left:2px solid var(--secondary,#e67e22);
+    }
+    .flip-back-action {
+      margin-top:12px;
+      background:var(--secondary,#e67e22);
+      color:#fff;
+      border:none; border-radius:6px;
+      padding:7px 14px;
+      font-size:12px; font-weight:700;
+      cursor:pointer;
+      width:100%;
+      transition:opacity 0.2s;
+    }
+    .flip-back-action:hover { opacity:0.85; }
+
+    /* ── POPUP MODAL ── */
+    .dept-modal-overlay {
+      display:none;
+      position:fixed; inset:0; z-index:1000;
+      background:rgba(5,30,52,0.72);
+      backdrop-filter:blur(4px);
+      align-items:center; justify-content:center;
+      padding:20px;
+    }
+    .dept-modal-overlay.open { display:flex; }
+    .dept-modal {
+      background:#fff;
+      border-radius:16px;
+      max-width:560px; width:100%;
+      max-height:90vh;
+      overflow:hidden;
+      display:flex; flex-direction:column;
+      box-shadow:0 24px 64px rgba(0,0,0,0.25);
+      animation: modalIn 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    @keyframes modalIn {
+      from { opacity:0; transform:translateY(20px) scale(0.97); }
+      to   { opacity:1; transform:translateY(0) scale(1); }
+    }
+    .dept-modal-header {
+      background:linear-gradient(135deg,var(--primary,#0d2b45) 0%,#1a5276 100%);
+      padding:28px 32px 22px;
+      flex-shrink:0;
+      position:relative;
+    }
+    .dept-modal-header .m-icon { font-size:40px; margin-bottom:8px; display:block; }
+    .dept-modal-header h2 { color:#fff; font-size:22px; margin:0 0 4px; font-family:'Playfair Display',serif; }
+    .dept-modal-header p { color:rgba(255,255,255,0.7); font-size:13px; margin:0; }
+    .dept-modal-close {
+      position:absolute; top:16px; right:16px;
+      background:rgba(255,255,255,0.15); border:none;
+      color:#fff; width:34px; height:34px; border-radius:50%;
+      font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+      transition:background 0.2s;
+    }
+    .dept-modal-close:hover { background:rgba(255,255,255,0.28); }
+    .dept-modal-body { padding:28px 32px; overflow-y:auto; flex:1; }
+    .m-section-label { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--secondary,#e67e22); font-weight:700; margin-bottom:12px; }
+    .m-desc { font-size:14px; color:#4b5563; line-height:1.75; margin-bottom:24px; }
+    .m-meta-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
+    .m-badge { display:inline-flex; align-items:center; gap:6px; background:#f0f4f8; border-radius:6px; padding:6px 12px; font-size:13px; font-weight:600; color:var(--primary,#0d2b45); }
+    .m-doctors-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .m-doctor-card {
+      background:#f8f9fa; border:1px solid #e5e7eb; border-radius:8px;
+      padding:10px 12px;
+      font-size:13px; color:#374151; font-weight:500;
+      border-left:3px solid var(--secondary,#e67e22);
+    }
+
+    @media(max-width:900px) { .dept-grid { grid-template-columns:repeat(2,1fr); } .dept-body { padding:40px 20px; } .flip-wrap { height:280px; } }
+    @media(max-width:560px) { .dept-grid { grid-template-columns:1fr; } .m-doctors-grid { grid-template-columns:1fr; } .dept-modal-body { padding:20px; } .dept-modal-header { padding:22px 20px 16px; } }
   </style>
 </head>
 <body>
@@ -30,7 +163,7 @@
   <div class="page-hero-inner">
     <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Departments</div>
     <h1>Our Departments</h1>
-    <p>14 specialised departments providing free diagnosis, treatment, and surgery to all patients.</p>
+    <p>Specialised departments providing free diagnosis, treatment, and surgery to all patients. Hover a card to see the medical team.</p>
   </div>
 </div>
 
@@ -40,28 +173,172 @@
   </div>
 </div>
 
+<!-- MODAL -->
+<div class="dept-modal-overlay" id="deptModal" role="dialog" aria-modal="true">
+  <div class="dept-modal">
+    <div class="dept-modal-header">
+      <button class="dept-modal-close" id="modalClose" aria-label="Close">✕</button>
+      <span class="m-icon" id="mIcon"></span>
+      <h2 id="mName"></h2>
+      <p id="mOpdBeds"></p>
+    </div>
+    <div class="dept-modal-body">
+      <div class="m-section-label">About</div>
+      <p class="m-desc" id="mDesc"></p>
+      <div class="m-meta-row" id="mMeta"></div>
+      <div class="m-section-label" id="mDoctorsLabel">Medical Team</div>
+      <div class="m-doctors-grid" id="mDoctors"></div>
+    </div>
+  </div>
+</div>
+
 <footer class="footer" id="footer"></footer>
 <script src="/shared.js"></script>
 <script>
-async function loadDepts() {
-  try {
-    const res  = await fetch('/hospital?section=departments');
-    const data = await res.json();
-    const depts = data.departments || [];
-    document.getElementById('deptGrid').innerHTML = depts.map((d,i) => `
-      <div class="dept-card fade-up" style="animation-delay:${i*0.05}s">
-        <div class="dept-icon">${d.icon}</div>
-        <h2 class="dept-name">${d.name}</h2>
-        <div class="dept-head">Head of Department: <strong>${d.head}</strong></div>
-        <p class="dept-desc">${d.desc}</p>
-        <div class="dept-meta">
-          ${d.beds > 0 ? `<span class="dept-badge">🛏️ ${d.beds} Beds</span>` : ''}
-          <span class="dept-badge">🕐 ${d.opd_days}</span>
-        </div>
-      </div>`).join('');
-  } catch(e) { console.error(e); }
+/* ── Doctor data from xlsx (Doctors_List_as_per_Department) ── */
+const DOCTOR_MAP = {
+  "gen-medicine":  ["Dr.B.Ramesh Babu","Dr.J.Priya","Dr.B.Ganesan","Dr.R.Nandhaprasath","Dr.A.Parveen"],
+  "surgery":       ["Dr.P.Ravichandran","Dr.T.Srinivasan","Dr.R.Suresh","Dr.P.Hariprasath","Dr.J.Ranjith Kumar","Dr.A.Sudhakar","Dr.R.Dharani Devi"],
+  "obgyn":         ["Dr.S.Sivagami","Dr.M.KokilaVani","Dr.K.Manju","Dr.P.Jeyamala","Dr.Era.Selvabharathi","Dr.Nithya Priya","Dr.D.Sathika","Dr.K.Manimegalai","Dr.Rakshana","Dr.Sakthosoundammal"],
+  "paediatrics":   ["Dr.G.Srinivasan","Dr.G.Sasikala","Dr.R.Karthikeyan","Dr.N.Kannan","Dr.P.S.Ravindaran","Dr.S.Kanimozhi","Dr.V.S.Varshan","Dr.S.Vijaya Kumar","Dr.J.P.Raja","Dr.P.Sivakumar"],
+  "ortho":         ["Dr.A.K.K.Shanmugaraman","Dr.Jayasankar","Dr.P.Arunkumar","Dr.S.Myilventhan","Dr.N.Loganathan","Dr.G.Srikishna"],
+  "ophthalmology": ["Dr.S.KalanchiyaRani","Dr.S.Abinaya","Dr.K.Saranya","Dr.E.Lakshminath","Dr.Sreevibya","Dr.S.Rajeshwari"],
+  "ent":           ["Dr.B.Sreedhar","Dr.K.Karthickraj","Dr.J.Ilayaraja","Dr.V.M.Geetharini","Dr.R.Madhankumar"],
+  "psychiatry":    ["Dr.V.A.Anantha Kumar","Dr.S.Anand","Dr.Jeyachandran.R","Dr.A.Deepica Kumar","Dr.G.K.Naveena"],
+  "dermatology":   ["Dr.K.Gomathi","Dr.Howthul Alam Raja"],
+  "radiology":     ["Dr.Ragunath"],
+  "cardiology":    ["Dr.A.Raja"],
+  "neurology":     ["Dr.P.Bagadeesh"],
+  "casualty":      [],
+  "blood-bank":    [],
+  "anesthesia":    ["Dr.T.Kathiravan","Dr.P.Thanga Durai","Dr.M.Megala","Dr.P.Natarajan","Dr.S.Ramya","Dr.J.Ramesh","Dr.S.R.N.Ramya","Dr.T.MariMuthu Saravanan","Dr.N.Sundaravadivel","Dr.S.Sivamathe","Dr.P.Kanimozhi","Dr.G.Nithya","Dr.D.Karthikeyan"],
+  "oncology":      ["Dr.C.P.Ayyappan","Dr.B.Naveen Kumar"],
+  "urology":       ["Dr.N.Suresh Kumar","Dr.S.Karthik","Dr.R.Vinothprabhu"],
+  "plastic":       ["Dr.K.Gowdhaman","Dr.J.K.Karthick"],
+  "dental":        ["Dr.P.Uthramoorthi","Dr.C.Kannan","Dr.Y.Vidhya"],
+  "microbiology":  ["Dr.M.Anitharaj","Dr.Rachel Reena"],
+  "pulmonology":   ["Dr.A.S.Adaikkalavan","Dr.S.P.Saravanan"],
+  "rheumatology":  ["Dr.S.Pandiperumal"],
+  "pediatric-surgery": ["Dr.S.R.Rahu Raja"],
+};
+
+/* Extended department list matching actual hospital scope */
+const DEPARTMENTS_EXTENDED = [
+  { id:"gen-medicine",  name:"General Medicine",           icon:"🩺", opd_days:"Mon–Sat", beds:80,  desc:"Comprehensive diagnosis and treatment of internal medicine conditions including fever, infections, diabetes, hypertension, and chronic illnesses." },
+  { id:"surgery",       name:"General Surgery",            icon:"🔪", opd_days:"Mon–Sat", beds:70,  desc:"All major and minor surgical procedures including laparoscopic surgeries, emergency trauma surgeries, and advanced procedures." },
+  { id:"obgyn",         name:"Obstetrics & Gynaecology",   icon:"🤱", opd_days:"Mon–Sat", beds:80,  desc:"Antenatal care, safe deliveries, high-risk pregnancy management, gynaecological procedures, and family planning." },
+  { id:"paediatrics",   name:"Paediatrics",                icon:"👶", opd_days:"Mon–Sat", beds:60,  desc:"Complete child healthcare from newborn to adolescence including NICU, SNCU, and well-baby clinics." },
+  { id:"ortho",         name:"Orthopaedics",               icon:"🦴", opd_days:"Mon–Fri", beds:50,  desc:"Bone fracture management, joint replacements, spine surgeries, and physiotherapy." },
+  { id:"ophthalmology", name:"Ophthalmology",              icon:"👁️", opd_days:"Mon–Sat", beds:30,  desc:"Cataract surgeries, glaucoma treatment, retinal services, and low vision rehabilitation." },
+  { id:"ent",           name:"ENT (Otolaryngology)",       icon:"👂", opd_days:"Mon–Fri", beds:25,  desc:"Ear, nose, and throat surgeries including tonsillectomy, septoplasty, and hearing restoration." },
+  { id:"psychiatry",    name:"Psychiatry",                 icon:"🧠", opd_days:"Mon–Sat", beds:30,  desc:"Mental health counselling, de-addiction services, and inpatient psychiatric care." },
+  { id:"dermatology",   name:"Dermatology & Venereology",  icon:"🧴", opd_days:"Mon–Fri", beds:20,  desc:"Skin disease management, leprosy control, STD/HIV treatment, and NCD screening." },
+  { id:"radiology",     name:"Radiology",                  icon:"🩻", opd_days:"Mon–Sat", beds:0,   desc:"X-Ray, Ultrasound, CT Scan — all free of cost for in-patients. 24-hour emergency radiology support." },
+  { id:"cardiology",    name:"Cardiology",                 icon:"❤️", opd_days:"Mon–Sat", beds:40,  desc:"ECG, Echo, ECHO cardiogram, and cardiology consultations under the super-speciality block." },
+  { id:"neurology",     name:"Neurosurgery",               icon:"🧬", opd_days:"Mon–Fri", beds:35,  desc:"Stroke management, spinal surgery, brain tumour removal, EEG, and neuro-rehabilitation services." },
+  { id:"urology",       name:"Urology",                    icon:"🫀", opd_days:"Mon–Sat", beds:25,  desc:"Radical nephrectomy, kidney stone management, urological surgeries under super-speciality services." },
+  { id:"oncology",      name:"Medical Oncology",           icon:"🎗️", opd_days:"Mon–Sat", beds:30,  desc:"Cancer diagnosis, chemotherapy, palliative care, and pain management for oncology patients." },
+  { id:"plastic",       name:"Plastic Surgery",            icon:"🩹", opd_days:"Mon–Fri", beds:20,  desc:"Reconstructive surgery, syndactyly release, burn treatment, and cosmetic corrections." },
+  { id:"pediatric-surgery", name:"Paediatric Surgery",    icon:"🌟", opd_days:"Mon–Fri", beds:20,  desc:"Surgical procedures for infants and children, neonatal surgery, and paediatric emergency care." },
+  { id:"anesthesia",    name:"Anaesthesia",                icon:"💉", opd_days:"Mon–Sat", beds:0,   desc:"Perioperative care, pain management, general and regional anaesthesia for all surgical procedures." },
+  { id:"pulmonology",   name:"Pulmonology",                icon:"🫁", opd_days:"Mon–Fri", beds:20,  desc:"Respiratory disease management, TB treatment (DOTS), and lung function assessment." },
+  { id:"dental",        name:"Dental",                     icon:"🦷", opd_days:"Mon–Sat", beds:0,   desc:"Dental examination, extraction, restorative procedures, and oral health awareness programmes." },
+  { id:"psychiatry",    name:"Psychiatry",                 icon:"🧠", opd_days:"Mon–Sat", beds:30,  desc:"Mental health counselling, de-addiction services, and inpatient psychiatric care." },
+  { id:"microbiology",  name:"Microbiology",               icon:"🔬", opd_days:"Mon–Sat", beds:0,   desc:"Lab diagnostics, infection control, culture & sensitivity, and blood bank support." },
+  { id:"rheumatology",  name:"Rheumatology",               icon:"💊", opd_days:"Mon–Fri", beds:10,  desc:"Arthritis, autoimmune disease management, and musculoskeletal disorder treatment." },
+  { id:"casualty",      name:"Casualty & Emergency",       icon:"🚑", opd_days:"24/7",    beds:30,  desc:"Round-the-clock emergency care, trauma management, toxicology, and mass casualty handling." },
+  { id:"blood-bank",    name:"Blood Bank",                 icon:"🩸", opd_days:"24/7",    beds:0,   desc:"Licensed blood bank with component separation, cross-matching, and 24/7 supply." },
+];
+
+/* Deduplicate by id */
+const seen = new Set();
+const DEPARTMENTS = DEPARTMENTS_EXTENDED.filter(d => {
+  if (seen.has(d.id)) return false;
+  seen.add(d.id); return true;
+});
+
+function openModal(dept) {
+  const doctors = DOCTOR_MAP[dept.id] || [];
+  document.getElementById('mIcon').textContent  = dept.icon;
+  document.getElementById('mName').textContent  = dept.name;
+  document.getElementById('mOpdBeds').textContent =
+    (dept.beds > 0 ? `${dept.beds} beds · ` : '') + `OPD: ${dept.opd_days}`;
+  document.getElementById('mDesc').textContent  = dept.desc;
+  document.getElementById('mMeta').innerHTML =
+    (dept.beds > 0 ? `<span class="m-badge">🛏️ ${dept.beds} Beds</span>` : '') +
+    `<span class="m-badge">🕐 ${dept.opd_days}</span>` +
+    (doctors.length ? `<span class="m-badge">👨‍⚕️ ${doctors.length} Doctors</span>` : '');
+  document.getElementById('mDoctorsLabel').style.display = doctors.length ? 'block' : 'none';
+  document.getElementById('mDoctors').innerHTML = doctors.length
+    ? doctors.map(n => `<div class="m-doctor-card">👨‍⚕️ ${n}</div>`).join('')
+    : '';
+  document.getElementById('deptModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
-loadDepts();
+
+function closeModal() {
+  document.getElementById('deptModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('deptModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('deptModal')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function buildGrid() {
+  document.getElementById('deptGrid').innerHTML = DEPARTMENTS.map((d, i) => {
+    const doctors = DOCTOR_MAP[d.id] || [];
+    const previewDoctors = doctors.slice(0, 4);
+    return `
+      <div class="flip-wrap fade-up" style="animation-delay:${i*0.04}s" data-id="${d.id}" tabindex="0" role="button" aria-label="View ${d.name} department details">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="dept-icon">${d.icon}</div>
+            <h2 class="dept-name">${d.name}</h2>
+            <p class="dept-desc">${d.desc.substring(0,100)}…</p>
+            <div class="dept-meta">
+              ${d.beds > 0 ? `<span class="dept-badge">🛏️ ${d.beds} beds</span>` : ''}
+              <span class="dept-badge">🕐 ${d.opd_days}</span>
+            </div>
+            <div class="flip-hint">↩ Hover to see medical team</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-title">👨‍⚕️ Medical Team (${doctors.length})</div>
+            <div class="flip-doctors">
+              ${previewDoctors.map(dr => `<div class="flip-doctor-item">${dr}</div>`).join('')}
+              ${doctors.length > 4 ? `<div class="flip-doctor-item" style="opacity:0.6;">+${doctors.length-4} more…</div>` : ''}
+              ${doctors.length === 0 ? '<div class="flip-doctor-item" style="opacity:0.6;">24/7 rotating duty team</div>' : ''}
+            </div>
+            <button class="flip-back-action" data-id="${d.id}">View Full Details →</button>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+
+  /* Click on "View Full Details" button → open modal */
+  document.querySelectorAll('.flip-back-action').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const dept = DEPARTMENTS.find(d => d.id === btn.dataset.id);
+      if (dept) openModal(dept);
+    });
+  });
+
+  /* Keyboard: Enter/Space on flip-wrap opens modal */
+  document.querySelectorAll('.flip-wrap').forEach(wrap => {
+    wrap.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const dept = DEPARTMENTS.find(d => d.id === wrap.dataset.id);
+        if (dept) openModal(dept);
+      }
+    });
+  });
+}
+
+buildGrid();
 </script>
 </body>
 </html>

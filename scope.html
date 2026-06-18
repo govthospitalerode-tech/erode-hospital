@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Scope of Services — Thanthai Periyar Govt Hospital Erode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    .scope-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
+
+    /* ── INTRO ── */
+    .scope-intro {
+      background:linear-gradient(135deg,var(--primary,#0d2b45) 0%,#1a5276 100%);
+      border-radius:16px; padding:40px 48px; margin-bottom:56px;
+      display:flex; align-items:center; gap:32px;
+    }
+    .scope-intro-icon { font-size:56px; flex-shrink:0; }
+    .scope-intro-text h2 { font-family:'Playfair Display',serif; color:#fff; font-size:clamp(20px,2.5vw,26px); margin-bottom:8px; }
+    .scope-intro-text p  { color:rgba(255,255,255,0.72); font-size:14px; line-height:1.75; margin:0; }
+
+    /* ── SECTION HEADERS ── */
+    .scope-section { margin-bottom:48px; }
+    .scope-section-header {
+      display:flex; align-items:center; gap:14px; margin-bottom:24px;
+      padding-bottom:14px; border-bottom:2px solid var(--border,#e5e7eb);
+    }
+    .scope-section-icon {
+      width:48px; height:48px; border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:24px; flex-shrink:0;
+    }
+    .icon-24hr    { background:#fff3e0; }
+    .icon-general { background:#e8f5e9; }
+    .icon-super   { background:#e8eaf6; }
+    .icon-invest  { background:#fce4ec; }
+    .icon-allied  { background:#e0f7fa; }
+    .icon-aux     { background:#f3e5f5; }
+    .icon-nonscope{ background:#ffebee; }
+    .scope-section-header h2 { font-size:22px; color:var(--primary,#0d2b45); margin:0; font-family:'Playfair Display',serif; }
+    .scope-section-header .scope-subtitle { font-size:13px; color:var(--muted,#6b7280); margin:0; font-weight:500; }
+
+    /* ── SERVICE GRID ── */
+    .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .services-grid.two-col { grid-template-columns:repeat(2,1fr); }
+    .service-item {
+      display:flex; align-items:flex-start; gap:10px;
+      background:var(--white,#fff); border:1px solid var(--border,#e5e7eb);
+      border-radius:10px; padding:14px 16px;
+      transition:box-shadow 0.2s, border-color 0.2s;
+    }
+    .service-item:hover { box-shadow:0 4px 16px rgba(13,43,69,0.09); border-color:var(--primary,#0d2b45); }
+    .service-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+    .dot-24hr    { background:#f59e0b; }
+    .dot-general { background:#10b981; }
+    .dot-super   { background:#6366f1; }
+    .dot-invest  { background:#ec4899; }
+    .dot-allied  { background:#06b6d4; }
+    .dot-aux     { background:#a855f7; }
+    .dot-nonscope{ background:#ef4444; }
+    .service-text { flex:1; }
+    .service-en  { font-size:14px; font-weight:600; color:var(--primary,#0d2b45); line-height:1.3; }
+    .service-ta  { font-size:12px; color:var(--muted,#6b7280); margin-top:2px; }
+
+    /* ── NON-SCOPE NOTICE ── */
+    .nonscope-note {
+      display:flex; gap:14px; align-items:flex-start;
+      background:#fff5f5; border:1px solid #fecaca; border-radius:12px;
+      padding:20px 24px; margin-bottom:16px;
+    }
+    .nonscope-note .ns-icon { font-size:24px; flex-shrink:0; }
+    .nonscope-note p { font-size:13.5px; color:#7f1d1d; line-height:1.65; margin:0; }
+
+    @media(max-width:900px) {
+      .scope-body { padding:40px 20px; }
+      .services-grid { grid-template-columns:repeat(2,1fr); }
+      .services-grid.two-col { grid-template-columns:1fr; }
+      .scope-intro { flex-direction:column; padding:28px 24px; }
+    }
+    @media(max-width:560px) {
+      .services-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Scope of Services</div>
+    <h1>Scope of Services</h1>
+    <p>Complete range of medical, surgical, diagnostic and allied services offered at Thanthai Periyar Government Headquarters Hospital, Erode.</p>
+  </div>
+</div>
+
+<div class="scope-body">
+
+  <!-- Intro Banner -->
+  <div class="scope-intro">
+    <div class="scope-intro-icon">🏥</div>
+    <div class="scope-intro-text">
+      <h2>தந்தை பெரியார் மாவட்ட அரசு தலைமை பல்நோக்கு உயர் சிகிச்சை மருத்துவமனை &amp; DNB பட்ட மேற்படிப்பு பயிற்சி நிறுவனம், ஈரோடு</h2>
+      <p>Thanthai Periyar District Government Headquarters Multi-Speciality Hospital &amp; DNB Postgraduate Training Institute, Erode — providing comprehensive 24-hour, general, super-speciality, and allied services entirely free of cost.</p>
+    </div>
+  </div>
+
+  <!-- 24-Hour Services -->
+  <div class="scope-section">
+    <div class="scope-section-header">
+      <div class="scope-section-icon icon-24hr">🕐</div>
+      <div>
+        <h2>24-Hour Services</h2>
+        <p class="scope-subtitle">24 மணிநேர சேவைகள் — Round-the-clock emergency and critical care</p>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-item"><span class="service-dot dot-24hr"></span><div class="service-text"><div class="service-en">Accident &amp; Emergency</div><div class="service-ta">விபத்து மற்றும் அவசர சிகிச்சை பிரிவு</div></div></div>
+      <div class="service-item"><span class="service-dot dot-24hr"></span><div class="service-text"><div class="service-en">Toxicology Management</div><div class="service-ta">விஷமுறிவு சிகிச்சை மையம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-24hr"></span><div class="service-text"><div class="service-en">Laboratory</div><div class="service-ta">பரிசோதனை மையம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-24hr"></span><div class="service-text"><div class="service-en">Pharmacy</div><div class="service-ta">மருந்தகம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-24hr"></span><div class="service-text"><div class="service-en">X-Ray Unit</div><div class="service-ta">நுண்கதிர் பகுதி</div></div></div>
+      <div class="service-item"><span class="service-dot dot-24hr"></span><div class="service-text"><div class="service-en">ECG</div><div class="service-ta">இதய மின் ஒலி அலை வரைவு</div></div></div>
+      <div class="service-item"><span class="service-dot dot-24hr"></span><div class="service-text"><div class="service-en">CT Scan</div><div class="service-ta">கம்பியூட்டர் தொமோகிரபி</div></div></div>
+      <div class="service-item"><span class="service-dot dot-24hr"></span><div class="service-text"><div class="service-en">CeMONC — Maternity</div><div class="service-ta">மகப்பேறு பிரிவு</div></div></div>
+      <div class="service-item"><span class="service-dot dot-24hr"></span><div class="service-text"><div class="service-en">SNCU — Sick Newborn Care</div><div class="service-ta">பச்சிளங்குழந்தைகள் பிரிவு</div></div></div>
+      <div class="service-item"><span class="service-dot dot-24hr"></span><div class="service-text"><div class="service-en">Blood Centre</div><div class="service-ta">இரத்த வங்கி</div></div></div>
+    </div>
+  </div>
+
+  <!-- General Departments -->
+  <div class="scope-section">
+    <div class="scope-section-header">
+      <div class="scope-section-icon icon-general">🏛️</div>
+      <div>
+        <h2>General Departments</h2>
+        <p class="scope-subtitle">பொது பிரிவுகள் — Core clinical and surgical services</p>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">General Medicine</div><div class="service-ta">சிறப்பு மருத்துவம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">General Surgery</div><div class="service-ta">அறுவை சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Orthopaedics</div><div class="service-ta">எலும்பு முறிவு சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Paediatrics</div><div class="service-ta">குழந்தை நலம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Skin &amp; Venereology</div><div class="service-ta">தோல் மற்றும் பாலியல் நோய்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Obstetrics &amp; Gynaecology</div><div class="service-ta">பெண்கள் மருத்துவம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Family Planning</div><div class="service-ta">குடும்பநலம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">ENT</div><div class="service-ta">காது, மூக்கு, தொண்டை சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Ophthalmology</div><div class="service-ta">கண் மருத்துவம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Dental</div><div class="service-ta">பல் மருத்துவம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Psychiatry</div><div class="service-ta">மன நல சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Non-Communicable Disease (NCD)</div><div class="service-ta">தொற்றா நோய் சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Geriatrics</div><div class="service-ta">முதியோர் நலம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Pain Management &amp; Palliative Care</div><div class="service-ta">வலி மேலாண்மை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Leprosy</div><div class="service-ta">தொழு நோய் சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Tuberculosis (DOTS)</div><div class="service-ta">காசநோய் சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Immunisation</div><div class="service-ta">தடுப்பூசி சேவை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Foot Care</div><div class="service-ta">பாதம் பாதுகாப்பு சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-general"></span><div class="service-text"><div class="service-en">Adolescent Friendly Clinic</div><div class="service-ta">வளர் இளம் பருவ சிகிச்சை</div></div></div>
+    </div>
+  </div>
+
+  <!-- Super Speciality -->
+  <div class="scope-section">
+    <div class="scope-section-header">
+      <div class="scope-section-icon icon-super">⭐</div>
+      <div>
+        <h2>Super Speciality Services</h2>
+        <p class="scope-subtitle">உயர் சிறப்பு சேவைகள் — Available in the new 8-storey Super Speciality Block (2024)</p>
+      </div>
+    </div>
+    <div class="services-grid two-col">
+      <div class="service-item"><span class="service-dot dot-super"></span><div class="service-text"><div class="service-en">Urology</div><div class="service-ta">சிறுநீரக அறுவை சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-super"></span><div class="service-text"><div class="service-en">Paediatric Surgery</div><div class="service-ta">குழந்தைகள் அறுவை சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-super"></span><div class="service-text"><div class="service-en">Neurosurgery</div><div class="service-ta">மூளை நரம்பியல் அறுவை சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-super"></span><div class="service-text"><div class="service-en">Neurology</div><div class="service-ta">நரம்பியல் மருத்துவம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-super"></span><div class="service-text"><div class="service-en">Cardiology</div><div class="service-ta">இருதய மருத்துவம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-super"></span><div class="service-text"><div class="service-en">Medical Oncology</div><div class="service-ta">புற்றுநோய் மருத்துவம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-super"></span><div class="service-text"><div class="service-en">Plastic Surgery</div><div class="service-ta">ஒட்டு உறுப்பு அறுவை சிகிச்சை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-super"></span><div class="service-text"><div class="service-en">Rheumatology</div><div class="service-ta">மூட நீக்கியல் சிகிச்சை</div></div></div>
+    </div>
+  </div>
+
+  <!-- Investigation / Diagnostic Services -->
+  <div class="scope-section">
+    <div class="scope-section-header">
+      <div class="scope-section-icon icon-invest">🔬</div>
+      <div>
+        <h2>Investigation Services</h2>
+        <p class="scope-subtitle">ஆய்வக சேவைகள் — Diagnostic imaging and laboratory services, free for all in-patients</p>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">X-Ray</div><div class="service-ta">நுண்கதிர்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">Mammogram</div><div class="service-ta">மார்பக ஸ்கேன்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">MRI</div><div class="service-ta">எம். ஆர். ஐ</div></div></div>
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">CT Scan</div><div class="service-ta">சி.டி ஸ்கேன்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">Doppler Scan</div><div class="service-ta">ரத்த நாள ஸ்கேன்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">ECHO Cardiogram</div><div class="service-ta">இருதய ஸ்கேன்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">Ultrasound</div><div class="service-ta">ஊடொலி</div></div></div>
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">Treadmill Test (TMT)</div><div class="service-ta">திரேட்மில்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">Nerve Conduction Study</div><div class="service-ta">நரம்பு ஆய்வு</div></div></div>
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">Colposcopy</div><div class="service-ta">கருப்பைவாய் பரிசோதனை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-invest"></span><div class="service-text"><div class="service-en">Hormonal Assays</div><div class="service-ta">சிறப்பு ரத்த பரிசோதனைகள்</div></div></div>
+    </div>
+  </div>
+
+  <!-- Allied Services -->
+  <div class="scope-section">
+    <div class="scope-section-header">
+      <div class="scope-section-icon icon-allied">🤝</div>
+      <div>
+        <h2>Allied Services</h2>
+        <p class="scope-subtitle">மற்ற சேவைகள் — Support and therapeutic services</p>
+      </div>
+    </div>
+    <div class="services-grid two-col">
+      <div class="service-item"><span class="service-dot dot-allied"></span><div class="service-text"><div class="service-en">Medicine Dispensary</div><div class="service-ta">மருந்தகம் — 250+ free medicines</div></div></div>
+      <div class="service-item"><span class="service-dot dot-allied"></span><div class="service-text"><div class="service-en">Physiotherapy</div><div class="service-ta">இயன்முறை மருத்துவம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-allied"></span><div class="service-text"><div class="service-en">Counselling Services</div><div class="service-ta">ஆற்றுப்படுத்துதல்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-allied"></span><div class="service-text"><div class="service-en">AYUSH (Siddha, Homeopathy, Ayurveda)</div><div class="service-ta">சித்தா, ஹோமியோபதி மற்றும் ஆயுர்வேத மருத்துவம்</div></div></div>
+    </div>
+  </div>
+
+  <!-- Auxiliary Services -->
+  <div class="scope-section">
+    <div class="scope-section-header">
+      <div class="scope-section-icon icon-aux">⚙️</div>
+      <div>
+        <h2>Auxiliary Services</h2>
+        <p class="scope-subtitle">துணை சேவைகள் — Infrastructure and operational support</p>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-item"><span class="service-dot dot-aux"></span><div class="service-text"><div class="service-en">CSSD — Central Sterile Supply</div><div class="service-ta">மைய நுண்கிருமி நீக்கும் மையம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-aux"></span><div class="service-text"><div class="service-en">Medical Record Room</div><div class="service-ta">மருத்துவ பதிவேடு அறை</div></div></div>
+      <div class="service-item"><span class="service-dot dot-aux"></span><div class="service-text"><div class="service-en">Kitchen / Diet Services</div><div class="service-ta">சமையல் பிரிவு — free diet for in-patients</div></div></div>
+      <div class="service-item"><span class="service-dot dot-aux"></span><div class="service-text"><div class="service-en">Steam Laundry</div><div class="service-ta">நீராவி சலவையகம்</div></div></div>
+      <div class="service-item"><span class="service-dot dot-aux"></span><div class="service-text"><div class="service-en">Sewage Treatment Plant</div><div class="service-ta">கழிவு நீர் சுத்திகரிப்பு பிரிவு</div></div></div>
+      <div class="service-item"><span class="service-dot dot-aux"></span><div class="service-text"><div class="service-en">Outsourced Support (OHSS)</div><div class="service-ta">புற ஆதார பணியாளர்கள்</div></div></div>
+    </div>
+  </div>
+
+  <!-- Non-Scope -->
+  <div class="scope-section">
+    <div class="scope-section-header">
+      <div class="scope-section-icon icon-nonscope">ℹ️</div>
+      <div>
+        <h2>Services Not Available</h2>
+        <p class="scope-subtitle">வழங்க இயலா சிகிச்சைகள் — Conditions referred to higher centres</p>
+      </div>
+    </div>
+    <div class="nonscope-note">
+      <span class="ns-icon">⚠️</span>
+      <p>The following services are not currently available at this hospital. Patients requiring these specialities will be referred to appropriate Government Medical College Hospitals or tertiary centres. All referrals and transport are facilitated free of cost.</p>
+    </div>
+    <div class="services-grid two-col">
+      <div class="service-item" style="border-color:#fecaca;"><span class="service-dot dot-nonscope"></span><div class="service-text"><div class="service-en">Medical &amp; Surgical Gastroenterology</div><div class="service-ta">மருத்துவ மற்றும் கல்லீரல் அறுவை சிகிச்சை</div></div></div>
+      <div class="service-item" style="border-color:#fecaca;"><span class="service-dot dot-nonscope"></span><div class="service-text"><div class="service-en">Haematology</div><div class="service-ta">ரத்த நோய்கள் சிகிச்சை</div></div></div>
+      <div class="service-item" style="border-color:#fecaca;"><span class="service-dot dot-nonscope"></span><div class="service-text"><div class="service-en">Endocrinology</div><div class="service-ta">நாளமில்லா சுரப்பிகள் சிகிச்சை</div></div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer" id="footer"></footer>
+<script src="/shared.js"></script>
+</body>
+</html>

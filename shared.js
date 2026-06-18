@@ -24,8 +24,7 @@ const NAV_HTML = `
     <li><a href="/index.html">Home</a></li>
     <li><a href="/about.html">About</a></li>
     <li><a href="/departments.html">Departments</a></li>
-    <li><a href="/events.html">Events</a></li>
-    <li><a href="/achievements.html">Achievements</a></li>
+    <li><a href="/scope.html">Scope of Services</a></li>
     <li><a href="/patients.html">Patient Benefits</a></li>
     <li class="nav-cta"><a href="/waste.html">Waste Dashboard</a></li>
   </ul>

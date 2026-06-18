@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Success Stories — Thanthai Periyar Govt Hospital Erode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/style.css"/>
+  <style>
+    /* ── PAGE BODY ── */
+    .stories-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
+
+    /* ── INTRO BANNER ── */
+    .stories-banner {
+      background:linear-gradient(135deg,var(--primary,#0d2b45) 0%,#1a5276 100%);
+      border-radius:16px; padding:40px 48px; margin-bottom:56px;
+      display:flex; align-items:center; gap:40px;
+    }
+    .banner-icon { font-size:56px; flex-shrink:0; }
+    .banner-text h2 { font-family:'Playfair Display',serif; color:#fff; font-size:clamp(20px,2.5vw,28px); margin-bottom:8px; }
+    .banner-text p { color:rgba(255,255,255,0.72); font-size:14px; line-height:1.75; margin:0; }
+    .banner-stats { display:flex; flex-direction:column; gap:12px; margin-left:auto; flex-shrink:0; text-align:right; }
+    .b-stat-val { font-family:'Playfair Display',serif; font-size:28px; color:var(--secondary,#e67e22); font-weight:700; line-height:1; }
+    .b-stat-lbl { font-size:11px; color:rgba(255,255,255,0.5); letter-spacing:1px; text-transform:uppercase; }
+
+    /* ── FILTER PILLS ── */
+    .filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
+    .filter-pill {
+      background:var(--cream,#f8f5f0); border:1px solid var(--border,#e5e7eb);
+      border-radius:20px; padding:8px 18px;
+      font-size:13px; font-weight:600; color:var(--primary,#0d2b45);
+      cursor:pointer; transition:all 0.2s; white-space:nowrap;
+    }
+    .filter-pill:hover, .filter-pill.active {
+      background:var(--primary,#0d2b45); color:#fff; border-color:var(--primary,#0d2b45);
+    }
+
+    /* ── STORIES GRID ── */
+    .stories-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+    .story-card {
+      background:#fff; border:1px solid var(--border,#e5e7eb);
+      border-radius:14px; overflow:hidden;
+      transition:box-shadow 0.25s, transform 0.25s;
+      display:flex; flex-direction:column;
+    }
+    .story-card:hover { box-shadow:0 12px 36px rgba(13,43,69,0.14); transform:translateY(-3px); }
+    .story-card-top {
+      padding:28px 28px 0;
+    }
+    .story-tag-row { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+    .story-tag {
+      font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase;
+      padding:4px 10px; border-radius:3px; color:#fff;
+    }
+    .tag-surgery    { background:#0d2b45; }
+    .tag-neurology  { background:#1a5276; }
+    .tag-cancer     { background:#7b341e; }
+    .tag-palliative { background:#2d6a4f; }
+    .tag-ortho      { background:#744210; }
+    .tag-urology    { background:#4a1d96; }
+
+    .story-savings {
+      font-size:12px; color:var(--secondary,#e67e22);
+      font-weight:700; margin-left:auto;
+    }
+    .story-card h3 {
+      font-size:18px; color:var(--primary,#0d2b45);
+      font-family:'Playfair Display',serif; margin-bottom:6px; line-height:1.35;
+    }
+    .story-patient-info {
+      font-size:12px; color:var(--muted,#6b7280); margin-bottom:14px;
+      font-weight:600; letter-spacing:0.3px;
+    }
+    .story-body {
+      font-size:13.5px; color:#4b5563; line-height:1.78; margin-bottom:0;
+    }
+
+    /* Quote pull */
+    .story-quote {
+      background:linear-gradient(135deg,#f0f4f8 0%,#e8f0f7 100%);
+      border-left:3px solid var(--secondary,#e67e22);
+      border-radius:0 8px 8px 0;
+      padding:12px 16px; margin:16px 0;
+      font-size:13px; color:var(--primary,#0d2b45);
+      font-weight:600; font-style:italic; line-height:1.6;
+    }
+
+    .story-card-footer {
+      padding:16px 28px; border-top:1px solid var(--border,#e5e7eb);
+      margin-top:20px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .story-dept-badge {
+      display:inline-flex; align-items:center; gap:6px;
+      background:var(--cream,#f8f5f0); border-radius:6px;
+      padding:5px 10px; font-size:12px; font-weight:600; color:var(--primary,#0d2b45);
+    }
+    .story-cost-saved {
+      text-align:right;
+    }
+    .story-cost-saved .saved-label { font-size:10px; color:var(--muted,#6b7280); text-transform:uppercase; letter-spacing:1px; }
+    .story-cost-saved .saved-val   { font-family:'Playfair Display',serif; font-size:18px; color:#059669; font-weight:700; }
+
+    /* ── PAIN & PALLIATIVE SPECIAL CARD (full width) ── */
+    .story-card.full-width { grid-column:1 / -1; }
+    .story-card.full-width .story-stats-row {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:16px 0;
+    }
+    .story-stat-box {
+      background:linear-gradient(135deg,var(--primary,#0d2b45),#1a5276);
+      border-radius:10px; padding:16px; text-align:center;
+    }
+    .story-stat-box .ssb-val { font-family:'Playfair Display',serif; font-size:28px; color:var(--secondary,#e67e22); font-weight:700; }
+    .story-stat-box .ssb-lbl { font-size:11px; color:rgba(255,255,255,0.65); letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
+    .services-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .service-chip {
+      background:#e0f2fe; color:#0369a1; border-radius:20px;
+      padding:4px 12px; font-size:12px; font-weight:600;
+    }
+
+    @media(max-width:900px) {
+      .stories-body { padding:40px 20px; }
+      .stories-grid { grid-template-columns:1fr; }
+      .story-card.full-width { grid-column:1; }
+      .story-card.full-width .story-stats-row { grid-template-columns:1fr 1fr; }
+      .stories-banner { flex-direction:column; padding:28px 24px; gap:20px; }
+      .banner-stats { text-align:left; margin-left:0; flex-direction:row; gap:24px; }
+    }
+    @media(max-width:560px) {
+      .story-card.full-width .story-stats-row { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"></nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Success Stories</div>
+    <h1>Patient Success Stories</h1>
+    <p>Real lives transformed through free, world-class care at Thanthai Periyar Government Headquarters Hospital, Erode.</p>
+  </div>
+</div>
+
+<div class="stories-body">
+
+  <!-- Banner -->
+  <div class="stories-banner">
+    <div class="banner-icon">🏆</div>
+    <div class="banner-text">
+      <h2>Healthcare That Changes Lives — For Free</h2>
+      <p>Under the Chief Minister's Comprehensive Health Insurance Scheme (CMCHIS), patients who would otherwise pay lakhs in private hospitals receive the same — often better — surgical care completely free of cost at our hospital.</p>
+    </div>
+    <div class="banner-stats">
+      <div><div class="b-stat-val">₹10L+</div><div class="b-stat-lbl">Saved Across Stories</div></div>
+      <div><div class="b-stat-val">6</div><div class="b-stat-lbl">Case Studies</div></div>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <button class="filter-pill active" data-filter="all">All Stories</button>
+    <button class="filter-pill" data-filter="surgery">Surgery</button>
+    <button class="filter-pill" data-filter="neurology">Neurology</button>
+    <button class="filter-pill" data-filter="cancer">Cancer / Oncology</button>
+    <button class="filter-pill" data-filter="palliative">Pain & Palliative</button>
+    <button class="filter-pill" data-filter="urology">Urology</button>
+  </div>
+
+  <!-- Stories Grid -->
+  <div class="stories-grid" id="storiesGrid">
+
+    <!-- Story 1: Gopika — Syndactyly / Plastic Surgery -->
+    <div class="story-card fade-up" data-category="surgery">
+      <div class="story-card-top">
+        <div class="story-tag-row">
+          <span class="story-tag tag-surgery">Plastic Surgery</span>
+          <span class="story-savings">Saved ₹80,000–1,00,000</span>
+        </div>
+        <h3>Conjoined Fingers Separated — 14-Year-Old Girl Regains Full Hand Function</h3>
+        <div class="story-patient-info">👧 Gopika, 14 · Anthiyur, Erode · Syndactyly Release · May 2025</div>
+        <p class="story-body">
+          Gopika from Anthiyur had her fingers fused together from birth — a condition called syndactyly — affecting both hands. She was admitted to the Surgery Department on 10.05.2025.
+          On 13.05.2025, our plastic surgery team successfully separated the index and middle fingers of her right hand. The remaining fingers will be separated in a follow-up procedure after three months.
+        </p>
+        <div class="story-quote">"A surgery that would have cost ₹80,000–1,00,000 in a private hospital was performed completely free under the CM's Comprehensive Health Insurance Scheme."</div>
+      </div>
+      <div class="story-card-footer">
+        <span class="story-dept-badge">🩹 Plastic Surgery</span>
+        <div class="story-cost-saved">
+          <div class="saved-label">Patient Savings</div>
+          <div class="saved-val">₹1,00,000</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 2: Ilayaraja — Neurosurgery -->
+    <div class="story-card fade-up" data-category="neurology" style="animation-delay:0.08s">
+      <div class="story-card-top">
+        <div class="story-tag-row">
+          <span class="story-tag tag-neurology">Neurosurgery</span>
+          <span class="story-savings">Saved ₹2–3 Lakh</span>
+        </div>
+        <h3>Brain Infection After Accident — 4-Hour Neurosurgery Restores Life</h3>
+        <div class="story-patient-info">👨 Ilayaraja, 44 · Jeevanandham Road, Erode · Neurosurgery · July 2023</div>
+        <p class="story-body">
+          Ilayaraja had sustained a head injury in an accident two years prior and undergone surgery at Salem Government Medical College. After six months of recurring pus and fever at the surgical site, scans revealed the skull bone had developed osteomyelitis — a bone infection — pressing on the brain.
+          On 12.07.2023, Dr. Sayi Kali Sanjeev (Neurosurgery), Dr. Ramya Kannan (Anaesthesia), and nurse Vaidehi performed a 4-hour surgery, removing the infected bone and clearing the pus from the brain surface. He was discharged after 5 days of IV antibiotics, fully recovered.
+        </p>
+      </div>
+      <div class="story-card-footer">
+        <span class="story-dept-badge">🧬 Neurosurgery</span>
+        <div class="story-cost-saved">
+          <div class="saved-label">CMCHIS Sanctioned</div>
+          <div class="saved-val">₹77,000</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 3: Mahalingam — Hand Replantation -->
+    <div class="story-card fade-up" data-category="surgery" style="animation-delay:0.12s">
+      <div class="story-card-top">
+        <div class="story-tag-row">
+          <span class="story-tag tag-surgery">Emergency Surgery</span>
+          <span class="story-savings">Saved ₹5 Lakh</span>
+        </div>
+        <h3>Severed Hand Reattached in 9-Hour Emergency Surgery After Rail Accident</h3>
+        <div class="story-patient-info">👨 Mahalingam, 52 · P.B.Agragharam, Erode · Hand Replantation · May 2024</div>
+        <p class="story-body">
+          Mahalingam met with an unexpected accident on 30.05.2024, losing his right hand completely. He was rushed to the Emergency Department at 9:30 PM the same night.
+          Acting immediately, the surgical team decided on emergency replantation. He was taken to the operation theatre at 12:30 AM, anaesthesia was administered at 1:30 AM, and Dr. Gowdham led a 9-hour marathon surgery with 3 nursing staff and 4 support personnel — successfully reattaching the severed hand.
+          He was monitored in the hospital for 15 days, after which he was discharged with full arm function restored.
+        </p>
+      </div>
+      <div class="story-card-footer">
+        <span class="story-dept-badge">🔪 Surgery</span>
+        <div class="story-cost-saved">
+          <div class="saved-label">CMCHIS Sanctioned</div>
+          <div class="saved-val">₹59,300</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 4: Selvaraj — Spine/Neuro Surgery for Cancer -->
+    <div class="story-card fade-up" data-category="cancer neurology" style="animation-delay:0.16s">
+      <div class="story-card-top">
+        <div class="story-tag-row">
+          <span class="story-tag tag-cancer">Oncology + Spine</span>
+          <span class="story-savings">Saved ₹2.5 Lakh</span>
+        </div>
+        <h3>Cancer Spread to Spine — Emergency Surgery Relieves Pain, Restores Walking</h3>
+        <div class="story-patient-info">👨 Selvaraj, 54 · Kadachanallur, Namakkal · Spinal Neurosurgery · 2025</div>
+        <p class="story-body">
+          Selvaraj was diagnosed with cancer three months earlier and was undergoing chemotherapy at Erode Government Hospital. He suddenly developed severe back pain and difficulty walking.
+          CT scan and blood tests confirmed the cancer had spread to the spine, compressing the spinal cord. Emergency neurosurgery was performed under general anaesthesia to completely remove the tumour pressing on the spinal cord.
+          Post-surgery, his back pain vanished completely and he began walking normally. He was monitored at the hospital for 15 days before discharge.
+        </p>
+      </div>
+      <div class="story-card-footer">
+        <span class="story-dept-badge">🧬 Neurosurgery + Oncology</span>
+        <div class="story-cost-saved">
+          <div class="saved-label">CMCHIS Sanctioned</div>
+          <div class="saved-val">₹30,500</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 5: Jayapal — Radical Nephrectomy / Urology -->
+    <div class="story-card fade-up" data-category="urology cancer" style="animation-delay:0.20s">
+      <div class="story-card-top">
+        <div class="story-tag-row">
+          <span class="story-tag tag-urology">Urology</span>
+          <span class="story-savings">Saved Over ₹1 Lakh</span>
+        </div>
+        <h3>Cancerous Kidney Removed in 74-Year-Old — Radical Nephrectomy Success</h3>
+        <div class="story-patient-info">👴 Jayapal, 74 · Pallipalayam, Erode · Radical Nephrectomy · July 2025</div>
+        <p class="story-body">
+          Jayapal, a 74-year-old from Pallipalayam, was admitted to the Urology Department with a cancerous tumour in his left kidney. Blood tests also revealed anaemia, so blood transfusions were given to stabilise him before surgery.
+          Dr. R. Vinothprabhu (MS, MCh Urology) and the surgical team then performed a Left Radical Nephrectomy, completely removing the affected kidney. The excised tumour was sent for histopathological examination (HPE). Jayapal was closely monitored for 10 days post-surgery and discharged in good health.
+        </p>
+      </div>
+      <div class="story-card-footer">
+        <span class="story-dept-badge">🫀 Urology</span>
+        <div class="story-cost-saved">
+          <div class="saved-label">CMCHIS Sanctioned</div>
+          <div class="saved-val">₹44,200</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story 6: Pain & Palliative — Full Width -->
+    <div class="story-card full-width fade-up" data-category="palliative cancer" style="animation-delay:0.24s">
+      <div class="story-card-top">
+        <div class="story-tag-row">
+          <span class="story-tag tag-palliative">Pain & Palliative Care</span>
+        </div>
+        <h3>6,600+ Patients Receive Specialised Pain Relief — Free — Since 2018</h3>
+        <div class="story-patient-info">🏥 Pain & Palliative Care Centre · Erode GH · Est. 2018 · Jan–Oct (Current Year)</div>
+        <p class="story-body">
+          The Pain and Palliative Care Centre at Erode Government Headquarters Hospital has been operating since 2018, providing relief to cancer patients and those with other chronic illnesses. From January to October this year alone, the centre served 5,197 cancer patients and 1,424 patients with other chronic conditions — all receiving specialised pain medications supplied free by the government.
+        </p>
+        <div class="story-stats-row">
+          <div class="story-stat-box">
+            <div class="ssb-val">5,197</div>
+            <div class="ssb-lbl">Cancer Patients Served</div>
+          </div>
+          <div class="story-stat-box">
+            <div class="ssb-val">1,424</div>
+            <div class="ssb-lbl">Chronic Disease Patients</div>
+          </div>
+          <div class="story-stat-box">
+            <div class="ssb-val">2018</div>
+            <div class="ssb-lbl">Year Established</div>
+          </div>
+        </div>
+        <p class="story-body" style="margin-top:16px">
+          Beyond pain relief, the centre treats breathlessness in heart, lung, and liver disease patients; manages insomnia and body swelling; and provides Tracheostomy, Colostomy, and Lymphoedema care. Yoga and natural medicine therapies are offered alongside counselling for the families of cancer patients.
+        </p>
+        <div class="services-chips">
+          <span class="service-chip">💊 Opioid Pain Management</span>
+          <span class="service-chip">🫁 Breathlessness Care</span>
+          <span class="service-chip">🧘 Yoga Therapy</span>
+          <span class="service-chip">🩺 Tracheostomy Care</span>
+          <span class="service-chip">🌿 Lymphoedema Treatment</span>
+          <span class="service-chip">🤝 Family Counselling</span>
+          <span class="service-chip">💉 Colostomy Care</span>
+          <span class="service-chip">😴 Sleep Disorder Management</span>
+        </div>
+      </div>
+      <div class="story-card-footer">
+        <span class="story-dept-badge">🎗️ Pain & Palliative Care</span>
+        <div class="story-cost-saved">
+          <div class="saved-label">Free Govt. Medicines</div>
+          <div class="saved-val">6,621+ Patients</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /stories-grid -->
+</div>
+
+<footer class="footer" id="footer"></footer>
+<script src="/shared.js"></script>
+<script>
+/* ── Filter logic ── */
+const pills  = document.querySelectorAll('.filter-pill');
+const cards  = document.querySelectorAll('.story-card');
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    const f = pill.dataset.filter;
+    cards.forEach(card => {
+      const cats = card.dataset.category || '';
+      card.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>

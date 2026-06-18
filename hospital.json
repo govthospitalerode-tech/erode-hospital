@@ -13,6 +13,24 @@
     "type": "District Headquarters Hospital · Tertiary Care",
     "authority": "Tamil Nadu Directorate of Medical & Rural Health Services"
   },
+   "carousel_images": [
+    {
+      "id": "img001",
+      "path": "/public/img001.jpg"
+    },
+    {
+      "id": "img002",
+      "path": "/public/img002.jpg"
+    },
+    {
+      "id": "img003",
+      "path": "/public/img003.jpg"
+    },
+    {
+      "id": "img004",
+      "path": "/public/img004.jpg"
+    }
+  ],
   "departments": [
     { "id": "gen-medicine", "name": "General Medicine", "icon": "🩺", "head": "Dr. R. Muthukumar", "beds": 80, "opd_days": "Mon–Sat", "desc": "Comprehensive diagnosis and treatment of internal medicine conditions including fever, infections, and chronic illnesses." },
     { "id": "surgery", "name": "General Surgery", "icon": "🔪", "head": "Dr. S. Annamalai", "beds": 70, "opd_days": "Mon–Sat", "desc": "All major and minor surgical procedures including laparoscopic surgeries and emergency trauma surgeries." },
