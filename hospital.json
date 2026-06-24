@@ -163,7 +163,7 @@
   "carousel_images": [
     {
       "id": "img001",
-      "path": "/public/img001.jpg",
+      "path": "public/img001.jpg",
       "alt_en": "Hospital staff and officials at Thanthai Periyar Govt Hospital Erode",
       "alt_ta": "தந்தை பெரியார் அரசு மருத்துவமனை ஈரோடு — மருத்துவக் குழு",
       "badge_en": "Our Team",
@@ -173,7 +173,7 @@
     },
     {
       "id": "img002",
-      "path": "/public/img002.jpg",
+      "path": "public/img002.jpg",
       "alt_en": "Hospital entrance and outdoor team photo",
       "alt_ta": "மருத்துவமனை நுழைவாயில் மற்றும் குழுப் படம்",
       "badge_en": "Est. 1872",
@@ -183,7 +183,7 @@
     },
     {
       "id": "img003",
-      "path": "/public/img003.jpg",
+      "path": "public/img003.jpg",
       "alt_en": "Hospital superintendent meeting with staff and public representatives",
       "alt_ta": "மருத்துவமனை கண்காணிப்பாளர் ஆலோசனை கூட்டம்",
       "badge_en": "Administration",
