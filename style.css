@@ -464,3 +464,23 @@ h1, h2, h3, h4 {
   .nav-brand-text strong { font-size: 14px; }
   .section-title { font-size: 24px; }
 }
+
+/* ── LANG TOGGLE BUTTON ──────────────────────────────────── */
+.lang-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.65);
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+}
+.lang-btn.active,
+.lang-btn:hover {
+  background: var(--secondary);
+  color: #fff;
+  border-color: var(--secondary);
+}

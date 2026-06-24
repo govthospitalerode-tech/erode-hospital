@@ -1,82 +1,1142 @@
 {
   "hospital": {
-    "name": "Thanthai Periyar Government Headquarters Hospital",
-    "short_name": "Govt Hospital Erode",
-    "established": 1955,
-    "beds": 700,
+    "name_en": "Thanthai Periyar Government Headquarters Hospital",
+    "name_ta": "தந்தை பெரியார் மாவட்ட அரசு தலைமை மருத்துவமனை",
+    "short_name_en": "Govt Hospital Erode",
+    "short_name_ta": "அரசு மருத்துவமனை ஈரோடு",
+    "tagline_en": "Erode · Tamil Nadu",
+    "tagline_ta": "ஈரோடு · தமிழ்நாடு",
+    "established": 1872,
+    "current_location_year": 1955,
+    "beds": 1085,
+    "functional_beds": 960,
     "medical_officers": 75,
-    "address": "EVN Road, Kaikolar Thottam, Erode – 638 009",
-    "phone": ["0424-2253676", "0424-2258355", "0424-2252356"],
+    "address_en": "EVN Road, Kaikolar Thottam, Erode – 638 009",
+    "address_ta": "EVN சாலை, கைக்கோளர் தோட்டம், ஈரோடு – 638 009",
+    "phone": [
+      "0424-2253676",
+      "0424-2258355"
+    ],
+    "blood_bank_phone": "0424-2252356",
     "emergency": "108",
     "email": "ghqherode@tnhealth.org",
-    "website": "http://www.tnhealth.org/erode.htm",
-    "type": "District Headquarters Hospital · Tertiary Care",
-    "authority": "Tamil Nadu Directorate of Medical & Rural Health Services"
+    "opd_hours_en": "Mon–Sat 8AM–1PM",
+    "opd_hours_ta": "திங்கள்–சனி காலை 8–பகல் 1",
+    "type_en": "Multi Super Speciality District Headquarters Hospital",
+    "type_ta": "பல்நோக்கு உயர் சிறப்பு மாவட்ட தலைமை மருத்துவமனை",
+    "authority_en": "Tamil Nadu Directorate of Medical & Rural Health Services",
+    "authority_ta": "தமிழ்நாடு மருத்துவம் மற்றும் கிராமப்புற சுகாதார சேவைகள் இயக்குநரகம்"
   },
-   "carousel_images": [
+  "notice": {
+    "en": "🏛️ Super Speciality Block inaugurated — 1,085 beds, Tamil Nadu's largest secondary care hospital. Walk-in OPD: Mon–Sat 8AM–1PM",
+    "ta": "🏛️ சூப்பர் ஸ்பெஷாலிட்டி தொகுதி திறக்கப்பட்டது — 1,085 படுக்கைகள், தமிழ்நாட்டின் மிகப்பெரிய இரண்டாம் நிலை பராமரிப்பு மருத்துவமனை. OPD: திங்கள்–சனி காலை 8–பகல் 1"
+  },
+  "hero": {
+    "badge_en": "Est. 1872 · Erode District · 1,085 Beds",
+    "badge_ta": "நி.1872 · ஈரோடு மாவட்டம் · 1,085 படுக்கைகள்",
+    "title_en": "Healthcare for <em>Every</em> Citizen of Erode",
+    "title_ta": "ஈரோட்டின் <em>ஒவ்வொரு</em> குடிமகனுக்கும் சுகாதாரம்",
+    "desc_en": "Thanthai Periyar Government Headquarters Hospital — Tamil Nadu's largest secondary care hospital, providing free, compassionate, and high-quality medical services to the people of Erode and surrounding districts since 1872.",
+    "desc_ta": "தந்தை பெரியார் அரசு தலைமை மருத்துவமனை — 1872 முதல் ஈரோடு மற்றும் சுற்றியுள்ள மாவட்டங்களின் மக்களுக்கு இலவச, அனுதாப மற்றும் உயர்தர மருத்துவ சேவைகளை வழங்கும் தமிழ்நாட்டின் மிகப்பெரிய இரண்டாம் நிலை பராமரிப்பு மருத்துவமனை.",
+    "btn_departments_en": "Explore Departments →",
+    "btn_departments_ta": "பிரிவுகளை காண்க →",
+    "btn_patients_en": "Patient Benefits",
+    "btn_patients_ta": "நோயாளி நலன்கள்",
+    "waste_notice_en": "♻️ Biomedical Waste Management is MANDATORY — View our live dashboard",
+    "waste_notice_ta": "♻️ மருத்துவ கழிவு மேலாண்மை கட்டாயம் — நேரடி டாஷ்போர்டு காண்க",
+    "glance_title_en": "Hospital at a Glance",
+    "glance_title_ta": "மருத்துவமனை ஒரு பார்வையில்",
+    "stats": [
+      {
+        "label_en": "Total Beds",
+        "label_ta": "மொத்த படுக்கைகள்",
+        "val": "1,085",
+        "unit_en": "beds",
+        "unit_ta": "படுக்கை"
+      },
+      {
+        "label_en": "Functional Beds",
+        "label_ta": "செயல்பாட்டு படுக்கைகள்",
+        "val": "960",
+        "unit_en": "beds",
+        "unit_ta": "படுக்கை"
+      },
+      {
+        "label_en": "Medical Officers",
+        "label_ta": "மருத்துவ அதிகாரிகள்",
+        "val": "75",
+        "unit_en": "+ doctors",
+        "unit_ta": "+ மருத்துவர்"
+      },
+      {
+        "label_en": "Founded",
+        "label_ta": "நிறுவப்பட்ட ஆண்டு",
+        "val": "1872",
+        "unit_en": "",
+        "unit_ta": ""
+      },
+      {
+        "label_en": "Emergency",
+        "label_ta": "அவசர சிகிச்சை",
+        "val": "24",
+        "unit_en": "/7",
+        "unit_ta": "/7"
+      }
+    ]
+  },
+  "stats_bar": [
+    {
+      "val": "1,085",
+      "unit": "+",
+      "label_en": "Beds",
+      "label_ta": "படுக்கைகள்"
+    },
+    {
+      "val": "75",
+      "unit": "+",
+      "label_en": "Medical Officers",
+      "label_ta": "மருத்துவர்கள்"
+    },
+    {
+      "val": "₹80",
+      "unit": "Cr",
+      "label_en": "Super Speciality Block",
+      "label_ta": "சூப்பர் ஸ்பெஷாலிட்டி தொகுதி"
+    },
+    {
+      "val": "24",
+      "unit": "/7",
+      "label_en": "Emergency Care",
+      "label_ta": "அவசர சிகிச்சை"
+    }
+  ],
+  "quick_links": [
+    {
+      "icon": "ℹ️",
+      "label_en": "About Us",
+      "label_ta": "எங்களைப் பற்றி",
+      "href": "/about.html"
+    },
+    {
+      "icon": "🏛️",
+      "label_en": "Departments",
+      "label_ta": "பிரிவுகள்",
+      "href": "/departments.html"
+    },
+    {
+      "icon": "📋",
+      "label_en": "Scope of Services",
+      "label_ta": "சேவை நோக்கு",
+      "href": "/scope.html"
+    },
+    {
+      "icon": "📅",
+      "label_en": "Events & Camps",
+      "label_ta": "நிகழ்வுகள்",
+      "href": "/events.html"
+    },
+    {
+      "icon": "🏆",
+      "label_en": "Achievements",
+      "label_ta": "சாதனைகள்",
+      "href": "/achievements.html"
+    },
+    {
+      "icon": "⭐",
+      "label_en": "Success Stories",
+      "label_ta": "வெற்றிக் கதைகள்",
+      "href": "/stories.html"
+    },
+    {
+      "icon": "❤️",
+      "label_en": "Patient Benefits",
+      "label_ta": "நோயாளி நலன்கள்",
+      "href": "/patients.html"
+    },
+    {
+      "icon": "♻️",
+      "label_en": "Waste Dashboard",
+      "label_ta": "கழிவு டாஷ்போர்டு",
+      "href": "/waste.html"
+    }
+  ],
+  "carousel_images": [
     {
       "id": "img001",
-      "path": "/public/img001.jpg"
+      "path": "/public/img001.jpg",
+      "alt_en": "Hospital staff and officials at Thanthai Periyar Govt Hospital Erode",
+      "alt_ta": "தந்தை பெரியார் அரசு மருத்துவமனை ஈரோடு — மருத்துவக் குழு",
+      "badge_en": "Our Team",
+      "badge_ta": "எங்கள் குழு",
+      "caption_en": "Dedicated medical staff serving the people of Erode with compassion and excellence.",
+      "caption_ta": "ஈரோடு மக்களுக்கு அர்ப்பணிப்புடன் சேவை செய்யும் மருத்துவக் குழு."
     },
     {
       "id": "img002",
-      "path": "/public/img002.jpg"
+      "path": "/public/img002.jpg",
+      "alt_en": "Hospital entrance and outdoor team photo",
+      "alt_ta": "மருத்துவமனை நுழைவாயில் மற்றும் குழுப் படம்",
+      "badge_en": "Est. 1872",
+      "badge_ta": "நி. 1872",
+      "caption_en": "Thanthai Periyar Government Headquarters Hospital — serving Erode since 1872.",
+      "caption_ta": "தந்தை பெரியார் அரசு தலைமை மருத்துவமனை — 1872 முதல் ஈரோட்டிற்கு சேவை."
     },
     {
       "id": "img003",
-      "path": "/public/img003.jpg"
-    },
-    {
-      "id": "img004",
-      "path": "/public/img004.jpg"
+      "path": "/public/img003.jpg",
+      "alt_en": "Hospital superintendent meeting with staff and public representatives",
+      "alt_ta": "மருத்துவமனை கண்காணிப்பாளர் ஆலோசனை கூட்டம்",
+      "badge_en": "Administration",
+      "badge_ta": "நிர்வாகம்",
+      "caption_en": "Hospital Superintendent Dr. R. Venkatesh in discussion with staff and public representatives.",
+      "caption_ta": "மருத்துவமனை கண்காணிப்பாளர் மரு. ஆர். வெங்கடேஷ் — ஊழியர்கள் மற்றும் பொது பிரதிநிதிகளுடன் ஆலோசனை."
     }
   ],
+  "stories_banner": {
+    "title_en": "Healthcare That Changes Lives — For Free",
+    "title_ta": "உயிரை மாற்றும் சுகாதாரம் — இலவசமாக",
+    "desc_en": "Under the Chief Minister's Comprehensive Health Insurance Scheme (CMCHIS), patients who would otherwise pay lakhs in private hospitals receive the same — often better — surgical care completely free of cost.",
+    "desc_ta": "முதலமைச்சரின் விரிவான மருத்துவ காப்பீட்டு திட்டத்தின் கீழ் (CMCHIS), தனியார் மருத்துவமனைகளில் இலட்சங்கள் செலவழிக்க வேண்டிய நோயாளிகள் இங்கே முற்றிலும் இலவசமாக சிகிச்சை பெறுகிறார்கள்.",
+    "stat1_val": "₹10L+",
+    "stat1_label_en": "Saved Across Stories",
+    "stat1_label_ta": "நோயாளிகளுக்கு சேமிப்பு",
+    "stat2_val": "6",
+    "stat2_label_en": "Case Studies",
+    "stat2_label_ta": "வழக்கு ஆய்வுகள்"
+  },
+  "stories": [
+    {
+      "id": "s001",
+      "category": "surgery",
+      "tag_en": "Plastic Surgery",
+      "tag_ta": "ஒட்டு உறுப்பு அறுவை சிகிச்சை",
+      "tag_class": "tag-surgery",
+      "savings_en": "Saved ₹80,000–1,00,000",
+      "savings_ta": "₹80,000–1,00,000 சேமிப்பு",
+      "title_en": "Conjoined Fingers Separated — 14-Year-Old Girl Regains Full Hand Function",
+      "title_ta": "இணைந்த விரல்கள் பிரிக்கப்பட்டன — 14 வயது சிறுமிக்கு கை செயல்பாடு மீட்டெடுப்பு",
+      "patient_en": "👧 Gopika, 14 · Anthiyur, Erode · Syndactyly Release · May 2025",
+      "patient_ta": "👧 கோபிகா, 14 · அந்தியூர், ஈரோடு · கை விரல் அறுவை சிகிச்சை · மே 2025",
+      "image": "/public/story-gopika.jpg",
+      "body_en": "Gopika from Anthiyur had her fingers fused together from birth — a condition called syndactyly — affecting both hands. She was admitted to the Surgery Department on 10.05.2025. On 13.05.2025, our plastic surgery team successfully separated the index and middle fingers of her right hand. The remaining fingers will be separated in a follow-up procedure after three months.",
+      "body_ta": "ஈரோடு மாவட்டம் அந்தியூர் பகுதியை சேர்ந்த கோபிகா என்கிற 14 வயது சிறுமி 10.05.2025 அன்று அறுவை சிகிச்சை பிரிவில் உள்நோயாளியாக அனுமதிக்கப்பட்டார். அவருக்கு பிறவியிலேயே இரண்டு கைகளிலும் விரல்கள் இணைந்துள்ளன. 13.05.2025 அன்று வலது கையின் ஆள்காட்டி விரலும் நடு விரலும் பிரிக்கப்பட்டன. மூன்று மாதங்கள் கழித்து மீதமுள்ள விரல்கள் பிரிக்கப்படும்.",
+      "quote_en": "A surgery that would have cost ₹80,000–1,00,000 in a private hospital was performed completely free under the CM's Comprehensive Health Insurance Scheme.",
+      "quote_ta": "தனியார் மருத்துவமனையில் ₹80,000–1,00,000 செலவாகக்கூடிய இந்த அறுவை சிகிச்சை, முதலமைச்சரின் விரிவான காப்பீட்டுத்திட்டத்தின் கீழ் முற்றிலும் இலவசமாக மேற்கொள்ளப்பட்டது.",
+      "dept_en": "🩹 Plastic Surgery",
+      "dept_ta": "🩹 ஒட்டு உறுப்பு அறுவை சிகிச்சை",
+      "saved_label_en": "Patient Savings",
+      "saved_label_ta": "நோயாளி சேமிப்பு",
+      "saved_val": "₹1,00,000"
+    },
+    {
+      "id": "s002",
+      "category": "neurology",
+      "tag_en": "Neurosurgery",
+      "tag_ta": "நரம்பியல் அறுவை சிகிச்சை",
+      "tag_class": "tag-neurology",
+      "savings_en": "Saved ₹2–3 Lakh",
+      "savings_ta": "₹2–3 இலட்சம் சேமிப்பு",
+      "title_en": "Brain Infection After Accident — 4-Hour Neurosurgery Restores Life",
+      "title_ta": "விபத்துக்கு பின் மூளையில் சீல் — 4 மணி நேர நரம்பியல் அறுவை சிகிச்சையில் உயிர் மீட்பு",
+      "patient_en": "👨 Ilayaraja, 44 · Jeevanandham Road, Erode · Neurosurgery · July 2023",
+      "patient_ta": "👨 இளையராஜா, 44 · ஜீவானந்தம் ரோடு, ஈரோடு · நரம்பியல் அறுவை சிகிச்சை · ஜூலை 2023",
+      "image": "/public/story-ilayaraja.jpg",
+      "body_en": "Ilayaraja had sustained a head injury in an accident two years prior and undergone surgery at Salem Government Medical College. After six months of recurring pus and fever at the surgical site, scans revealed the skull bone had developed osteomyelitis — pressing on the brain. On 12.07.2023, Dr. Sayi Kali Sanjeev (Neurosurgery), Dr. Ramya Kannan (Anaesthesia), and nurse Vaidehi performed a 4-hour surgery, removing the infected bone and clearing the pus. He was discharged after 5 days, fully recovered.",
+      "body_ta": "இளையராஜா 2 வருடங்களுக்கு முன் விபத்தில் தலையில் காயமடைந்து சேலம் அரசு மருத்துவ கல்லூரியில் அறுவை சிகிச்சை செய்துகொண்டார். 6 மாதங்களாக அறுவை செய்த இடத்தில் சீல் வந்து காய்ச்சல் ஏற்பட்டது. ஸ்கேனில் தலை எலும்பு சீல் பிடித்து மூளையை அழுத்துவது தெரிந்தது. 12.07.2023 அன்று மரு.சாயீ காளி சஞ்சீவ், மரு.ரம்யா கண்ணன் மற்றும் செவிலியர் வைதேகி குழு 4 மணி நேரம் அறுவை செய்து பாதிக்கப்பட்ட எலும்பை அகற்றி சீலை நீக்கினார்கள். 5 நாட்கள் கழித்து நலமாக வீடு திரும்பினார்.",
+      "quote_en": "",
+      "quote_ta": "",
+      "dept_en": "🧬 Neurosurgery",
+      "dept_ta": "🧬 நரம்பியல் அறுவை சிகிச்சை",
+      "saved_label_en": "CMCHIS Sanctioned",
+      "saved_label_ta": "CMCHIS ஒதுக்கீடு",
+      "saved_val": "₹77,000"
+    },
+    {
+      "id": "s003",
+      "category": "surgery",
+      "tag_en": "Emergency Surgery",
+      "tag_ta": "அவசர அறுவை சிகிச்சை",
+      "tag_class": "tag-surgery",
+      "savings_en": "Saved ₹5 Lakh",
+      "savings_ta": "₹5 இலட்சம் சேமிப்பு",
+      "title_en": "Severed Hand Reattached in 9-Hour Emergency Surgery After Rail Accident",
+      "title_ta": "இரயில் விபத்தில் துண்டிக்கப்பட்ட கை — 9 மணி நேர அவசர அறுவை சிகிச்சையில் இணைப்பு",
+      "patient_en": "👨 Mahalingam, 52 · P.B.Agragharam, Erode · Hand Replantation · May 2024",
+      "patient_ta": "👨 மகாலிங்கம், 52 · பி.பி.அக்ரஹாரம், ஈரோடு · கை இணைப்பு அறுவை சிகிச்சை · மே 2024",
+      "image": "/public/story-mahalingam.jpg",
+      "body_en": "Mahalingam met with an accident on 30.05.2024, losing his right hand completely. He was rushed to the Emergency Department at 9:30 PM. The surgical team decided on emergency replantation. He was taken to the OT at 12:30 AM, anaesthesia at 1:30 AM, and Dr. Gowdham led a 9-hour marathon surgery with 3 nursing staff — successfully reattaching the severed hand. He was monitored for 15 days and discharged with full arm function restored.",
+      "body_ta": "மகாலிங்கம் 30.05.2024 அன்று விபத்தில் வலது கை முழுவதும் துண்டிக்கப்பட்டு அன்றிரவு 9.30 மணிக்கு அவசர சிகிச்சை பிரிவில் அனுமதிக்கப்பட்டார். அதிகாலை 12.30 மணிக்கு அறுவை அரங்கிற்கு அழைத்துச் சென்று 1.30 மணிக்கு மயக்க மருந்து செலுத்தப்பட்டது. மரு.கவுதம் தலைமையில் 3 செவிலியர்களுடன் 9 மணி நேரம் அறுவை செய்து துண்டிக்கப்பட்ட கை வெற்றிகரமாக இணைக்கப்பட்டது. 15 நாட்கள் கண்காணிப்பில் வைத்து வீட்டிற்கு அனுப்பப்பட்டார்.",
+      "quote_en": "",
+      "quote_ta": "",
+      "dept_en": "🔪 Surgery",
+      "dept_ta": "🔪 அறுவை சிகிச்சை",
+      "saved_label_en": "CMCHIS Sanctioned",
+      "saved_label_ta": "CMCHIS ஒதுக்கீடு",
+      "saved_val": "₹59,300"
+    },
+    {
+      "id": "s004",
+      "category": "cancer neurology",
+      "tag_en": "Oncology + Spine",
+      "tag_ta": "புற்றுநோய் + முதுகெலும்பு",
+      "tag_class": "tag-cancer",
+      "savings_en": "Saved ₹2.5 Lakh",
+      "savings_ta": "₹2.5 இலட்சம் சேமிப்பு",
+      "title_en": "Cancer Spread to Spine — Emergency Surgery Relieves Pain, Restores Walking",
+      "title_ta": "புற்றுநோய் முதுகெலும்பிற்கு பரவியது — அவசர அறுவை சிகிச்சையில் வலி நீங்கி நடை மீண்டது",
+      "patient_en": "👨 Selvaraj, 54 · Kadachanallur, Namakkal · Spinal Neurosurgery · 2025",
+      "patient_ta": "👨 செல்வராஜ், 54 · காடச்சநல்லூர், நாமக்கல் · முதுகெலும்பு நரம்பியல் அறுவை · 2025",
+      "image": "/public/story-selvaraj.jpg",
+      "body_en": "Selvaraj was diagnosed with cancer three months earlier and was undergoing chemotherapy at Erode GH. He suddenly developed severe back pain and difficulty walking. CT scan confirmed the cancer had spread to the spine, compressing the spinal cord. Emergency neurosurgery under general anaesthesia completely removed the tumour. Post-surgery, his back pain vanished and he began walking normally. He was monitored for 15 days before discharge.",
+      "body_ta": "செல்வராஜுக்கு மூன்று மாதங்களுக்கு முன்னர் புற்றுநோய் கண்டறியப்பட்டு ஈரோடு அரசு மருத்துவமனையில் கீமோதெரபி சிகிச்சை அளிக்கப்பட்டு வந்தார். திடீரென்று தீவிர முதுகு வலி மற்றும் நடக்க சிரமம் ஏற்பட்டது. CT ஸ்கேனில் புற்றுநோய் முதுகெலும்பிற்கு பரவி நரம்பு தண்டை அழுத்துவது தெரிந்தது. முழு மயக்க மருந்தில் அவசர அறுவை செய்து கட்டி முழுவதும் நீக்கப்பட்டது. அறுவைக்கு பின் முதுகு வலி முற்றிலும் குறைந்து சீராக நடக்கத் தொடங்கினார். 15 நாட்கள் கண்காணித்து வீட்டிற்கு அனுப்பப்பட்டார்.",
+      "quote_en": "",
+      "quote_ta": "",
+      "dept_en": "🧬 Neurosurgery + Oncology",
+      "dept_ta": "🧬 நரம்பியல் + புற்றுநோய் சிகிச்சை",
+      "saved_label_en": "CMCHIS Sanctioned",
+      "saved_label_ta": "CMCHIS ஒதுக்கீடு",
+      "saved_val": "₹30,500"
+    },
+    {
+      "id": "s005",
+      "category": "urology cancer",
+      "tag_en": "Urology",
+      "tag_ta": "சிறுநீரக அறுவை சிகிச்சை",
+      "tag_class": "tag-urology",
+      "savings_en": "Saved Over ₹1 Lakh",
+      "savings_ta": "₹1 இலட்சத்திற்கு மேல் சேமிப்பு",
+      "title_en": "Cancerous Kidney Removed in 74-Year-Old — Radical Nephrectomy Success",
+      "title_ta": "74 வயதில் புற்றுநோய் சிறுநீரகம் அகற்றல் — ரேடிக்கல் நெஃப்ரெக்டமி வெற்றி",
+      "patient_en": "👴 Jayapal, 74 · Pallipalayam, Erode · Radical Nephrectomy · July 2025",
+      "patient_ta": "👴 ஜெயபால், 74 · பள்ளிபாளையம், ஈரோடு · சிறுநீரக நீக்க அறுவை · ஜூலை 2025",
+      "image": "/public/story-jayapal.jpg",
+      "body_en": "Jayapal, 74, was admitted with a cancerous tumour in his left kidney. Blood tests also revealed anaemia, so blood transfusions were given to stabilise him. Dr. R. Vinothprabhu (MS, MCh Urology) and the surgical team performed a Left Radical Nephrectomy, completely removing the affected kidney. The tumour was sent for histopathological examination. Jayapal was monitored for 10 days post-surgery and discharged in good health.",
+      "body_ta": "பள்ளிபாளையம் பகுதியை சேர்ந்த ஜெயபால் (வயது 74) இடது சிறுநீரகத்தில் புற்றுநோய் கட்டியுடன் அனுமதிக்கப்பட்டார். இரத்த பரிசோதனையில் இரத்தசோகை இருந்தது தெரிந்தது. இரத்தம் செலுத்தி உடல்நிலை சரிசெய்த பின், மரு.ர.வினோத்பிரபு MS MCh Urology தலைமையில் LEFT RADICAL NEPHRECTOMY அறுவை செய்து பாதிக்கப்பட்ட சிறுநீரகம் அகற்றப்பட்டது. அறுவைக்கு பின் 10 நாட்கள் கண்காணித்து நலமாக வீட்டிற்கு அனுப்பப்பட்டார்.",
+      "quote_en": "",
+      "quote_ta": "",
+      "dept_en": "🫀 Urology",
+      "dept_ta": "🫀 சிறுநீரக சிகிச்சை",
+      "saved_label_en": "CMCHIS Sanctioned",
+      "saved_label_ta": "CMCHIS ஒதுக்கீடு",
+      "saved_val": "₹44,200"
+    },
+    {
+      "id": "s006",
+      "category": "palliative cancer",
+      "tag_en": "Pain & Palliative Care",
+      "tag_ta": "வலி நிவாரண சிகிச்சை",
+      "tag_class": "tag-palliative",
+      "savings_en": "",
+      "savings_ta": "",
+      "title_en": "6,600+ Patients Receive Specialised Pain Relief — Free — Since 2018",
+      "title_ta": "2018 முதல் 6,600+ நோயாளிகளுக்கு சிறப்பு வலி நிவாரணம் — இலவசமாக",
+      "patient_en": "🏥 Pain & Palliative Care Centre · Erode GH · Est. 2018 · Jan–Oct (Current Year)",
+      "patient_ta": "🏥 வலி நிவாரண சிகிச்சை மையம் · ஈரோடு அரசு மருத்துவமனை · நி.2018",
+      "image": "",
+      "full_width": true,
+      "body_en": "The Pain and Palliative Care Centre at Erode Government Headquarters Hospital has been operating since 2018, providing relief to cancer patients and those with other chronic illnesses. From January to October this year alone, the centre served 5,197 cancer patients and 1,424 patients with other chronic conditions — all receiving specialised pain medications supplied free by the government.",
+      "body_ta": "ஈரோடு மாவட்ட அரசு தலைமை மருத்துவமனையில் புற்றுநோய் மற்றும் நாள்பட்ட நோய்க்கான வலிநிவாரண சிகிச்சை மையம் 2018 லிருந்து செயல்பட்டுவருகிறது. இந்த வருடம் ஜனவரி முதல் அக்டோபர் வரை 5,197 புற்றுநோய் நோயாளிகளும் 1,424 நாள்பட்ட நோயாளிகளும் பயனடைந்துள்ளனர். அவர்களுக்கு சிறப்பு வலி மாத்திரை அரசாங்கம் மூலமாக இலவசமாக வழங்கப்படுகிறது.",
+      "body2_en": "Beyond pain relief, the centre treats breathlessness in heart, lung, and liver disease patients; manages insomnia and body swelling; and provides Tracheostomy, Colostomy, and Lymphoedema care. Yoga and natural medicine therapies are offered alongside counselling for the families of cancer patients.",
+      "body2_ta": "வலி நிவாரணம் மட்டுமின்றி, மூச்சுத்திணறல் உள்ள இருதய, நுரையீரல், கல்லீரல் நோயாளிகளுக்கும், தூக்கமின்மை, உடல் வீக்கம் உள்ளவர்களுக்கும் சிகிச்சை அளிக்கப்படுகிறது. Tracheostomy, Colostomy மற்றும் Lymphoedema சிகிச்சையும், யோகா, இயற்கை மருத்துவமும், புற்றுநோயாளிகளின் உறவினர்களுக்கு ஆலோசனையும் வழங்கப்படுகிறது.",
+      "stats": [
+        {
+          "val": "5,197",
+          "label_en": "Cancer Patients Served",
+          "label_ta": "புற்றுநோய் நோயாளிகள்"
+        },
+        {
+          "val": "1,424",
+          "label_en": "Chronic Disease Patients",
+          "label_ta": "நாள்பட்ட நோயாளிகள்"
+        },
+        {
+          "val": "2018",
+          "label_en": "Year Established",
+          "label_ta": "தொடங்கிய ஆண்டு"
+        }
+      ],
+      "services": [
+        {
+          "icon": "💊",
+          "label_en": "Opioid Pain Management",
+          "label_ta": "சிறப்பு வலி மாத்திரை"
+        },
+        {
+          "icon": "🫁",
+          "label_en": "Breathlessness Care",
+          "label_ta": "மூச்சுத்திணறல் சிகிச்சை"
+        },
+        {
+          "icon": "🧘",
+          "label_en": "Yoga Therapy",
+          "label_ta": "யோகா சிகிச்சை"
+        },
+        {
+          "icon": "🩺",
+          "label_en": "Tracheostomy Care",
+          "label_ta": "Tracheostomy சிகிச்சை"
+        },
+        {
+          "icon": "🌿",
+          "label_en": "Lymphoedema Treatment",
+          "label_ta": "Lymphoedema சிகிச்சை"
+        },
+        {
+          "icon": "🤝",
+          "label_en": "Family Counselling",
+          "label_ta": "குடும்ப ஆலோசனை"
+        },
+        {
+          "icon": "💉",
+          "label_en": "Colostomy Care",
+          "label_ta": "Colostomy சிகிச்சை"
+        },
+        {
+          "icon": "😴",
+          "label_en": "Sleep Disorder Management",
+          "label_ta": "தூக்கமின்மை சிகிச்சை"
+        }
+      ],
+      "dept_en": "🎗️ Pain & Palliative Care",
+      "dept_ta": "🎗️ வலி நிவாரண சிகிச்சை",
+      "saved_label_en": "Free Govt. Medicines",
+      "saved_label_ta": "இலவச அரசு மருந்துகள்",
+      "saved_val_en": "6,621+ Patients",
+      "saved_val_ta": "6,621+ நோயாளிகள்"
+    }
+  ],
+  "nav": {
+    "links": [
+      {
+        "label_en": "Home",
+        "label_ta": "முகப்பு",
+        "href": "/index.html"
+      },
+      {
+        "label_en": "About",
+        "label_ta": "பற்றி",
+        "href": "/about.html"
+      },
+      {
+        "label_en": "Departments",
+        "label_ta": "பிரிவுகள்",
+        "href": "/departments.html"
+      },
+      {
+        "label_en": "Scope of Services",
+        "label_ta": "சேவை நோக்கு",
+        "href": "/scope.html"
+      },
+      {
+        "label_en": "Patient Benefits",
+        "label_ta": "நோயாளி நலன்கள்",
+        "href": "/patients.html"
+      },
+      {
+        "label_en": "Stories",
+        "label_ta": "வெற்றிக் கதைகள்",
+        "href": "/stories.html"
+      }
+    ],
+    "cta_en": "Waste Dashboard",
+    "cta_ta": "கழிவு டாஷ்போர்டு",
+    "cta_href": "/waste.html",
+    "mobile_extra": [
+      {
+        "icon": "📅",
+        "label_en": "Events",
+        "label_ta": "நிகழ்வுகள்",
+        "href": "/events.html"
+      },
+      {
+        "icon": "🏆",
+        "label_en": "Achievements",
+        "label_ta": "சாதனைகள்",
+        "href": "/achievements.html"
+      }
+    ]
+  },
+  "filter_labels": {
+    "all_en": "All Stories",
+    "all_ta": "அனைத்து கதைகள்",
+    "surgery_en": "Surgery",
+    "surgery_ta": "அறுவை சிகிச்சை",
+    "neurology_en": "Neurology",
+    "neurology_ta": "நரம்பியல்",
+    "cancer_en": "Cancer / Oncology",
+    "cancer_ta": "புற்றுநோய்",
+    "palliative_en": "Pain & Palliative",
+    "palliative_ta": "வலி நிவாரணம்",
+    "urology_en": "Urology",
+    "urology_ta": "சிறுநீரக சிகிச்சை"
+  },
   "departments": [
-    { "id": "gen-medicine", "name": "General Medicine", "icon": "🩺", "head": "Dr. R. Muthukumar", "beds": 80, "opd_days": "Mon–Sat", "desc": "Comprehensive diagnosis and treatment of internal medicine conditions including fever, infections, and chronic illnesses." },
-    { "id": "surgery", "name": "General Surgery", "icon": "🔪", "head": "Dr. S. Annamalai", "beds": 70, "opd_days": "Mon–Sat", "desc": "All major and minor surgical procedures including laparoscopic surgeries and emergency trauma surgeries." },
-    { "id": "paediatrics", "name": "Paediatrics", "icon": "👶", "head": "Dr. P. Kavitha", "beds": 60, "opd_days": "Mon–Sat", "desc": "Complete child healthcare from newborn to adolescence, including NICU and well-baby clinics." },
-    { "id": "obgyn", "name": "Obstetrics & Gynaecology", "icon": "🤱", "head": "Dr. M. Rajalakshmi", "beds": 80, "opd_days": "Mon–Sat", "desc": "Antenatal care, safe deliveries, high-risk pregnancy management, and gynaecological procedures." },
-    { "id": "ortho", "name": "Orthopaedics", "icon": "🦴", "head": "Dr. K. Senthilkumar", "beds": 50, "opd_days": "Mon–Fri", "desc": "Bone fracture management, joint replacements, spine surgeries, and physiotherapy." },
-    { "id": "ophthalmology", "name": "Ophthalmology", "icon": "👁️", "head": "Dr. N. Subramanian", "beds": 30, "opd_days": "Mon–Sat", "desc": "Cataract surgeries, glaucoma treatment, retinal services, and low vision rehabilitation." },
-    { "id": "ent", "name": "ENT", "icon": "👂", "head": "Dr. A. Priya", "beds": 25, "opd_days": "Mon–Fri", "desc": "Ear, nose, and throat surgeries including tonsillectomy, septoplasty, and hearing restoration." },
-    { "id": "psychiatry", "name": "Psychiatry", "icon": "🧠", "head": "Dr. V. Chandrasekaran", "beds": 30, "opd_days": "Mon–Sat", "desc": "Mental health counselling, de-addiction services, and inpatient psychiatric care." },
-    { "id": "dermatology", "name": "Dermatology", "icon": "🧴", "head": "Dr. L. Bhuvana", "beds": 20, "opd_days": "Mon–Fri", "desc": "Skin disease management, leprosy control, and STD/HIV treatment services." },
-    { "id": "radiology", "name": "Radiology", "icon": "🩻", "head": "Dr. T. Vijayakumar", "beds": 0, "opd_days": "Mon–Sat", "desc": "X-Ray, Ultrasound, CT Scan, and MRI services — all free of cost for in-patients." },
-    { "id": "cardiology", "name": "Cardiology", "icon": "❤️", "head": "Dr. R. Saravanan", "beds": 40, "opd_days": "Mon–Sat", "desc": "ECG, Echo, angiography, and catheterisation lab for cardiac conditions under super-speciality upgrade." },
-    { "id": "neurology", "name": "Neurology", "icon": "🧬", "head": "Dr. S. Prabhakaran", "beds": 35, "opd_days": "Mon–Fri", "desc": "Stroke management, epilepsy treatment, EEG, and neuro-rehabilitation services." },
-    { "id": "casualty", "name": "Casualty & Emergency", "icon": "🚑", "head": "Dr. M. Aravind", "beds": 30, "opd_days": "24/7", "desc": "Round-the-clock emergency care, trauma management, and mass casualty handling." },
-    { "id": "blood-bank", "name": "Blood Bank", "icon": "🩸", "head": "Dr. K. Usha", "beds": 0, "opd_days": "24/7", "desc": "Licensed blood bank with component separation, cross-matching, and 24/7 supply." }
+    {
+      "id": "gen-medicine",
+      "name_en": "General Medicine",
+      "name_ta": "சிறப்பு மருத்துவம்",
+      "icon": "🩺",
+      "head": "Dr. R. Muthukumar",
+      "beds": 80,
+      "opd_days_en": "Mon–Sat",
+      "opd_days_ta": "திங்கள்–சனி",
+      "desc_en": "Comprehensive diagnosis and treatment of internal medicine conditions.",
+      "desc_ta": "உட்புற மருத்துவ நிலைகளின் விரிவான கண்டறிதல் மற்றும் சிகிச்சை."
+    },
+    {
+      "id": "surgery",
+      "name_en": "General Surgery",
+      "name_ta": "அறுவை சிகிச்சை",
+      "icon": "🔪",
+      "head": "Dr. S. Annamalai",
+      "beds": 70,
+      "opd_days_en": "Mon–Sat",
+      "opd_days_ta": "திங்கள்–சனி",
+      "desc_en": "All major and minor surgical procedures including laparoscopic surgeries.",
+      "desc_ta": "முக்கிய மற்றும் சிறிய அறுவை சிகிச்சைகள் உள்பட லேப்ரோஸ்கோபிக் அறுவைகள்."
+    },
+    {
+      "id": "paediatrics",
+      "name_en": "Paediatrics",
+      "name_ta": "குழந்தை நலம்",
+      "icon": "👶",
+      "head": "Dr. P. Kavitha",
+      "beds": 60,
+      "opd_days_en": "Mon–Sat",
+      "opd_days_ta": "திங்கள்–சனி",
+      "desc_en": "Complete child healthcare from newborn to adolescence.",
+      "desc_ta": "பிறந்த குழந்தை முதல் பருவகாலம் வரை முழுமையான குழந்தை சுகாதாரம்."
+    },
+    {
+      "id": "obgyn",
+      "name_en": "Obstetrics & Gynaecology",
+      "name_ta": "பெண்கள் மருத்துவம்",
+      "icon": "🤱",
+      "head": "Dr. M. Rajalakshmi",
+      "beds": 80,
+      "opd_days_en": "Mon–Sat",
+      "opd_days_ta": "திங்கள்–சனி",
+      "desc_en": "Antenatal care, safe deliveries, and gynaecological procedures.",
+      "desc_ta": "பிரசவத்திற்கு முந்தைய பராமரிப்பு, பாதுகாப்பான பிரசவம், மகளிர் அறுவைகள்."
+    },
+    {
+      "id": "ortho",
+      "name_en": "Orthopaedics",
+      "name_ta": "எலும்பு முறிவு சிகிச்சை",
+      "icon": "🦴",
+      "head": "Dr. K. Senthilkumar",
+      "beds": 50,
+      "opd_days_en": "Mon–Fri",
+      "opd_days_ta": "திங்கள்–வெள்ளி",
+      "desc_en": "Bone fracture management, joint replacements, and physiotherapy.",
+      "desc_ta": "எலும்பு முறிவு மேலாண்மை, மூட்டு மாற்று சிகிச்சை, இயன்முறை மருத்துவம்."
+    },
+    {
+      "id": "ophthalmology",
+      "name_en": "Ophthalmology",
+      "name_ta": "கண் மருத்துவம்",
+      "icon": "👁️",
+      "head": "Dr. N. Subramanian",
+      "beds": 30,
+      "opd_days_en": "Mon–Sat",
+      "opd_days_ta": "திங்கள்–சனி",
+      "desc_en": "Cataract surgeries, glaucoma treatment, and retinal services.",
+      "desc_ta": "கண்புரை அறுவை, கண்ணழுத்த சிகிச்சை, விழித்திரை சேவைகள்."
+    },
+    {
+      "id": "ent",
+      "name_en": "ENT",
+      "name_ta": "காது மூக்கு தொண்டை",
+      "icon": "👂",
+      "head": "Dr. A. Priya",
+      "beds": 25,
+      "opd_days_en": "Mon–Fri",
+      "opd_days_ta": "திங்கள்–வெள்ளி",
+      "desc_en": "Ear, nose, and throat surgeries.",
+      "desc_ta": "காது, மூக்கு மற்றும் தொண்டை அறுவை சிகிச்சைகள்."
+    },
+    {
+      "id": "psychiatry",
+      "name_en": "Psychiatry",
+      "name_ta": "மன நல சிகிச்சை",
+      "icon": "🧠",
+      "head": "Dr. V. Chandrasekaran",
+      "beds": 30,
+      "opd_days_en": "Mon–Sat",
+      "opd_days_ta": "திங்கள்–சனி",
+      "desc_en": "Mental health counselling, de-addiction, and inpatient psychiatric care.",
+      "desc_ta": "மன நல ஆலோசனை, போதை நீக்கம், உள்நோயாளி மனநல சிகிச்சை."
+    },
+    {
+      "id": "casualty",
+      "name_en": "Casualty & Emergency",
+      "name_ta": "விபத்து மற்றும் அவசர சிகிச்சை",
+      "icon": "🚑",
+      "head": "Dr. M. Aravind",
+      "beds": 30,
+      "opd_days_en": "24/7",
+      "opd_days_ta": "24/7",
+      "desc_en": "Round-the-clock emergency care and trauma management.",
+      "desc_ta": "சுற்று நேர அவசர சிகிச்சை மற்றும் காயம் மேலாண்மை."
+    },
+    {
+      "id": "blood-bank",
+      "name_en": "Blood Bank",
+      "name_ta": "இரத்த வங்கி",
+      "icon": "🩸",
+      "head": "Dr. K. Usha",
+      "beds": 0,
+      "opd_days_en": "24/7",
+      "opd_days_ta": "24/7",
+      "desc_en": "Licensed blood bank with component separation and 24/7 supply.",
+      "desc_ta": "அங்கீகரிக்கப்பட்ட இரத்த வங்கி — 24/7 இரத்த வழங்கல்."
+    }
   ],
   "events": [
-    { "id": "e001", "title": "Free Cataract Surgery Camp", "date": "2024-03-15", "category": "Surgery Camp", "icon": "👁️", "beneficiaries": 214, "location": "Main OPD Block", "desc": "A three-day free cataract surgery camp was conducted in collaboration with Aravind Eye Hospital. 214 patients from BPL families received free surgeries and post-operative care including free spectacles.", "outcome": "214 surgeries, 0 complications, 100% vision restoration" },
-    { "id": "e002", "title": "Maternal & Child Health Drive", "date": "2024-02-10", "category": "Maternal Health", "icon": "🤱", "beneficiaries": 380, "location": "Gynaecology Ward", "desc": "Week-long drive offering free antenatal check-ups, iron and folic acid distribution, nutrition counselling, and breastfeeding awareness for pregnant women across Erode taluk.", "outcome": "380 mothers screened, 12 high-risk cases identified and managed" },
-    { "id": "e003", "title": "Diabetic & Hypertension Screening", "date": "2024-01-20", "category": "Screening", "icon": "🩺", "beneficiaries": 650, "location": "OPD Block & 8 Rural PHCs", "desc": "Mass screening programme for diabetes and hypertension extended to 8 rural Primary Health Centres. Free HbA1c and lipid profile tests were offered along with lifestyle counselling.", "outcome": "650 screened, 87 new diabetics detected, 43 started on medication" },
-    { "id": "e004", "title": "Blood Donation Camp", "date": "2023-12-28", "category": "Donation Drive", "icon": "🩸", "beneficiaries": 186, "location": "Hospital Campus", "desc": "Annual blood donation camp organised in partnership with local engineering and arts colleges. The blood bank collected 186 units which replenished critical reserves.", "outcome": "186 units collected, all screened and certified" },
-    { "id": "e005", "title": "Mental Health Awareness Week", "date": "2023-10-10", "category": "Awareness", "icon": "🧠", "beneficiaries": 420, "location": "Psychiatry Dept & 5 Schools", "desc": "Conducted during World Mental Health Day. Free counselling, stress management workshops, and anti-stigma awareness programmes were held across 5 government schools.", "outcome": "420 participants, 28 referred for outpatient counselling" },
-    { "id": "e006", "title": "School Health Programme", "date": "2023-08-15", "category": "School Health", "icon": "🏫", "beneficiaries": 1540, "location": "15 Govt Schools, Erode", "desc": "Comprehensive health check-ups for students in 15 government schools covering vision, dental, hearing, nutrition assessment, and deworming. All findings recorded and shared with parents.", "outcome": "1540 children screened, 230 spectacles distributed free" },
-    { "id": "e007", "title": "COVID-19 Vaccination Drive", "date": "2021-05-01", "category": "Vaccination", "icon": "💉", "beneficiaries": 12000, "location": "Hospital & 20 Sub-centres", "desc": "Erode Govt Hospital served as the nodal centre for COVID-19 vaccination in the district, managing distribution, cold chain, and administration across 20 sub-centres.", "outcome": "12,000 doses administered in Phase 1" },
-    { "id": "e008", "title": "Free Knee Replacement Camp", "date": "2023-06-05", "category": "Surgery Camp", "icon": "🦴", "beneficiaries": 30, "location": "Orthopaedics Dept", "desc": "Under the CMCHIS scheme, 30 BPL patients above 55 years received free total knee replacement surgeries with full post-op rehabilitation and physiotherapy sessions.", "outcome": "30 successful replacements, zero infection rate" },
-    { "id": "e009", "title": "Janani Suraksha Yojana Drive", "date": "2024-04-01", "category": "Maternal Health", "icon": "👼", "beneficiaries": 560, "location": "Maternity Ward", "desc": "Quarterly distribution of JSY cash incentives and institutional delivery registrations. Health workers from 40 villages attended orientation on the scheme and referral pathways.", "outcome": "560 beneficiaries enrolled, 40 ASHA workers trained" },
-    { "id": "e010", "title": "Anti-Tobacco Awareness Camp", "date": "2023-05-31", "category": "Awareness", "icon": "🚭", "beneficiaries": 300, "location": "OPD Block & Bus Stand", "desc": "World No Tobacco Day event with de-addiction counselling, nicotine replacement therapy distribution, and awareness drives at key public places in Erode city.", "outcome": "300 reached, 45 enrolled in de-addiction programme" }
+    {
+      "id": "e001",
+      "title_en": "Free Cataract Surgery Camp",
+      "title_ta": "இலவச கண்புரை அறுவை சிகிச்சை முகாம்",
+      "date": "2024-03-15",
+      "category_en": "Surgery Camp",
+      "category_ta": "அறுவை முகாம்",
+      "icon": "👁️",
+      "beneficiaries": 214,
+      "location_en": "Main OPD Block",
+      "location_ta": "முதன்மை OPD தொகுதி",
+      "desc_en": "Three-day free cataract surgery camp in collaboration with Aravind Eye Hospital. 214 patients from BPL families received free surgeries and post-operative care.",
+      "desc_ta": "அரவிந்த் கண் மருத்துவமனையுடன் இணைந்து மூன்று நாள் இலவச கண்புரை அறுவை முகாம். 214 BPL குடும்பங்களின் நோயாளிகளுக்கு இலவச அறுவை செய்யப்பட்டது."
+    },
+    {
+      "id": "e002",
+      "title_en": "Maternal & Child Health Drive",
+      "title_ta": "தாய் மற்றும் குழந்தை சுகாதார இயக்கம்",
+      "date": "2024-02-10",
+      "category_en": "Maternal Health",
+      "category_ta": "தாய் சுகாதாரம்",
+      "icon": "🤱",
+      "beneficiaries": 380,
+      "location_en": "Gynaecology Ward",
+      "location_ta": "மகளிர் பிரிவு",
+      "desc_en": "Week-long drive offering free antenatal check-ups, iron distribution, nutrition counselling, and breastfeeding awareness.",
+      "desc_ta": "கர்ப்பிணி பரிசோதனை, இரும்புச்சத்து வழங்கல், உணவு ஆலோசனை மற்றும் தாய்ப்பால் விழிப்புணர்வு கொண்ட ஒரு வார இயக்கம்."
+    },
+    {
+      "id": "e003",
+      "title_en": "Diabetic & Hypertension Screening",
+      "title_ta": "நீரிழிவு மற்றும் உயர் இரத்த அழுத்த பரிசோதனை",
+      "date": "2024-01-20",
+      "category_en": "Screening",
+      "category_ta": "பரிசோதனை",
+      "icon": "🩺",
+      "beneficiaries": 650,
+      "location_en": "OPD & 8 PHCs",
+      "location_ta": "OPD மற்றும் 8 PHC",
+      "desc_en": "Mass screening extended to 8 rural PHCs with free HbA1c and lipid profile tests and lifestyle counselling.",
+      "desc_ta": "8 கிராமப்புற PHCகளில் நீட்டிக்கப்பட்ட பரிசோதனை — இலவச HbA1c மற்றும் லிபிட் பரிசோதனை, வாழ்க்கை முறை ஆலோசனை."
+    },
+    {
+      "id": "e004",
+      "title_en": "Blood Donation Camp",
+      "title_ta": "இரத்த தான முகாம்",
+      "date": "2023-12-28",
+      "category_en": "Donation Drive",
+      "category_ta": "தான இயக்கம்",
+      "icon": "🩸",
+      "beneficiaries": 186,
+      "location_en": "Hospital Campus",
+      "location_ta": "மருத்துவமனை வளாகம்",
+      "desc_en": "Annual blood donation camp with local colleges. 186 units collected to replenish critical reserves.",
+      "desc_ta": "உள்ளூர் கல்லூரிகளுடன் இணைந்த வருடாந்திர இரத்த தான முகாம். 186 யூனிட் இரத்தம் சேகரிக்கப்பட்டது."
+    },
+    {
+      "id": "e005",
+      "title_en": "Mental Health Awareness Week",
+      "title_ta": "மன நல விழிப்புணர்வு வாரம்",
+      "date": "2023-10-10",
+      "category_en": "Awareness",
+      "category_ta": "விழிப்புணர்வு",
+      "icon": "🧠",
+      "beneficiaries": 420,
+      "location_en": "Psychiatry & 5 Schools",
+      "location_ta": "மன நல பிரிவு மற்றும் 5 பள்ளிகள்",
+      "desc_en": "Free counselling, stress management workshops, and anti-stigma awareness across 5 government schools.",
+      "desc_ta": "5 அரசு பள்ளிகளில் இலவச ஆலோசனை, மன அழுத்த மேலாண்மை பட்டறை, களங்க எதிர்ப்பு விழிப்புணர்வு."
+    }
   ],
   "achievements": [
-    { "id": "a001", "year": 2024, "title": "Super Speciality Hospital Upgrade", "category": "Infrastructure", "icon": "🏛️", "desc": "A B+G+8 storeyed super speciality block of 2,32,602 sq ft inaugurated by Chief Minister M.K. Stalin, built at ₹67.03 crore. Equipped with ₹11.02 crore worth of specialised medical equipment.", "impact": "Serving 6 additional super-speciality departments" },
-    { "id": "a002", "year": 2024, "title": "20-Bed Pay Ward Launched", "category": "Patient Care", "icon": "🛏️", "desc": "Semi-private pay ward with enhanced amenities introduced to accommodate patients preferring privacy while core services remain free for underprivileged.", "impact": "Additional revenue channelled back to hospital services" },
-    { "id": "a003", "year": 2020, "title": "Designated COVID-19 Speciality Hospital", "category": "Public Health", "icon": "🦠", "desc": "In April 2020, during the Tamil Nadu COVID-19 pandemic response, the hospital was converted into a COVID Speciality Hospital with 184 dedicated isolation beds, serving the entire Erode district.", "impact": "184 isolation beds, thousands of COVID patients treated" },
-    { "id": "a004", "year": 2019, "title": "CMCHIS Nodal Centre — ₹5L Coverage", "category": "Patient Benefits", "icon": "🏦", "desc": "Designated as a nodal centre for Chief Minister's Comprehensive Health Insurance Scheme offering cashless treatment up to ₹5 lakhs for BPL families across 1000+ procedures.", "impact": "Thousands of BPL families receive free tertiary care annually" },
-    { "id": "a005", "year": 2022, "title": "Zero Maternal Mortality Quarter", "category": "Clinical Excellence", "icon": "🏆", "desc": "Achieved zero maternal mortality for two consecutive quarters in FY 2022–23, recognised by the Tamil Nadu Directorate of Health Services for excellence in obstetric care.", "impact": "Zero maternal deaths — Q2 and Q3 of FY 2022–23" },
-    { "id": "a006", "year": 2023, "title": "ISO-Compliant Biomedical Waste Management", "category": "Environment", "icon": "♻️", "desc": "Hospital's biomedical waste management system overhauled to comply with BMW Management Rules 2016. Colour-coded segregation, GPS-tracked pickup, and digital waste logs implemented.", "impact": "100% compliant waste disposal; zero open burning incidents" },
-    { "id": "a007", "year": 2021, "title": "Tele-Medicine OPD for Rural Patients", "category": "Innovation", "icon": "💻", "desc": "Launched tele-medicine consultations for patients in remote parts of Erode district, reducing travel burden for elderly and differently-abled patients.", "impact": "2,000+ remote consultations conducted annually" },
-    { "id": "a008", "year": 2023, "title": "Neonatal ICU Expansion", "category": "Infrastructure", "icon": "👶", "desc": "NICU expanded from 12 to 28 beds with advanced warmers, ventilators, and pulse oximeters, drastically improving neonatal survival rates for premature babies.", "impact": "Neonatal survival rate improved from 72% to 89%" }
+    {
+      "id": "a001",
+      "year": 2024,
+      "title_en": "Super Speciality Hospital Upgrade",
+      "title_ta": "சூப்பர் ஸ்பெஷாலிட்டி மருத்துவமனை தரமுயர்வு",
+      "category_en": "Infrastructure",
+      "category_ta": "உள்கட்டமைப்பு",
+      "icon": "🏛️",
+      "desc_en": "B+G+8 storeyed super speciality block of 2,32,602 sq ft inaugurated by CM M.K. Stalin, built at ₹80.81 crore.",
+      "desc_ta": "₹80.81 கோடி செலவில் 2,32,602 சதுர அடி B+G+8 மாடி சூப்பர் ஸ்பெஷாலிட்டி தொகுதி — முதலமைச்சர் ம.க.ஸ்டாலினால் திறக்கப்பட்டது."
+    },
+    {
+      "id": "a002",
+      "year": 2024,
+      "title_en": "20-Bed Pay Ward Launched",
+      "title_ta": "20 படுக்கை கட்டண வார்டு தொடக்கம்",
+      "category_en": "Patient Care",
+      "category_ta": "நோயாளி பராமரிப்பு",
+      "icon": "🛏️",
+      "desc_en": "Semi-private pay ward with AC, TV, and attached bathroom introduced in Sep 2024.",
+      "desc_ta": "செப்டம்பர் 2024 இல் AC, TV மற்றும் இணைக்கப்பட்ட குளியலறை கொண்ட அரை-தனியார் கட்டண வார்டு தொடங்கப்பட்டது."
+    },
+    {
+      "id": "a003",
+      "year": 2020,
+      "title_en": "Designated COVID-19 Speciality Hospital",
+      "title_ta": "COVID-19 சிறப்பு மருத்துவமனையாக நியமனம்",
+      "category_en": "Public Health",
+      "category_ta": "பொது சுகாதாரம்",
+      "icon": "🦠",
+      "desc_en": "In April 2020, converted to a COVID Speciality Hospital with 184 dedicated isolation beds.",
+      "desc_ta": "ஏப்ரல் 2020 இல் 184 தனிமைப்படுத்தல் படுக்கைகளுடன் COVID சிறப்பு மருத்துவமனையாக மாற்றப்பட்டது."
+    },
+    {
+      "id": "a004",
+      "year": 2022,
+      "title_en": "Zero Maternal Mortality Quarter",
+      "title_ta": "பூஜ்ய தாய் இறப்பு காலாண்டு",
+      "category_en": "Clinical Excellence",
+      "category_ta": "மருத்துவ சிறப்பு",
+      "icon": "🏆",
+      "desc_en": "Achieved zero maternal mortality for two consecutive quarters in FY 2022–23.",
+      "desc_ta": "2022–23 நிதியாண்டில் இரண்டு தொடர்ச்சியான காலாண்டுகளில் தாய் இறப்பு பூஜ்யமாக சாதனை."
+    }
   ],
+  "waste": {
+    "mandatory_notice_en": "⚠️ Biomedical Waste Management is MANDATORY under BMW Rules 2016",
+    "mandatory_notice_ta": "⚠️ BMW விதிகள் 2016 இன் கீழ் மருத்துவ கழிவு மேலாண்மை கட்டாயம்",
+    "categories": [
+      {
+        "id": "yellow",
+        "color": "#f59e0b",
+        "label_en": "Yellow Bag — Anatomical & Infectious",
+        "label_ta": "மஞ்சள் பை — உடல் உறுப்பு & தொற்று கழிவு"
+      },
+      {
+        "id": "red",
+        "color": "#ef4444",
+        "label_en": "Red Bag — Contaminated Recyclables",
+        "label_ta": "சிவப்பு பை — மாசுபட்ட மறுசுழற்சி கழிவு"
+      },
+      {
+        "id": "blue",
+        "color": "#3b82f6",
+        "label_en": "Blue Container — Sharps & Glassware",
+        "label_ta": "நீல கொள்கலன் — கூர்மையான & கண்ணாடி கழிவு"
+      },
+      {
+        "id": "white",
+        "color": "#6b7280",
+        "label_en": "White Translucent — Sharps",
+        "label_ta": "வெள்ளை — கூர்மையான கழிவு"
+      },
+      {
+        "id": "black",
+        "color": "#1f2937",
+        "label_en": "Black Bag — General Solid Waste",
+        "label_ta": "கருப்பு பை — பொது திட கழிவு"
+      }
+    ]
+  },
   "schemes": [
-    { "name": "CM's Comprehensive Health Insurance Scheme (CMCHIS)", "icon": "🏦", "coverage": "Up to ₹5 Lakhs", "who": "BPL families", "desc": "Cashless treatment for 1,056 listed procedures at government and empanelled private hospitals." },
-    { "name": "Free Medicines Scheme", "icon": "💊", "coverage": "All OPD & IPD", "who": "All patients", "desc": "Over 250 essential medicines available free at all counters — no prescription charge." },
-    { "name": "Free Diagnostics", "icon": "🔬", "coverage": "Lab, X-Ray, ECG, USG, CT", "who": "All in-patients", "desc": "Full diagnostic panel free for all admitted patients. OPD patients get free basic tests." },
-    { "name": "Janani Suraksha Yojana (JSY)", "icon": "🤰", "coverage": "₹1,400 cash + free delivery", "who": "All pregnant women", "desc": "Cash incentive for institutional delivery plus free antenatal care, iron supplements, and post-natal check-up." },
-    { "name": "108 Emergency Ambulance", "icon": "🚑", "coverage": "24/7 Free", "who": "All citizens", "desc": "Fully equipped emergency ambulance service free of charge. Call 108 from anywhere in Erode district." },
-    { "name": "Child Immunisation Programme", "icon": "👶", "coverage": "0–5 years — All vaccines", "who": "All children", "desc": "Complete Universal Immunisation Programme vaccines — BCG, OPV, Hepatitis B, DPT, MMR — free of cost." },
-    { "name": "National TB Elimination Programme", "icon": "🫁", "coverage": "Full treatment + nutrition support", "who": "TB patients", "desc": "Free DOTS therapy, Nikshay Poshan Yojana ₹500/month nutrition support, and travel reimbursement." },
-    { "name": "Diabetic & Hypertension Control", "icon": "🩺", "coverage": "Free medicines + monitoring", "who": "All NCD patients", "desc": "Free HbA1c tests, anti-diabetic and anti-hypertensive medicines, and regular monitoring under NPCDCS." }
-  ]
+    {
+      "name_en": "CM's Comprehensive Health Insurance (CMCHIS)",
+      "name_ta": "முதலமைச்சரின் விரிவான மருத்துவ காப்பீட்டு திட்டம்",
+      "icon": "🏦",
+      "coverage_en": "Up to ₹5 Lakhs",
+      "coverage_ta": "₹5 இலட்சம் வரை",
+      "who_en": "BPL families",
+      "who_ta": "BPL குடும்பங்கள்",
+      "desc_en": "Cashless treatment for 1,056 listed procedures.",
+      "desc_ta": "1,056 பட்டியலிடப்பட்ட சிகிச்சைகளுக்கு பணமில்லா சிகிச்சை."
+    },
+    {
+      "name_en": "Free Medicines Scheme",
+      "name_ta": "இலவச மருந்து திட்டம்",
+      "icon": "💊",
+      "coverage_en": "All OPD & IPD",
+      "coverage_ta": "அனைத்து OPD & IPD",
+      "who_en": "All patients",
+      "who_ta": "அனைத்து நோயாளிகள்",
+      "desc_en": "Over 250 essential medicines available free at all counters.",
+      "desc_ta": "250க்கும் மேற்பட்ட அத்தியாவசிய மருந்துகள் அனைத்து கவுண்டரிலும் இலவசம்."
+    },
+    {
+      "name_en": "108 Emergency Ambulance",
+      "name_ta": "108 அவசர ஆம்புலன்ஸ்",
+      "icon": "🚑",
+      "coverage_en": "24/7 Free",
+      "coverage_ta": "24/7 இலவசம்",
+      "who_en": "All citizens",
+      "who_ta": "அனைத்து குடிமக்கள்",
+      "desc_en": "Fully equipped emergency ambulance free of charge.",
+      "desc_ta": "முழுமையாக சித்தப்படுத்தப்பட்ட இலவச அவசர ஆம்புலன்ஸ்."
+    }
+  ],
+  "scope": {
+    "intro": {
+      "title_ta": "தந்தை பெரியார் மாவட்ட அரசு தலைமை பல்நோக்கு உயர் சிகிச்சை மருத்துவமனை & DNB பட்ட மேற்படிப்பு பயிற்சி நிறுவனம், ஈரோடு",
+      "title_en": "Thanthai Periyar District Government Headquarters Multi-Speciality Hospital & DNB Postgraduate Training Institute, Erode",
+      "desc_en": "Providing comprehensive 24-hour, general, super-speciality, and allied services entirely free of cost to the people of Erode and surrounding districts.",
+      "desc_ta": "ஈரோடு மற்றும் சுற்றியுள்ள மாவட்டங்களின் மக்களுக்கு 24 மணிநேர, பொது, உயர் சிறப்பு மற்றும் இணை சேவைகளை முற்றிலும் இலவசமாக வழங்குகிறது."
+    },
+    "page_hero": {
+      "title_en": "Scope of Services",
+      "title_ta": "சேவை நோக்கு",
+      "desc_en": "Complete range of medical, surgical, diagnostic and allied services offered at Thanthai Periyar Government Headquarters Hospital, Erode.",
+      "desc_ta": "தந்தை பெரியார் அரசு தலைமை மருத்துவமனை, ஈரோடில் வழங்கப்படும் மருத்துவ, அறுவை சிகிச்சை, கண்டறிதல் மற்றும் இணை சேவைகளின் முழு பட்டியல்.",
+      "breadcrumb_en": "Scope of Services",
+      "breadcrumb_ta": "சேவை நோக்கு"
+    },
+    "nonscope_note": {
+      "en": "The following services are not currently available at this hospital. Patients requiring these specialities will be referred to appropriate Government Medical College Hospitals or tertiary centres. All referrals and transport are facilitated free of cost.",
+      "ta": "கீழ்க்கண்ட சேவைகள் தற்போது இந்த மருத்துவமனையில் கிடைக்கவில்லை. இந்த சிறப்பு சிகிச்சைகள் தேவைப்படும் நோயாளிகள் தகுந்த அரசு மருத்துவ கல்லூரி மருத்துவமனைகளுக்கு பரிந்துரைக்கப்படுவார்கள். அனைத்து பரிந்துரை மற்றும் போக்குவரத்தும் இலவசமாக வழங்கப்படும்."
+    },
+    "sections": [
+      {
+        "id": "24hr",
+        "icon": "🕐",
+        "icon_class": "icon-24hr",
+        "dot_class": "dot-24hr",
+        "title_en": "24-Hour Services",
+        "title_ta": "24 மணிநேர சேவைகள்",
+        "subtitle_en": "Round-the-clock emergency and critical care",
+        "subtitle_ta": "அவசர மற்றும் தீவிர சிகிச்சை — எப்போதும்",
+        "grid": "three-col",
+        "services": [
+          {
+            "en": "Accident & Emergency",
+            "ta": "விபத்து மற்றும் அவசர சிகிச்சை பிரிவு"
+          },
+          {
+            "en": "Toxicology Management",
+            "ta": "விஷமுறிவு சிகிச்சை மையம்"
+          },
+          {
+            "en": "Laboratory",
+            "ta": "பரிசோதனை மையம்"
+          },
+          {
+            "en": "Pharmacy",
+            "ta": "மருந்தகம்"
+          },
+          {
+            "en": "X-Ray Unit",
+            "ta": "நுண்கதிர் பகுதி"
+          },
+          {
+            "en": "ECG",
+            "ta": "இதய மின் ஒலி அலை வரைவு"
+          },
+          {
+            "en": "CT Scan",
+            "ta": "கம்பியூட்டர் தொமோகிரபி"
+          },
+          {
+            "en": "CeMONC — Maternity",
+            "ta": "மகப்பேறு பிரிவு"
+          },
+          {
+            "en": "SNCU — Sick Newborn Care",
+            "ta": "பச்சிளங்குழந்தைகள் பிரிவு"
+          },
+          {
+            "en": "Blood Centre",
+            "ta": "இரத்த வங்கி"
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "icon": "🏛️",
+        "icon_class": "icon-general",
+        "dot_class": "dot-general",
+        "title_en": "General Departments",
+        "title_ta": "பொது பிரிவுகள்",
+        "subtitle_en": "Core clinical and surgical services",
+        "subtitle_ta": "முக்கிய மருத்துவ மற்றும் அறுவை சிகிச்சை சேவைகள்",
+        "grid": "three-col",
+        "services": [
+          {
+            "en": "General Medicine",
+            "ta": "சிறப்பு மருத்துவம்"
+          },
+          {
+            "en": "General Surgery",
+            "ta": "அறுவை சிகிச்சை"
+          },
+          {
+            "en": "Orthopaedics",
+            "ta": "எலும்பு முறிவு சிகிச்சை"
+          },
+          {
+            "en": "Paediatrics",
+            "ta": "குழந்தை நலம்"
+          },
+          {
+            "en": "Skin & Venereology",
+            "ta": "தோல் மற்றும் பாலியல் நோய்"
+          },
+          {
+            "en": "Obstetrics & Gynaecology",
+            "ta": "பெண்கள் மருத்துவம்"
+          },
+          {
+            "en": "Family Planning",
+            "ta": "குடும்பநலம்"
+          },
+          {
+            "en": "ENT",
+            "ta": "காது, மூக்கு, தொண்டை சிகிச்சை"
+          },
+          {
+            "en": "Ophthalmology",
+            "ta": "கண் மருத்துவம்"
+          },
+          {
+            "en": "Dental",
+            "ta": "பல் மருத்துவம்"
+          },
+          {
+            "en": "Psychiatry",
+            "ta": "மன நல சிகிச்சை"
+          },
+          {
+            "en": "Non-Communicable Disease (NCD)",
+            "ta": "தொற்றா நோய் சிகிச்சை"
+          },
+          {
+            "en": "Geriatrics",
+            "ta": "முதியோர் நலம்"
+          },
+          {
+            "en": "Pain Management & Palliative Care",
+            "ta": "வலி மேலாண்மை மற்றும் நலவாழ்வு சிகிச்சை"
+          },
+          {
+            "en": "Leprosy",
+            "ta": "தொழு நோய் சிகிச்சை"
+          },
+          {
+            "en": "Tuberculosis (DOTS)",
+            "ta": "காசநோய் சிகிச்சை"
+          },
+          {
+            "en": "Immunisation",
+            "ta": "தடுப்பூசி சேவை"
+          },
+          {
+            "en": "Foot Care",
+            "ta": "பாதம் பாதுகாப்பு சிகிச்சை"
+          },
+          {
+            "en": "Adolescent Friendly Clinic",
+            "ta": "வளர் இளம் பருவ சிகிச்சை"
+          }
+        ]
+      },
+      {
+        "id": "super",
+        "icon": "⭐",
+        "icon_class": "icon-super",
+        "dot_class": "dot-super",
+        "title_en": "Super Speciality Services",
+        "title_ta": "உயர் சிறப்பு சேவைகள்",
+        "subtitle_en": "Available in the new 8-storey Super Speciality Block (2024)",
+        "subtitle_ta": "புதிய 8 மாடி சூப்பர் ஸ்பெஷாலிட்டி தொகுதியில் கிடைக்கும் (2024)",
+        "grid": "two-col",
+        "services": [
+          {
+            "en": "Urology",
+            "ta": "சிறுநீரக அறுவை சிகிச்சை"
+          },
+          {
+            "en": "Paediatric Surgery",
+            "ta": "குழந்தைகள் அறுவை சிகிச்சை"
+          },
+          {
+            "en": "Neurosurgery",
+            "ta": "மூளை நரம்பியல் அறுவை சிகிச்சை"
+          },
+          {
+            "en": "Neurology",
+            "ta": "நரம்பியல் மருத்துவம்"
+          },
+          {
+            "en": "Cardiology",
+            "ta": "இருதய மருத்துவம்"
+          },
+          {
+            "en": "Medical Oncology",
+            "ta": "புற்றுநோய் மருத்துவம்"
+          },
+          {
+            "en": "Plastic Surgery",
+            "ta": "ஒட்டு உறுப்பு அறுவை சிகிச்சை"
+          },
+          {
+            "en": "Rheumatology",
+            "ta": "மூட நீக்கியல் சிகிச்சை"
+          }
+        ]
+      },
+      {
+        "id": "invest",
+        "icon": "🔬",
+        "icon_class": "icon-invest",
+        "dot_class": "dot-invest",
+        "title_en": "Investigation Services",
+        "title_ta": "ஆய்வக சேவைகள்",
+        "subtitle_en": "Diagnostic imaging and laboratory — free for all in-patients",
+        "subtitle_ta": "கண்டறிதல் ஸ்கேன் மற்றும் பரிசோதனை — உள்நோயாளிகளுக்கு இலவசம்",
+        "grid": "three-col",
+        "services": [
+          {
+            "en": "X-Ray",
+            "ta": "நுண்கதிர்"
+          },
+          {
+            "en": "Mammogram",
+            "ta": "மார்பக ஸ்கேன்"
+          },
+          {
+            "en": "MRI",
+            "ta": "எம். ஆர். ஐ"
+          },
+          {
+            "en": "CT Scan",
+            "ta": "சி.டி ஸ்கேன்"
+          },
+          {
+            "en": "Doppler Scan",
+            "ta": "ரத்த நாள ஸ்கேன்"
+          },
+          {
+            "en": "ECHO Cardiogram",
+            "ta": "இருதய ஸ்கேன்"
+          },
+          {
+            "en": "Ultrasound",
+            "ta": "ஊடொலி"
+          },
+          {
+            "en": "Treadmill Test (TMT)",
+            "ta": "திரேட்மில்"
+          },
+          {
+            "en": "Nerve Conduction Study",
+            "ta": "நரம்பு ஆய்வு"
+          },
+          {
+            "en": "Colposcopy",
+            "ta": "கருப்பைவாய் பரிசோதனை"
+          },
+          {
+            "en": "Hormonal Assays",
+            "ta": "சிறப்பு ரத்த பரிசோதனைகள்"
+          }
+        ]
+      },
+      {
+        "id": "allied",
+        "icon": "🤝",
+        "icon_class": "icon-allied",
+        "dot_class": "dot-allied",
+        "title_en": "Allied Services",
+        "title_ta": "இணை சேவைகள்",
+        "subtitle_en": "Support and therapeutic services",
+        "subtitle_ta": "ஆதரவு மற்றும் சிகிச்சை சேவைகள்",
+        "grid": "two-col",
+        "services": [
+          {
+            "en": "Medicine Dispensary — 250+ free medicines",
+            "ta": "மருந்தகம் — 250+ இலவச மருந்துகள்"
+          },
+          {
+            "en": "Physiotherapy",
+            "ta": "இயன்முறை மருத்துவம்"
+          },
+          {
+            "en": "Counselling Services",
+            "ta": "ஆற்றுப்படுத்துதல்"
+          },
+          {
+            "en": "AYUSH (Siddha, Homeopathy, Ayurveda)",
+            "ta": "சித்தா, ஹோமியோபதி மற்றும் ஆயுர்வேத மருத்துவம்"
+          }
+        ]
+      },
+      {
+        "id": "aux",
+        "icon": "⚙️",
+        "icon_class": "icon-aux",
+        "dot_class": "dot-aux",
+        "title_en": "Auxiliary Services",
+        "title_ta": "துணை சேவைகள்",
+        "subtitle_en": "Infrastructure and operational support",
+        "subtitle_ta": "உள்கட்டமைப்பு மற்றும் செயல்பாட்டு ஆதரவு",
+        "grid": "three-col",
+        "services": [
+          {
+            "en": "CSSD — Central Sterile Supply",
+            "ta": "மைய நுண்கிருமி நீக்கும் மையம்"
+          },
+          {
+            "en": "Medical Record Room",
+            "ta": "மருத்துவ பதிவேடு அறை"
+          },
+          {
+            "en": "Kitchen / Diet Services",
+            "ta": "சமையல் பிரிவு — உள்நோயாளிகளுக்கு இலவசம்"
+          },
+          {
+            "en": "Steam Laundry",
+            "ta": "நீராவி சலவையகம்"
+          },
+          {
+            "en": "Sewage Treatment Plant",
+            "ta": "கழிவு நீர் சுத்திகரிப்பு பிரிவு"
+          },
+          {
+            "en": "Outsourced Support (OHSS)",
+            "ta": "புற ஆதார பணியாளர்கள்"
+          }
+        ]
+      },
+      {
+        "id": "nonscope",
+        "icon": "ℹ️",
+        "icon_class": "icon-nonscope",
+        "dot_class": "dot-nonscope",
+        "title_en": "Services Not Available",
+        "title_ta": "வழங்க இயலா சிகிச்சைகள்",
+        "subtitle_en": "Conditions referred to higher centres",
+        "subtitle_ta": "உயர் மருத்துவமனைகளுக்கு பரிந்துரைக்கப்படும் சேவைகள்",
+        "grid": "two-col",
+        "is_nonscope": true,
+        "services": [
+          {
+            "en": "Medical & Surgical Gastroenterology",
+            "ta": "மருத்துவ மற்றும் கல்லீரல் அறுவை சிகிச்சை"
+          },
+          {
+            "en": "Haematology",
+            "ta": "ரத்த நோய்கள் சிகிச்சை"
+          },
+          {
+            "en": "Endocrinology",
+            "ta": "நாளமில்லா சுரப்பிகள் சிகிச்சை"
+          }
+        ]
+      }
+    ]
+  }
 }

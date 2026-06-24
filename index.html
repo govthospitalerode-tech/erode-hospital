@@ -8,189 +8,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/style.css"/>
   <style>
-    /* ── IMAGE CAROUSEL ──────────────────────────── */
-    .carousel {
-      position: relative;
-      width: 100%;
-      height: 520px;
-      overflow: hidden;
-      background: #0d2b45;
-    }
-    .carousel-track {
-      display: flex;
-      height: 100%;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .carousel-slide {
-      min-width: 100%;
-      height: 100%;
-      position: relative;
-      flex-shrink: 0;
-    }
-    .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-    .carousel-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(5, 30, 52, 0.85) 0%,
-        rgba(5, 30, 52, 0.35) 50%,
-        rgba(5, 30, 52, 0.1) 100%
-      );
-    }
-    .carousel-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 28px 48px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .carousel-caption-text { flex: 1; }
-    .carousel-badge {
-      display: inline-block;
-      background: var(--secondary, #e67e22);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      padding: 4px 12px;
-      border-radius: 3px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-    .carousel-caption p {
-      color: #fff;
-      font-size: 18px;
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.45;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-      max-width: 640px;
-    }
-    .carousel-counter {
-      font-size: 13px;
-      color: rgba(255,255,255,0.6);
-      font-weight: 600;
-      white-space: nowrap;
-      align-self: flex-end;
-      padding-bottom: 4px;
-    }
-    .carousel-counter em {
-      font-style: normal;
-      color: var(--secondary, #e67e22);
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #fff;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      transition: background 0.2s;
-      backdrop-filter: blur(4px);
-    }
-    .carousel-btn:hover { background: rgba(255,255,255,0.25); }
-    .carousel-btn.prev { left: 20px; }
-    .carousel-btn.next { right: 20px; }
-
-    .carousel-dots {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 10;
-    }
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.4);
-      cursor: pointer;
-      border: none;
-      padding: 0;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .carousel-dot.active {
-      background: var(--secondary, #e67e22);
-      transform: scale(1.3);
-    }
-
-    .carousel-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #0d2b45 0%, #1a5276 100%);
-      font-size: 64px;
-    }
+    /* ── CAROUSEL ── */
+    .carousel { position:relative; width:100%; height:520px; overflow:hidden; background:#0d2b45; }
+    .carousel-track { display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+    .carousel-slide { min-width:100%; height:100%; position:relative; flex-shrink:0; }
+    .carousel-slide img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+    .carousel-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(5,30,52,0.85) 0%,rgba(5,30,52,0.35) 50%,rgba(5,30,52,0.1) 100%); }
+    .carousel-caption { position:absolute; bottom:0; left:0; right:0; padding:28px 48px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
+    .carousel-caption-text { flex:1; }
+    .carousel-badge { display:inline-block; background:var(--secondary,#e67e22); color:#fff; font-size:10px; font-weight:800; letter-spacing:2px; padding:4px 12px; border-radius:3px; margin-bottom:10px; text-transform:uppercase; }
+    .carousel-caption p { color:#fff; font-size:18px; font-weight:500; margin:0; line-height:1.45; text-shadow:0 1px 4px rgba(0,0,0,0.4); max-width:640px; }
+    .carousel-counter { font-size:13px; color:rgba(255,255,255,0.6); font-weight:600; white-space:nowrap; align-self:flex-end; padding-bottom:4px; }
+    .carousel-counter em { font-style:normal; color:var(--secondary,#e67e22); font-size:18px; font-weight:700; }
+    .carousel-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); color:#fff; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:20px; display:flex; align-items:center; justify-content:center; z-index:10; transition:background 0.2s; backdrop-filter:blur(4px); }
+    .carousel-btn:hover { background:rgba(255,255,255,0.25); }
+    .carousel-btn.prev { left:20px; } .carousel-btn.next { right:20px; }
+    .carousel-dots { position:absolute; bottom:16px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10; }
+    .carousel-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.4); cursor:pointer; border:none; padding:0; transition:background 0.2s,transform 0.2s; }
+    .carousel-dot.active { background:var(--secondary,#e67e22); transform:scale(1.3); }
+    .carousel-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#0d2b45 0%,#1a5276 100%); font-size:64px; }
 
     /* ── HERO ── */
-    .hero {
-      background: linear-gradient(135deg, var(--primary-dk) 0%, var(--primary) 55%, #1a5276 100%);
-      padding: 100px 48px 80px;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content:''; position:absolute; top:-100px; right:-100px;
-      width:600px; height:600px; border-radius:50%;
-      background: radial-gradient(circle, rgba(230,126,34,0.12) 0%, transparent 65%);
-      pointer-events:none;
-    }
-    .hero::after {
-      content:''; position:absolute; bottom:-80px; left:10%;
-      width:400px; height:400px; border-radius:50%;
-      background: radial-gradient(circle, rgba(26,82,118,0.4) 0%, transparent 70%);
-      pointer-events:none;
-    }
-    .hero-inner {
-      max-width:1100px; margin:0 auto;
-      display:grid; grid-template-columns:1fr 340px; gap:60px;
-      align-items:center; position:relative; z-index:1;
-    }
-    .hero-badge {
-      display:inline-block;
-      background:rgba(230,126,34,0.2); border:1px solid var(--secondary);
-      color:var(--secondary-lt); font-size:11px; letter-spacing:2px;
-      text-transform:uppercase; padding:6px 16px; border-radius:20px;
-      margin-bottom:22px; font-weight:600;
-    }
-    .hero h1 {
-      font-size:clamp(32px,5vw,58px); color:var(--white); line-height:1.15; margin-bottom:18px;
-    }
+    .hero { background:linear-gradient(135deg,var(--primary-dk) 0%,var(--primary) 55%,#1a5276 100%); padding:100px 48px 80px; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; top:-100px; right:-100px; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(230,126,34,0.12) 0%,transparent 65%); pointer-events:none; }
+    .hero::after  { content:''; position:absolute; bottom:-80px; left:10%; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle,rgba(26,82,118,0.4) 0%,transparent 70%); pointer-events:none; }
+    .hero-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 340px; gap:60px; align-items:center; position:relative; z-index:1; }
+    .hero-badge { display:inline-block; background:rgba(230,126,34,0.2); border:1px solid var(--secondary); color:var(--secondary-lt); font-size:11px; letter-spacing:2px; text-transform:uppercase; padding:6px 16px; border-radius:20px; margin-bottom:22px; font-weight:600; }
+    .hero h1 { font-size:clamp(32px,5vw,58px); color:var(--white); line-height:1.15; margin-bottom:18px; }
     .hero h1 em { font-style:normal; color:var(--secondary-lt); }
-    .hero p { color:rgba(255,255,255,0.7); font-size:16px; max-width:520px; line-height:1.75; margin-bottom:36px; }
-    .hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
-    .hero-card {
-      background:rgba(255,255,255,0.07);
-      border:1px solid rgba(255,255,255,0.15);
-      border-radius:var(--radius-lg); padding:32px 28px;
-      backdrop-filter:blur(8px);
+    .hero p { color:rgba(255,255,255,0.7); font-size:16px; max-width:520px; line-height:1.75; margin-bottom:24px; }
+    .hero-actions { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:20px; }
+
+    /* Waste mandatory CTA */
+    .waste-mandatory-bar {
+      display:inline-flex; align-items:center; gap:12px;
+      background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.5);
+      border-radius:8px; padding:10px 16px; margin-top:4px;
+      font-size:13px; font-weight:600; color:#fca5a5;
+      text-decoration:none; transition:background 0.2s;
     }
+    .waste-mandatory-bar:hover { background:rgba(239,68,68,0.25); color:#fff; }
+    .waste-mandatory-tag { background:#ef4444; color:#fff; font-size:9px; font-weight:800; letter-spacing:1.5px; padding:2px 7px; border-radius:3px; text-transform:uppercase; }
+
+    .hero-card { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:var(--radius-lg); padding:32px 28px; backdrop-filter:blur(8px); }
     .hero-card h3 { font-family:'DM Sans',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--secondary-lt); margin-bottom:20px; }
     .hero-stat-row { display:flex; flex-direction:column; gap:16px; }
     .hero-stat { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
@@ -201,28 +61,24 @@
 
     /* ── STATS BAR ── */
     .stats-bar { background:var(--primary); }
-    .stats-bar-inner {
-      max-width:1100px; margin:0 auto;
-      display:grid; grid-template-columns:repeat(4,1fr);
-      border-left:1px solid rgba(255,255,255,0.08);
-    }
+    .stats-bar-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); border-left:1px solid rgba(255,255,255,0.08); }
     .stat-box { border-right:1px solid rgba(255,255,255,0.08); }
 
     /* ── QUICK LINKS ── */
     .quick-links { background:var(--white); padding:56px 48px; }
     .quick-links-inner { max-width:1100px; margin:0 auto; }
-    .ql-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:16px; }
-    .ql-card {
-      background:var(--cream); border:1px solid var(--border); border-radius:var(--radius-md);
-      padding:24px 16px; text-align:center; cursor:pointer;
-      transition:var(--transition); text-decoration:none; display:block;
-    }
+    .ql-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .ql-card { background:var(--cream); border:1px solid var(--border); border-radius:var(--radius-md); padding:24px 16px; text-align:center; cursor:pointer; transition:var(--transition); text-decoration:none; display:block; }
     .ql-card:hover { background:var(--primary); border-color:var(--primary); transform:translateY(-3px); box-shadow:var(--shadow-md); }
-    .ql-card:hover .ql-icon, .ql-card:hover .ql-label { color:var(--white); }
+    .ql-card:hover .ql-icon,.ql-card:hover .ql-label { color:var(--white); }
     .ql-icon { font-size:30px; margin-bottom:10px; display:block; }
     .ql-label { font-size:13px; font-weight:600; color:var(--primary); }
+    /* highlight waste card */
+    .ql-card.ql-waste { border-color:#ef4444; background:#fff5f5; }
+    .ql-card.ql-waste .ql-label { color:#dc2626; }
+    .ql-card.ql-waste:hover { background:#dc2626; border-color:#dc2626; }
 
-    /* ── FEATURED EVENTS ── */
+    /* ── EVENTS ── */
     .events-preview { padding:80px 48px; background:var(--cream); }
     .events-preview-inner { max-width:1100px; margin:0 auto; }
     .events-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
@@ -230,7 +86,6 @@
     .event-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
     .event-card-top { padding:24px 24px 0; }
     .event-card-icon { font-size:32px; margin-bottom:12px; }
-    .event-card-cat { margin-bottom:10px; }
     .event-card-title { font-size:18px; margin-bottom:8px; }
     .event-card-date { font-size:12px; color:var(--muted); margin-bottom:12px; font-weight:500; }
     .event-card-desc { font-size:13.5px; color:var(--muted); line-height:1.65; }
@@ -238,27 +93,21 @@
     .event-beneficiaries { font-size:13px; font-weight:600; color:var(--teal); }
     .section-cta { text-align:center; margin-top:40px; }
 
-    /* ── SUCCESS STORIES STRIP ── */
+    /* ── STORIES STRIP ── */
     .stories-strip { padding:80px 48px; background:var(--white); }
     .stories-strip-inner { max-width:1100px; margin:0 auto; }
     .stories-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:32px; }
-    .story-mini {
-      border-radius:var(--radius-md); border:1px solid var(--border);
-      overflow:hidden; transition:var(--transition); text-decoration:none; display:block;
-      background:var(--white);
-    }
+    .story-mini { border-radius:var(--radius-md); border:1px solid var(--border); overflow:hidden; transition:var(--transition); text-decoration:none; display:block; background:var(--white); }
     .story-mini:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
-    .story-mini-header {
-      padding:20px 20px 14px;
-      background:linear-gradient(135deg,var(--primary) 0%,#1a5276 100%);
-    }
+    .story-mini-header { padding:20px 20px 14px; background:linear-gradient(135deg,var(--primary) 0%,#1a5276 100%); }
+    .story-mini-img { width:100%; height:140px; object-fit:cover; display:block; }
     .story-mini-tag { font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--secondary-lt); margin-bottom:6px; }
     .story-mini-title { font-size:15px; color:#fff; font-family:'Playfair Display',serif; line-height:1.35; }
     .story-mini-body { padding:16px 20px; }
     .story-mini-patient { font-size:12px; color:var(--muted); font-weight:600; margin-bottom:8px; }
     .story-mini-saving { font-size:13px; font-weight:700; color:#059669; }
 
-    /* ── ACHIEVEMENT HIGHLIGHT ── */
+    /* ── ACHIEVEMENTS ── */
     .achievement-highlight { padding:80px 48px; background:var(--cream); }
     .achievement-highlight-inner { max-width:1100px; margin:0 auto; }
     .ach-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
@@ -275,20 +124,24 @@
     .notice-label { background:var(--white); color:var(--secondary-dk); font-size:10px; font-weight:800; letter-spacing:2px; padding:3px 10px; border-radius:3px; white-space:nowrap; }
     .notice-text { font-size:13px; color:var(--white); font-weight:500; }
 
+    /* ── LANG BTN (in nav-top-right) ── */
+    .lang-btn { background:none; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.65); font-size:12px; padding:2px 10px; border-radius:4px; cursor:pointer; transition:all 0.2s; font-family:'DM Sans',sans-serif; }
+    .lang-btn.active, .lang-btn:hover { background:var(--secondary); color:#fff; border-color:var(--secondary); }
+
     @media(max-width:1024px) {
       .hero-inner { grid-template-columns:1fr; }
       .hero-card { display:none; }
-      .ql-grid { grid-template-columns:repeat(3,1fr); }
+      .ql-grid { grid-template-columns:repeat(4,1fr); }
       .stats-bar-inner { grid-template-columns:repeat(2,1fr); }
     }
     @media(max-width:768px) {
-      .carousel { height: 280px; }
-      .carousel-caption { padding: 16px 20px; }
-      .carousel-caption p { font-size: 14px; }
+      .carousel { height:280px; }
+      .carousel-caption { padding:16px 20px; }
+      .carousel-caption p { font-size:14px; }
       .hero { padding:60px 20px 48px; }
-      .events-grid, .ach-grid, .stories-cards { grid-template-columns:1fr; }
+      .events-grid,.ach-grid,.stories-cards { grid-template-columns:1fr; }
       .ql-grid { grid-template-columns:repeat(2,1fr); }
-      .quick-links, .events-preview, .achievement-highlight, .stories-strip { padding:48px 20px; }
+      .quick-links,.events-preview,.achievement-highlight,.stories-strip { padding:48px 20px; }
       .notice-bar { padding:12px 20px; }
     }
   </style>
@@ -298,10 +151,10 @@
 <nav class="navbar" id="navbar"></nav>
 
 <!-- NOTICE BAR -->
-<div class="notice-bar">
+<div class="notice-bar" id="noticeBar">
   <div class="notice-bar-inner">
     <span class="notice-label">NOTICE</span>
-    <span class="notice-text">🏛️ Super Speciality Block inaugurated — 1,085 beds, Tamil Nadu's largest secondary care hospital. Walk-in OPD: Mon–Sat 8AM–1PM</span>
+    <span class="notice-text" id="noticeText">🏛️ Super Speciality Block inaugurated — 1,085 beds, Tamil Nadu's largest secondary care hospital. Walk-in OPD: Mon–Sat 8AM–1PM</span>
   </div>
 </div>
 
@@ -314,67 +167,52 @@
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="heroSection">
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-badge">Est. 1872 · Erode District · 1,085 Beds</div>
-      <h1>Healthcare for <em>Every</em> Citizen of Erode</h1>
-      <p>Thanthai Periyar Government Headquarters Hospital — Tamil Nadu's largest secondary care hospital, providing free, compassionate, and high-quality medical services to the people of Erode and surrounding districts since 1872.</p>
-      <div class="hero-actions">
-        <a href="/departments.html" class="btn btn-primary">Explore Departments →</a>
-        <a href="/patients.html" class="btn btn-outline">Patient Benefits</a>
+      <div class="hero-badge" id="heroBadge">Est. 1872 · Erode District · 1,085 Beds</div>
+      <h1 id="heroTitle">Healthcare for <em>Every</em> Citizen of Erode</h1>
+      <p id="heroDesc">Thanthai Periyar Government Headquarters Hospital — Tamil Nadu's largest secondary care hospital, providing free, compassionate, and high-quality medical services since 1872.</p>
+      <div class="hero-actions" id="heroActions">
+        <a href="/departments.html" class="btn btn-primary" id="btnDepts">Explore Departments →</a>
+        <a href="/patients.html" class="btn btn-outline" id="btnPatients">Patient Benefits</a>
       </div>
+      <!-- WASTE MANDATORY — always visible to patient/visitor -->
+      <a href="/waste.html" class="waste-mandatory-bar" id="wasteCTA">
+        <span class="waste-mandatory-tag">MANDATORY</span>
+        <span id="wasteNoticeText">♻️ Biomedical Waste Management is MANDATORY — View our live dashboard</span>
+      </a>
     </div>
-    <div class="hero-card">
-      <h3>Hospital at a Glance</h3>
-      <div class="hero-stat-row">
-        <div class="hero-stat"><span class="hero-stat-label">Total Beds</span><span class="hero-stat-val">1,085 <em>beds</em></span></div>
-        <div class="hero-stat"><span class="hero-stat-label">Functional Beds</span><span class="hero-stat-val">960 <em>beds</em></span></div>
-        <div class="hero-stat"><span class="hero-stat-label">Medical Officers</span><span class="hero-stat-val">75<em>+ doctors</em></span></div>
-        <div class="hero-stat"><span class="hero-stat-label">Founded</span><span class="hero-stat-val">1872</span></div>
-        <div class="hero-stat"><span class="hero-stat-label">Emergency</span><span class="hero-stat-val">24 <em>/7</em></span></div>
-      </div>
+    <div class="hero-card" id="heroCard">
+      <h3 id="glanceTitle">Hospital at a Glance</h3>
+      <div class="hero-stat-row" id="heroStats"></div>
     </div>
   </div>
 </section>
 
 <!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="stats-bar-inner">
-    <div class="stat-box"><div class="num">1,085<em>+</em></div><div class="lbl">Beds</div></div>
-    <div class="stat-box"><div class="num">75<em>+</em></div><div class="lbl">Medical Officers</div></div>
-    <div class="stat-box"><div class="num">₹80<em>Cr</em></div><div class="lbl">Super Speciality Block</div></div>
-    <div class="stat-box"><div class="num">24<em>/7</em></div><div class="lbl">Emergency Care</div></div>
-  </div>
+  <div class="stats-bar-inner" id="statsBar"></div>
 </div>
 
-<!-- QUICK LINKS — 8 links including new Scope of Services & Success Stories -->
+<!-- QUICK LINKS -->
 <div class="quick-links">
   <div class="quick-links-inner">
-    <div class="ql-grid" style="grid-template-columns:repeat(4,1fr);">
-      <a class="ql-card" href="/about.html"><span class="ql-icon">ℹ️</span><span class="ql-label">About Us</span></a>
-      <a class="ql-card" href="/departments.html"><span class="ql-icon">🏛️</span><span class="ql-label">Departments</span></a>
-      <a class="ql-card" href="/scope.html"><span class="ql-icon">📋</span><span class="ql-label">Scope of Services</span></a>
-      <a class="ql-card" href="/events.html"><span class="ql-icon">📅</span><span class="ql-label">Events & Camps</span></a>
-      <a class="ql-card" href="/achievements.html"><span class="ql-icon">🏆</span><span class="ql-label">Achievements</span></a>
-      <a class="ql-card" href="/stories.html"><span class="ql-icon">⭐</span><span class="ql-label">Success Stories</span></a>
-      <a class="ql-card" href="/patients.html"><span class="ql-icon">❤️</span><span class="ql-label">Patient Benefits</span></a>
-      <a class="ql-card" href="/waste.html"><span class="ql-icon">♻️</span><span class="ql-label">Waste Dashboard</span></a>
-    </div>
+    <div class="ql-grid" id="quickLinks"></div>
   </div>
 </div>
 
 <!-- FEATURED EVENTS -->
 <section class="events-preview">
   <div class="events-preview-inner">
-    <span class="section-label">Recent Impact</span>
-    <h2 class="section-title">Events & Health Camps</h2>
-    <p class="section-sub">Outreach programmes, free surgical camps, and health drives conducted by our teams across Erode district.</p>
+    <span class="section-label" id="eventsLabel">Recent Impact</span>
+    <h2 class="section-title" id="eventsTitle">Events & Health Camps</h2>
+    <p class="section-sub" id="eventsSub">Outreach programmes, free surgical camps, and health drives conducted across Erode district.</p>
     <div class="events-grid" id="eventsGrid">
-      <div class="loading-box"><div class="spinner"></div>Loading events...</div>
+      <div class="loading-box"><div class="spinner"></div>Loading...</div>
     </div>
     <div class="section-cta">
-      <a href="/events.html" class="btn btn-primary">View All Events →</a>
+      <a href="/events.html" class="btn btn-primary" id="eventsBtn">View All Events →</a>
     </div>
   </div>
 </section>
@@ -382,58 +220,27 @@
 <!-- SUCCESS STORIES STRIP -->
 <section class="stories-strip">
   <div class="stories-strip-inner">
-    <span class="section-label">Patient Stories</span>
-    <h2 class="section-title">Success Stories</h2>
-    <p class="section-sub">Real lives transformed through free, world-class care — surgeries that would cost lakhs in private hospitals, performed free under CMCHIS.</p>
-    <div class="stories-cards">
-      <a class="story-mini" href="/stories.html">
-        <div class="story-mini-header">
-          <div class="story-mini-tag">🩹 Plastic Surgery</div>
-          <div class="story-mini-title">14-Year-Old Girl's Conjoined Fingers Separated — Syndactyly Release</div>
-        </div>
-        <div class="story-mini-body">
-          <div class="story-mini-patient">👧 Gopika, 14 · Anthiyur · May 2025</div>
-          <div class="story-mini-saving">Saved ₹80,000–1,00,000 · Free under CMCHIS</div>
-        </div>
-      </a>
-      <a class="story-mini" href="/stories.html">
-        <div class="story-mini-header">
-          <div class="story-mini-tag">🔪 Emergency Surgery</div>
-          <div class="story-mini-title">Severed Hand Reattached in 9-Hour Surgery After Rail Accident</div>
-        </div>
-        <div class="story-mini-body">
-          <div class="story-mini-patient">👨 Mahalingam, 52 · Erode · May 2024</div>
-          <div class="story-mini-saving">Saved ₹5,00,000 · CMCHIS: ₹59,300</div>
-        </div>
-      </a>
-      <a class="story-mini" href="/stories.html">
-        <div class="story-mini-header">
-          <div class="story-mini-tag">🎗️ Pain & Palliative</div>
-          <div class="story-mini-title">6,600+ Cancer & Chronic Patients Receive Free Pain Relief Since 2018</div>
-        </div>
-        <div class="story-mini-body">
-          <div class="story-mini-patient">🏥 Pain & Palliative Care Centre · Est. 2018</div>
-          <div class="story-mini-saving">5,197 cancer patients · 1,424 chronic patients this year</div>
-        </div>
-      </a>
-    </div>
+    <span class="section-label" id="storiesLabel">Patient Stories</span>
+    <h2 class="section-title" id="storiesTitle">Success Stories</h2>
+    <p class="section-sub" id="storiesSub">Real lives transformed through free, world-class care — surgeries that would cost lakhs in private hospitals, performed free under CMCHIS.</p>
+    <div class="stories-cards" id="storiesCards"></div>
     <div class="section-cta">
-      <a href="/stories.html" class="btn btn-primary">Read All Success Stories →</a>
+      <a href="/stories.html" class="btn btn-primary" id="storiesBtn">Read All Success Stories →</a>
     </div>
   </div>
 </section>
 
-<!-- ACHIEVEMENT HIGHLIGHT -->
+<!-- ACHIEVEMENTS -->
 <section class="achievement-highlight">
   <div class="achievement-highlight-inner">
-    <span class="section-label">Milestones</span>
-    <h2 class="section-title">Key Achievements</h2>
-    <p class="section-sub">Major milestones in patient care, infrastructure, and public health excellence.</p>
+    <span class="section-label" id="achLabel">Milestones</span>
+    <h2 class="section-title" id="achTitle">Key Achievements</h2>
+    <p class="section-sub" id="achSub">Major milestones in patient care, infrastructure, and public health excellence.</p>
     <div class="ach-grid" id="achGrid">
       <div class="loading-box"><div class="spinner"></div>Loading...</div>
     </div>
     <div class="section-cta">
-      <a href="/achievements.html" class="btn btn-primary">All Achievements →</a>
+      <a href="/achievements.html" class="btn btn-primary" id="achBtn">All Achievements →</a>
     </div>
   </div>
 </section>
@@ -442,97 +249,170 @@
 <script src="/shared.js"></script>
 <script>
 /* ── CAROUSEL ── */
-(function initCarousel() {
+let _carouselData = [];
+let _current = 0, _timer = null;
+const AUTOPLAY_MS = 5000;
+
+function buildCarousel(imgs, lang) {
   const track    = document.getElementById('carouselTrack');
   const dotsWrap = document.getElementById('carouselDots');
-  const prevBtn  = document.getElementById('prevBtn');
-  const nextBtn  = document.getElementById('nextBtn');
-  let current = 0, timer = null;
-  const AUTOPLAY_MS = 5000;
+  _carouselData  = imgs;
 
-  const EMOJI_FALLBACK = { 'speciality':'🏛️','opd':'🏥','cataract':'👁️','blood':'🩸','nicu':'👶','school':'🏫','default':'🏥' };
-  function getFallbackEmoji(id) {
-    const key = (id||'').toLowerCase();
-    for (const [k,v] of Object.entries(EMOJI_FALLBACK)) { if(key.includes(k)) return v; }
-    return EMOJI_FALLBACK.default;
-  }
+  track.innerHTML = ''; dotsWrap.innerHTML = '';
+  imgs.forEach((img, i) => {
+    const slide   = document.createElement('div'); slide.className = 'carousel-slide';
+    const imgEl   = document.createElement('img');
+    imgEl.src     = img.path;
+    imgEl.alt     = lang === 'ta' ? (img.alt_ta || '') : (img.alt_en || '');
+    imgEl.loading = i === 0 ? 'eager' : 'lazy';
+    imgEl.onerror = function() {
+      const ph = document.createElement('div'); ph.className = 'carousel-placeholder'; ph.textContent = '🏥';
+      slide.replaceChild(ph, imgEl);
+    };
+    const overlay = document.createElement('div'); overlay.className = 'carousel-overlay';
+    const caption = document.createElement('div'); caption.className = 'carousel-caption';
+    const badge   = lang === 'ta' ? img.badge_ta : img.badge_en;
+    const cap     = lang === 'ta' ? img.caption_ta : img.caption_en;
+    caption.innerHTML = `<div class="carousel-caption-text">${badge ? `<span class="carousel-badge">${badge}</span><br>` : ''}
+      <p>${cap || ''}</p></div>
+      <span class="carousel-counter"><em>${i+1}</em> / ${imgs.length}</span>`;
+    slide.appendChild(imgEl); slide.appendChild(overlay); slide.appendChild(caption);
+    track.appendChild(slide);
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Slide ${i+1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
 
-  function buildCarousel(imgs) {
-    track.innerHTML = ''; dotsWrap.innerHTML = '';
-    imgs.forEach((img, i) => {
-      const slide = document.createElement('div');
-      slide.className = 'carousel-slide';
-      const imgEl = document.createElement('img');
-      imgEl.src = img.path; imgEl.alt = img.alt || img.caption;
-      imgEl.loading = i === 0 ? 'eager' : 'lazy';
-      imgEl.onerror = function() {
-        const ph = document.createElement('div');
-        ph.className = 'carousel-placeholder';
-        ph.textContent = getFallbackEmoji(img.id);
-        slide.replaceChild(ph, imgEl);
-      };
-      const overlay = document.createElement('div'); overlay.className = 'carousel-overlay';
-      const caption = document.createElement('div'); caption.className = 'carousel-caption';
-      caption.innerHTML = `<div class="carousel-caption-text">${img.badge?`<span class="carousel-badge">${img.badge}</span><br>`:''}
-        <p>${img.caption||''}</p></div>
-        <span class="carousel-counter"><em>${i+1}</em> / ${imgs.length}</span>`;
-      slide.appendChild(imgEl); slide.appendChild(overlay); slide.appendChild(caption);
-      track.appendChild(slide);
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot'+(i===0?' active':'');
-      dot.setAttribute('aria-label',`Go to slide ${i+1}`);
-      dot.addEventListener('click',()=>goTo(i));
-      dotsWrap.appendChild(dot);
-    });
-    function updateDots(){dotsWrap.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
-    function goTo(index){current=(index+imgs.length)%imgs.length;track.style.transform=`translateX(-${current*100}%)`;updateDots();resetTimer();}
-    function resetTimer(){clearInterval(timer);timer=setInterval(()=>goTo(current+1),AUTOPLAY_MS);}
-    prevBtn.addEventListener('click',()=>goTo(current-1));
-    nextBtn.addEventListener('click',()=>goTo(current+1));
-    document.getElementById('carousel').addEventListener('mouseenter',()=>clearInterval(timer));
-    document.getElementById('carousel').addEventListener('mouseleave',resetTimer);
-    let touchStartX=0;
-    track.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX;},{passive:true});
-    track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchStartX;if(Math.abs(dx)>50)goTo(current+(dx<0?1:-1));},{passive:true});
-    resetTimer();
-  }
+  function updateDots() { dotsWrap.querySelectorAll('.carousel-dot').forEach((d,i) => d.classList.toggle('active', i === _current)); }
+  function goTo(idx) { _current = (idx + imgs.length) % imgs.length; track.style.transform = `translateX(-${_current * 100}%)`; updateDots(); resetTimer(); }
+  function resetTimer() { clearInterval(_timer); _timer = setInterval(() => goTo(_current + 1), AUTOPLAY_MS); }
 
-  /* Load from API */
-  async function loadHome() {
-    try {
-      const res  = await fetch('/hospital');
-      const data = await res.json();
-      if ((data.carousel_images||[]).length > 0) buildCarousel(data.carousel_images);
+  document.getElementById('prevBtn').onclick = () => goTo(_current - 1);
+  document.getElementById('nextBtn').onclick = () => goTo(_current + 1);
+  document.getElementById('carousel').addEventListener('mouseenter', () => clearInterval(_timer));
+  document.getElementById('carousel').addEventListener('mouseleave', resetTimer);
+  let tx = 0;
+  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend',   e => { const dx = e.changedTouches[0].clientX - tx; if(Math.abs(dx) > 50) goTo(_current + (dx < 0 ? 1 : -1)); }, {passive:true});
+  resetTimer();
+}
 
-      const events = (data.events||[]).slice(0,3);
-      document.getElementById('eventsGrid').innerHTML = events.map(e=>`
-        <div class="event-card fade-up">
-          <div class="event-card-top">
-            <div class="event-card-icon">${e.icon}</div>
-            <div class="event-card-cat"><span class="badge badge-secondary">${e.category}</span></div>
-            <h3 class="event-card-title">${e.title}</h3>
-            <div class="event-card-date">📅 ${new Date(e.date).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})}</div>
-            <p class="event-card-desc">${e.desc.substring(0,140)}...</p>
-          </div>
-          <div class="event-card-footer">
-            <span class="event-beneficiaries">👥 ${e.beneficiaries.toLocaleString()}+ beneficiaries</span>
-          </div>
-        </div>`).join('');
+/* ── RENDER PAGE (called on load + lang change) ── */
+async function renderPage(data) {
+  const lang = localStorage.getItem('gh_lang') || 'en';
+  const h  = data.hero;
+  const hd = data.hospital;
+  const isTa = lang === 'ta';
 
-      const achs = (data.achievements||[]).slice(0,4);
-      document.getElementById('achGrid').innerHTML = achs.map(a=>`
-        <div class="ach-card fade-up">
-          <div class="ach-icon-wrap">${a.icon}</div>
-          <div>
-            <div class="ach-year">${a.year} · ${a.category}</div>
-            <h3 class="ach-title">${a.title}</h3>
-            <p class="ach-desc">${a.desc.substring(0,140)}...</p>
-          </div>
-        </div>`).join('');
-    } catch(e){ console.error(e); }
-  }
-  loadHome();
-})();
+  // Notice
+  const noticeEl = document.getElementById('noticeText');
+  if (noticeEl) noticeEl.textContent = isTa ? data.notice.ta : data.notice.en;
+
+  // Hero
+  document.getElementById('heroBadge').textContent   = isTa ? h.badge_ta : h.badge_en;
+  document.getElementById('heroTitle').innerHTML      = isTa ? h.title_ta : h.title_en;
+  document.getElementById('heroDesc').textContent     = isTa ? h.desc_ta  : h.desc_en;
+  document.getElementById('btnDepts').textContent     = isTa ? h.btn_departments_ta : h.btn_departments_en;
+  document.getElementById('btnPatients').textContent  = isTa ? h.btn_patients_ta    : h.btn_patients_en;
+  document.getElementById('wasteNoticeText').textContent = isTa ? h.waste_notice_ta : h.waste_notice_en;
+  document.getElementById('glanceTitle').textContent  = isTa ? h.glance_title_ta    : h.glance_title_en;
+
+  // Hero stats card
+  document.getElementById('heroStats').innerHTML = h.stats.map(s => `
+    <div class="hero-stat">
+      <span class="hero-stat-label">${isTa ? s.label_ta : s.label_en}</span>
+      <span class="hero-stat-val">${s.val} <em>${isTa ? s.unit_ta : s.unit_en}</em></span>
+    </div>`).join('');
+
+  // Stats bar
+  document.getElementById('statsBar').innerHTML = data.stats_bar.map(s => `
+    <div class="stat-box">
+      <div class="num">${s.val}<em>${s.unit}</em></div>
+      <div class="lbl">${isTa ? s.label_ta : s.label_en}</div>
+    </div>`).join('');
+
+  // Quick links
+  document.getElementById('quickLinks').innerHTML = data.quick_links.map(q => `
+    <a class="ql-card${q.href.includes('waste') ? ' ql-waste' : ''}" href="${q.href}">
+      <span class="ql-icon">${q.icon}</span>
+      <span class="ql-label">${isTa ? q.label_ta : q.label_en}</span>
+    </a>`).join('');
+
+  // Section labels
+  document.getElementById('eventsLabel').textContent  = isTa ? 'சமீபத்திய தாக்கம்'  : 'Recent Impact';
+  document.getElementById('eventsTitle').textContent  = isTa ? 'நிகழ்வுகள் & முகாம்கள்' : 'Events & Health Camps';
+  document.getElementById('eventsSub').textContent    = isTa ? 'ஈரோடு மாவட்டம் முழுவதும் நடத்தப்பட்ட இலவச முகாம்கள் மற்றும் சுகாதார இயக்கங்கள்.' : 'Outreach programmes, free surgical camps, and health drives across Erode district.';
+  document.getElementById('eventsBtn').textContent    = isTa ? 'அனைத்து நிகழ்வுகளும் →' : 'View All Events →';
+  document.getElementById('storiesLabel').textContent = isTa ? 'நோயாளி கதைகள்'        : 'Patient Stories';
+  document.getElementById('storiesTitle').textContent = isTa ? 'வெற்றிக் கதைகள்'       : 'Success Stories';
+  document.getElementById('storiesSub').textContent   = isTa ? 'CMCHIS திட்டத்தின் கீழ் இலட்சங்கள் மதிப்புள்ள சிகிச்சை இலவசமாக — உண்மையான வாழ்க்கை மாற்றங்கள்.' : 'Real lives transformed through free, world-class care — surgeries that would cost lakhs, performed free under CMCHIS.';
+  document.getElementById('storiesBtn').textContent   = isTa ? 'அனைத்து வெற்றிக் கதைகளும் →' : 'Read All Success Stories →';
+  document.getElementById('achLabel').textContent     = isTa ? 'மைல்கற்கள்'            : 'Milestones';
+  document.getElementById('achTitle').textContent     = isTa ? 'முக்கிய சாதனைகள்'      : 'Key Achievements';
+  document.getElementById('achSub').textContent       = isTa ? 'நோயாளி பராமரிப்பு, உள்கட்டமைப்பு மற்றும் பொது சுகாதாரத்தில் முக்கிய மைல்கற்கள்.' : 'Major milestones in patient care, infrastructure, and public health excellence.';
+  document.getElementById('achBtn').textContent       = isTa ? 'அனைத்து சாதனைகளும் →' : 'All Achievements →';
+
+  // Carousel (rebuild captions on lang change)
+  if ((data.carousel_images||[]).length > 0) buildCarousel(data.carousel_images, lang);
+
+  // Events
+  const events = (data.events||[]).slice(0,3);
+  document.getElementById('eventsGrid').innerHTML = events.length ? events.map(e => `
+    <div class="event-card fade-up">
+      <div class="event-card-top">
+        <div class="event-card-icon">${e.icon}</div>
+        <div><span class="badge badge-secondary">${isTa ? e.category_ta : e.category_en}</span></div>
+        <h3 class="event-card-title">${isTa ? e.title_ta : e.title_en}</h3>
+        <div class="event-card-date">📅 ${new Date(e.date).toLocaleDateString(isTa?'ta-IN':'en-IN',{day:'numeric',month:'long',year:'numeric'})}</div>
+        <p class="event-card-desc">${(isTa ? e.desc_ta : e.desc_en).substring(0,140)}...</p>
+      </div>
+      <div class="event-card-footer">
+        <span class="event-beneficiaries">👥 ${e.beneficiaries.toLocaleString()}+ ${isTa?'பயனாளிகள்':'beneficiaries'}</span>
+      </div>
+    </div>`).join('') : `<div class="loading-box">${isTa?'நிகழ்வுகள் இல்லை':'No events found'}</div>`;
+
+  // Stories strip (first 3)
+  const stories = (data.stories||[]).slice(0,3);
+  document.getElementById('storiesCards').innerHTML = stories.map(s => `
+    <a class="story-mini" href="/stories.html">
+      ${s.image ? `<img class="story-mini-img" src="${s.image}" alt="${isTa?s.patient_ta:s.patient_en}" onerror="this.style.display='none'">` : ''}
+      <div class="story-mini-header">
+        <div class="story-mini-tag">${isTa ? s.tag_ta : s.tag_en}</div>
+        <div class="story-mini-title">${isTa ? s.title_ta : s.title_en}</div>
+      </div>
+      <div class="story-mini-body">
+        <div class="story-mini-patient">${isTa ? s.patient_ta : s.patient_en}</div>
+        <div class="story-mini-saving">${isTa ? s.savings_ta : s.savings_en} · ${isTa?'CMCHIS இலவச சிகிச்சை':'Free under CMCHIS'}</div>
+      </div>
+    </a>`).join('');
+
+  // Achievements
+  const achs = (data.achievements||[]).slice(0,4);
+  document.getElementById('achGrid').innerHTML = achs.map(a => `
+    <div class="ach-card fade-up">
+      <div class="ach-icon-wrap">${a.icon}</div>
+      <div>
+        <div class="ach-year">${a.year} · ${isTa ? a.category_ta : a.category_en}</div>
+        <h3 class="ach-title">${isTa ? a.title_ta : a.title_en}</h3>
+        <p class="ach-desc">${(isTa ? a.desc_ta : a.desc_en).substring(0,140)}...</p>
+      </div>
+    </div>`).join('');
+}
+
+/* ── BOOTSTRAP ── */
+async function loadHome() {
+  try {
+    const res  = await fetch('/hospital');
+    const data = await res.json();
+    await renderPage(data);
+    // Re-render on lang toggle
+    document.addEventListener('langchange', () => renderPage(data));
+  } catch(e) { console.error(e); }
+}
+
+document.addEventListener('DOMContentLoaded', loadHome);
 </script>
 </body>
 </html>
