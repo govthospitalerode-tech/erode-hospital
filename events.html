@@ -11,15 +11,13 @@
     .events-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
     .filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; align-items:center; }
     .filter-btn { padding:8px 18px; border-radius:20px; border:1.5px solid var(--border); background:var(--white); color:var(--body-text); font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; cursor:pointer; transition:var(--transition); }
-    .filter-btn:hover, .filter-btn.active { background:var(--primary); border-color:var(--primary); color:var(--white); }
+    .filter-btn:hover,.filter-btn.active { background:var(--primary); border-color:var(--primary); color:var(--white); }
     .filter-label { font-size:13px; color:var(--muted); font-weight:600; margin-right:4px; }
-
     .events-list { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
     .ev-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; display:flex; flex-direction:column; transition:var(--transition); }
     .ev-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
     .ev-card-header { background:linear-gradient(135deg,var(--primary),var(--primary-lt)); padding:24px 24px 20px; display:flex; gap:16px; align-items:flex-start; }
     .ev-icon { font-size:36px; flex-shrink:0; }
-    .ev-cat { margin-bottom:6px; }
     .ev-title { font-family:'Playfair Display',serif; font-size:19px; color:var(--white); line-height:1.25; }
     .ev-card-body { padding:20px 24px; flex:1; }
     .ev-date { font-size:12px; color:var(--muted); margin-bottom:10px; font-weight:600; }
@@ -30,7 +28,6 @@
     .ev-stat strong { display:block; font-size:15px; color:var(--primary); font-family:'Playfair Display',serif; }
     .ev-stat span { color:var(--muted); }
     .ev-outcome { grid-column:1/-1; font-size:12.5px; color:var(--teal); font-weight:600; background:var(--cream); padding:8px 12px; border-radius:6px; }
-
     .no-results { text-align:center; padding:60px 20px; color:var(--muted); }
     @media(max-width:900px) { .events-body { padding:40px 20px; } .events-list { grid-template-columns:1fr; } }
   </style>
@@ -39,16 +36,17 @@
 <nav class="navbar" id="navbar"></nav>
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Events & Camps</div>
-    <h1>Events & Health Camps</h1>
-    <p>Free surgical camps, mass screening drives, health awareness programmes, and community outreach by Erode Govt Hospital teams.</p>
+    <div class="page-hero-breadcrumb">
+      <a href="/index.html" id="breadHome">Home</a> › <span id="breadCurrent">Events & Camps</span>
+    </div>
+    <h1 id="pageTitle">Events & Health Camps</h1>
+    <p id="pageDesc">Free surgical camps, mass screening drives, health awareness programmes, and community outreach by Erode Govt Hospital teams.</p>
   </div>
 </div>
 
 <div class="events-body">
   <div class="filter-bar" id="filterBar">
-    <span class="filter-label">Filter:</span>
-    <button class="filter-btn active" data-cat="all">All</button>
+    <span class="filter-label" id="filterLabel">Filter:</span>
   </div>
   <div class="events-list" id="eventsList">
     <div class="loading-box"><div class="spinner"></div>Loading events...</div>
@@ -58,60 +56,101 @@
 <footer class="footer" id="footer"></footer>
 <script src="/shared.js"></script>
 <script>
-let allEvents = [];
+let _allEvents = [];
 
-async function loadEvents() {
-  try {
-    const res  = await fetch('/hospital?section=events');
-    const data = await res.json();
-    allEvents  = data.events || [];
-
-    // Build filter buttons from unique categories
-    const cats = [...new Set(allEvents.map(e => e.category))];
-    const filterBar = document.getElementById('filterBar');
-    cats.forEach(c => {
-      const btn = document.createElement('button');
-      btn.className = 'filter-btn'; btn.dataset.cat = c; btn.textContent = c;
-      btn.addEventListener('click', () => applyFilter(c));
-      filterBar.appendChild(btn);
-    });
-
-    document.querySelectorAll('.filter-btn[data-cat="all"]')[0]?.addEventListener('click', () => applyFilter('all'));
-    renderEvents(allEvents);
-  } catch(e) { console.error(e); }
-}
-
-function applyFilter(cat) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
-  const filtered = cat === 'all' ? allEvents : allEvents.filter(e => e.category === cat);
-  renderEvents(filtered);
-}
-
-function renderEvents(events) {
-  if (!events.length) { document.getElementById('eventsList').innerHTML = '<div class="no-results">No events found for this category.</div>'; return; }
-  document.getElementById('eventsList').innerHTML = events.map((e,i) => `
-    <div class="ev-card fade-up" style="animation-delay:${i*0.06}s">
+function renderEvents(events, lang) {
+  const isTa = lang === 'ta';
+  if (!events.length) {
+    document.getElementById('eventsList').innerHTML = `<div class="no-results">${isTa ? 'நிகழ்வுகள் இல்லை' : 'No events found for this category.'}</div>`;
+    return;
+  }
+  document.getElementById('eventsList').innerHTML = events.map((e, i) => `
+    <div class="ev-card fade-up" style="animation-delay:${i*0.06}s" data-category="${e.category_en}">
       <div class="ev-card-header">
         <div class="ev-icon">${e.icon}</div>
         <div>
-          <div class="ev-cat"><span class="badge badge-secondary">${e.category}</span></div>
-          <h2 class="ev-title">${e.title}</h2>
+          <div style="margin-bottom:6px"><span class="badge badge-secondary">${isTa ? e.category_ta : e.category_en}</span></div>
+          <h2 class="ev-title">${isTa ? e.title_ta : e.title_en}</h2>
         </div>
       </div>
       <div class="ev-card-body">
-        <div class="ev-date">📅 ${new Date(e.date).toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</div>
-        <div class="ev-location">📍 ${e.location}</div>
-        <p class="ev-desc">${e.desc}</p>
+        <div class="ev-date">📅 ${new Date(e.date).toLocaleDateString(isTa?'ta-IN':'en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</div>
+        <div class="ev-location">📍 ${isTa ? e.location_ta : e.location_en}</div>
+        <p class="ev-desc">${isTa ? e.desc_ta : e.desc_en}</p>
       </div>
       <div class="ev-card-footer">
-        <div class="ev-stat"><strong>${e.beneficiaries.toLocaleString()}+</strong><span>Beneficiaries</span></div>
-        <div class="ev-stat"><strong>${new Date(e.date).getFullYear()}</strong><span>Year</span></div>
-        <div class="ev-outcome">✅ Outcome: ${e.outcome}</div>
+        <div class="ev-stat"><strong>${e.beneficiaries.toLocaleString()}+</strong><span>${isTa ? 'பயனாளிகள்' : 'Beneficiaries'}</span></div>
+        <div class="ev-stat"><strong>${new Date(e.date).getFullYear()}</strong><span>${isTa ? 'ஆண்டு' : 'Year'}</span></div>
+        <div class="ev-outcome">✅ ${isTa ? 'முடிவு' : 'Outcome'}: ${isTa ? (e.outcome_ta||e.outcome_en||'') : (e.outcome_en||'')}</div>
       </div>
     </div>`).join('');
 }
 
-loadEvents();
+function buildFilters(events, lang) {
+  const isTa = lang === 'ta';
+  const filterBar = document.getElementById('filterBar');
+  document.getElementById('filterLabel').textContent = isTa ? 'வடிகட்டி:' : 'Filter:';
+
+  // Get unique categories with both en/ta
+  const seen = new Set();
+  const cats = [];
+  events.forEach(e => {
+    if (!seen.has(e.category_en)) {
+      seen.add(e.category_en);
+      cats.push({ en: e.category_en, ta: e.category_ta });
+    }
+  });
+
+  // Remove old filter btns (keep label span)
+  filterBar.querySelectorAll('.filter-btn').forEach(b => b.remove());
+
+  // All button
+  const allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn active';
+  allBtn.dataset.cat = 'all';
+  allBtn.textContent = isTa ? 'அனைத்தும்' : 'All';
+  allBtn.addEventListener('click', () => applyFilter('all', lang));
+  filterBar.appendChild(allBtn);
+
+  cats.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.dataset.cat = c.en;
+    btn.textContent = isTa ? c.ta : c.en;
+    btn.addEventListener('click', () => applyFilter(c.en, lang));
+    filterBar.appendChild(btn);
+  });
+}
+
+function applyFilter(cat, lang) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+  const filtered = cat === 'all' ? _allEvents : _allEvents.filter(e => e.category_en === cat);
+  renderEvents(filtered, lang);
+}
+
+function renderPage(data) {
+  const lang = localStorage.getItem('gh_lang') || 'en';
+  const isTa = lang === 'ta';
+  _allEvents = data.events || [];
+
+  document.getElementById('breadHome').textContent    = isTa ? 'முகப்பு'                      : 'Home';
+  document.getElementById('breadCurrent').textContent = isTa ? 'நிகழ்வுகள் & முகாம்கள்'        : 'Events & Camps';
+  document.getElementById('pageTitle').textContent    = isTa ? 'நிகழ்வுகள் & சுகாதார முகாம்கள்' : 'Events & Health Camps';
+  document.getElementById('pageDesc').textContent     = isTa ? 'ஈரோடு மாவட்டம் முழுவதும் நடத்தப்பட்ட இலவச அறுவை முகாம்கள், பரிசோதனை முகாம்கள் மற்றும் சுகாதார விழிப்புணர்வு நிகழ்வுகள்.' : 'Free surgical camps, mass screening drives, health awareness programmes, and community outreach by Erode Govt Hospital teams.';
+
+  buildFilters(_allEvents, lang);
+  renderEvents(_allEvents, lang);
+}
+
+async function loadEvents() {
+  try {
+    const res  = await fetch('/hospital');
+    const data = await res.json();
+    renderPage(data);
+    document.addEventListener('langchange', () => renderPage(data));
+  } catch(e) { console.error(e); }
+}
+document.addEventListener('DOMContentLoaded', loadEvents);
 </script>
 </body>
 </html>

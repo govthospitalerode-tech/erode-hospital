@@ -20,7 +20,7 @@
     "blood_bank_phone": "0424-2252356",
     "emergency": "108",
     "email": "ghqherode@tnhealth.org",
-    "opd_hours_en": "Mon–Sat 8AM–1PM",
+    "opd_hours_en": "24/7",
     "opd_hours_ta": "திங்கள்–சனி காலை 8–பகல் 1",
     "type_en": "Multi Super Speciality District Headquarters Hospital",
     "type_ta": "பல்நோக்கு உயர் சிறப்பு மாவட்ட தலைமை மருத்துவமனை",
@@ -163,7 +163,7 @@
   "carousel_images": [
     {
       "id": "img001",
-      "path": "public/img001.jpg",
+      "path": "/public/img001.jpg",
       "alt_en": "Hospital staff and officials at Thanthai Periyar Govt Hospital Erode",
       "alt_ta": "தந்தை பெரியார் அரசு மருத்துவமனை ஈரோடு — மருத்துவக் குழு",
       "badge_en": "Our Team",
@@ -173,7 +173,7 @@
     },
     {
       "id": "img002",
-      "path": "public/img002.jpg",
+      "path": "/public/img002.jpg",
       "alt_en": "Hospital entrance and outdoor team photo",
       "alt_ta": "மருத்துவமனை நுழைவாயில் மற்றும் குழுப் படம்",
       "badge_en": "Est. 1872",
@@ -183,7 +183,7 @@
     },
     {
       "id": "img003",
-      "path": "public/img003.jpg",
+      "path": "/public/img003.jpg",
       "alt_en": "Hospital superintendent meeting with staff and public representatives",
       "alt_ta": "மருத்துவமனை கண்காணிப்பாளர் ஆலோசனை கூட்டம்",
       "badge_en": "Administration",
@@ -605,7 +605,9 @@
       "location_en": "Main OPD Block",
       "location_ta": "முதன்மை OPD தொகுதி",
       "desc_en": "Three-day free cataract surgery camp in collaboration with Aravind Eye Hospital. 214 patients from BPL families received free surgeries and post-operative care.",
-      "desc_ta": "அரவிந்த் கண் மருத்துவமனையுடன் இணைந்து மூன்று நாள் இலவச கண்புரை அறுவை முகாம். 214 BPL குடும்பங்களின் நோயாளிகளுக்கு இலவச அறுவை செய்யப்பட்டது."
+      "desc_ta": "அரவிந்த் கண் மருத்துவமனையுடன் இணைந்து மூன்று நாள் இலவச கண்புரை அறுவை முகாம். 214 BPL குடும்பங்களின் நோயாளிகளுக்கு இலவச அறுவை செய்யப்பட்டது.",
+      "outcome_en": "214 surgeries, 0 complications, 100% vision restoration",
+      "outcome_ta": "214 அறுவைகள், சிக்கல் இல்லை, 100% பார்வை மீட்டெடுப்பு"
     },
     {
       "id": "e002",
@@ -619,7 +621,9 @@
       "location_en": "Gynaecology Ward",
       "location_ta": "மகளிர் பிரிவு",
       "desc_en": "Week-long drive offering free antenatal check-ups, iron distribution, nutrition counselling, and breastfeeding awareness.",
-      "desc_ta": "கர்ப்பிணி பரிசோதனை, இரும்புச்சத்து வழங்கல், உணவு ஆலோசனை மற்றும் தாய்ப்பால் விழிப்புணர்வு கொண்ட ஒரு வார இயக்கம்."
+      "desc_ta": "கர்ப்பிணி பரிசோதனை, இரும்புச்சத்து வழங்கல், உணவு ஆலோசனை மற்றும் தாய்ப்பால் விழிப்புணர்வு கொண்ட ஒரு வார இயக்கம்.",
+      "outcome_en": "380 mothers screened, 12 high-risk cases identified",
+      "outcome_ta": "380 தாய்மார்கள் பரிசோதிக்கப்பட்டனர், 12 அதிக ஆபத்து வழக்குகள் கண்டறியப்பட்டன"
     },
     {
       "id": "e003",
@@ -633,7 +637,9 @@
       "location_en": "OPD & 8 PHCs",
       "location_ta": "OPD மற்றும் 8 PHC",
       "desc_en": "Mass screening extended to 8 rural PHCs with free HbA1c and lipid profile tests and lifestyle counselling.",
-      "desc_ta": "8 கிராமப்புற PHCகளில் நீட்டிக்கப்பட்ட பரிசோதனை — இலவச HbA1c மற்றும் லிபிட் பரிசோதனை, வாழ்க்கை முறை ஆலோசனை."
+      "desc_ta": "8 கிராமப்புற PHCகளில் நீட்டிக்கப்பட்ட பரிசோதனை — இலவச HbA1c மற்றும் லிபிட் பரிசோதனை, வாழ்க்கை முறை ஆலோசனை.",
+      "outcome_en": "650 screened, 87 new diabetics detected, 43 started on medication",
+      "outcome_ta": "650 பரிசோதிக்கப்பட்டனர், 87 புதிய நீரிழிவு நோயாளிகள் கண்டறியப்பட்டனர்"
     },
     {
       "id": "e004",
@@ -647,7 +653,9 @@
       "location_en": "Hospital Campus",
       "location_ta": "மருத்துவமனை வளாகம்",
       "desc_en": "Annual blood donation camp with local colleges. 186 units collected to replenish critical reserves.",
-      "desc_ta": "உள்ளூர் கல்லூரிகளுடன் இணைந்த வருடாந்திர இரத்த தான முகாம். 186 யூனிட் இரத்தம் சேகரிக்கப்பட்டது."
+      "desc_ta": "உள்ளூர் கல்லூரிகளுடன் இணைந்த வருடாந்திர இரத்த தான முகாம். 186 யூனிட் இரத்தம் சேகரிக்கப்பட்டது.",
+      "outcome_en": "186 units collected, all screened and certified",
+      "outcome_ta": "186 யூனிட் சேகரிக்கப்பட்டது, அனைத்தும் சோதிக்கப்பட்டது"
     },
     {
       "id": "e005",
@@ -661,7 +669,9 @@
       "location_en": "Psychiatry & 5 Schools",
       "location_ta": "மன நல பிரிவு மற்றும் 5 பள்ளிகள்",
       "desc_en": "Free counselling, stress management workshops, and anti-stigma awareness across 5 government schools.",
-      "desc_ta": "5 அரசு பள்ளிகளில் இலவச ஆலோசனை, மன அழுத்த மேலாண்மை பட்டறை, களங்க எதிர்ப்பு விழிப்புணர்வு."
+      "desc_ta": "5 அரசு பள்ளிகளில் இலவச ஆலோசனை, மன அழுத்த மேலாண்மை பட்டறை, களங்க எதிர்ப்பு விழிப்புணர்வு.",
+      "outcome_en": "420 participants, 28 referred for outpatient counselling",
+      "outcome_ta": "420 பங்கேற்பாளர்கள், 28 பேர் ஆலோசனைக்கு பரிந்துரைக்கப்பட்டனர்"
     }
   ],
   "achievements": [
@@ -674,7 +684,9 @@
       "category_ta": "உள்கட்டமைப்பு",
       "icon": "🏛️",
       "desc_en": "B+G+8 storeyed super speciality block of 2,32,602 sq ft inaugurated by CM M.K. Stalin, built at ₹80.81 crore.",
-      "desc_ta": "₹80.81 கோடி செலவில் 2,32,602 சதுர அடி B+G+8 மாடி சூப்பர் ஸ்பெஷாலிட்டி தொகுதி — முதலமைச்சர் ம.க.ஸ்டாலினால் திறக்கப்பட்டது."
+      "desc_ta": "₹80.81 கோடி செலவில் 2,32,602 சதுர அடி B+G+8 மாடி சூப்பர் ஸ்பெஷாலிட்டி தொகுதி — முதலமைச்சர் ம.க.ஸ்டாலினால் திறக்கப்பட்டது.",
+      "impact_en": "Serving 6 additional super-speciality departments",
+      "impact_ta": "6 கூடுதல் சூப்பர் ஸ்பெஷாலிட்டி பிரிவுகள் சேவை"
     },
     {
       "id": "a002",
@@ -685,7 +697,9 @@
       "category_ta": "நோயாளி பராமரிப்பு",
       "icon": "🛏️",
       "desc_en": "Semi-private pay ward with AC, TV, and attached bathroom introduced in Sep 2024.",
-      "desc_ta": "செப்டம்பர் 2024 இல் AC, TV மற்றும் இணைக்கப்பட்ட குளியலறை கொண்ட அரை-தனியார் கட்டண வார்டு தொடங்கப்பட்டது."
+      "desc_ta": "செப்டம்பர் 2024 இல் AC, TV மற்றும் இணைக்கப்பட்ட குளியலறை கொண்ட அரை-தனியார் கட்டண வார்டு தொடங்கப்பட்டது.",
+      "impact_en": "Additional revenue channelled back to hospital services",
+      "impact_ta": "கூடுதல் வருவாய் மருத்துவமனை சேவைகளுக்கு திருப்பப்பட்டது"
     },
     {
       "id": "a003",
@@ -696,7 +710,9 @@
       "category_ta": "பொது சுகாதாரம்",
       "icon": "🦠",
       "desc_en": "In April 2020, converted to a COVID Speciality Hospital with 184 dedicated isolation beds.",
-      "desc_ta": "ஏப்ரல் 2020 இல் 184 தனிமைப்படுத்தல் படுக்கைகளுடன் COVID சிறப்பு மருத்துவமனையாக மாற்றப்பட்டது."
+      "desc_ta": "ஏப்ரல் 2020 இல் 184 தனிமைப்படுத்தல் படுக்கைகளுடன் COVID சிறப்பு மருத்துவமனையாக மாற்றப்பட்டது.",
+      "impact_en": "184 isolation beds, thousands of COVID patients treated",
+      "impact_ta": "184 தனிமை படுக்கைகள், ஆயிரக்கணக்கான COVID நோயாளிகளுக்கு சிகிச்சை"
     },
     {
       "id": "a004",
@@ -707,7 +723,9 @@
       "category_ta": "மருத்துவ சிறப்பு",
       "icon": "🏆",
       "desc_en": "Achieved zero maternal mortality for two consecutive quarters in FY 2022–23.",
-      "desc_ta": "2022–23 நிதியாண்டில் இரண்டு தொடர்ச்சியான காலாண்டுகளில் தாய் இறப்பு பூஜ்யமாக சாதனை."
+      "desc_ta": "2022–23 நிதியாண்டில் இரண்டு தொடர்ச்சியான காலாண்டுகளில் தாய் இறப்பு பூஜ்யமாக சாதனை.",
+      "impact_en": "Zero maternal deaths — Q2 and Q3 of FY 2022–23",
+      "impact_ta": "தாய் இறப்பு பூஜ்யம் — 2022–23 Q2 மற்றும் Q3"
     }
   ],
   "waste": {
@@ -755,8 +773,8 @@
       "coverage_ta": "₹5 இலட்சம் வரை",
       "who_en": "BPL families",
       "who_ta": "BPL குடும்பங்கள்",
-      "desc_en": "Cashless treatment for 1,056 listed procedures.",
-      "desc_ta": "1,056 பட்டியலிடப்பட்ட சிகிச்சைகளுக்கு பணமில்லா சிகிச்சை."
+      "desc_en": "Cashless treatment for 1,056 listed procedures at government and empanelled private hospitals.",
+      "desc_ta": "அரசு மற்றும் பட்டியல் தனியார் மருத்துவமனைகளில் 1,056 சிகிச்சைகளுக்கு பணமில்லா சிகிச்சை."
     },
     {
       "name_en": "Free Medicines Scheme",
@@ -766,8 +784,30 @@
       "coverage_ta": "அனைத்து OPD & IPD",
       "who_en": "All patients",
       "who_ta": "அனைத்து நோயாளிகள்",
-      "desc_en": "Over 250 essential medicines available free at all counters.",
-      "desc_ta": "250க்கும் மேற்பட்ட அத்தியாவசிய மருந்துகள் அனைத்து கவுண்டரிலும் இலவசம்."
+      "desc_en": "Over 250 essential medicines available free at all counters — no prescription charge.",
+      "desc_ta": "250க்கும் மேற்பட்ட அத்தியாவசிய மருந்துகள் அனைத்து கவுண்டரிலும் இலவசம் — மருந்துச்சீட்டு கட்டணம் இல்லை."
+    },
+    {
+      "name_en": "Free Diagnostics",
+      "name_ta": "இலவச கண்டறிதல் சேவை",
+      "icon": "🔬",
+      "coverage_en": "Lab, X-Ray, ECG, USG, CT",
+      "coverage_ta": "ஆய்வகம், X-Ray, ECG, USG, CT",
+      "who_en": "All in-patients",
+      "who_ta": "அனைத்து உள்நோயாளிகள்",
+      "desc_en": "Full diagnostic panel free for all admitted patients. OPD patients get free basic tests.",
+      "desc_ta": "உள்நோயாளிகளுக்கு முழு கண்டறிதல் பரிசோதனை இலவசம். OPD நோயாளிகளுக்கு அடிப்படை பரிசோதனைகள் இலவசம்."
+    },
+    {
+      "name_en": "Janani Suraksha Yojana (JSY)",
+      "name_ta": "ஜனனி சுரட்சா யோஜனா (JSY)",
+      "icon": "🤰",
+      "coverage_en": "₹1,400 cash + free delivery",
+      "coverage_ta": "₹1,400 ரொக்கம் + இலவச பிரசவம்",
+      "who_en": "All pregnant women",
+      "who_ta": "அனைத்து கர்ப்பிணி பெண்கள்",
+      "desc_en": "Cash incentive for institutional delivery plus free antenatal care, iron supplements, and post-natal check-up.",
+      "desc_ta": "மருத்துவமனை பிரசவத்திற்கு ரொக்க ஊக்கத்தொகை, இலவச கர்ப்ப கால பராமரிப்பு மற்றும் பிரசவத்திற்கு பின் பரிசோதனை."
     },
     {
       "name_en": "108 Emergency Ambulance",
@@ -777,8 +817,41 @@
       "coverage_ta": "24/7 இலவசம்",
       "who_en": "All citizens",
       "who_ta": "அனைத்து குடிமக்கள்",
-      "desc_en": "Fully equipped emergency ambulance free of charge.",
-      "desc_ta": "முழுமையாக சித்தப்படுத்தப்பட்ட இலவச அவசர ஆம்புலன்ஸ்."
+      "desc_en": "Fully equipped emergency ambulance free of charge. Call 108 from anywhere in Erode district.",
+      "desc_ta": "முழுமையாக சித்தப்படுத்தப்பட்ட இலவச அவசர ஆம்புலன்ஸ். ஈரோடு மாவட்டம் எங்கிருந்தும் 108 அழைக்கவும்."
+    },
+    {
+      "name_en": "Child Immunisation Programme",
+      "name_ta": "குழந்தை தடுப்பூசி திட்டம்",
+      "icon": "👶",
+      "coverage_en": "0–5 years — All vaccines",
+      "coverage_ta": "0–5 வயது — அனைத்து தடுப்பூசிகள்",
+      "who_en": "All children",
+      "who_ta": "அனைத்து குழந்தைகள்",
+      "desc_en": "Complete UIP vaccines — BCG, OPV, Hepatitis B, DPT, MMR — free of cost.",
+      "desc_ta": "BCG, OPV, ஹெபடைட்டிஸ் B, DPT, MMR உட்பட அனைத்து தடுப்பூசிகளும் இலவசம்."
+    },
+    {
+      "name_en": "National TB Elimination Programme",
+      "name_ta": "தேசிய காசநோய் ஒழிப்பு திட்டம்",
+      "icon": "🫁",
+      "coverage_en": "Full treatment + nutrition support",
+      "coverage_ta": "முழு சிகிச்சை + ஊட்டச்சத்து உதவி",
+      "who_en": "TB patients",
+      "who_ta": "காசநோய் நோயாளிகள்",
+      "desc_en": "Free DOTS therapy, Nikshay Poshan Yojana ₹500/month nutrition support, and travel reimbursement.",
+      "desc_ta": "இலவச DOTS சிகிச்சை, நிக்ஷய் போஷண் யோஜனா மாதம் ₹500 ஊட்டச்சத்து உதவி மற்றும் பயண செலவு திரும்பல்."
+    },
+    {
+      "name_en": "Diabetic & Hypertension Control",
+      "name_ta": "நீரிழிவு மற்றும் உயர் இரத்த அழுத்த கட்டுப்பாடு",
+      "icon": "🩺",
+      "coverage_en": "Free medicines + monitoring",
+      "coverage_ta": "இலவச மருந்துகள் + கண்காணிப்பு",
+      "who_en": "All NCD patients",
+      "who_ta": "அனைத்து NCD நோயாளிகள்",
+      "desc_en": "Free HbA1c tests, anti-diabetic and anti-hypertensive medicines, and regular monitoring under NPCDCS.",
+      "desc_ta": "இலவச HbA1c பரிசோதனை, நீரிழிவு மற்றும் உயர் இரத்த அழுத்த மருந்துகள், NPCDCS கீழ் தொடர் கண்காணிப்பு."
     }
   ],
   "scope": {

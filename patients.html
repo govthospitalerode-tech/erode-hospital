@@ -15,7 +15,6 @@
     .intro-stats { display:flex; flex-direction:column; gap:16px; text-align:right; }
     .intro-stat-val { font-family:'Playfair Display',serif; font-size:32px; color:var(--secondary-lt); font-weight:700; line-height:1; }
     .intro-stat-lbl { font-size:11px; color:rgba(255,255,255,0.5); letter-spacing:1px; text-transform:uppercase; }
-
     .schemes-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
     .scheme-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:28px; display:flex; gap:20px; transition:var(--transition); }
     .scheme-card:hover { box-shadow:var(--shadow-md); border-color:var(--primary); }
@@ -25,13 +24,11 @@
     .scheme-who { font-size:12px; color:var(--muted); margin-bottom:10px; font-weight:600; }
     .scheme-who em { font-style:normal; color:var(--secondary-dk); }
     .scheme-desc { font-size:13.5px; color:var(--body-text); line-height:1.65; }
-
     .emergency-box { background:var(--secondary); border-radius:var(--radius-md); padding:32px 40px; margin-top:48px; display:flex; align-items:center; gap:32px; }
     .emergency-box .em-icon { font-size:48px; flex-shrink:0; }
     .emergency-box h3 { font-family:'Playfair Display',serif; color:var(--white); font-size:24px; margin-bottom:8px; }
     .emergency-box p { color:rgba(255,255,255,0.82); font-size:14px; }
     .emergency-box .em-number { font-family:'Playfair Display',serif; font-size:48px; color:var(--white); font-weight:900; letter-spacing:2px; margin-left:auto; }
-
     @media(max-width:900px) {
       .patients-body { padding:40px 20px; }
       .schemes-grid { grid-template-columns:1fr; }
@@ -46,36 +43,37 @@
 <nav class="navbar" id="navbar"></nav>
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Patient Benefits</div>
-    <h1>Patient Benefits & Schemes</h1>
-    <p>All services, medicines, diagnostics, and schemes available free of cost to patients of Erode Govt Hospital.</p>
+    <div class="page-hero-breadcrumb">
+      <a href="/index.html" id="breadHome">Home</a> › <span id="breadCurrent">Patient Benefits</span>
+    </div>
+    <h1 id="pageTitle">Patient Benefits & Schemes</h1>
+    <p id="pageDesc">All services, medicines, diagnostics, and schemes available free of cost to patients of Erode Govt Hospital.</p>
   </div>
 </div>
 
 <div class="patients-body">
   <div class="intro-block">
     <div>
-      <h2>Everything is Free. No hidden charges.</h2>
-      <p>Under the Government of Tamil Nadu's healthcare mandate, Thanthai Periyar Govt Hospital provides comprehensive medical care at zero cost to all patients. From medicines to surgeries to diagnostics — all covered under various central and state schemes.</p>
+      <h2 id="introTitle">Everything is Free. No hidden charges.</h2>
+      <p id="introDesc">Under the Government of Tamil Nadu's healthcare mandate, Thanthai Periyar Govt Hospital provides comprehensive medical care at zero cost to all patients. From medicines to surgeries to diagnostics — all covered under various central and state schemes.</p>
     </div>
     <div class="intro-stats">
-      <div><div class="intro-stat-val">₹5L</div><div class="intro-stat-lbl">Max CMCHIS Coverage</div></div>
-      <div><div class="intro-stat-val">250+</div><div class="intro-stat-lbl">Free Medicines</div></div>
+      <div><div class="intro-stat-val">₹5L</div><div class="intro-stat-lbl" id="stat1Lbl">Max CMCHIS Coverage</div></div>
+      <div><div class="intro-stat-val">250+</div><div class="intro-stat-lbl" id="stat2Lbl">Free Medicines</div></div>
     </div>
   </div>
 
-  <span class="section-label" id="schemes">Government Schemes</span>
-  <h2 class="section-title" style="margin-bottom:32px">What You Get — Free</h2>
-
+  <span class="section-label" id="schemesLabel">Government Schemes</span>
+  <h2 class="section-title" id="schemesTitle" style="margin-bottom:32px">What You Get — Free</h2>
   <div class="schemes-grid" id="schemesGrid">
-    <div class="loading-box"><div class="spinner"></div>Loading schemes...</div>
+    <div class="loading-box"><div class="spinner"></div>Loading...</div>
   </div>
 
   <div class="emergency-box">
     <div class="em-icon">🚑</div>
     <div>
-      <h3>Free Emergency Ambulance — 24/7</h3>
-      <p>Call 108 from anywhere in Erode district for a fully equipped, staffed emergency ambulance — completely free of charge for all citizens.</p>
+      <h3 id="emTitle">Free Emergency Ambulance — 24/7</h3>
+      <p id="emDesc">Call 108 from anywhere in Erode district for a fully equipped, staffed emergency ambulance — completely free of charge for all citizens.</p>
     </div>
     <div class="em-number">108</div>
   </div>
@@ -84,24 +82,44 @@
 <footer class="footer" id="footer"></footer>
 <script src="/shared.js"></script>
 <script>
-async function loadSchemes() {
+function renderPatients(data) {
+  const lang = localStorage.getItem('gh_lang') || 'en';
+  const isTa = lang === 'ta';
+
+  document.getElementById('breadHome').textContent    = isTa ? 'முகப்பு'              : 'Home';
+  document.getElementById('breadCurrent').textContent = isTa ? 'நோயாளி நலன்கள்'      : 'Patient Benefits';
+  document.getElementById('pageTitle').textContent    = isTa ? 'நோயாளி நலன்கள் & திட்டங்கள்' : 'Patient Benefits & Schemes';
+  document.getElementById('pageDesc').textContent     = isTa ? 'ஈரோடு அரசு மருத்துவமனை நோயாளிகளுக்கு இலவசமாக கிடைக்கும் அனைத்து சேவைகள், மருந்துகள் மற்றும் திட்டங்கள்.' : 'All services, medicines, diagnostics, and schemes available free of cost to patients of Erode Govt Hospital.';
+  document.getElementById('introTitle').textContent   = isTa ? 'அனைத்தும் இலவசம். மறைக்கப்பட்ட கட்டணம் இல்லை.' : 'Everything is Free. No hidden charges.';
+  document.getElementById('introDesc').textContent    = isTa ? 'தமிழ்நாடு அரசின் சுகாதார உத்தரவின்படி, தந்தை பெரியார் அரசு மருத்துவமனை அனைத்து நோயாளிகளுக்கும் இலவச மருத்துவ சிகிச்சை வழங்குகிறது. மருந்துகள் முதல் அறுவை சிகிச்சை வரை — அனைத்தும் திட்டங்களில் உள்ளடக்கப்பட்டுள்ளன.' : 'Under the Government of Tamil Nadu\'s healthcare mandate, Thanthai Periyar Govt Hospital provides comprehensive medical care at zero cost to all patients.';
+  document.getElementById('stat1Lbl').textContent     = isTa ? 'CMCHIS அதிகபட்ச காப்பீடு' : 'Max CMCHIS Coverage';
+  document.getElementById('stat2Lbl').textContent     = isTa ? 'இலவச மருந்துகள்'            : 'Free Medicines';
+  document.getElementById('schemesLabel').textContent = isTa ? 'அரசு திட்டங்கள்'            : 'Government Schemes';
+  document.getElementById('schemesTitle').textContent = isTa ? 'நீங்கள் பெறுவது — இலவசமாக'  : 'What You Get — Free';
+  document.getElementById('emTitle').textContent      = isTa ? 'இலவச அவசர ஆம்புலன்ஸ் — 24/7' : 'Free Emergency Ambulance — 24/7';
+  document.getElementById('emDesc').textContent       = isTa ? 'ஈரோடு மாவட்டம் எங்கிருந்தும் 108 அழைக்கவும் — அனைத்து குடிமக்களுக்கும் முற்றிலும் இலவசம்.' : 'Call 108 from anywhere in Erode district for a fully equipped, staffed emergency ambulance — completely free of charge for all citizens.';
+
+  document.getElementById('schemesGrid').innerHTML = (data.schemes || []).map((s, i) => `
+    <div class="scheme-card fade-up" style="animation-delay:${i*0.06}s">
+      <div class="scheme-icon-wrap">${s.icon}</div>
+      <div>
+        <h3 class="scheme-name">${isTa ? s.name_ta : s.name_en}</h3>
+        <div class="scheme-coverage"><span class="badge badge-teal">${isTa ? s.coverage_ta : s.coverage_en}</span></div>
+        <div class="scheme-who">${isTa ? 'தகுதியானவர்கள்' : 'Eligible'}: <em>${isTa ? s.who_ta : s.who_en}</em></div>
+        <p class="scheme-desc">${isTa ? s.desc_ta : s.desc_en}</p>
+      </div>
+    </div>`).join('');
+}
+
+async function loadPatients() {
   try {
-    const res  = await fetch('/hospital?section=schemes');
+    const res  = await fetch('/hospital');
     const data = await res.json();
-    const schemes = data.schemes || [];
-    document.getElementById('schemesGrid').innerHTML = schemes.map((s,i) => `
-      <div class="scheme-card fade-up" style="animation-delay:${i*0.06}s">
-        <div class="scheme-icon-wrap">${s.icon}</div>
-        <div>
-          <h3 class="scheme-name">${s.name}</h3>
-          <div class="scheme-coverage"><span class="badge badge-teal">${s.coverage}</span></div>
-          <div class="scheme-who">Eligible: <em>${s.who}</em></div>
-          <p class="scheme-desc">${s.desc}</p>
-        </div>
-      </div>`).join('');
+    renderPatients(data);
+    document.addEventListener('langchange', () => renderPatients(data));
   } catch(e) { console.error(e); }
 }
-loadSchemes();
+document.addEventListener('DOMContentLoaded', loadPatients);
 </script>
 </body>
 </html>
