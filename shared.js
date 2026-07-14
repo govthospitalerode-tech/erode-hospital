@@ -30,8 +30,9 @@ function buildNav(data) {
 </div>
 <div class="nav-main">
   <a class="nav-brand" href="/index.html">
-<div class="nav-emblem">
-      <img src="/public/tn_seal.png" alt="TN Seal" style="height:42px;width:42px;object-fit:contain;display:block;background:none;" onerror="this.outerHTML='🏥'"/>    </div>
+    <div class="nav-emblem" style="background:#ffffff;border-radius:50%;display:flex;align-items:center;justify-content:center;width:48px;height:48px;padding:3px;box-sizing:border-box;flex-shrink:0;">
+      <img src="/public/tn_seal.png" alt="TN Seal" style="height:42px;width:42px;object-fit:contain;display:block;background:none;" onerror="this.outerHTML='🏥'"/>
+    </div>
     <div class="nav-brand-text">
       <strong>${t(h,'name')}</strong>
       <span>${t(h,'tagline')}</span>
