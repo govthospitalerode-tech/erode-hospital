@@ -1,32 +1,25 @@
-/* ============================================================
-   ERODE GOVT HOSPITAL — DESIGN SYSTEM
-   Primary: #1a3c6e (NIC deep navy/blue from erode.nic.in)
-   Secondary: #e67e22 (warm amber/saffron — TN govt accent)
-   ============================================================ */
-
 :root {
-  --primary:     #1a3c6e;
-  --primary-dk:  #0f2548;
-  --primary-lt:  #2a5298;
-  --secondary:   #e67e22;
-  --secondary-dk:#c0651a;
-  --secondary-lt:#f0a054;
+  --primary:     #1a3a5c;
+  --primary-dk:  #0e2238;
+  --primary-lt:  #254e7a;
+  --secondary:   #c8973a;
+  --secondary-dk:#a67828;
+  --secondary-lt:#e0b45a;
   --teal:        #0a7c6e;
-  --cream:       #f5f7fa;
+  --cream:       #f4f6f9;
   --white:       #ffffff;
-  --navy-text:   #1a3c6e;
-  --body-text:   #374151;
-  --muted:       #6b7280;
-  --border:      #e5e7eb;
-  --shadow-sm:   0 2px 8px rgba(26,60,110,0.08);
-  --shadow-md:   0 6px 24px rgba(26,60,110,0.12);
-  --shadow-lg:   0 16px 48px rgba(26,60,110,0.16);
+  --navy-text:   #1a3a5c;
+  --body-text:   #2d3748;
+  --muted:       #5a6a7e;
+  --border:      #dde3ea;
+  --shadow-sm:   0 2px 8px rgba(26,58,92,0.10);
+  --shadow-md:   0 6px 24px rgba(26,58,92,0.14);
+  --shadow-lg:   0 16px 48px rgba(26,58,92,0.18);
   --radius-sm:   6px;
   --radius-md:   12px;
   --radius-lg:   18px;
   --transition:  all 0.25s ease;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
@@ -93,7 +86,7 @@ h1, h2, h3, h4 {
 .btn-primary:hover {
   background: var(--secondary-dk);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(230,126,34,0.35);
+  box-shadow: 0 6px 20px rgba(200,151,58,0.40);
 }
 .btn-outline {
   background: transparent;
@@ -159,7 +152,7 @@ h1, h2, h3, h4 {
   justify-content: center;
   font-size: 22px;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(230,126,34,0.4);
+  box-shadow: 0 2px 8px rgba(200,151,58,0.4);
 }
 .nav-brand-text { line-height: 1.25; }
 .nav-brand-text strong {

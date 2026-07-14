@@ -30,7 +30,8 @@ function buildNav(data) {
 </div>
 <div class="nav-main">
   <a class="nav-brand" href="/index.html">
-    <div class="nav-emblem">🏥</div>
+<div class="nav-emblem">
+      <img src="/public/tn_seal.png" alt="TN Seal" style="height:42px;width:42px;object-fit:contain;display:block;background:none;" onerror="this.outerHTML='🏥'"/>    </div>
     <div class="nav-brand-text">
       <strong>${t(h,'name')}</strong>
       <span>${t(h,'tagline')}</span>
@@ -57,7 +58,10 @@ function buildFooter(data) {
   return `
 <div class="footer-grid">
   <div class="footer-brand">
-    <strong>${t(h,'name')}</strong>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+      <img src="/public/dms_logo.jpg" alt="DMS" style="height:36px;width:36px;object-fit:contain;border-radius:50%;flex-shrink:0;" onerror="this.style.display='none'"/>
+      <strong>${t(h,'name')}</strong>
+    </div>
     <p>${LANG==='ta'
       ? 'ஈரோடு மற்றும் சுற்றியுள்ள மாவட்டங்களுக்கு சேவை செய்யும் மாவட்ட தலைமை மருத்துவமனை. தமிழ்நாடு அரசால் பல்நோக்கு சூப்பர் ஸ்பெஷாலிட்டி மருத்துவமனையாக தரமுயர்த்தப்பட்டது.'
       : 'A district headquarters hospital serving Erode and surrounding districts. Upgraded to a Multi Super Speciality Hospital under Government of Tamil Nadu.'}</p>

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="/public/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/public/favicon-192.png"/>
+  <link rel="shortcut icon" href="/public/favicon.ico"/>
   <title>About — Thanthai Periyar Govt Hospital Erode</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -13,7 +16,7 @@
     .about-content p { font-size:15px; color:var(--body-text); line-height:1.8; margin-bottom:20px; }
     .about-content p strong { color:var(--primary); }
     .timeline { margin-top:40px; }
-    .timeline h3 { font-size:20px; margin-bottom:24px; }aa
+    .timeline h3 { font-size:20px; margin-bottom:24px; }
     .tl-item { display:flex; gap:20px; margin-bottom:24px; }
     .tl-year { background:var(--primary); color:var(--white); font-family:'Playfair Display',serif; font-size:15px; font-weight:700; padding:6px 12px; border-radius:6px; white-space:nowrap; height:fit-content; min-width:56px; text-align:center; }
     .tl-body { font-size:14px; color:var(--body-text); line-height:1.65; border-left:2px solid var(--border); padding-left:20px; padding-bottom:12px; }
@@ -35,68 +38,96 @@
 <nav class="navbar" id="navbar"></nav>
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › About</div>
-    <h1>About the Hospital</h1>
-    <p>A legacy of over 150 years of healthcare — now Tamil Nadu's largest secondary care hospital.</p>
+    <div class="page-hero-breadcrumb"><a href="/index.html" id="breadHome">Home</a> › <span id="breadCurrent">About</span></div>
+    <h1 id="pageTitle">About the Hospital</h1>
+    <p id="pageDesc">A legacy of over 150 years of healthcare — now Tamil Nadu's largest secondary care hospital.</p>
   </div>
 </div>
 
 <div class="about-body">
   <div class="about-content">
-    <h2>Thanthai Periyar Government Headquarters Hospital</h2>
-
-    <p>Erode General Hospital was founded in <strong>1872 by the East India Company</strong>, making it one of the oldest public hospitals in Tamil Nadu. In <strong>August 1928</strong>, the hospital was taken over by the government from the British East India Company. Originally functioning near the Abdul Gani Textile Market in Panneerselvam Park, it was shifted to its present location on <strong>EVN Road, Kaikolar Thottam</strong> in <strong>1955</strong>.</p>
-
-    <p>The foundation stone for the present building was laid on <strong>9th July 1955</strong> by then Chief Minister <strong>Mr. K. Kamaraj</strong>, and the hospital was formally inaugurated on <strong>15th February 1960</strong> by then Health Minister <strong>Mr. Manikkavelu</strong>. Named after the great social reformer <strong>Thanthai Periyar E.V. Ramasamy</strong> — who himself sponsored a share for this hospital — it stands as a symbol of the Dravidian movement's commitment to social equity and public welfare.</p>
-
-    <p>In <strong>1973</strong>, when the Government Headquarters Hospital Coimbatore was converted into a medical college hospital, Erode hospital became the District Headquarters Hospital for Coimbatore district. With the bifurcation of Coimbatore on <strong>17th September 1979</strong>, Periyar district was formed and the hospital became the Erode District Headquarters Hospital.</p>
-
-    <p>Situated in the heart of Erode city, spread over <strong>6.5 acres</strong>, the hospital is accessible from both the railway station and bus stand. Key specialised services added over the years include: a <strong>Haemodialysis Unit</strong> (since 2007, now with 21 machines), <strong>Upper GI Endoscopy</strong> (since 2007), <strong>ECHO Cardiogram</strong> (since June 2012), <strong>NCD Screening</strong> (since June 2012), and the <strong>CMCHIS cashless scheme</strong> (since July 2012).</p>
-
-    <p>During the <strong>COVID-19 pandemic (April 2020)</strong>, the hospital was designated as a Corona Speciality Hospital with <strong>184 dedicated isolation beds</strong>, serving all of Erode district alongside Erode Medical College Hospital.</p>
-
-    <p>In <strong>March 2024</strong>, a B+G+8 storeyed Super Speciality block of <strong>2,32,602 sq ft</strong> was inaugurated by Chief Minister M.K. Stalin at a cost of <strong>₹80.81 Crores</strong>. With this, the hospital now has <strong>1,085 total beds</strong> (960 functional) and is the <strong>largest secondary care hospital in Tamil Nadu</strong> by bed strength. Super-speciality services now include Cardiology, Neurology, Medical Oncology, Neurosurgery, Plastic Surgery, Urology, and Paediatric Surgery. A separate <strong>20-bed Pay Ward</strong> with air-conditioned attached rooms, television, and geysers was established in <strong>September 2024</strong>.</p>
+    <h2 id="aboutHeading">Thanthai Periyar Government Headquarters Hospital</h2>
+    <div id="aboutParagraphs"></div>
 
     <div class="timeline">
-      <h3>Key Milestones</h3>
-      <div class="tl-item"><div class="tl-year">1872</div><div class="tl-body"><strong>Founded by the East India Company</strong>Erode General Hospital established — one of the oldest public hospitals in Tamil Nadu.</div></div>
-      <div class="tl-item"><div class="tl-year">1928</div><div class="tl-body"><strong>Taken Over by Government</strong>In August 1928, the hospital was transferred from the British East India Company to the Government of India.</div></div>
-      <div class="tl-item"><div class="tl-year">1955</div><div class="tl-body"><strong>Shifted to Present Location · Foundation Stone Laid</strong>Moved to EVN Road, Kaikolar Thottam. Foundation stone laid on 9 July 1955 by CM K. Kamaraj. Periyar E.V. Ramasamy sponsored a share for the hospital. Started as a 220-bed Taluk Government Hospital.</div></div>
-      <div class="tl-item"><div class="tl-year">1960</div><div class="tl-body"><strong>Formally Inaugurated</strong>Inaugurated on 15 February 1960 by Health Minister Mr. Manikkavelu.</div></div>
-      <div class="tl-item"><div class="tl-year">1979</div><div class="tl-body"><strong>Erode District Headquarters Hospital</strong>With bifurcation of Coimbatore on 17 September 1979, Periyar district was created and the hospital became the Erode District Headquarters Hospital.</div></div>
-      <div class="tl-item"><div class="tl-year">2007</div><div class="tl-body"><strong>Haemodialysis & Endoscopy Units Launched</strong>Haemodialysis unit with 3 machines started (now 21 machines). Upper GI Endoscopy unit also launched, providing diagnostic and therapeutic services for chronic kidney disease patients.</div></div>
-      <div class="tl-item"><div class="tl-year">2012</div><div class="tl-body"><strong>CMCHIS · ECHO · NCD Programme</strong>CM's Comprehensive Health Insurance Scheme (CMCHIS) launched (July). ECHO Cardiogram unit started (June). NCD screening programme for diabetes, hypertension, breast cancer, and cervical cancer initiated.</div></div>
-      <div class="tl-item"><div class="tl-year">2020</div><div class="tl-body"><strong>COVID-19 Speciality Hospital</strong>Designated as Corona Speciality Hospital with 184 isolation beds. Pivotal role in Erode district's pandemic response.</div></div>
-      <div class="tl-item"><div class="tl-year">2022</div><div class="tl-body"><strong>Zero Maternal Mortality · Bed Expansion</strong>Achieved zero maternal deaths for two consecutive quarters — recognised by TN Directorate of Health Services. Bed strength increased to 725.</div></div>
-      <div class="tl-item"><div class="tl-year">2024</div><div class="tl-body"><strong>Super Speciality Block Inaugurated · 1,085 Beds</strong>B+G+8 storeyed super speciality block (2,32,602 sq ft) inaugurated by CM M.K. Stalin at ₹80.81 Crores. Hospital now has 1,085 beds — the largest secondary care hospital in Tamil Nadu. 20-bed Pay Ward opened in September 2024.</div></div>
+      <h3 id="timelineTitle">Key Milestones</h3>
+      <div id="timelineList"></div>
     </div>
   </div>
 
   <div class="about-sidebar">
     <div class="info-card">
-      <h4>Quick Info</h4>
-      <div class="info-row"><span>📍</span><div><strong>Address</strong>EVN Road, Kaikolar Thottam, Erode – 638 009</div></div>
-      <div class="info-row"><span>📞</span><div><strong>Phone</strong>0424-2253676 / 2258355</div></div>
-      <div class="info-row"><span>🚑</span><div><strong>Emergency</strong>108 (Free Ambulance)</div></div>
-      <div class="info-row"><span>🩸</span><div><strong>Blood Bank</strong>0424-2252356 (24/7)</div></div>
-      <div class="info-row"><span>🕐</span><div><strong>OPD Hours</strong>Mon–Sat: 8AM – 1PM</div></div>
-      <div class="info-row"><span>🌐</span><div><strong>Authority</strong>TN Directorate of Medical & Rural Health Services</div></div>
+      <h4 id="quickInfoLabel">Quick Info</h4>
+      <div id="quickInfoRows"></div>
     </div>
     <div class="info-card">
-      <h4>At a Glance</h4>
-      <div class="info-row"><span>🛏️</span><div><strong>Total Beds</strong>1,085 (960 functional)</div></div>
-      <div class="info-row"><span>👨‍⚕️</span><div><strong>Medical Officers</strong>75+</div></div>
-      <div class="info-row"><span>🏛️</span><div><strong>Departments</strong>General + 8 Super Speciality</div></div>
-      <div class="info-row"><span>🏗️</span><div><strong>New SS Block</strong>2,32,602 sq ft · ₹80.81 Cr</div></div>
-      <div class="info-row"><span>📅</span><div><strong>Founded</strong>1872 (Present site: 1955)</div></div>
-      <div class="info-row"><span>🏆</span><div><strong>Distinction</strong>Largest secondary care hospital in Tamil Nadu</div></div>
-      <div class="info-row"><span>🫘</span><div><strong>Haemodialysis</strong>21 machines (since 2007)</div></div>
-      <div class="info-row"><span>📐</span><div><strong>Campus Area</strong>6.5 acres, heart of Erode city</div></div>
+      <h4 id="glanceLabel">At a Glance</h4>
+      <div id="glanceRows"></div>
     </div>
   </div>
 </div>
 
 <footer class="footer" id="footer"></footer>
 <script src="/shared.js"></script>
+<script>
+function renderAbout(data) {
+  const lang = localStorage.getItem('gh_lang') || 'en';
+  const isTa = lang === 'ta';
+  const a = data.about;
+  if (!a) return;
+  const t = (en, ta) => isTa ? ta : en;
+
+  document.getElementById('breadHome').textContent    = t('Home', 'முகப்பு');
+  document.getElementById('breadCurrent').textContent = t(a.page_hero.breadcrumb_en, a.page_hero.breadcrumb_ta);
+  document.getElementById('pageTitle').textContent    = t(a.page_hero.title_en, a.page_hero.title_ta);
+  document.getElementById('pageDesc').textContent     = t(a.page_hero.desc_en, a.page_hero.desc_ta);
+  document.getElementById('aboutHeading').textContent = t(a.heading_en, a.heading_ta);
+
+  document.getElementById('aboutParagraphs').innerHTML = (a.paragraphs || [])
+    .map(p => `<p>${isTa ? p.ta : p.en}</p>`).join('');
+
+  document.getElementById('timelineTitle').textContent = t(a.timeline_title_en, a.timeline_title_ta);
+  document.getElementById('timelineList').innerHTML = (a.timeline || []).map(item => `
+    <div class="tl-item">
+      <div class="tl-year">${item.year}</div>
+      <div class="tl-body"><strong>${t(item.title_en, item.title_ta)}</strong>${t(item.desc_en, item.desc_ta)}</div>
+    </div>`).join('');
+
+  const s = a.sidebar_labels;
+  document.getElementById('quickInfoLabel').textContent = t(s.quick_info_en, s.quick_info_ta);
+  document.getElementById('glanceLabel').textContent    = t(s.glance_en, s.glance_ta);
+
+  const h = data.hospital;
+  document.getElementById('quickInfoRows').innerHTML = `
+    <div class="info-row"><span>📍</span><div><strong>${t(s.address_en, s.address_ta)}</strong>${isTa ? h.address_ta : h.address_en}</div></div>
+    <div class="info-row"><span>📞</span><div><strong>${t(s.phone_en, s.phone_ta)}</strong>${h.phone.join(' / ')}</div></div>
+    <div class="info-row"><span>🚑</span><div><strong>${t(s.emergency_en, s.emergency_ta)}</strong>${t(s.emergency_val_en, s.emergency_val_ta)}</div></div>
+    <div class="info-row"><span>🩸</span><div><strong>${t(s.blood_bank_en, s.blood_bank_ta)}</strong>${t(s.blood_bank_val_en, s.blood_bank_val_ta)}</div></div>
+    <div class="info-row"><span>🕐</span><div><strong>${t(s.opd_hours_en, s.opd_hours_ta)}</strong>${t(s.opd_hours_val_en, s.opd_hours_val_ta)}</div></div>
+    <div class="info-row"><span>🌐</span><div><strong>${t(s.authority_label_en, s.authority_label_ta)}</strong>${isTa ? h.authority_ta : h.authority_en}</div></div>
+  `;
+
+  document.getElementById('glanceRows').innerHTML = `
+    <div class="info-row"><span>🛏️</span><div><strong>${t(s.total_beds_en, s.total_beds_ta)}</strong>${t(s.total_beds_val_en, s.total_beds_val_ta)}</div></div>
+    <div class="info-row"><span>👨‍⚕️</span><div><strong>${t(s.medical_officers_en, s.medical_officers_ta)}</strong>${t(s.medical_officers_val_en, s.medical_officers_val_ta)}</div></div>
+    <div class="info-row"><span>🏛️</span><div><strong>${t(s.departments_en, s.departments_ta)}</strong>${t(s.departments_val_en, s.departments_val_ta)}</div></div>
+    <div class="info-row"><span>🏗️</span><div><strong>${t(s.ss_block_en, s.ss_block_ta)}</strong>${t(s.ss_block_val_en, s.ss_block_val_ta)}</div></div>
+    <div class="info-row"><span>📅</span><div><strong>${t(s.founded_en, s.founded_ta)}</strong>${t(s.founded_val_en, s.founded_val_ta)}</div></div>
+    <div class="info-row"><span>🏆</span><div><strong>${t(s.distinction_en, s.distinction_ta)}</strong>${t(s.distinction_val_en, s.distinction_val_ta)}</div></div>
+    <div class="info-row"><span>🫘</span><div><strong>${t(s.haemodialysis_en, s.haemodialysis_ta)}</strong>${t(s.haemodialysis_val_en, s.haemodialysis_val_ta)}</div></div>
+    <div class="info-row"><span>📐</span><div><strong>${t(s.campus_en, s.campus_ta)}</strong>${t(s.campus_val_en, s.campus_val_ta)}</div></div>
+  `;
+}
+
+async function loadAbout() {
+  try {
+    const res  = await fetch('/hospital');
+    const data = await res.json();
+    renderAbout(data);
+    document.addEventListener('langchange', () => renderAbout(data));
+  } catch (e) { console.error(e); }
+}
+document.addEventListener('DOMContentLoaded', loadAbout);
+</script>
 </body>
 </html>

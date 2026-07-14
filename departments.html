@@ -4,6 +4,9 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Departments — Thanthai Periyar Govt Hospital Erode</title>
+  <link rel="icon" type="image/x-icon" href="/public/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/public/favicon-192.png"/>
+  <link rel="shortcut icon" href="/public/favicon.ico"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/style.css"/>
@@ -161,9 +164,9 @@
 <nav class="navbar" id="navbar"></nav>
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-hero-breadcrumb"><a href="/index.html">Home</a> › Departments</div>
-    <h1>Our Departments</h1>
-    <p>Specialised departments providing free diagnosis, treatment, and surgery to all patients. Hover a card to see the medical team.</p>
+    <div class="page-hero-breadcrumb"><a href="/index.html" id="breadHome">Home</a> › <span id="breadCurrent">Departments</span></div>
+    <h1 id="pageTitle">Our Departments</h1>
+    <p id="pageDesc">Specialised departments providing free diagnosis, treatment, and surgery to all patients. Hover a card to see the medical team.</p>
   </div>
 </div>
 
@@ -183,7 +186,7 @@
       <p id="mOpdBeds"></p>
     </div>
     <div class="dept-modal-body">
-      <div class="m-section-label">About</div>
+      <div class="m-section-label" id="mAboutLabel">About</div>
       <p class="m-desc" id="mDesc"></p>
       <div class="m-meta-row" id="mMeta"></div>
       <div class="m-section-label" id="mDoctorsLabel">Medical Team</div>
@@ -195,79 +198,28 @@
 <footer class="footer" id="footer"></footer>
 <script src="/shared.js"></script>
 <script>
-/* ── Doctor data from xlsx (Doctors_List_as_per_Department) ── */
-const DOCTOR_MAP = {
-  "gen-medicine":  ["Dr.B.Ramesh Babu","Dr.J.Priya","Dr.B.Ganesan","Dr.R.Nandhaprasath","Dr.A.Parveen"],
-  "surgery":       ["Dr.P.Ravichandran","Dr.T.Srinivasan","Dr.R.Suresh","Dr.P.Hariprasath","Dr.J.Ranjith Kumar","Dr.A.Sudhakar","Dr.R.Dharani Devi"],
-  "obgyn":         ["Dr.S.Sivagami","Dr.M.KokilaVani","Dr.K.Manju","Dr.P.Jeyamala","Dr.Era.Selvabharathi","Dr.Nithya Priya","Dr.D.Sathika","Dr.K.Manimegalai","Dr.Rakshana","Dr.Sakthosoundammal"],
-  "paediatrics":   ["Dr.G.Srinivasan","Dr.G.Sasikala","Dr.R.Karthikeyan","Dr.N.Kannan","Dr.P.S.Ravindaran","Dr.S.Kanimozhi","Dr.V.S.Varshan","Dr.S.Vijaya Kumar","Dr.J.P.Raja","Dr.P.Sivakumar"],
-  "ortho":         ["Dr.A.K.K.Shanmugaraman","Dr.Jayasankar","Dr.P.Arunkumar","Dr.S.Myilventhan","Dr.N.Loganathan","Dr.G.Srikishna"],
-  "ophthalmology": ["Dr.S.KalanchiyaRani","Dr.S.Abinaya","Dr.K.Saranya","Dr.E.Lakshminath","Dr.Sreevibya","Dr.S.Rajeshwari"],
-  "ent":           ["Dr.B.Sreedhar","Dr.K.Karthickraj","Dr.J.Ilayaraja","Dr.V.M.Geetharini","Dr.R.Madhankumar"],
-  "psychiatry":    ["Dr.V.A.Anantha Kumar","Dr.S.Anand","Dr.Jeyachandran.R","Dr.A.Deepica Kumar","Dr.G.K.Naveena"],
-  "dermatology":   ["Dr.K.Gomathi","Dr.Howthul Alam Raja"],
-  "radiology":     ["Dr.Ragunath"],
-  "cardiology":    ["Dr.A.Raja"],
-  "neurology":     ["Dr.P.Bagadeesh"],
-  "casualty":      [],
-  "blood-bank":    [],
-  "anesthesia":    ["Dr.T.Kathiravan","Dr.P.Thanga Durai","Dr.M.Megala","Dr.P.Natarajan","Dr.S.Ramya","Dr.J.Ramesh","Dr.S.R.N.Ramya","Dr.T.MariMuthu Saravanan","Dr.N.Sundaravadivel","Dr.S.Sivamathe","Dr.P.Kanimozhi","Dr.G.Nithya","Dr.D.Karthikeyan"],
-  "oncology":      ["Dr.C.P.Ayyappan","Dr.B.Naveen Kumar"],
-  "urology":       ["Dr.N.Suresh Kumar","Dr.S.Karthik","Dr.R.Vinothprabhu"],
-  "plastic":       ["Dr.K.Gowdhaman","Dr.J.K.Karthick"],
-  "dental":        ["Dr.P.Uthramoorthi","Dr.C.Kannan","Dr.Y.Vidhya"],
-  "microbiology":  ["Dr.M.Anitharaj","Dr.Rachel Reena"],
-  "pulmonology":   ["Dr.A.S.Adaikkalavan","Dr.S.P.Saravanan"],
-  "rheumatology":  ["Dr.S.Pandiperumal"],
-  "pediatric-surgery": ["Dr.S.R.Rahu Raja"],
-};
+let CURRENT_DEPTS = [];
+let CURRENT_LABELS = {};
+let CURRENT_IS_TA = false;
+let OPEN_DEPT_ID = null;
 
-/* Extended department list matching actual hospital scope */
-const DEPARTMENTS_EXTENDED = [
-  { id:"gen-medicine",  name:"General Medicine",           icon:"🩺", opd_days:"Mon–Sat", beds:80,  desc:"Comprehensive diagnosis and treatment of internal medicine conditions including fever, infections, diabetes, hypertension, and chronic illnesses." },
-  { id:"surgery",       name:"General Surgery",            icon:"🔪", opd_days:"Mon–Sat", beds:70,  desc:"All major and minor surgical procedures including laparoscopic surgeries, emergency trauma surgeries, and advanced procedures." },
-  { id:"obgyn",         name:"Obstetrics & Gynaecology",   icon:"🤱", opd_days:"Mon–Sat", beds:80,  desc:"Antenatal care, safe deliveries, high-risk pregnancy management, gynaecological procedures, and family planning." },
-  { id:"paediatrics",   name:"Paediatrics",                icon:"👶", opd_days:"Mon–Sat", beds:60,  desc:"Complete child healthcare from newborn to adolescence including NICU, SNCU, and well-baby clinics." },
-  { id:"ortho",         name:"Orthopaedics",               icon:"🦴", opd_days:"Mon–Fri", beds:50,  desc:"Bone fracture management, joint replacements, spine surgeries, and physiotherapy." },
-  { id:"ophthalmology", name:"Ophthalmology",              icon:"👁️", opd_days:"Mon–Sat", beds:30,  desc:"Cataract surgeries, glaucoma treatment, retinal services, and low vision rehabilitation." },
-  { id:"ent",           name:"ENT (Otolaryngology)",       icon:"👂", opd_days:"Mon–Fri", beds:25,  desc:"Ear, nose, and throat surgeries including tonsillectomy, septoplasty, and hearing restoration." },
-  { id:"psychiatry",    name:"Psychiatry",                 icon:"🧠", opd_days:"Mon–Sat", beds:30,  desc:"Mental health counselling, de-addiction services, and inpatient psychiatric care." },
-  { id:"dermatology",   name:"Dermatology & Venereology",  icon:"🧴", opd_days:"Mon–Fri", beds:20,  desc:"Skin disease management, leprosy control, STD/HIV treatment, and NCD screening." },
-  { id:"radiology",     name:"Radiology",                  icon:"🩻", opd_days:"Mon–Sat", beds:0,   desc:"X-Ray, Ultrasound, CT Scan — all free of cost for in-patients. 24-hour emergency radiology support." },
-  { id:"cardiology",    name:"Cardiology",                 icon:"❤️", opd_days:"Mon–Sat", beds:40,  desc:"ECG, Echo, ECHO cardiogram, and cardiology consultations under the super-speciality block." },
-  { id:"neurology",     name:"Neurosurgery",               icon:"🧬", opd_days:"Mon–Fri", beds:35,  desc:"Stroke management, spinal surgery, brain tumour removal, EEG, and neuro-rehabilitation services." },
-  { id:"urology",       name:"Urology",                    icon:"🫀", opd_days:"Mon–Sat", beds:25,  desc:"Radical nephrectomy, kidney stone management, urological surgeries under super-speciality services." },
-  { id:"oncology",      name:"Medical Oncology",           icon:"🎗️", opd_days:"Mon–Sat", beds:30,  desc:"Cancer diagnosis, chemotherapy, palliative care, and pain management for oncology patients." },
-  { id:"plastic",       name:"Plastic Surgery",            icon:"🩹", opd_days:"Mon–Fri", beds:20,  desc:"Reconstructive surgery, syndactyly release, burn treatment, and cosmetic corrections." },
-  { id:"pediatric-surgery", name:"Paediatric Surgery",    icon:"🌟", opd_days:"Mon–Fri", beds:20,  desc:"Surgical procedures for infants and children, neonatal surgery, and paediatric emergency care." },
-  { id:"anesthesia",    name:"Anaesthesia",                icon:"💉", opd_days:"Mon–Sat", beds:0,   desc:"Perioperative care, pain management, general and regional anaesthesia for all surgical procedures." },
-  { id:"pulmonology",   name:"Pulmonology",                icon:"🫁", opd_days:"Mon–Fri", beds:20,  desc:"Respiratory disease management, TB treatment (DOTS), and lung function assessment." },
-  { id:"dental",        name:"Dental",                     icon:"🦷", opd_days:"Mon–Sat", beds:0,   desc:"Dental examination, extraction, restorative procedures, and oral health awareness programmes." },
-  { id:"psychiatry",    name:"Psychiatry",                 icon:"🧠", opd_days:"Mon–Sat", beds:30,  desc:"Mental health counselling, de-addiction services, and inpatient psychiatric care." },
-  { id:"microbiology",  name:"Microbiology",               icon:"🔬", opd_days:"Mon–Sat", beds:0,   desc:"Lab diagnostics, infection control, culture & sensitivity, and blood bank support." },
-  { id:"rheumatology",  name:"Rheumatology",               icon:"💊", opd_days:"Mon–Fri", beds:10,  desc:"Arthritis, autoimmune disease management, and musculoskeletal disorder treatment." },
-  { id:"casualty",      name:"Casualty & Emergency",       icon:"🚑", opd_days:"24/7",    beds:30,  desc:"Round-the-clock emergency care, trauma management, toxicology, and mass casualty handling." },
-  { id:"blood-bank",    name:"Blood Bank",                 icon:"🩸", opd_days:"24/7",    beds:0,   desc:"Licensed blood bank with component separation, cross-matching, and 24/7 supply." },
-];
-
-/* Deduplicate by id */
-const seen = new Set();
-const DEPARTMENTS = DEPARTMENTS_EXTENDED.filter(d => {
-  if (seen.has(d.id)) return false;
-  seen.add(d.id); return true;
-});
+function tt(en, ta) { return CURRENT_IS_TA ? ta : en; }
 
 function openModal(dept) {
-  const doctors = DOCTOR_MAP[dept.id] || [];
+  const doctors = dept.doctors || [];
+  const L = CURRENT_LABELS;
+  OPEN_DEPT_ID = dept.id;
   document.getElementById('mIcon').textContent  = dept.icon;
-  document.getElementById('mName').textContent  = dept.name;
+  document.getElementById('mName').textContent  = tt(dept.name_en, dept.name_ta);
   document.getElementById('mOpdBeds').textContent =
-    (dept.beds > 0 ? `${dept.beds} beds · ` : '') + `OPD: ${dept.opd_days}`;
-  document.getElementById('mDesc').textContent  = dept.desc;
+    (dept.beds > 0 ? `${dept.beds} ${tt(L.beds_en, L.beds_ta)} · ` : '') + `OPD: ${tt(dept.opd_days_en, dept.opd_days_ta)}`;
+  document.getElementById('mAboutLabel').textContent = tt(L.about_en, L.about_ta);
+  document.getElementById('mDesc').textContent  = tt(dept.desc_en, dept.desc_ta);
   document.getElementById('mMeta').innerHTML =
-    (dept.beds > 0 ? `<span class="m-badge">🛏️ ${dept.beds} Beds</span>` : '') +
-    `<span class="m-badge">🕐 ${dept.opd_days}</span>` +
-    (doctors.length ? `<span class="m-badge">👨‍⚕️ ${doctors.length} Doctors</span>` : '');
+    (dept.beds > 0 ? `<span class="m-badge">🛏️ ${dept.beds} ${tt(L.beds_en, L.beds_ta)}</span>` : '') +
+    `<span class="m-badge">🕐 ${tt(dept.opd_days_en, dept.opd_days_ta)}</span>` +
+    (doctors.length ? `<span class="m-badge">👨‍⚕️ ${doctors.length} ${tt(L.doctors_en, L.doctors_ta)}</span>` : '');
+  document.getElementById('mDoctorsLabel').textContent = tt(L.medical_team_en, L.medical_team_ta);
   document.getElementById('mDoctorsLabel').style.display = doctors.length ? 'block' : 'none';
   document.getElementById('mDoctors').innerHTML = doctors.length
     ? doctors.map(n => `<div class="m-doctor-card">👨‍⚕️ ${n}</div>`).join('')
@@ -277,6 +229,7 @@ function openModal(dept) {
 }
 
 function closeModal() {
+  OPEN_DEPT_ID = null;
   document.getElementById('deptModal').classList.remove('open');
   document.body.style.overflow = '';
 }
@@ -288,57 +241,90 @@ document.getElementById('deptModal').addEventListener('click', e => {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 function buildGrid() {
-  document.getElementById('deptGrid').innerHTML = DEPARTMENTS.map((d, i) => {
-    const doctors = DOCTOR_MAP[d.id] || [];
+  const L = CURRENT_LABELS;
+  document.getElementById('deptGrid').innerHTML = CURRENT_DEPTS.map((d, i) => {
+    const doctors = d.doctors || [];
     const previewDoctors = doctors.slice(0, 4);
+    const name = tt(d.name_en, d.name_ta);
+    const desc = tt(d.desc_en, d.desc_ta);
+    const opd  = tt(d.opd_days_en, d.opd_days_ta);
     return `
-      <div class="flip-wrap fade-up" style="animation-delay:${i*0.04}s" data-id="${d.id}" tabindex="0" role="button" aria-label="View ${d.name} department details">
+      <div class="flip-wrap fade-up" style="animation-delay:${i*0.04}s" data-id="${d.id}" tabindex="0" role="button" aria-label="${name}">
         <div class="flip-inner">
           <div class="flip-front">
             <div class="dept-icon">${d.icon}</div>
-            <h2 class="dept-name">${d.name}</h2>
-            <p class="dept-desc">${d.desc.substring(0,100)}…</p>
+            <h2 class="dept-name">${name}</h2>
+            <p class="dept-desc">${desc.substring(0,100)}…</p>
             <div class="dept-meta">
-              ${d.beds > 0 ? `<span class="dept-badge">🛏️ ${d.beds} beds</span>` : ''}
-              <span class="dept-badge">🕐 ${d.opd_days}</span>
+              ${d.beds > 0 ? `<span class="dept-badge">🛏️ ${d.beds} ${tt(L.beds_en, L.beds_ta)}</span>` : ''}
+              <span class="dept-badge">🕐 ${opd}</span>
             </div>
-            <div class="flip-hint">↩ Hover to see medical team</div>
+            <div class="flip-hint">↩ ${tt(L.hover_hint_en, L.hover_hint_ta)}</div>
           </div>
           <div class="flip-back">
-            <div class="flip-back-title">👨‍⚕️ Medical Team (${doctors.length})</div>
+            <div class="flip-back-title">👨‍⚕️ ${tt(L.medical_team_en, L.medical_team_ta)} (${doctors.length})</div>
             <div class="flip-doctors">
               ${previewDoctors.map(dr => `<div class="flip-doctor-item">${dr}</div>`).join('')}
               ${doctors.length > 4 ? `<div class="flip-doctor-item" style="opacity:0.6;">+${doctors.length-4} more…</div>` : ''}
-              ${doctors.length === 0 ? '<div class="flip-doctor-item" style="opacity:0.6;">24/7 rotating duty team</div>' : ''}
+              ${doctors.length === 0 ? `<div class="flip-doctor-item" style="opacity:0.6;">${tt(L.rotating_team_en, L.rotating_team_ta)}</div>` : ''}
             </div>
-            <button class="flip-back-action" data-id="${d.id}">View Full Details →</button>
+            <button class="flip-back-action" data-id="${d.id}">${tt(L.view_details_en, L.view_details_ta)}</button>
           </div>
         </div>
       </div>`;
   }).join('');
 
-  /* Click on "View Full Details" button → open modal */
   document.querySelectorAll('.flip-back-action').forEach(btn => {
     btn.addEventListener('click', e => {
       e.stopPropagation();
-      const dept = DEPARTMENTS.find(d => d.id === btn.dataset.id);
+      const dept = CURRENT_DEPTS.find(d => d.id === btn.dataset.id);
       if (dept) openModal(dept);
     });
   });
 
-  /* Keyboard: Enter/Space on flip-wrap opens modal */
   document.querySelectorAll('.flip-wrap').forEach(wrap => {
     wrap.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        const dept = DEPARTMENTS.find(d => d.id === wrap.dataset.id);
+        const dept = CURRENT_DEPTS.find(d => d.id === wrap.dataset.id);
         if (dept) openModal(dept);
       }
     });
   });
 }
 
-buildGrid();
+function renderDepartments(data) {
+  const lang = localStorage.getItem('gh_lang') || 'en';
+  CURRENT_IS_TA = lang === 'ta';
+  const dp = data.departments_page;
+  if (!dp) return;
+
+  document.getElementById('breadHome').textContent    = tt('Home', 'முகப்பு');
+  document.getElementById('breadCurrent').textContent = tt(dp.page_hero.breadcrumb_en, dp.page_hero.breadcrumb_ta);
+  document.getElementById('pageTitle').textContent    = tt(dp.page_hero.title_en, dp.page_hero.title_ta);
+  document.getElementById('pageDesc').textContent     = tt(dp.page_hero.desc_en, dp.page_hero.desc_ta);
+
+  CURRENT_LABELS = dp.ui_labels;
+  CURRENT_DEPTS  = dp.departments_full || [];
+
+  buildGrid();
+
+  // Keep modal in sync if it was open during a language switch
+  if (OPEN_DEPT_ID) {
+    const dept = CURRENT_DEPTS.find(d => d.id === OPEN_DEPT_ID);
+    if (dept) openModal(dept); else closeModal();
+  }
+}
+
+async function loadDepartments() {
+  try {
+    const res  = await fetch('/hospital');
+    const data = await res.json();
+    renderDepartments(data);
+    document.addEventListener('langchange', () => renderDepartments(data));
+  } catch (e) { console.error(e); }
+}
+document.addEventListener('DOMContentLoaded', loadDepartments);
 </script>
 </body>
 </html>
