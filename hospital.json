@@ -28,16 +28,16 @@
     "authority_ta": "தமிழ்நாடு மருத்துவம் மற்றும் கிராமப்புற சுகாதார சேவைகள் இயக்குநரகம்"
   },
   "notice": {
-    "en": "🏛️ Super Speciality Block inaugurated — 1,085 beds, Tamil Nadu's largest secondary care hospital. Walk-in OPD: Mon–Sat 8AM–1PM",
-    "ta": "🏛️ சூப்பர் ஸ்பெஷாலிட்டி தொகுதி திறக்கப்பட்டது — 1,085 படுக்கைகள், தமிழ்நாட்டின் மிகப்பெரிய இரண்டாம் நிலை பராமரிப்பு மருத்துவமனை. OPD: திங்கள்–சனி காலை 8–பகல் 1"
+    "en": "🏛️ Super Speciality Block inaugurated — 1,085 total beds at Thanthai Periyar Government Headquarters Hospital.",
+    "ta": "🏛️ சூப்பர் ஸ்பெஷாலிட்டி தொகுதி திறக்கப்பட்டது — தந்தை பெரியார் அரசு தலைமை மருத்துவமனையில் மொத்தம் 1,085 படுக்கைகள்."
   },
   "hero": {
     "badge_en": "Est. 1872 · Erode District · 1,085 Beds",
     "badge_ta": "நி.1872 · ஈரோடு மாவட்டம் · 1,085 படுக்கைகள்",
     "title_en": "Healthcare for <em>Every</em> Citizen of Erode",
     "title_ta": "ஈரோட்டின் <em>ஒவ்வொரு</em> குடிமகனுக்கும் சுகாதாரம்",
-    "desc_en": "Thanthai Periyar Government Headquarters Hospital — Tamil Nadu's largest secondary care hospital, providing free, compassionate, and high-quality medical services to the people of Erode and surrounding districts since 1872.",
-    "desc_ta": "தந்தை பெரியார் அரசு தலைமை மருத்துவமனை — 1872 முதல் ஈரோடு மற்றும் சுற்றியுள்ள மாவட்டங்களின் மக்களுக்கு இலவச, அனுதாப மற்றும் உயர்தர மருத்துவ சேவைகளை வழங்கும் தமிழ்நாட்டின் மிகப்பெரிய இரண்டாம் நிலை பராமரிப்பு மருத்துவமனை.",
+    "desc_en": "Thanthai Periyar Government Headquarters Hospital provides medical services to the people of Erode and surrounding districts. Established in 1872.",
+    "desc_ta": "தந்தை பெரியார் அரசு தலைமை மருத்துவமனை 1872 முதல் ஈரோடு மற்றும் சுற்றியுள்ள மாவட்ட மக்களுக்கு மருத்துவ சேவைகளை வழங்கி வருகிறது.",
     "btn_departments_en": "Explore Departments →",
     "btn_departments_ta": "பிரிவுகளை காண்க →",
     "btn_patients_en": "Patient Benefits",
@@ -162,45 +162,45 @@
   ],
   "carousel_images": [
     {
+      "id": "img004",
+      "path": "/public/img004.jpg",
+      "object_position": "center center",
+      "alt_en": "Chief Minister of Tamil Nadu during a public health visit",
+      "alt_ta": "பொது சுகாதார நிகழ்வில் தமிழ்நாடு முதலமைச்சர்",
+      "badge_en": "Public Health",
+      "badge_ta": "பொது சுகாதாரம்",
+      "caption_en": "Chief Minister of Tamil Nadu during a public health visit.",
+      "caption_ta": "பொது சுகாதார நிகழ்வில் தமிழ்நாடு முதலமைச்சர்."
+    },
+    {
       "id": "img001",
       "path": "/public/img001.jpg",
-      "alt_en": "Medical team at Thanthai Periyar Govt Hospital Erode",
-      "alt_ta": "தந்தை பெரியார் அரசு மருத்துவமனை — மருத்துவக் குழு",
+      "alt_en": "Hospital medical team and representatives in Erode",
+      "alt_ta": "ஈரோடு மருத்துவமனை மருத்துவக் குழுவும் பிரதிநிதிகளும்",
       "badge_en": "Our Team",
       "badge_ta": "எங்கள் குழு",
-      "caption_en": "Dedicated medical staff serving the people of Erode with compassion and excellence.",
-      "caption_ta": "ஈரோடு மக்களுக்கு அர்ப்பணிப்புடன் சேவை செய்யும் மருத்துவக் குழு."
+      "caption_en": "Hospital medical team and representatives in Erode.",
+      "caption_ta": "ஈரோடு மருத்துவமனை மருத்துவக் குழுவும் பிரதிநிதிகளும்."
     },
     {
       "id": "img002",
       "path": "/public/img002.jpg",
-      "alt_en": "Hospital entrance team photo",
-      "alt_ta": "மருத்துவமனை நுழைவாயில் குழுப் படம்",
-      "badge_en": "Est. 1872",
-      "badge_ta": "நி. 1872",
-      "caption_en": "Thanthai Periyar Government Headquarters Hospital — serving Erode since 1872.",
-      "caption_ta": "தந்தை பெரியார் அரசு தலைமை மருத்துவமனை — 1872 முதல் ஈரோட்டிற்கு சேவை."
+      "alt_en": "Erode government hospital team photograph",
+      "alt_ta": "ஈரோடு அரசு மருத்துவமனை குழு புகைப்படம்",
+      "badge_en": "Hospital Team",
+      "badge_ta": "மருத்துவமனை குழு",
+      "caption_en": "Hospital staff and representatives at Erode Government Headquarters Hospital.",
+      "caption_ta": "ஈரோடு அரசு தலைமை மருத்துவமனையில் மருத்துவமனை ஊழியர்கள் மற்றும் பிரதிநிதிகள்."
     },
     {
       "id": "img003",
       "path": "/public/img003.jpg",
       "alt_en": "Hospital superintendent meeting with staff",
-      "alt_ta": "மருத்துவமனை கண்காணிப்பாளர் ஆலோசனை கூட்டம்",
+      "alt_ta": "மருத்துவமனை கண்காணிப்பாளர் ஊழியர்களுடன் ஆலோசனை",
       "badge_en": "Administration",
       "badge_ta": "நிர்வாகம்",
-      "caption_en": "Hospital Superintendent Dr. R. Venkatesh in discussion with staff and public representatives.",
-      "caption_ta": "மருத்துவமனை கண்காணிப்பாளர் மரு. ஆர். வெங்கடேஷ் — ஊழியர்களுடன் ஆலோசனை."
-    },
-    {
-      "id": "img004",
-      "path": "/public/img004.jpg",
-      "object_position": "center center",
-      "alt_en": "Chief Minister of Tamil Nadu at National Polio Immunisation Day — administering polio drops and gifting to child",
-      "alt_ta": "தேசிய போலியோ சொட்டு மருந்து தினம் — தமிழ்நாடு முதலமைச்சர்",
-      "badge_en": "Public Health Drive",
-      "badge_ta": "பொது சுகாதார இயக்கம்",
-      "caption_en": "National Polio Immunisation Day — Chief Minister of Tamil Nadu administering polio drops and celebrating with a child, in partnership with the Directorate of Public Health & Preventive Medicine.",
-      "caption_ta": "தேசிய போலியோ சொட்டு மருந்து தினம் — தமிழ்நாடு முதலமைச்சர் குழந்தைக்கு போலியோ சொட்டு மருந்து அளித்து மகிழ்கிறார். பொது சுகாதாரம் மற்றும் நோய் தடுப்பு மருத்துவ இயக்குநரகம்."
+      "caption_en": "Hospital Superintendent meeting with staff.",
+      "caption_ta": "மருத்துவமனை கண்காணிப்பாளர் ஊழியர்களுடன் ஆலோசனை."
     }
   ],
   "stories_banner": {
@@ -226,11 +226,11 @@
       "savings_ta": "₹80,000–1,00,000 சேமிப்பு",
       "title_en": "Conjoined Fingers Separated — 14-Year-Old Girl Regains Full Hand Function",
       "title_ta": "இணைந்த விரல்கள் பிரிக்கப்பட்டன — 14 வயது சிறுமிக்கு கை செயல்பாடு மீட்டெடுப்பு",
-      "patient_en": "👧 Gopika, 14 · Anthiyur, Erode · Syndactyly Release · May 2025",
-      "patient_ta": "👧 கோபிகா, 14 · அந்தியூர், ஈரோடு · கை விரல் அறுவை சிகிச்சை · மே 2025",
+      "patient_en": "👧 Child patient · Erode district · Hand procedure · May 2025",
+      "patient_ta": "👧 குழந்தை நோயாளி · ஈரோடு மாவட்டம் · கை விரல் அறுவை சிகிச்சை · மே 2025",
       "image": "/public/story-gopika.jpg",
-      "body_en": "Gopika from Anthiyur had her fingers fused together from birth — a condition called syndactyly — affecting both hands. She was admitted to the Surgery Department on 10.05.2025. On 13.05.2025, our plastic surgery team successfully separated the index and middle fingers of her right hand. The remaining fingers will be separated in a follow-up procedure after three months.",
-      "body_ta": "ஈரோடு மாவட்டம் அந்தியூர் பகுதியை சேர்ந்த கோபிகா என்கிற 14 வயது சிறுமி 10.05.2025 அன்று அறுவை சிகிச்சை பிரிவில் உள்நோயாளியாக அனுமதிக்கப்பட்டார். அவருக்கு பிறவியிலேயே இரண்டு கைகளிலும் விரல்கள் இணைந்துள்ளன. 13.05.2025 அன்று வலது கையின் ஆள்காட்டி விரலும் நடு விரலும் பிரிக்கப்பட்டன. மூன்று மாதங்கள் கழித்து மீதமுள்ள விரல்கள் பிரிக்கப்படும்.",
+      "body_en": "A 14-year-old patient from Erode district had fingers fused together from birth — a condition called syndactyly — affecting both hands. The patient was admitted to the Surgery Department on 10.05.2025. On 13.05.2025, the plastic surgery team separated the index and middle fingers of the right hand. A follow-up procedure was planned after three months.",
+      "body_ta": "ஈரோடு மாவட்டத்தைச் சேர்ந்த 14 வயது நோயாளி பிறவியிலேயே இரு கைகளிலும் விரல்கள் இணைந்த நிலையில் இருந்தார். 10.05.2025 அன்று அறுவை சிகிச்சைப் பிரிவில் அனுமதிக்கப்பட்டார். 13.05.2025 அன்று வலது கையின் ஆள்காட்டி மற்றும் நடுவிரல்கள் பிரிக்கப்பட்டன. மூன்று மாதங்களுக்குப் பிறகு தொடர்ச்சிச் சிகிச்சை திட்டமிடப்பட்டது.",
       "quote_en": "A surgery that would have cost ₹80,000–1,00,000 in a private hospital was performed completely free under the CM's Comprehensive Health Insurance Scheme.",
       "quote_ta": "தனியார் மருத்துவமனையில் ₹80,000–1,00,000 செலவாகக்கூடிய இந்த அறுவை சிகிச்சை, முதலமைச்சரின் விரிவான காப்பீட்டுத்திட்டத்தின் கீழ் முற்றிலும் இலவசமாக மேற்கொள்ளப்பட்டது.",
       "dept_en": "🩹 Plastic Surgery",
@@ -249,11 +249,11 @@
       "savings_ta": "₹2–3 இலட்சம் சேமிப்பு",
       "title_en": "Brain Infection After Accident — 4-Hour Neurosurgery Restores Life",
       "title_ta": "விபத்துக்கு பின் மூளையில் சீல் — 4 மணி நேர நரம்பியல் அறுவை சிகிச்சையில் உயிர் மீட்பு",
-      "patient_en": "👨 Ilayaraja, 44 · Jeevanandham Road, Erode · Neurosurgery · July 2023",
-      "patient_ta": "👨 இளையராஜா, 44 · ஜீவானந்தம் ரோடு, ஈரோடு · நரம்பியல் அறுவை சிகிச்சை · ஜூலை 2023",
+      "patient_en": "👨 Patient · Neurosurgery · July 2023",
+      "patient_ta": "👨 நோயாளி · நரம்பியல் அறுவை சிகிச்சை · ஜூலை 2023",
       "image": "/public/story-ilayaraja.jpg",
-      "body_en": "Ilayaraja had sustained a head injury in an accident two years prior and undergone surgery at Salem Government Medical College. After six months of recurring pus and fever at the surgical site, scans revealed the skull bone had developed osteomyelitis — pressing on the brain. On 12.07.2023, Dr. Sayi Kali Sanjeev (Neurosurgery), Dr. Ramya Kannan (Anaesthesia), and nurse Vaidehi performed a 4-hour surgery, removing the infected bone and clearing the pus. He was discharged after 5 days, fully recovered.",
-      "body_ta": "இளையராஜா 2 வருடங்களுக்கு முன் விபத்தில் தலையில் காயமடைந்து சேலம் அரசு மருத்துவ கல்லூரியில் அறுவை சிகிச்சை செய்துகொண்டார். 6 மாதங்களாக அறுவை செய்த இடத்தில் சீல் வந்து காய்ச்சல் ஏற்பட்டது. ஸ்கேனில் தலை எலும்பு சீல் பிடித்து மூளையை அழுத்துவது தெரிந்தது. 12.07.2023 அன்று மரு.சாயீ காளி சஞ்சீவ், மரு.ரம்யா கண்ணன் மற்றும் செவிலியர் வைதேகி குழு 4 மணி நேரம் அறுவை செய்து பாதிக்கப்பட்ட எலும்பை அகற்றி சீலை நீக்கினார்கள். 5 நாட்கள் கழித்து நலமாக வீடு திரும்பினார்.",
+      "body_en": "A patient who had suffered a head injury in an accident two years earlier underwent surgery. After six months of recurring infection and fever at the surgical site, scans showed osteomyelitis in the skull bone pressing on the brain. The neurosurgery and anaesthesia teams, supported by nursing staff, performed a four-hour operation to remove the infected bone and clear the infection. The patient was discharged after five days.",
+      "body_ta": "இரண்டு ஆண்டுகளுக்கு முன் விபத்தில் தலையில் காயமடைந்த நோயாளிக்கு அறுவை சிகிச்சை செய்யப்பட்டது. அறுவை செய்த இடத்தில் ஆறு மாதங்களாக மீண்டும் தொற்றும் காய்ச்சலும் ஏற்பட்டன. ஸ்கேனில் தலை எலும்பில் ஏற்பட்ட தொற்று மூளையை அழுத்துவது தெரிந்தது. நரம்பியல் அறுவை சிகிச்சை மற்றும் மயக்க மருத்துவக் குழுக்கள், செவிலியர் குழுவின் உதவியுடன் நான்கு மணி நேர அறுவை செய்து பாதிக்கப்பட்ட எலும்பை அகற்றினர். ஐந்து நாட்களுக்குப் பிறகு நோயாளி வீடு திரும்பினார்.",
       "quote_en": "",
       "quote_ta": "",
       "dept_en": "🧬 Neurosurgery",
@@ -272,11 +272,11 @@
       "savings_ta": "₹5 இலட்சம் சேமிப்பு",
       "title_en": "Severed Hand Reattached in 9-Hour Emergency Surgery After Rail Accident",
       "title_ta": "இரயில் விபத்தில் துண்டிக்கப்பட்ட கை — 9 மணி நேர அவசர அறுவை சிகிச்சையில் இணைப்பு",
-      "patient_en": "👨 Mahalingam, 52 · P.B.Agragharam, Erode · Hand Replantation · May 2024",
-      "patient_ta": "👨 மகாலிங்கம், 52 · பி.பி.அக்ரஹாரம், ஈரோடு · கை இணைப்பு அறுவை சிகிச்சை · மே 2024",
+      "patient_en": "👨 Patient · Hand replantation · May 2024",
+      "patient_ta": "👨 நோயாளி · கை மீள் இணைப்பு அறுவை சிகிச்சை · மே 2024",
       "image": "/public/story-mahalingam.jpg",
-      "body_en": "Mahalingam met with an accident on 30.05.2024, losing his right hand completely. He was rushed to the Emergency Department at 9:30 PM. The surgical team decided on emergency replantation. He was taken to the OT at 12:30 AM, anaesthesia at 1:30 AM, and Dr. Gowdham led a 9-hour marathon surgery with 3 nursing staff — successfully reattaching the severed hand. He was monitored for 15 days and discharged with full arm function restored.",
-      "body_ta": "மகாலிங்கம் 30.05.2024 அன்று விபத்தில் வலது கை முழுவதும் துண்டிக்கப்பட்டு அன்றிரவு 9.30 மணிக்கு அவசர சிகிச்சை பிரிவில் அனுமதிக்கப்பட்டார். அதிகாலை 12.30 மணிக்கு அறுவை அரங்கிற்கு அழைத்துச் சென்று 1.30 மணிக்கு மயக்க மருந்து செலுத்தப்பட்டது. மரு.கவுதம் தலைமையில் 3 செவிலியர்களுடன் 9 மணி நேரம் அறுவை செய்து துண்டிக்கப்பட்ட கை வெற்றிகரமாக இணைக்கப்பட்டது. 15 நாட்கள் கண்காணிப்பில் வைத்து வீட்டிற்கு அனுப்பப்பட்டார்.",
+      "body_en": "A patient lost the right hand in an accident and was admitted to the Emergency Department. The surgical team performed a nine-hour emergency replantation with nursing support. After 15 days of monitoring, the patient was discharged with hand function restored.",
+      "body_ta": "விபத்தில் வலது கையை இழந்த நோயாளி அவசர சிகிச்சைப் பிரிவில் அனுமதிக்கப்பட்டார். அறுவை சிகிச்சைக் குழு செவிலியர் உதவியுடன் ஒன்பது மணி நேர அவசர மீள் இணைப்பு அறுவை சிகிச்சை செய்தது. 15 நாட்கள் கண்காணிப்புக்குப் பிறகு கை செயல்பாடு மீண்ட நிலையில் நோயாளி வீடு திரும்பினார்.",
       "quote_en": "",
       "quote_ta": "",
       "dept_en": "🔪 Surgery",
@@ -295,11 +295,11 @@
       "savings_ta": "₹2.5 இலட்சம் சேமிப்பு",
       "title_en": "Cancer Spread to Spine — Emergency Surgery Relieves Pain, Restores Walking",
       "title_ta": "புற்றுநோய் முதுகெலும்பிற்கு பரவியது — அவசர அறுவை சிகிச்சையில் வலி நீங்கி நடை மீண்டது",
-      "patient_en": "👨 Selvaraj, 54 · Kadachanallur, Namakkal · Spinal Neurosurgery · 2025",
-      "patient_ta": "👨 செல்வராஜ், 54 · காடச்சநல்லூர், நாமக்கல் · முதுகெலும்பு நரம்பியல் அறுவை · 2025",
+      "patient_en": "👨 Patient · Spinal neurosurgery · 2025",
+      "patient_ta": "👨 நோயாளி · முதுகெலும்பு நரம்பியல் அறுவை சிகிச்சை · 2025",
       "image": "/public/story-selvaraj.jpg",
-      "body_en": "Selvaraj was diagnosed with cancer three months earlier and was undergoing chemotherapy at Erode GH. He suddenly developed severe back pain and difficulty walking. CT scan confirmed the cancer had spread to the spine, compressing the spinal cord. Emergency neurosurgery under general anaesthesia completely removed the tumour. Post-surgery, his back pain vanished and he began walking normally. He was monitored for 15 days before discharge.",
-      "body_ta": "செல்வராஜுக்கு மூன்று மாதங்களுக்கு முன்னர் புற்றுநோய் கண்டறியப்பட்டு ஈரோடு அரசு மருத்துவமனையில் கீமோதெரபி சிகிச்சை அளிக்கப்பட்டு வந்தார். திடீரென்று தீவிர முதுகு வலி மற்றும் நடக்க சிரமம் ஏற்பட்டது. CT ஸ்கேனில் புற்றுநோய் முதுகெலும்பிற்கு பரவி நரம்பு தண்டை அழுத்துவது தெரிந்தது. முழு மயக்க மருந்தில் அவசர அறுவை செய்து கட்டி முழுவதும் நீக்கப்பட்டது. அறுவைக்கு பின் முதுகு வலி முற்றிலும் குறைந்து சீராக நடக்கத் தொடங்கினார். 15 நாட்கள் கண்காணித்து வீட்டிற்கு அனுப்பப்பட்டார்.",
+      "body_en": "A patient undergoing cancer treatment developed severe back pain and difficulty walking. A CT scan showed that the cancer had spread to the spine and was compressing the spinal cord. Emergency neurosurgery removed the tumour. After surgery, the pain eased and the patient began walking again. The patient was monitored for 15 days before discharge.",
+      "body_ta": "புற்றுநோய் சிகிச்சை பெற்று வந்த நோயாளிக்கு தீவிர முதுகு வலியும் நடப்பதில் சிரமமும் ஏற்பட்டன. CT ஸ்கேனில் புற்றுநோய் முதுகெலும்பிற்கு பரவி நரம்புத் தண்டை அழுத்துவது தெரிந்தது. அவசர நரம்பியல் அறுவை சிகிச்சையில் கட்டி அகற்றப்பட்டது. அறுவைக்குப் பிறகு வலி குறைந்து நோயாளி மீண்டும் நடக்கத் தொடங்கினார். 15 நாட்கள் கண்காணிப்புக்குப் பிறகு வீடு திரும்பினார்.",
       "quote_en": "",
       "quote_ta": "",
       "dept_en": "🧬 Neurosurgery + Oncology",
@@ -318,11 +318,11 @@
       "savings_ta": "₹1 இலட்சத்திற்கு மேல் சேமிப்பு",
       "title_en": "Cancerous Kidney Removed in 74-Year-Old — Radical Nephrectomy Success",
       "title_ta": "74 வயதில் புற்றுநோய் சிறுநீரகம் அகற்றல் — ரேடிக்கல் நெஃப்ரெக்டமி வெற்றி",
-      "patient_en": "👴 Jayapal, 74 · Pallipalayam, Erode · Radical Nephrectomy · July 2025",
-      "patient_ta": "👴 ஜெயபால், 74 · பள்ளிபாளையம், ஈரோடு · சிறுநீரக நீக்க அறுவை · ஜூலை 2025",
+      "patient_en": "👴 Patient · Urology · July 2025",
+      "patient_ta": "👴 நோயாளி · சிறுநீரக அறுவை சிகிச்சை · ஜூலை 2025",
       "image": "/public/story-jayapal.jpg",
-      "body_en": "Jayapal, 74, was admitted with a cancerous tumour in his left kidney. Blood tests also revealed anaemia, so blood transfusions were given to stabilise him. Dr. R. Vinothprabhu (MS, MCh Urology) and the surgical team performed a Left Radical Nephrectomy, completely removing the affected kidney. The tumour was sent for histopathological examination. Jayapal was monitored for 10 days post-surgery and discharged in good health.",
-      "body_ta": "பள்ளிபாளையம் பகுதியை சேர்ந்த ஜெயபால் (வயது 74) இடது சிறுநீரகத்தில் புற்றுநோய் கட்டியுடன் அனுமதிக்கப்பட்டார். இரத்த பரிசோதனையில் இரத்தசோகை இருந்தது தெரிந்தது. இரத்தம் செலுத்தி உடல்நிலை சரிசெய்த பின், மரு.ர.வினோத்பிரபு MS MCh Urology தலைமையில் LEFT RADICAL NEPHRECTOMY அறுவை செய்து பாதிக்கப்பட்ட சிறுநீரகம் அகற்றப்பட்டது. அறுவைக்கு பின் 10 நாட்கள் கண்காணித்து நலமாக வீட்டிற்கு அனுப்பப்பட்டார்.",
+      "body_en": "A 74-year-old patient was admitted with a cancerous tumour in the left kidney. Blood tests also showed anaemia, which was treated before surgery. The urology and surgical teams performed a left radical nephrectomy to remove the affected kidney. The patient was monitored for 10 days after surgery and discharged in good health.",
+      "body_ta": "இடது சிறுநீரகத்தில் புற்றுநோய் கட்டியுடன் 74 வயது நோயாளி அனுமதிக்கப்பட்டார். இரத்தப் பரிசோதனையில் இரத்தசோகை கண்டறியப்பட்டு அறுவைக்கு முன் சிகிச்சை அளிக்கப்பட்டது. சிறுநீரக மற்றும் அறுவை சிகிச்சைக் குழுக்கள் இடது சிறுநீரகத்தை அகற்றும் அறுவை சிகிச்சை செய்தன. அறுவைக்குப் பிறகு 10 நாட்கள் கண்காணிக்கப்பட்டு நோயாளி நலமாக வீடு திரும்பினார்.",
       "quote_en": "",
       "quote_ta": "",
       "dept_en": "🫀 Urology",
@@ -489,8 +489,8 @@
       "icon": "🩺",
       "head": "Dr. R. Muthukumar",
       "beds": 80,
-      "opd_days_en": "Mon–Sat",
-      "opd_days_ta": "திங்கள்–சனி",
+      "opd_days_en": "Daily",
+      "opd_days_ta": "தினமும்",
       "desc_en": "Comprehensive diagnosis and treatment of internal medicine conditions.",
       "desc_ta": "உட்புற மருத்துவ நிலைகளின் விரிவான கண்டறிதல் மற்றும் சிகிச்சை."
     },
@@ -513,8 +513,8 @@
       "icon": "👶",
       "head": "Dr. P. Kavitha",
       "beds": 60,
-      "opd_days_en": "Mon–Sat",
-      "opd_days_ta": "திங்கள்–சனி",
+      "opd_days_en": "Daily",
+      "opd_days_ta": "தினமும்",
       "desc_en": "Complete child healthcare from newborn to adolescence.",
       "desc_ta": "பிறந்த குழந்தை முதல் பருவகாலம் வரை முழுமையான குழந்தை சுகாதாரம்."
     },
@@ -694,8 +694,8 @@
       "category_en": "Infrastructure",
       "category_ta": "உள்கட்டமைப்பு",
       "icon": "🏛️",
-      "desc_en": "B+G+8 storeyed super speciality block of 2,32,602 sq ft inaugurated by CM M.K. Stalin, built at ₹80.81 crore.",
-      "desc_ta": "₹80.81 கோடி செலவில் 2,32,602 சதுர அடி B+G+8 மாடி சூப்பர் ஸ்பெஷாலிட்டி தொகுதி — முதலமைச்சர் ம.க.ஸ்டாலினால் திறக்கப்பட்டது.",
+      "desc_en": "Eight-storey super-speciality block of 2,32,602 sq ft inaugurated by Chief Minister M.K. Stalin, built at ₹80.81 crore.",
+      "desc_ta": "₹80.81 கோடி செலவில் 2,32,602 சதுர அடி எட்டு மாடி சூப்பர் ஸ்பெஷாலிட்டி தொகுதி — முதலமைச்சர் மு.க.ஸ்டாலினால் திறக்கப்பட்டது.",
       "impact_en": "Serving 6 additional super-speciality departments",
       "impact_ta": "6 கூடுதல் சூப்பர் ஸ்பெஷாலிட்டி பிரிவுகள் சேவை"
     },
@@ -711,32 +711,6 @@
       "desc_ta": "செப்டம்பர் 2024 இல் AC, TV மற்றும் இணைக்கப்பட்ட குளியலறை கொண்ட அரை-தனியார் கட்டண வார்டு தொடங்கப்பட்டது.",
       "impact_en": "Additional revenue channelled back to hospital services",
       "impact_ta": "கூடுதல் வருவாய் மருத்துவமனை சேவைகளுக்கு திருப்பப்பட்டது"
-    },
-    {
-      "id": "a003",
-      "year": 2020,
-      "title_en": "Designated COVID-19 Speciality Hospital",
-      "title_ta": "COVID-19 சிறப்பு மருத்துவமனையாக நியமனம்",
-      "category_en": "Public Health",
-      "category_ta": "பொது சுகாதாரம்",
-      "icon": "🦠",
-      "desc_en": "In April 2020, converted to a COVID Speciality Hospital with 184 dedicated isolation beds.",
-      "desc_ta": "ஏப்ரல் 2020 இல் 184 தனிமைப்படுத்தல் படுக்கைகளுடன் COVID சிறப்பு மருத்துவமனையாக மாற்றப்பட்டது.",
-      "impact_en": "184 isolation beds, thousands of COVID patients treated",
-      "impact_ta": "184 தனிமை படுக்கைகள், ஆயிரக்கணக்கான COVID நோயாளிகளுக்கு சிகிச்சை"
-    },
-    {
-      "id": "a004",
-      "year": 2022,
-      "title_en": "Zero Maternal Mortality Quarter",
-      "title_ta": "பூஜ்ய தாய் இறப்பு காலாண்டு",
-      "category_en": "Clinical Excellence",
-      "category_ta": "மருத்துவ சிறப்பு",
-      "icon": "🏆",
-      "desc_en": "Achieved zero maternal mortality for two consecutive quarters in FY 2022–23.",
-      "desc_ta": "2022–23 நிதியாண்டில் இரண்டு தொடர்ச்சியான காலாண்டுகளில் தாய் இறப்பு பூஜ்யமாக சாதனை.",
-      "impact_en": "Zero maternal deaths — Q2 and Q3 of FY 2022–23",
-      "impact_ta": "தாய் இறப்பு பூஜ்யம் — 2022–23 Q2 மற்றும் Q3"
     }
   ],
   "waste": {
@@ -788,48 +762,48 @@
       "desc_ta": "அரசு மற்றும் பட்டியல் தனியார் மருத்துவமனைகளில் 1,056 சிகிச்சைகளுக்கு பணமில்லா சிகிச்சை."
     },
     {
-      "name_en": "Free Medicines Scheme",
-      "name_ta": "இலவச மருந்து திட்டம்",
+      "name_en": "Essential Medicines Scheme",
+      "name_ta": "அத்தியாவசிய மருந்துத் திட்டம்",
       "icon": "💊",
       "coverage_en": "All OPD & IPD",
       "coverage_ta": "அனைத்து OPD & IPD",
       "who_en": "All patients",
       "who_ta": "அனைத்து நோயாளிகள்",
-      "desc_en": "Over 250 essential medicines available free at all counters — no prescription charge.",
-      "desc_ta": "250க்கும் மேற்பட்ட அத்தியாவசிய மருந்துகள் அனைத்து கவுண்டரிலும் இலவசம் — மருந்துச்சீட்டு கட்டணம் இல்லை."
+      "desc_en": "Over 250 essential medicines are listed for patients at hospital counters.",
+      "desc_ta": "250க்கும் மேற்பட்ட அத்தியாவசிய மருந்துகள் மருத்துவமனை கவுண்டர்களில் நோயாளிகளுக்குக் கிடைக்கின்றன."
     },
     {
-      "name_en": "Free Diagnostics",
-      "name_ta": "இலவச கண்டறிதல் சேவை",
+      "name_en": "Diagnostic Services",
+      "name_ta": "கண்டறிதல் சேவைகள்",
       "icon": "🔬",
       "coverage_en": "Lab, X-Ray, ECG, USG, CT",
       "coverage_ta": "ஆய்வகம், X-Ray, ECG, USG, CT",
       "who_en": "All in-patients",
       "who_ta": "அனைத்து உள்நோயாளிகள்",
-      "desc_en": "Full diagnostic panel free for all admitted patients. OPD patients get free basic tests.",
-      "desc_ta": "உள்நோயாளிகளுக்கு முழு கண்டறிதல் பரிசோதனை இலவசம். OPD நோயாளிகளுக்கு அடிப்படை பரிசோதனைகள் இலவசம்."
+      "desc_en": "Diagnostic services include laboratory tests, X-Ray, ECG, ultrasound, and CT.",
+      "desc_ta": "ஆய்வகப் பரிசோதனைகள், X-Ray, ECG, அல்ட்ராசவுண்ட் மற்றும் CT ஆகியவை கண்டறிதல் சேவைகளில் அடங்கும்."
     },
     {
       "name_en": "Janani Suraksha Yojana (JSY)",
       "name_ta": "ஜனனி சுரட்சா யோஜனா (JSY)",
       "icon": "🤰",
-      "coverage_en": "₹1,400 cash + free delivery",
-      "coverage_ta": "₹1,400 ரொக்கம் + இலவச பிரசவம்",
+      "coverage_en": "₹1,400 cash + delivery services",
+      "coverage_ta": "₹1,400 ரொக்கம் + பிரசவச் சேவைகள்",
       "who_en": "All pregnant women",
       "who_ta": "அனைத்து கர்ப்பிணி பெண்கள்",
-      "desc_en": "Cash incentive for institutional delivery plus free antenatal care, iron supplements, and post-natal check-up.",
-      "desc_ta": "மருத்துவமனை பிரசவத்திற்கு ரொக்க ஊக்கத்தொகை, இலவச கர்ப்ப கால பராமரிப்பு மற்றும் பிரசவத்திற்கு பின் பரிசோதனை."
+      "desc_en": "Cash incentive for institutional delivery, antenatal care, iron supplements, and post-natal check-up.",
+      "desc_ta": "மருத்துவமனைப் பிரசவத்திற்கான ரொக்க ஊக்கத்தொகை, கர்ப்ப கால பராமரிப்பு, இரும்புச் சத்துக் கூடுதல் மற்றும் பிரசவத்திற்குப் பிந்தைய பரிசோதனை."
     },
     {
       "name_en": "108 Emergency Ambulance",
       "name_ta": "108 அவசர ஆம்புலன்ஸ்",
       "icon": "🚑",
-      "coverage_en": "24/7 Free",
-      "coverage_ta": "24/7 இலவசம்",
+      "coverage_en": "24/7",
+      "coverage_ta": "24/7",
       "who_en": "All citizens",
       "who_ta": "அனைத்து குடிமக்கள்",
-      "desc_en": "Fully equipped emergency ambulance free of charge. Call 108 from anywhere in Erode district.",
-      "desc_ta": "முழுமையாக சித்தப்படுத்தப்பட்ட இலவச அவசர ஆம்புலன்ஸ். ஈரோடு மாவட்டம் எங்கிருந்தும் 108 அழைக்கவும்."
+      "desc_en": "Fully equipped emergency ambulance. Call 108 from anywhere in Erode district.",
+      "desc_ta": "முழுமையாகச் சித்தப்படுத்தப்பட்ட அவசர ஆம்புலன்ஸ். ஈரோடு மாவட்டம் எங்கிருந்தும் 108 அழைக்கவும்."
     },
     {
       "name_en": "Child Immunisation Programme",
@@ -839,8 +813,8 @@
       "coverage_ta": "0–5 வயது — அனைத்து தடுப்பூசிகள்",
       "who_en": "All children",
       "who_ta": "அனைத்து குழந்தைகள்",
-      "desc_en": "Complete UIP vaccines — BCG, OPV, Hepatitis B, DPT, MMR — free of cost.",
-      "desc_ta": "BCG, OPV, ஹெபடைட்டிஸ் B, DPT, MMR உட்பட அனைத்து தடுப்பூசிகளும் இலவசம்."
+      "desc_en": "Complete UIP vaccines — BCG, OPV, Hepatitis B, DPT, and MMR.",
+      "desc_ta": "BCG, OPV, ஹெபடைட்டிஸ் B, DPT மற்றும் MMR உள்ளிட்ட UIP தடுப்பூசிகள்."
     },
     {
       "name_en": "National TB Elimination Programme",
@@ -850,19 +824,19 @@
       "coverage_ta": "முழு சிகிச்சை + ஊட்டச்சத்து உதவி",
       "who_en": "TB patients",
       "who_ta": "காசநோய் நோயாளிகள்",
-      "desc_en": "Free DOTS therapy, Nikshay Poshan Yojana ₹500/month nutrition support, and travel reimbursement.",
-      "desc_ta": "இலவச DOTS சிகிச்சை, நிக்ஷய் போஷண் யோஜனா மாதம் ₹500 ஊட்டச்சத்து உதவி மற்றும் பயண செலவு திரும்பல்."
+      "desc_en": "DOTS therapy, Nikshay Poshan Yojana ₹500/month nutrition support, and travel reimbursement.",
+      "desc_ta": "DOTS சிகிச்சை, நிக்ஷய் போஷண் யோஜனா மாதம் ₹500 ஊட்டச்சத்து உதவி மற்றும் பயணச் செலவு திரும்பப்பெறுதல்."
     },
     {
       "name_en": "Diabetic & Hypertension Control",
       "name_ta": "நீரிழிவு மற்றும் உயர் இரத்த அழுத்த கட்டுப்பாடு",
       "icon": "🩺",
-      "coverage_en": "Free medicines + monitoring",
-      "coverage_ta": "இலவச மருந்துகள் + கண்காணிப்பு",
+      "coverage_en": "Medicines + monitoring",
+      "coverage_ta": "மருந்துகள் + கண்காணிப்பு",
       "who_en": "All NCD patients",
       "who_ta": "அனைத்து NCD நோயாளிகள்",
-      "desc_en": "Free HbA1c tests, anti-diabetic and anti-hypertensive medicines, and regular monitoring under NPCDCS.",
-      "desc_ta": "இலவச HbA1c பரிசோதனை, நீரிழிவு மற்றும் உயர் இரத்த அழுத்த மருந்துகள், NPCDCS கீழ் தொடர் கண்காணிப்பு."
+      "desc_en": "HbA1c tests, anti-diabetic and anti-hypertensive medicines, and regular monitoring under NPCDCS.",
+      "desc_ta": "NPCDCS திட்டத்தின் கீழ் HbA1c பரிசோதனை, நீரிழிவு மற்றும் உயர் இரத்த அழுத்த மருந்துகள், தொடர் கண்காணிப்பு."
     }
   ],
   "scope": {
@@ -1000,10 +974,6 @@
           {
             "en": "Geriatrics",
             "ta": "முதியோர் நலம்"
-          },
-          {
-            "en": "Pain Management & Palliative Care",
-            "ta": "வலி மேலாண்மை மற்றும் நலவாழ்வு சிகிச்சை"
           },
           {
             "en": "Leprosy",
@@ -1227,8 +1197,8 @@
     "page_hero": {
       "title_en": "About the Hospital",
       "title_ta": "மருத்துவமனையைப் பற்றி",
-      "desc_en": "A legacy of over 150 years of healthcare — now Tamil Nadu's largest secondary care hospital.",
-      "desc_ta": "150 ஆண்டுகளுக்கும் மேலான சுகாதார பாரம்பரியம் — இப்போது தமிழ்நாட்டின் மிகப்பெரிய இரண்டாம் நிலை பராமரிப்பு மருத்துவமனை.",
+      "desc_en": "The history and services of Thanthai Periyar Government Headquarters Hospital, Erode.",
+      "desc_ta": "ஈரோடு தந்தை பெரியார் அரசு தலைமை மருத்துவமனையின் வரலாறும் சேவைகளும்.",
       "breadcrumb_en": "About",
       "breadcrumb_ta": "பற்றி"
     },
@@ -1236,8 +1206,8 @@
     "heading_ta": "தந்தை பெரியார் அரசு தலைமை மருத்துவமனை",
     "paragraphs": [
       {
-        "en": "Erode General Hospital was founded in <strong>1872 by the East India Company</strong>, making it one of the oldest public hospitals in Tamil Nadu. In <strong>August 1928</strong>, the hospital was taken over by the government from the British East India Company. Originally functioning near the Abdul Gani Textile Market in Panneerselvam Park, it was shifted to its present location on <strong>EVN Road, Kaikolar Thottam</strong> in <strong>1955</strong>.",
-        "ta": "ஈரோடு பொது மருத்துவமனை <strong>1872 ஆம் ஆண்டு கிழக்கிந்திய கம்பெனியால்</strong> நிறுவப்பட்டது, இது தமிழ்நாட்டின் மிகப் பழமையான பொது மருத்துவமனைகளில் ஒன்றாகும். <strong>ஆகஸ்ட் 1928</strong> இல், இம்மருத்துவமனை பிரிட்டிஷ் கிழக்கிந்திய கம்பெனியிடமிருந்து அரசால் கையகப்படுத்தப்பட்டது. முதலில் பன்னீர்செல்வம் பூங்காவில் உள்ள அப்துல் கனி துணி சந்தைக்கு அருகில் செயல்பட்டு வந்த இது, <strong>1955</strong> இல் தற்போதைய இடமான <strong>EVN சாலை, கைக்கோளர் தோட்டத்திற்கு</strong> மாற்றப்பட்டது."
+        "en": "Erode General Hospital was founded in <strong>1872 by the East India Company</strong>, making it one of the oldest public hospitals in Tamil Nadu. In <strong>August 1928</strong>, the hospital was taken over by the government from the British East India Company. Originally functioning near the Abdul Gani Textile Market in Panneerselvam Park, The hospital has been functioning at its present location on <strong>EVN Road, Kaikolar Thottam</strong> since <strong>1955</strong>.",
+        "ta": "ஈரோடு பொது மருத்துவமனை <strong>1872 ஆம் ஆண்டு கிழக்கிந்திய கம்பெனியால்</strong> நிறுவப்பட்டது, இது தமிழ்நாட்டின் மிகப் பழமையான பொது மருத்துவமனைகளில் ஒன்றாகும். <strong>ஆகஸ்ட் 1928</strong> இல், இம்மருத்துவமனை பிரிட்டிஷ் கிழக்கிந்திய கம்பெனியிடமிருந்து அரசால் கையகப்படுத்தப்பட்டது. முதலில் பன்னீர்செல்வம் பூங்காவில் உள்ள அப்துல் கனி துணி சந்தைக்கு அருகில் செயல்பட்டு வந்த இது, <strong>1955 முதல் தற்போதைய <strong>EVN சாலை, கைக்கோளர் தோட்டம்</strong> இடத்தில் செயல்பட்டு வருகிறது."
       },
       {
         "en": "The foundation stone for the present building was laid on <strong>9th July 1955</strong> by then Chief Minister <strong>Mr. K. Kamaraj</strong>, and the hospital was formally inaugurated on <strong>15th February 1960</strong> by then Health Minister <strong>Mr. Manikkavelu</strong>. Named after the great social reformer <strong>Thanthai Periyar E.V. Ramasamy</strong> — who himself sponsored a share for this hospital — it stands as a symbol of the Dravidian movement's commitment to social equity and public welfare.",
@@ -1248,16 +1218,16 @@
         "ta": "<strong>1973</strong> ஆம் ஆண்டில், கோயம்புத்தூர் அரசு தலைமை மருத்துவமனை மருத்துவக் கல்லூரி மருத்துவமனையாக மாற்றப்பட்டபோது, ஈரோடு மருத்துவமனை கோயம்புத்தூர் மாவட்டத்தின் மாவட்ட தலைமை மருத்துவமனையானது. <strong>1979 ஆம் ஆண்டு செப்டம்பர் 17</strong> அன்று கோயம்புத்தூர் பிரிக்கப்பட்டு பெரியார் மாவட்டம் உருவானதும், இம்மருத்துவமனை ஈரோடு மாவட்ட தலைமை மருத்துவமனையானது."
       },
       {
-        "en": "Situated in the heart of Erode city, spread over <strong>6.5 acres</strong>, the hospital is accessible from both the railway station and bus stand. Key specialised services added over the years include: a <strong>Haemodialysis Unit</strong> (since 2007, now with 21 machines), <strong>Upper GI Endoscopy</strong> (since 2007), <strong>ECHO Cardiogram</strong> (since June 2012), <strong>NCD Screening</strong> (since June 2012), and the <strong>CMCHIS cashless scheme</strong> (since July 2012).",
-        "ta": "ஈரோடு நகரின் மையப்பகுதியில், <strong>6.5 ஏக்கர்</strong> பரப்பளவில் அமைந்துள்ள இம்மருத்துவமனை, ரயில் நிலையம் மற்றும் பேருந்து நிலையம் ஆகிய இரண்டிலிருந்தும் எளிதில் அணுகக்கூடியது. ஆண்டுகளாக சேர்க்கப்பட்ட முக்கிய சிறப்பு சேவைகளில் <strong>ஹீமோடையாலிசிஸ் பிரிவு</strong> (2007 முதல், தற்போது 21 இயந்திரங்களுடன்), <strong>மேல் இரைப்பை என்டோஸ்கோபி</strong> (2007 முதல்), <strong>ECHO இருதய ஸ்கேன்</strong> (ஜூன் 2012 முதல்), <strong>NCD பரிசோதனை</strong> (ஜூன் 2012 முதல்), மற்றும் <strong>CMCHIS பணமில்லா திட்டம்</strong> (ஜூலை 2012 முதல்) ஆகியவை அடங்கும்."
+        "en": "Situated in the heart of Erode city, spread over <strong>6.5 acres</strong>, the hospital is accessible from both the railway station and bus stand. Key specialised services added over the years include: a <strong>Haemodialysis Unit</strong> (since 2007, now with 21 machines), <strong>Upper GI Endoscopy</strong> (since 2007), <strong>ECHO Cardiogram</strong> (since June 2012), <strong>CT Scan</strong>, <strong>NCD Screening</strong> (since June 2012), and the <strong>CMCHIS cashless scheme</strong> (since July 2012).",
+        "ta": "ஈரோடு நகரின் மையப்பகுதியில், <strong>6.5 ஏக்கர்</strong> பரப்பளவில் அமைந்துள்ள இம்மருத்துவமனை, ரயில் நிலையம் மற்றும் பேருந்து நிலையம் ஆகிய இரண்டிலிருந்தும் எளிதில் அணுகக்கூடியது. ஆண்டுகளாக சேர்க்கப்பட்ட முக்கிய சிறப்பு சேவைகளில் <strong>ஹீமோடையாலிசிஸ் பிரிவு</strong> (2007 முதல், தற்போது 21 இயந்திரங்களுடன்), <strong>மேல் இரைப்பை என்டோஸ்கோபி</strong> (2007 முதல்), <strong>ECHO இருதய ஸ்கேன்</strong> (ஜூன் 2012 முதல்), <strong>CT ஸ்கேன்</strong>, <strong>NCD பரிசோதனை</strong> (ஜூன் 2012 முதல்), மற்றும் <strong>CMCHIS பணமில்லா திட்டம்</strong> (ஜூலை 2012 முதல்) ஆகியவை அடங்கும்."
       },
       {
-        "en": "During the <strong>COVID-19 pandemic (April 2020)</strong>, the hospital was designated as a Corona Speciality Hospital with <strong>184 dedicated isolation beds</strong>, serving all of Erode district alongside Erode Medical College Hospital.",
-        "ta": "<strong>COVID-19 தொற்றுநோய் காலத்தில் (ஏப்ரல் 2020)</strong>, இம்மருத்துவமனை <strong>184 தனி தனிமைப்படுத்தல் படுக்கைகளுடன்</strong> கொரோனா சிறப்பு மருத்துவமனையாக நியமிக்கப்பட்டு, ஈரோடு மருத்துவக் கல்லூரி மருத்துவமனையுடன் இணைந்து மாவட்டம் முழுவதற்கும் சேவை செய்தது."
+        "en": "During the <strong>COVID-19 pandemic (April 2020)</strong>, the hospital was designated as a Corona Speciality Hospital with <strong>184 dedicated isolation beds</strong>.",
+        "ta": "<strong>COVID-19 தொற்றுநோய் காலத்தில் (ஏப்ரல் 2020)</strong>, இம்மருத்துவமனை <strong>184 தனிமைப்படுத்தல் படுக்கைகளுடன்</strong> கொரோனா சிறப்பு மருத்துவமனையாக நியமிக்கப்பட்டது."
       },
       {
-        "en": "In <strong>March 2024</strong>, a B+G+8 storeyed Super Speciality block of <strong>2,32,602 sq ft</strong> was inaugurated by Chief Minister M.K. Stalin at a cost of <strong>₹80.81 Crores</strong>. With this, the hospital now has <strong>1,085 total beds</strong> (960 functional) and is the <strong>largest secondary care hospital in Tamil Nadu</strong> by bed strength. Super-speciality services now include Cardiology, Neurology, Medical Oncology, Neurosurgery, Plastic Surgery, Urology, and Paediatric Surgery. A separate <strong>20-bed Pay Ward</strong> with air-conditioned attached rooms, television, and geysers was established in September 2024.",
-        "ta": "<strong>மார்ச் 2024</strong> இல், <strong>2,32,602 சதுர அடி</strong> பரப்பளவு கொண்ட B+G+8 மாடி சூப்பர் ஸ்பெஷாலிட்டி தொகுதி முதலமைச்சர் மு.க.ஸ்டாலின் அவர்களால் <strong>₹80.81 கோடி</strong> செலவில் திறந்து வைக்கப்பட்டது. இதனுடன், மருத்துவமனையில் இப்போது மொத்தம் <strong>1,085 படுக்கைகள்</strong> (960 செயல்பாட்டில்) உள்ளன, மேலும் இது படுக்கை எண்ணிக்கையில் <strong>தமிழ்நாட்டின் மிகப்பெரிய இரண்டாம் நிலை பராமரிப்பு மருத்துவமனையாகும்</strong>. சூப்பர் ஸ்பெஷாலிட்டி சேவைகளில் இருதயவியல், நரம்பியல், புற்றுநோய் மருத்துவம், நரம்பியல் அறுவை சிகிச்சை, ஒட்டு உறுப்பு அறுவை சிகிச்சை, சிறுநீரக அறுவை சிகிச்சை மற்றும் குழந்தைகள் அறுவை சிகிச்சை ஆகியவை அடங்கும். செப்டம்பர் 2024 இல், குளிரூட்டப்பட்ட அறைகள், தொலைக்காட்சி மற்றும் கீசர் வசதிகளுடன் கூடிய தனி <strong>20 படுக்கை கட்டண வார்டு</strong> நிறுவப்பட்டது."
+        "en": "In <strong>March 2024</strong>, an <strong>eight-storey Super Speciality block</strong> of <strong>2,32,602 sq ft</strong> was inaugurated by Chief Minister M.K. Stalin at a cost of <strong>₹80.81 crore</strong>. The hospital currently has <strong>1,085 total beds</strong> (960 functional). Super-speciality services include Cardiology, Neurology, Medical Oncology, Neurosurgery, Plastic Surgery, Urology, and Paediatric Surgery. A separate <strong>20-bed Pay Ward</strong> with air-conditioned rooms, attached bathrooms, television, and hot-water facilities was established in September 2024.",
+        "ta": "<strong>மார்ச் 2024</strong> இல், <strong>2,32,602 சதுர அடி</strong> பரப்பளவு கொண்ட <strong>எட்டு மாடி சூப்பர் ஸ்பெஷாலிட்டி தொகுதி</strong> முதலமைச்சர் மு.க.ஸ்டாலின் அவர்களால் <strong>₹80.81 கோடி</strong> செலவில் திறந்து வைக்கப்பட்டது. மருத்துவமனையில் தற்போது <strong>1,085 படுக்கைகள்</strong> (960 செயல்பாட்டில்) உள்ளன. சூப்பர் ஸ்பெஷாலிட்டி சேவைகளில் இருதயவியல், நரம்பியல், புற்றுநோய் மருத்துவம், நரம்பியல் அறுவை சிகிச்சை, ஒட்டு உறுப்பு அறுவை சிகிச்சை, சிறுநீரக அறுவை சிகிச்சை மற்றும் குழந்தைகள் அறுவை சிகிச்சை ஆகியவை அடங்கும். செப்டம்பர் 2024 இல், குளிரூட்டப்பட்ட அறைகள், இணைக்கப்பட்ட குளியலறைகள், தொலைக்காட்சி மற்றும் வெந்நீர் வசதிகளுடன் தனி <strong>20 படுக்கை கட்டண வார்டு</strong> அமைக்கப்பட்டது."
       }
     ],
     "timeline_title_en": "Key Milestones",
@@ -1313,25 +1283,11 @@
         "desc_ta": "முதலமைச்சரின் விரிவான மருத்துவ காப்பீட்டு திட்டம் (CMCHIS) தொடங்கப்பட்டது (ஜூலை). ECHO இருதய ஸ்கேன் பிரிவு தொடங்கப்பட்டது (ஜூன்). நீரிழிவு, உயர் இரத்த அழுத்தம், மார்பக புற்றுநோய் மற்றும் கருப்பை வாய் புற்றுநோய்க்கான NCD பரிசோதனை திட்டம் தொடங்கப்பட்டது."
       },
       {
-        "year": "2020",
-        "title_en": "COVID-19 Speciality Hospital",
-        "title_ta": "COVID-19 சிறப்பு மருத்துவமனை",
-        "desc_en": "Designated as Corona Speciality Hospital with 184 isolation beds. Pivotal role in Erode district's pandemic response.",
-        "desc_ta": "184 தனிமைப்படுத்தல் படுக்கைகளுடன் கொரோனா சிறப்பு மருத்துவமனையாக நியமிக்கப்பட்டது. மாவட்டத்தின் தொற்றுநோய் எதிர்ப்பு நடவடிக்கையில் முக்கிய பங்கு வகித்தது."
-      },
-      {
-        "year": "2022",
-        "title_en": "Zero Maternal Mortality · Bed Expansion",
-        "title_ta": "பூஜ்ய தாய் இறப்பு · படுக்கை அதிகரிப்பு",
-        "desc_en": "Achieved zero maternal deaths for two consecutive quarters — recognised by TN Directorate of Health Services. Bed strength increased to 725.",
-        "desc_ta": "தொடர்ச்சியான இரண்டு காலாண்டுகளில் தாய் இறப்பு பூஜ்யமாக சாதனை — தமிழ்நாடு சுகாதார இயக்குநரகத்தால் அங்கீகரிக்கப்பட்டது. படுக்கை எண்ணிக்கை 725 ஆக அதிகரிக்கப்பட்டது."
-      },
-      {
         "year": "2024",
         "title_en": "Super Speciality Block Inaugurated · 1,085 Beds",
         "title_ta": "சூப்பர் ஸ்பெஷாலிட்டி தொகுதி திறப்பு · 1,085 படுக்கைகள்",
-        "desc_en": "B+G+8 storeyed super speciality block (2,32,602 sq ft) inaugurated by CM M.K. Stalin at ₹80.81 Crores. Hospital now has 1,085 beds — the largest secondary care hospital in Tamil Nadu. 20-bed Pay Ward opened in September 2024.",
-        "desc_ta": "B+G+8 மாடி சூப்பர் ஸ்பெஷாலிட்டி தொகுதி (2,32,602 சதுர அடி) முதலமைச்சர் மு.க.ஸ்டாலினால் ₹80.81 கோடி செலவில் திறக்கப்பட்டது. மருத்துவமனையில் இப்போது 1,085 படுக்கைகள் உள்ளன — தமிழ்நாட்டின் மிகப்பெரிய இரண்டாம் நிலை பராமரிப்பு மருத்துவமனை. செப்டம்பர் 2024 இல் 20 படுக்கை கட்டண வார்டு திறக்கப்பட்டது."
+        "desc_en": "An eight-storey super-speciality block (2,32,602 sq ft) was inaugurated by Chief Minister M.K. Stalin at ₹80.81 crore. The hospital has 1,085 beds. A 20-bed Pay Ward opened in September 2024.",
+        "desc_ta": "2,32,602 சதுர அடி எட்டு மாடி சூப்பர் ஸ்பெஷாலிட்டி தொகுதி முதலமைச்சர் மு.க.ஸ்டாலினால் ₹80.81 கோடி செலவில் திறக்கப்பட்டது. மருத்துவமனையில் 1,085 படுக்கைகள் உள்ளன. செப்டம்பர் 2024 இல் 20 படுக்கை கட்டண வார்டு திறக்கப்பட்டது."
       }
     ],
     "sidebar_labels": {
@@ -1367,8 +1323,8 @@
       "medical_officers_val_ta": "75+",
       "departments_en": "Departments",
       "departments_ta": "பிரிவுகள்",
-      "departments_val_en": "General + 8 Super Speciality",
-      "departments_val_ta": "பொது + 8 சூப்பர் ஸ்பெஷாலிட்டி",
+      "departments_val_en": "23 listed departments",
+      "departments_val_ta": "23 பட்டியலிடப்பட்ட பிரிவுகள்",
       "ss_block_en": "New SS Block",
       "ss_block_ta": "புதிய சூப்பர் ஸ்பெஷாலிட்டி தொகுதி",
       "ss_block_val_en": "2,32,602 sq ft · ₹80.81 Cr",
@@ -1377,10 +1333,6 @@
       "founded_ta": "நிறுவப்பட்ட ஆண்டு",
       "founded_val_en": "1872 (Present site: 1955)",
       "founded_val_ta": "1872 (தற்போதைய இடம்: 1955)",
-      "distinction_en": "Distinction",
-      "distinction_ta": "சிறப்பம்சம்",
-      "distinction_val_en": "Largest secondary care hospital in Tamil Nadu",
-      "distinction_val_ta": "தமிழ்நாட்டின் மிகப்பெரிய இரண்டாம் நிலை பராமரிப்பு மருத்துவமனை",
       "haemodialysis_en": "Haemodialysis",
       "haemodialysis_ta": "ஹீமோடையாலிசிஸ்",
       "haemodialysis_val_en": "21 machines (since 2007)",
@@ -1389,6 +1341,12 @@
       "campus_ta": "வளாக பரப்பளவு",
       "campus_val_en": "6.5 acres, heart of Erode city",
       "campus_val_ta": "6.5 ஏக்கர், ஈரோடு நகர மையத்தில்"
+    },
+    "quality_recognition": {
+      "title_en": "Accreditations & Recognition",
+      "title_ta": "அங்கீகாரங்கள் மற்றும் பாராட்டுகள்",
+      "desc_en": "NABH and NQAS certifications; Kayakalp State-level runner-up recognition and award; Best Blood Bank award; and Muskan certification and recertification.",
+      "desc_ta": "NABH மற்றும் NQAS சான்றிதழ்கள்; காயகல்ப் மாநில அளவிலான இரண்டாம் இட அங்கீகாரம் மற்றும் விருது; சிறந்த இரத்த வங்கி விருது; முஸ்கான் சான்றிதழ் மற்றும் மறுசான்றிதழ்."
     }
   },
   "departments_page": {
@@ -1422,8 +1380,8 @@
         "icon": "🩺",
         "name_en": "General Medicine",
         "name_ta": "சிறப்பு மருத்துவம்",
-        "opd_days_en": "Mon–Sat",
-        "opd_days_ta": "திங்கள்–சனி",
+        "opd_days_en": "Daily",
+        "opd_days_ta": "தினமும்",
         "beds": 80,
         "desc_en": "Comprehensive diagnosis and treatment of internal medicine conditions including fever, infections, diabetes, hypertension, and chronic illnesses.",
         "desc_ta": "காய்ச்சல், தொற்று நோய்கள், நீரிழிவு, உயர் இரத்த அழுத்தம் மற்றும் நாள்பட்ட நோய்கள் உள்ளிட்ட உட்புற மருத்துவ நிலைகளுக்கான விரிவான கண்டறிதல் மற்றும் சிகிச்சை.",
@@ -1483,8 +1441,8 @@
         "icon": "👶",
         "name_en": "Paediatrics",
         "name_ta": "குழந்தை நலம்",
-        "opd_days_en": "Mon–Sat",
-        "opd_days_ta": "திங்கள்–சனி",
+        "opd_days_en": "Daily",
+        "opd_days_ta": "தினமும்",
         "beds": 60,
         "desc_en": "Complete child healthcare from newborn to adolescence including NICU, SNCU, and well-baby clinics.",
         "desc_ta": "NICU, SNCU மற்றும் ஆரோக்கிய குழந்தை கிளினிக்குகள் உள்ளிட்ட பிறந்த குழந்தை முதல் பருவகாலம் வரையிலான முழுமையான குழந்தை சுகாதாரம்.",
