@@ -8,24 +8,24 @@
   <link rel="shortcut icon" href="/public/favicon.ico"/>
   <title>Success Stories — Thanthai Periyar Govt Hospital Erode</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/style.css"/>
   <style>
     .stories-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
 
     /* Banner */
-    .stories-banner { background:linear-gradient(135deg,var(--primary,#0d2b45) 0%,#1a5276 100%); border-radius:16px; padding:40px 48px; margin-bottom:56px; display:flex; align-items:center; gap:40px; }
+    .stories-banner { background:linear-gradient(135deg,var(--primary,var(--primary-dk)) 0%,var(--primary-lt) 100%); border-radius:16px; padding:40px 48px; margin-bottom:56px; display:flex; align-items:center; gap:40px; }
     .banner-icon { font-size:56px; flex-shrink:0; }
-    .banner-text h2 { font-family:'Playfair Display',serif; color:#fff; font-size:clamp(20px,2.5vw,28px); margin-bottom:8px; }
+    .banner-text h2 { font-family:'Manrope','Noto Sans Tamil',sans-serif; color:#fff; font-size:clamp(20px,2.5vw,28px); margin-bottom:8px; }
     .banner-text p { color:rgba(255,255,255,0.72); font-size:14px; line-height:1.75; margin:0; }
     .banner-stats { display:flex; flex-direction:column; gap:12px; margin-left:auto; flex-shrink:0; text-align:right; }
-    .b-stat-val { font-family:'Playfair Display',serif; font-size:28px; color:var(--secondary,#e67e22); font-weight:700; line-height:1; }
+    .b-stat-val { font-family:'Manrope','Noto Sans Tamil',sans-serif; font-size:28px; color:var(--secondary,#b84a3a); font-weight:700; line-height:1; }
     .b-stat-lbl { font-size:11px; color:rgba(255,255,255,0.5); letter-spacing:1px; text-transform:uppercase; }
 
     /* Filter */
     .filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
-    .filter-pill { background:var(--cream,#f8f5f0); border:1px solid var(--border,#e5e7eb); border-radius:20px; padding:8px 18px; font-size:13px; font-weight:600; color:var(--primary,#0d2b45); cursor:pointer; transition:all 0.2s; white-space:nowrap; }
-    .filter-pill:hover,.filter-pill.active { background:var(--primary,#0d2b45); color:#fff; border-color:var(--primary,#0d2b45); }
+    .filter-pill { background:var(--cream,#f8f5f0); border:1px solid var(--border,#e5e7eb); border-radius:20px; padding:8px 18px; font-size:13px; font-weight:600; color:var(--primary,var(--primary-dk)); cursor:pointer; transition:all 0.2s; white-space:nowrap; }
+    .filter-pill:hover,.filter-pill.active { background:var(--primary,var(--primary-dk)); color:#fff; border-color:var(--primary,var(--primary-dk)); }
 
     /* Grid */
     .stories-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
@@ -56,39 +56,39 @@
     .story-card:hover .story-img-wrap img { transform:scale(1.04); }
     .story-img-wrap.img-fallback {
       display:flex; align-items:center; justify-content:center; font-size:48px;
-      background:linear-gradient(135deg,var(--primary,#0d2b45) 0%,#1a5276 100%); color:#fff;
+      background:linear-gradient(135deg,var(--primary,var(--primary-dk)) 0%,var(--primary-lt) 100%); color:#fff;
     }
 
     .story-card-top { padding:28px 28px 0; }
     .story-tag-row { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
     .story-tag { font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; padding:4px 10px; border-radius:3px; color:#fff; }
-    .tag-surgery    { background:#0d2b45; }
-    .tag-neurology  { background:#1a5276; }
+    .tag-surgery    { background:var(--primary-dk); }
+    .tag-neurology  { background:var(--primary-lt); }
     .tag-cancer     { background:#7b341e; }
     .tag-palliative { background:#2d6a4f; }
     .tag-urology    { background:#4a1d96; }
-    .story-savings { font-size:12px; color:var(--secondary,#e67e22); font-weight:700; margin-left:auto; }
-    .story-card h3 { font-size:18px; color:var(--primary,#0d2b45); font-family:'Playfair Display',serif; margin-bottom:6px; line-height:1.35; }
+    .story-savings { font-size:12px; color:var(--secondary,#b84a3a); font-weight:700; margin-left:auto; }
+    .story-card h3 { font-size:18px; color:var(--primary,var(--primary-dk)); font-family:'Manrope','Noto Sans Tamil',sans-serif; margin-bottom:6px; line-height:1.35; }
     .story-patient-info { font-size:12px; color:var(--muted,#6b7280); margin-bottom:14px; font-weight:600; letter-spacing:0.3px; }
     .story-body { font-size:13.5px; color:#4b5563; line-height:1.78; }
-    .story-quote { background:linear-gradient(135deg,#f0f4f8 0%,#e8f0f7 100%); border-left:3px solid var(--secondary,#e67e22); border-radius:0 8px 8px 0; padding:12px 16px; margin:16px 0; font-size:13px; color:var(--primary,#0d2b45); font-weight:600; font-style:italic; line-height:1.6; }
+    .story-quote { background:linear-gradient(135deg,#f0f4f8 0%,#e8f0f7 100%); border-left:3px solid var(--secondary,#b84a3a); border-radius:0 8px 8px 0; padding:12px 16px; margin:16px 0; font-size:13px; color:var(--primary,var(--primary-dk)); font-weight:600; font-style:italic; line-height:1.6; }
 
     .story-card-footer { padding:16px 28px; border-top:1px solid var(--border,#e5e7eb); margin-top:20px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
-    .story-dept-badge { display:inline-flex; align-items:center; gap:6px; background:var(--cream,#f8f5f0); border-radius:6px; padding:5px 10px; font-size:12px; font-weight:600; color:var(--primary,#0d2b45); }
+    .story-dept-badge { display:inline-flex; align-items:center; gap:6px; background:var(--cream,#f8f5f0); border-radius:6px; padding:5px 10px; font-size:12px; font-weight:600; color:var(--primary,var(--primary-dk)); }
     .story-cost-saved { text-align:right; }
     .story-cost-saved .saved-label { font-size:10px; color:var(--muted,#6b7280); text-transform:uppercase; letter-spacing:1px; }
-    .story-cost-saved .saved-val   { font-family:'Playfair Display',serif; font-size:18px; color:#059669; font-weight:700; }
+    .story-cost-saved .saved-val   { font-family:'Manrope','Noto Sans Tamil',sans-serif; font-size:18px; color:#059669; font-weight:700; }
 
     /* Full-width palliative card */
     .story-card.full-width { grid-column:1 / -1; }
     .story-card.full-width .story-stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:16px 0; }
-    .story-stat-box { background:linear-gradient(135deg,var(--primary,#0d2b45),#1a5276); border-radius:10px; padding:16px; text-align:center; }
-    .story-stat-box .ssb-val { font-family:'Playfair Display',serif; font-size:28px; color:var(--secondary,#e67e22); font-weight:700; }
+    .story-stat-box { background:linear-gradient(135deg,var(--primary,var(--primary-dk)),var(--primary-lt)); border-radius:10px; padding:16px; text-align:center; }
+    .story-stat-box .ssb-val { font-family:'Manrope','Noto Sans Tamil',sans-serif; font-size:28px; color:var(--secondary,#b84a3a); font-weight:700; }
     .story-stat-box .ssb-lbl { font-size:11px; color:rgba(255,255,255,0.65); letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
     .services-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
     .service-chip { background:#e0f2fe; color:#0369a1; border-radius:20px; padding:4px 12px; font-size:12px; font-weight:600; }
 
-    .lang-btn { background:none; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.65); font-size:12px; padding:2px 10px; border-radius:4px; cursor:pointer; transition:all 0.2s; font-family:'DM Sans',sans-serif; }
+    .lang-btn { background:none; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.65); font-size:12px; padding:2px 10px; border-radius:4px; cursor:pointer; transition:all 0.2s; font-family:'Manrope',sans-serif; }
     .lang-btn.active,.lang-btn:hover { background:var(--secondary); color:#fff; border-color:var(--secondary); }
 
     @media(max-width:900px) {
@@ -260,8 +260,7 @@ function renderStories(data) {
 
 async function loadStories() {
   try {
-    const res  = await fetch('/hospital');
-    const data = await res.json();
+    const data = await loadHospitalData();
     renderStories(data);
     document.addEventListener('langchange', () => renderStories(data));
   } catch(e) { console.error(e); }
