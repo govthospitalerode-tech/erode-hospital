@@ -8,12 +8,12 @@
   <link rel="shortcut icon" href="/public/favicon.ico"/>
   <title>Events & Camps — Thanthai Periyar Govt Hospital Erode</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/style.css"/>
   <style>
     .events-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
     .filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; align-items:center; }
-    .filter-btn { padding:8px 18px; border-radius:20px; border:1.5px solid var(--border); background:var(--white); color:var(--body-text); font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; cursor:pointer; transition:var(--transition); }
+    .filter-btn { padding:8px 18px; border-radius:20px; border:1.5px solid var(--border); background:var(--white); color:var(--body-text); font-family:'Manrope',sans-serif; font-size:13px; font-weight:500; cursor:pointer; transition:var(--transition); }
     .filter-btn:hover,.filter-btn.active { background:var(--primary); border-color:var(--primary); color:var(--white); }
     .filter-label { font-size:13px; color:var(--muted); font-weight:600; margin-right:4px; }
     .events-list { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
@@ -21,14 +21,14 @@
     .ev-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
     .ev-card-header { background:linear-gradient(135deg,var(--primary),var(--primary-lt)); padding:24px 24px 20px; display:flex; gap:16px; align-items:flex-start; }
     .ev-icon { font-size:36px; flex-shrink:0; }
-    .ev-title { font-family:'Playfair Display',serif; font-size:19px; color:var(--white); line-height:1.25; }
+    .ev-title { font-family:'Manrope','Noto Sans Tamil',sans-serif; font-size:19px; color:var(--white); line-height:1.25; }
     .ev-card-body { padding:20px 24px; flex:1; }
     .ev-date { font-size:12px; color:var(--muted); margin-bottom:10px; font-weight:600; }
     .ev-location { font-size:12px; color:var(--secondary); margin-bottom:14px; font-weight:600; }
     .ev-desc { font-size:14px; color:var(--body-text); line-height:1.7; }
     .ev-card-footer { padding:16px 24px; border-top:1px solid var(--border); display:grid; grid-template-columns:1fr 1fr; gap:12px; }
     .ev-stat { font-size:12px; }
-    .ev-stat strong { display:block; font-size:15px; color:var(--primary); font-family:'Playfair Display',serif; }
+    .ev-stat strong { display:block; font-size:15px; color:var(--primary); font-family:'Manrope','Noto Sans Tamil',sans-serif; }
     .ev-stat span { color:var(--muted); }
     .ev-outcome { grid-column:1/-1; font-size:12.5px; color:var(--teal); font-weight:600; background:var(--cream); padding:8px 12px; border-radius:6px; }
     .no-results { text-align:center; padding:60px 20px; color:var(--muted); }
@@ -147,8 +147,7 @@ function renderPage(data) {
 
 async function loadEvents() {
   try {
-    const res  = await fetch('/hospital');
-    const data = await res.json();
+    const data = await loadHospitalData();
     renderPage(data);
     document.addEventListener('langchange', () => renderPage(data));
   } catch(e) { console.error(e); }
