@@ -10,625 +10,320 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/style.css"/>
-
   <style>
-    .dept-body {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 64px 48px;
-    }
+    .dept-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
+    .dept-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
 
-    .dept-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      align-items: start;
-    }
-
-    /* Department flip cards */
+    /* ── FLIP CARD ── */
     .flip-wrap {
-      --card-open-height: 280px;
-      perspective: 1200px;
-      height: 280px;
+      perspective: 1000px;
+      height: 260px;
       cursor: pointer;
-      transition: height 0.3s ease;
     }
-
-    .flip-wrap.flipped {
-      height: var(--card-open-height);
-    }
-
     .flip-inner {
       position: relative;
       width: 100%;
       height: 100%;
-      transform-origin: center;
+      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
       transform-style: preserve-3d;
-      transition: transform 0.55s ease;
     }
-
+    .flip-wrap:hover .flip-inner,
     .flip-wrap.flipped .flip-inner {
-      transform: rotateY(-180deg);
+      transform: rotateY(180deg);
     }
-
-    .flip-wrap:focus-visible {
-      outline: 3px solid var(--secondary-dk);
-      outline-offset: 3px;
-      border-radius: var(--radius-md, 12px);
-    }
-
-    .flip-front,
-    .flip-back {
+    .flip-front, .flip-back {
       position: absolute;
       inset: 0;
-      overflow: hidden;
-      border-radius: var(--radius-md, 12px);
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
+      border-radius: var(--radius-md, 12px);
+      overflow: hidden;
     }
 
-    /* Front of card */
+    /* FRONT */
     .flip-front {
-      display: flex;
-      flex-direction: column;
-      padding: 28px;
       background: var(--white, #fff);
       border: 1px solid var(--border, #e5e7eb);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
     }
-
     .flip-front::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(
-        90deg,
-        var(--primary, var(--primary-dk)),
-        var(--secondary, #b84a3a)
-      );
+      content:'';
+      position:absolute; top:0; left:0;
+      width:100%; height:4px;
+      background:linear-gradient(90deg,var(--primary,var(--primary-dk)),var(--secondary,#b84a3a));
     }
+    .dept-icon { font-size:36px; margin-bottom:14px; }
+    .dept-name { font-size:18px; margin-bottom:6px; font-family:'Manrope','Noto Sans Tamil',sans-serif; color:var(--primary,var(--primary-dk)); }
+    .dept-head { font-size:12px; color:var(--muted,#6b7280); margin-bottom:4px; }
+    .dept-head strong { color:var(--primary,var(--primary-dk)); font-size:13px; }
+    .dept-desc { font-size:13px; color:var(--muted,#6b7280); line-height:1.6; margin-top:10px; flex:1; }
+    .dept-meta { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+    .dept-badge { display:flex; align-items:center; gap:5px; font-size:11px; font-weight:600; color:var(--primary,var(--primary-dk)); background:var(--cream,#f8f5f0); padding:4px 9px; border-radius:4px; }
+    .flip-hint { font-size:11px; color:var(--secondary,#b84a3a); font-weight:600; margin-top:10px; letter-spacing:0.5px; }
 
-    .dept-icon {
-      font-size: 36px;
-      margin-bottom: 14px;
-    }
-
-    .dept-name {
-      margin-bottom: 6px;
-      font-family: 'Manrope', 'Noto Sans Tamil', sans-serif;
-      font-size: 18px;
-      color: var(--primary, var(--primary-dk));
-    }
-
-    .dept-head {
-      margin-bottom: 4px;
-      font-size: 12px;
-      color: var(--muted, #6b7280);
-    }
-
-    .dept-head strong {
-      font-size: 13px;
-      color: var(--primary, var(--primary-dk));
-    }
-
-    .dept-desc {
-      flex: 1;
-      margin-top: 10px;
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--muted, #6b7280);
-    }
-
-    .dept-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .dept-badge {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 4px 9px;
-      border-radius: 4px;
-      background: var(--cream, #f8f5f0);
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--primary, var(--primary-dk));
-    }
-
-    .flip-hint {
-      margin-top: 10px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      color: var(--secondary, #b84a3a);
-    }
-
-    /* Back of card: complete medical team */
+    /* BACK */
     .flip-back {
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
+      background: linear-gradient(135deg, var(--primary,var(--primary-dk)) 0%, var(--primary-lt) 100%);
       transform: rotateY(180deg);
-      background: linear-gradient(135deg, #EDF3EE, #E4ECE6);
-      border: 1px solid #D8E3DC;
-    }
-
-    .flip-back-title {
-      flex: 0 0 auto;
-      margin-bottom: 12px;
-      font-family: 'Manrope', 'Noto Sans Tamil', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: #82473D;
-    }
-
-    .flip-doctors {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .flip-doctor-item {
-      padding: 8px 10px;
-      border-left: 3px solid #A35B4D;
-      border-radius: 5px;
-      background: rgba(255, 255, 255, 0.82);
-      font-size: 14px;
-      line-height: 1.4;
-      color: #33443C;
-    }
-
-    /* Department details modal */
-    .dept-modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      display: none;
-      align-items: center;
-      justify-content: center;
       padding: 20px;
-      background: rgba(5, 30, 52, 0.72);
-      backdrop-filter: blur(4px);
-    }
-
-    .dept-modal-overlay.open {
-      display: flex;
-    }
-
-    .dept-modal {
       display: flex;
       flex-direction: column;
-      width: 100%;
-      max-width: 560px;
-      max-height: 90vh;
-      overflow: hidden;
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25);
-      animation: modalIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    .flip-back-title {
+      font-size:13px; letter-spacing:1.5px; text-transform:uppercase;
+      color:var(--secondary,#b84a3a); font-family:'Manrope',sans-serif;
+      margin-bottom:12px; font-weight:700;
+    }
+    .flip-doctors {
+      flex:1; overflow-y:auto;
+      display:flex; flex-direction:column; gap:6px;
+    }
+    .flip-doctors::-webkit-scrollbar { width:3px; }
+    .flip-doctors::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.2); border-radius:2px; }
+    .flip-doctor-item {
+      font-size:12.5px; color:rgba(255,255,255,0.88);
+      padding:5px 8px;
+      background:rgba(255,255,255,0.07);
+      border-radius:5px;
+      border-left:2px solid var(--secondary,#b84a3a);
+    }
+    .flip-back-action {
+      margin-top:12px;
+      background:var(--secondary,#b84a3a);
+      color:#fff;
+      border:none; border-radius:6px;
+      padding:7px 14px;
+      font-size:12px; font-weight:700;
+      cursor:pointer;
+      width:100%;
+      transition:opacity 0.2s;
+    }
+    .flip-back-action:hover { opacity:0.85; }
 
+    /* ── POPUP MODAL ── */
+    .dept-modal-overlay {
+      display:none;
+      position:fixed; inset:0; z-index:1000;
+      background:rgba(5,30,52,0.72);
+      backdrop-filter:blur(4px);
+      align-items:center; justify-content:center;
+      padding:20px;
+    }
+    .dept-modal-overlay.open { display:flex; }
+    .dept-modal {
+      background:#fff;
+      border-radius:16px;
+      max-width:560px; width:100%;
+      max-height:90vh;
+      overflow:hidden;
+      display:flex; flex-direction:column;
+      box-shadow:0 24px 64px rgba(0,0,0,0.25);
+      animation: modalIn 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
     @keyframes modalIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.97);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      from { opacity:0; transform:translateY(20px) scale(0.97); }
+      to   { opacity:1; transform:translateY(0) scale(1); }
     }
-
     .dept-modal-header {
-      position: relative;
-      flex-shrink: 0;
-      padding: 28px 32px 22px;
-      background: linear-gradient(
-        135deg,
-        var(--primary, var(--primary-dk)) 0%,
-        var(--primary-lt) 100%
-      );
+      background:linear-gradient(135deg,var(--primary,var(--primary-dk)) 0%,var(--primary-lt) 100%);
+      padding:28px 32px 22px;
+      flex-shrink:0;
+      position:relative;
     }
-
-    .dept-modal-header .m-icon {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 40px;
-    }
-
-    .dept-modal-header h2 {
-      margin: 0 0 4px;
-      font-family: 'Manrope', 'Noto Sans Tamil', sans-serif;
-      font-size: 22px;
-      color: #fff;
-    }
-
-    .dept-modal-header p {
-      margin: 0;
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
+    .dept-modal-header .m-icon { font-size:40px; margin-bottom:8px; display:block; }
+    .dept-modal-header h2 { color:#fff; font-size:22px; margin:0 0 4px; font-family:'Manrope','Noto Sans Tamil',sans-serif; }
+    .dept-modal-header p { color:rgba(255,255,255,0.7); font-size:13px; margin:0; }
     .dept-modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      font-size: 18px;
-      cursor: pointer;
-      transition: background 0.2s;
+      position:absolute; top:16px; right:16px;
+      background:rgba(255,255,255,0.15); border:none;
+      color:#fff; width:34px; height:34px; border-radius:50%;
+      font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+      transition:background 0.2s;
     }
-
-    .dept-modal-close:hover {
-      background: rgba(255, 255, 255, 0.28);
-    }
-
-    .dept-modal-body {
-      flex: 1;
-      padding: 28px 32px;
-      overflow-y: auto;
-    }
-
-    .m-section-label {
-      margin-bottom: 12px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--secondary, #b84a3a);
-    }
-
-    .m-desc {
-      margin-bottom: 24px;
-      font-size: 14px;
-      line-height: 1.75;
-      color: #4b5563;
-    }
-
-    .m-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .m-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      background: #f0f4f8;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--primary, var(--primary-dk));
-    }
-
-    .m-doctors-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
+    .dept-modal-close:hover { background:rgba(255,255,255,0.28); }
+    .dept-modal-body { padding:28px 32px; overflow-y:auto; flex:1; }
+    .m-section-label { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--secondary,#b84a3a); font-weight:700; margin-bottom:12px; }
+    .m-desc { font-size:14px; color:#4b5563; line-height:1.75; margin-bottom:24px; }
+    .m-meta-row { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
+    .m-badge { display:inline-flex; align-items:center; gap:6px; background:#f0f4f8; border-radius:6px; padding:6px 12px; font-size:13px; font-weight:600; color:var(--primary,var(--primary-dk)); }
+    .m-doctors-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
     .m-doctor-card {
-      padding: 10px 12px;
-      border: 1px solid #e5e7eb;
-      border-left: 3px solid var(--secondary, #b84a3a);
-      border-radius: 8px;
-      background: #f8f9fa;
-      font-size: 13px;
-      font-weight: 500;
-      color: #374151;
+      background:#f8f9fa; border:1px solid #e5e7eb; border-radius:8px;
+      padding:10px 12px;
+      font-size:13px; color:#374151; font-weight:500;
+      border-left:3px solid var(--secondary,#b84a3a);
     }
 
-    @media (max-width: 900px) {
-      .dept-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .dept-body {
-        padding: 40px 20px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .dept-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .m-doctors-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .dept-modal-body {
-        padding: 20px;
-      }
-
-      .dept-modal-header {
-        padding: 22px 20px 16px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .flip-inner,
-      .flip-wrap {
-        transition-duration: 0.01ms;
-      }
-    }
+    @media(max-width:900px) { .dept-grid { grid-template-columns:repeat(2,1fr); } .dept-body { padding:40px 20px; } .flip-wrap { height:280px; } }
+    @media(max-width:560px) { .dept-grid { grid-template-columns:1fr; } .m-doctors-grid { grid-template-columns:1fr; } .dept-modal-body { padding:20px; } .dept-modal-header { padding:22px 20px 16px; } }
   </style>
 </head>
-
 <body>
-  <nav class="navbar" id="navbar"></nav>
+<nav class="navbar" id="navbar"></nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-breadcrumb"><a href="/index.html" id="breadHome">Home</a> › <span id="breadCurrent">Departments</span></div>
+    <h1 id="pageTitle">Our Departments</h1>
+    <p id="pageDesc">Specialised departments providing free diagnosis, treatment, and surgery to all patients. Hover a card to see the medical team.</p>
+  </div>
+</div>
 
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="page-hero-breadcrumb">
-        <a href="/index.html" id="breadHome">Home</a>
-        ›
-        <span id="breadCurrent">Departments</span>
-      </div>
-      <h1 id="pageTitle">Our Departments</h1>
-      <p id="pageDesc">
-        Specialised departments providing free diagnosis, treatment, and surgery to all patients.
-        Hover a card to see the medical team.
-      </p>
+<div class="dept-body">
+  <div class="dept-grid" id="deptGrid">
+    <div class="loading-box"><div class="spinner"></div>Loading departments...</div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="dept-modal-overlay" id="deptModal" role="dialog" aria-modal="true">
+  <div class="dept-modal">
+    <div class="dept-modal-header">
+      <button class="dept-modal-close" id="modalClose" aria-label="Close">✕</button>
+      <span class="m-icon" id="mIcon"></span>
+      <h2 id="mName"></h2>
+      <p id="mOpdBeds"></p>
+    </div>
+    <div class="dept-modal-body">
+      <div class="m-section-label" id="mAboutLabel">About</div>
+      <p class="m-desc" id="mDesc"></p>
+      <div class="m-meta-row" id="mMeta"></div>
+      <div class="m-section-label" id="mDoctorsLabel">Medical Team</div>
+      <div class="m-doctors-grid" id="mDoctors"></div>
     </div>
   </div>
+</div>
 
-  <div class="dept-body">
-    <div class="dept-grid" id="deptGrid">
-      <div class="loading-box">
-        <div class="spinner"></div>
-        Loading departments...
-      </div>
-    </div>
-  </div>
+<footer class="footer" id="footer"></footer>
+<script src="/shared.js"></script>
+<script>
+let CURRENT_DEPTS = [];
+let CURRENT_LABELS = {};
+let CURRENT_IS_TA = false;
+let OPEN_DEPT_ID = null;
 
-  <!-- Department details modal -->
-  <div class="dept-modal-overlay" id="deptModal" role="dialog" aria-modal="true">
-    <div class="dept-modal">
-      <div class="dept-modal-header">
-        <button class="dept-modal-close" id="modalClose" aria-label="Close">✕</button>
-        <span class="m-icon" id="mIcon"></span>
-        <h2 id="mName"></h2>
-        <p id="mOpdBeds"></p>
-      </div>
-      <div class="dept-modal-body">
-        <div class="m-section-label" id="mAboutLabel">About</div>
-        <p class="m-desc" id="mDesc"></p>
-        <div class="m-meta-row" id="mMeta"></div>
-        <div class="m-section-label" id="mDoctorsLabel">Medical Team</div>
-        <div class="m-doctors-grid" id="mDoctors"></div>
-      </div>
-    </div>
-  </div>
+function tt(en, ta) { return CURRENT_IS_TA ? ta : en; }
 
-  <footer class="footer" id="footer"></footer>
+function openModal(dept) {
+  const doctors = dept.doctors || [];
+  const L = CURRENT_LABELS;
+  OPEN_DEPT_ID = dept.id;
+  document.getElementById('mIcon').textContent  = dept.icon;
+  document.getElementById('mName').textContent  = tt(dept.name_en, dept.name_ta);
+  document.getElementById('mOpdBeds').textContent =
+    (dept.beds > 0 ? `${dept.beds} ${tt(L.beds_en, L.beds_ta)} · ` : '') + `OPD: ${tt(dept.opd_days_en, dept.opd_days_ta)}`;
+  document.getElementById('mAboutLabel').textContent = tt(L.about_en, L.about_ta);
+  document.getElementById('mDesc').textContent  = tt(dept.desc_en, dept.desc_ta);
+  document.getElementById('mMeta').innerHTML =
+    (dept.beds > 0 ? `<span class="m-badge">🛏️ ${dept.beds} ${tt(L.beds_en, L.beds_ta)}</span>` : '') +
+    `<span class="m-badge">🕐 ${tt(dept.opd_days_en, dept.opd_days_ta)}</span>` +
+    (doctors.length ? `<span class="m-badge">👨‍⚕️ ${doctors.length} ${tt(L.doctors_en, L.doctors_ta)}</span>` : '');
+  document.getElementById('mDoctorsLabel').textContent = tt(L.medical_team_en, L.medical_team_ta);
+  document.getElementById('mDoctorsLabel').style.display = doctors.length ? 'block' : 'none';
+  document.getElementById('mDoctors').innerHTML = doctors.length
+    ? doctors.map(n => `<div class="m-doctor-card">👨‍⚕️ ${n}</div>`).join('')
+    : '';
+  document.getElementById('deptModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
 
-  <script src="/shared.js"></script>
-  <script>
-    let CURRENT_DEPTS = [];
-    let CURRENT_LABELS = {};
-    let CURRENT_IS_TA = false;
-    let OPEN_DEPT_ID = null;
+function closeModal() {
+  OPEN_DEPT_ID = null;
+  document.getElementById('deptModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-    function tt(en, ta) {
-      return CURRENT_IS_TA ? ta : en;
-    }
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('deptModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('deptModal')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    function openModal(dept) {
-      const doctors = dept.doctors || [];
-      const labels = CURRENT_LABELS;
-
-      OPEN_DEPT_ID = dept.id;
-      document.getElementById('mIcon').textContent = dept.icon;
-      document.getElementById('mName').textContent = tt(dept.name_en, dept.name_ta);
-      document.getElementById('mOpdBeds').textContent =
-        (dept.beds > 0 ? `${dept.beds} ${tt(labels.beds_en, labels.beds_ta)} · ` : '') +
-        `OPD: ${tt(dept.opd_days_en, dept.opd_days_ta)}`;
-
-      document.getElementById('mAboutLabel').textContent =
-        tt(labels.about_en, labels.about_ta);
-      document.getElementById('mDesc').textContent =
-        tt(dept.desc_en, dept.desc_ta);
-
-      document.getElementById('mMeta').innerHTML =
-        (dept.beds > 0
-          ? `<span class="m-badge">🛏️ ${dept.beds} ${tt(labels.beds_en, labels.beds_ta)}</span>`
-          : '') +
-        `<span class="m-badge">🕐 ${tt(dept.opd_days_en, dept.opd_days_ta)}</span>` +
-        (doctors.length
-          ? `<span class="m-badge">👨‍⚕️ ${doctors.length} ${tt(labels.doctors_en, labels.doctors_ta)}</span>`
-          : '');
-
-      document.getElementById('mDoctorsLabel').textContent =
-        tt(labels.medical_team_en, labels.medical_team_ta);
-      document.getElementById('mDoctorsLabel').style.display =
-        doctors.length ? 'block' : 'none';
-
-      document.getElementById('mDoctors').innerHTML = doctors.length
-        ? doctors.map(name => `<div class="m-doctor-card">👨‍⚕️ ${name}</div>`).join('')
-        : '';
-
-      document.getElementById('deptModal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      OPEN_DEPT_ID = null;
-      document.getElementById('deptModal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('modalClose').addEventListener('click', closeModal);
-
-    document.getElementById('deptModal').addEventListener('click', event => {
-      if (event.target === document.getElementById('deptModal')) {
-        closeModal();
-      }
-    });
-
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') {
-        closeModal();
-      }
-    });
-
-    function buildGrid() {
-      const labels = CURRENT_LABELS;
-      const grid = document.getElementById('deptGrid');
-
-      grid.innerHTML = CURRENT_DEPTS.map((department, index) => {
-        const doctors = department.doctors || [];
-        const name = tt(department.name_en, department.name_ta);
-        const description = tt(department.desc_en, department.desc_ta);
-        const opd = tt(department.opd_days_en, department.opd_days_ta);
-        const expandedHeight = Math.max(280, 105 + doctors.length * 42);
-
-        return `
-          <div
-            class="flip-wrap fade-up"
-            style="animation-delay:${index * 0.04}s; --card-open-height:${expandedHeight}px"
-            data-id="${department.id}"
-            tabindex="0"
-            role="button"
-            aria-pressed="false"
-            aria-label="${name}"
-          >
-            <div class="flip-inner">
-              <div class="flip-front">
-                <div class="dept-icon">${department.icon}</div>
-                <h2 class="dept-name">${name}</h2>
-                <p class="dept-desc">${description.substring(0, 100)}…</p>
-                <div class="dept-meta">
-                  ${department.beds > 0
-                    ? `<span class="dept-badge">🛏️ ${department.beds} ${tt(labels.beds_en, labels.beds_ta)}</span>`
-                    : ''}
-                  <span class="dept-badge">🕐 ${opd}</span>
-                </div>
-                <div class="flip-hint">
-                  ↩ ${tt(labels.hover_hint_en, labels.hover_hint_ta)}
-                </div>
-              </div>
-
-              <div class="flip-back">
-                <div class="flip-back-title">
-                  👨‍⚕️ ${tt(labels.medical_team_en, labels.medical_team_ta)}
-                  (${doctors.length})
-                </div>
-                <div class="flip-doctors">
-                  ${doctors.length
-                    ? doctors.map(doctor =>
-                        `<div class="flip-doctor-item">${doctor}</div>`
-                      ).join('')
-                    : `<div class="flip-doctor-item">${tt(labels.rotating_team_en, labels.rotating_team_ta)}</div>`}
-                </div>
-              </div>
+function buildGrid() {
+  const L = CURRENT_LABELS;
+  document.getElementById('deptGrid').innerHTML = CURRENT_DEPTS.map((d, i) => {
+    const doctors = d.doctors || [];
+    const previewDoctors = doctors.slice(0, 4);
+    const name = tt(d.name_en, d.name_ta);
+    const desc = tt(d.desc_en, d.desc_ta);
+    const opd  = tt(d.opd_days_en, d.opd_days_ta);
+    return `
+      <div class="flip-wrap fade-up" style="animation-delay:${i*0.04}s" data-id="${d.id}" tabindex="0" role="button" aria-label="${name}">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="dept-icon">${d.icon}</div>
+            <h2 class="dept-name">${name}</h2>
+            <p class="dept-desc">${desc.substring(0,100)}…</p>
+            <div class="dept-meta">
+              ${d.beds > 0 ? `<span class="dept-badge">🛏️ ${d.beds} ${tt(L.beds_en, L.beds_ta)}</span>` : ''}
+              <span class="dept-badge">🕐 ${opd}</span>
             </div>
+            <div class="flip-hint">↩ ${tt(L.hover_hint_en, L.hover_hint_ta)}</div>
           </div>
-        `;
-      }).join('');
+          <div class="flip-back">
+            <div class="flip-back-title">👨‍⚕️ ${tt(L.medical_team_en, L.medical_team_ta)} (${doctors.length})</div>
+            <div class="flip-doctors">
+              ${previewDoctors.map(dr => `<div class="flip-doctor-item">${dr}</div>`).join('')}
+              ${doctors.length > 4 ? `<div class="flip-doctor-item" style="opacity:0.6;">+${doctors.length-4} more…</div>` : ''}
+              ${doctors.length === 0 ? `<div class="flip-doctor-item" style="opacity:0.6;">${tt(L.rotating_team_en, L.rotating_team_ta)}</div>` : ''}
+            </div>
+            <button class="flip-back-action" data-id="${d.id}">${tt(L.view_details_en, L.view_details_ta)}</button>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
 
-      document.querySelectorAll('.flip-wrap').forEach(card => {
-        let hoverTimer;
+  document.querySelectorAll('.flip-back-action').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const dept = CURRENT_DEPTS.find(d => d.id === btn.dataset.id);
+      if (dept) openModal(dept);
+    });
+  });
 
-        const setFlipped = flipped => {
-          card.classList.toggle('flipped', flipped);
-          card.setAttribute('aria-pressed', String(flipped));
-        };
-
-        // Desktop: wait briefly, then flip. Return to the front on pointer leave.
-        card.addEventListener('mouseenter', () => {
-          if (window.matchMedia('(hover: hover)').matches) {
-            hoverTimer = window.setTimeout(() => {
-              setFlipped(true);
-            }, 500);
-          }
-        });
-
-        card.addEventListener('mouseleave', () => {
-          window.clearTimeout(hoverTimer);
-
-          if (window.matchMedia('(hover: hover)').matches) {
-            setFlipped(false);
-          }
-        });
-
-        // Touchscreen: tap to flip and tap again to return.
-        card.addEventListener('click', () => {
-          if (window.matchMedia('(hover: none)').matches) {
-            setFlipped(!card.classList.contains('flipped'));
-          }
-        });
-
-        // Keyboard: Enter or Space toggles the card.
-        card.addEventListener('keydown', event => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            setFlipped(!card.classList.contains('flipped'));
-          }
-        });
-      });
-    }
-
-    function renderDepartments(data) {
-      const language = localStorage.getItem('gh_lang') || 'en';
-      CURRENT_IS_TA = language === 'ta';
-
-      const pageData = data.departments_page;
-      if (!pageData) return;
-
-      document.getElementById('breadHome').textContent =
-        tt('Home', 'முகப்பு');
-      document.getElementById('breadCurrent').textContent =
-        tt(pageData.page_hero.breadcrumb_en, pageData.page_hero.breadcrumb_ta);
-      document.getElementById('pageTitle').textContent =
-        tt(pageData.page_hero.title_en, pageData.page_hero.title_ta);
-      document.getElementById('pageDesc').textContent =
-        tt(pageData.page_hero.desc_en, pageData.page_hero.desc_ta);
-
-      CURRENT_LABELS = pageData.ui_labels;
-      CURRENT_DEPTS = pageData.departments_full || [];
-
-      buildGrid();
-
-      // Keep the modal in sync if the language changes while it is open.
-      if (OPEN_DEPT_ID) {
-        const department = CURRENT_DEPTS.find(item => item.id === OPEN_DEPT_ID);
-
-        if (department) {
-          openModal(department);
-        } else {
-          closeModal();
-        }
+  document.querySelectorAll('.flip-wrap').forEach(wrap => {
+    wrap.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const dept = CURRENT_DEPTS.find(d => d.id === wrap.dataset.id);
+        if (dept) openModal(dept);
       }
-    }
+    });
+  });
+}
 
-    async function loadDepartments() {
-      try {
-        const data = await loadHospitalData();
-        renderDepartments(data);
-        document.addEventListener('langchange', () => renderDepartments(data));
-      } catch (error) {
-        console.error(error);
-      }
-    }
+function renderDepartments(data) {
+  const lang = localStorage.getItem('gh_lang') || 'en';
+  CURRENT_IS_TA = lang === 'ta';
+  const dp = data.departments_page;
+  if (!dp) return;
 
-    document.addEventListener('DOMContentLoaded', loadDepartments);
-  </script>
+  document.getElementById('breadHome').textContent    = tt('Home', 'முகப்பு');
+  document.getElementById('breadCurrent').textContent = tt(dp.page_hero.breadcrumb_en, dp.page_hero.breadcrumb_ta);
+  document.getElementById('pageTitle').textContent    = tt(dp.page_hero.title_en, dp.page_hero.title_ta);
+  document.getElementById('pageDesc').textContent     = tt(dp.page_hero.desc_en, dp.page_hero.desc_ta);
+
+  CURRENT_LABELS = dp.ui_labels;
+  CURRENT_DEPTS  = dp.departments_full || [];
+
+  buildGrid();
+
+  // Keep modal in sync if it was open during a language switch
+  if (OPEN_DEPT_ID) {
+    const dept = CURRENT_DEPTS.find(d => d.id === OPEN_DEPT_ID);
+    if (dept) openModal(dept); else closeModal();
+  }
+}
+
+async function loadDepartments() {
+  try {
+    const data = await loadHospitalData();
+    renderDepartments(data);
+    document.addEventListener('langchange', () => renderDepartments(data));
+  } catch (e) { console.error(e); }
+}
+document.addEventListener('DOMContentLoaded', loadDepartments);
+</script>
 </body>
 </html>
