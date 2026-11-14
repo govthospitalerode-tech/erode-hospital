@@ -8,6 +8,20 @@ function t(obj, key) {
   return obj[key + '_' + LANG] || obj[key + '_en'] || '';
 }
 
+async function loadHospitalData() {
+  for (const endpoint of ['/hospital', '/hospital.json']) {
+    try {
+      const response = await fetch(endpoint, { cache: 'no-cache' });
+      if (!response.ok) continue;
+      const data = await response.json();
+      if (data && typeof data === 'object' && data.hospital) return data;
+    } catch (error) {
+      console.warn(`Could not load ${endpoint}; trying the next data source.`, error);
+    }
+  }
+  throw new Error('Hospital content could not be loaded from /hospital or /hospital.json.');
+}
+
 /* ── BUILD NAV HTML ── */
 function buildNav(data) {
   const nav = data.nav;
@@ -98,6 +112,38 @@ function buildFooter(data) {
 }
 
 /* ── SWITCH LANGUAGE ── */
+function initMotion() {
+  const selector = '.section-title, .stat-box, .ql-card, .event-card, .ev-card, .story-mini, .story-card, .ach-card, .scheme-card, .dept-grid > *, .scope-section, .service-item, .info-card, .m-doctor-card';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealObserver = !reduceMotion && 'IntersectionObserver' in window
+    ? new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      }), { threshold: 0.12, rootMargin: '0px 0px -24px 0px' })
+    : null;
+
+  function markReveal(root) {
+    if (root.nodeType !== 1) return;
+    if (root.matches(selector)) add(root);
+    root.querySelectorAll(selector).forEach(add);
+  }
+  function add(element) {
+    if (element.dataset.reveal) return;
+    element.dataset.reveal = 'true';
+    if (revealObserver) revealObserver.observe(element);
+    else element.classList.add('is-visible');
+  }
+
+  document.documentElement.classList.add('motion-ready');
+  markReveal(document.body);
+  new MutationObserver(records => records.forEach(record =>
+    record.addedNodes.forEach(markReveal)
+  )).observe(document.body, { childList: true, subtree: true });
+}
+
+/* ── SWITCH LANGUAGE ── */
 function switchLang(lang) {
   LANG = lang;
   localStorage.setItem('gh_lang', lang);
@@ -110,8 +156,7 @@ function switchLang(lang) {
 /* ── INIT ── */
 async function initShared() {
   try {
-    const res  = await fetch('/hospital');
-    const data = await res.json();
+    const data = await loadHospitalData();
 
     const navbar = document.getElementById('navbar');
     if (navbar) navbar.innerHTML = buildNav(data);
@@ -142,4 +187,7 @@ async function initShared() {
   } catch(e) { console.error('shared.js init error:', e); }
 }
 
-document.addEventListener('DOMContentLoaded', initShared);
+document.addEventListener('DOMContentLoaded', () => {
+  initMotion();
+  initShared();
+});
