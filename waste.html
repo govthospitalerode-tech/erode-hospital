@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" href="/public/favicon-192.png"/>
   <link rel="shortcut icon" href="/public/favicon.ico"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/style.css"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
@@ -28,7 +28,7 @@
     .st.teal::before   { background:var(--teal); }
     .st.green::before  { background:#27ae60; }
     .st-lbl { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:8px; }
-    .st-val { font-family:'Playfair Display',serif; font-size:30px; color:var(--primary); font-weight:700; line-height:1; }
+    .st-val { font-family:'Manrope','Noto Sans Tamil',sans-serif; font-size:30px; color:var(--primary); font-weight:700; line-height:1; }
     .st-sub { font-size:12px; color:var(--muted); margin-top:4px; }
 
     /* ── MAIN GRID ───────────────────────────── */
@@ -105,7 +105,7 @@
     label { display:block; font-size:11px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase; color:var(--primary); margin-bottom:6px; }
     select, input[type=date], input[type=number], input[type=email], input[type=password] {
       width:100%; padding:10px 14px; border:1.5px solid var(--border); border-radius:var(--radius-sm);
-      font-family:'DM Sans',sans-serif; font-size:14px; color:var(--primary); background:var(--cream);
+      font-family:'Manrope',sans-serif; font-size:14px; color:var(--primary); background:var(--cream);
       outline:none; transition:var(--transition); appearance:none; box-sizing:border-box;
     }
     select:focus, input:focus { border-color:var(--primary); box-shadow:0 0 0 3px rgba(26,60,110,0.08); background:var(--white); }
@@ -115,7 +115,7 @@
     }
     .btn-primary {
       width:100%; background:var(--primary); color:var(--white); border:none;
-      border-radius:var(--radius-sm); padding:13px; font-family:'DM Sans',sans-serif;
+      border-radius:var(--radius-sm); padding:13px; font-family:'Manrope',sans-serif;
       font-size:15px; font-weight:700; cursor:pointer; transition:var(--transition); margin-top:4px;
     }
     .btn-primary:hover { background:var(--primary-lt); transform:translateY(-1px); }
@@ -594,8 +594,8 @@ function renderDashboard({ records, byBagColor, byMonth, byWard, summary }) {
       indexAxis: 'y', responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
-        x: { beginAtZero:true, grid:{ color:'#f0f0f0' }, ticks:{ font:{ family:'DM Sans', size:10 } } },
-        y: { grid:{ display:false }, ticks:{ font:{ family:'DM Sans', size:10 } } }
+        x: { beginAtZero:true, grid:{ color:'#f0f0f0' }, ticks:{ font:{ family:'Manrope', size:10 } } },
+        y: { grid:{ display:false }, ticks:{ font:{ family:'Manrope', size:10 } } }
       }
     }
   });
@@ -616,8 +616,8 @@ function renderDashboard({ records, byBagColor, byMonth, byWard, summary }) {
       responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
-        y: { beginAtZero:true, grid:{ color:'#f0f0f0' }, ticks:{ font:{ family:'DM Sans' } } },
-        x: { grid:{ display:false }, ticks:{ font:{ family:'DM Sans' } } }
+        y: { beginAtZero:true, grid:{ color:'#f0f0f0' }, ticks:{ font:{ family:'Manrope' } } },
+        x: { grid:{ display:false }, ticks:{ font:{ family:'Manrope' } } }
       }
     }
   });
