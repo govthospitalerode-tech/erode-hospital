@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="/public/favicon.ico"/>
   <title>Achievements — Thanthai Periyar Govt Hospital Erode</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/style.css"/>
   <style>
     .ach-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
@@ -99,8 +99,7 @@ function renderAchievements(data) {
 
 async function loadAchievements() {
   try {
-    const res  = await fetch('/hospital');
-    const data = await res.json();
+    const data = await loadHospitalData();
     renderAchievements(data);
     document.addEventListener('langchange', () => renderAchievements(data));
   } catch(e) { console.error(e); }
