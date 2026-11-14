@@ -8,15 +8,15 @@
   <link rel="shortcut icon" href="/public/favicon.ico"/>
   <title>Patient Benefits — Thanthai Periyar Govt Hospital Erode</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="/style.css"/>
   <style>
     .patients-body { max-width:1100px; margin:0 auto; padding:64px 48px; }
     .intro-block { background:linear-gradient(135deg,var(--primary-dk),var(--primary)); border-radius:var(--radius-lg); padding:40px 48px; margin-bottom:56px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; }
-    .intro-block h2 { font-family:'Playfair Display',serif; color:var(--white); font-size:clamp(20px,2.5vw,28px); margin-bottom:10px; }
+    .intro-block h2 { font-family:'Manrope','Noto Sans Tamil',sans-serif; color:var(--white); font-size:clamp(20px,2.5vw,28px); margin-bottom:10px; }
     .intro-block p { color:rgba(255,255,255,0.72); font-size:14px; line-height:1.7; }
     .intro-stats { display:flex; flex-direction:column; gap:16px; text-align:right; }
-    .intro-stat-val { font-family:'Playfair Display',serif; font-size:32px; color:var(--secondary-lt); font-weight:700; line-height:1; }
+    .intro-stat-val { font-family:'Manrope','Noto Sans Tamil',sans-serif; font-size:32px; color:var(--secondary-lt); font-weight:700; line-height:1; }
     .intro-stat-lbl { font-size:11px; color:rgba(255,255,255,0.5); letter-spacing:1px; text-transform:uppercase; }
     .schemes-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
     .scheme-card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius-md); padding:28px; display:flex; gap:20px; transition:var(--transition); }
@@ -29,9 +29,9 @@
     .scheme-desc { font-size:13.5px; color:var(--body-text); line-height:1.65; }
     .emergency-box { background:var(--secondary); border-radius:var(--radius-md); padding:32px 40px; margin-top:48px; display:flex; align-items:center; gap:32px; }
     .emergency-box .em-icon { font-size:48px; flex-shrink:0; }
-    .emergency-box h3 { font-family:'Playfair Display',serif; color:var(--white); font-size:24px; margin-bottom:8px; }
+    .emergency-box h3 { font-family:'Manrope','Noto Sans Tamil',sans-serif; color:var(--white); font-size:24px; margin-bottom:8px; }
     .emergency-box p { color:rgba(255,255,255,0.82); font-size:14px; }
-    .emergency-box .em-number { font-family:'Playfair Display',serif; font-size:48px; color:var(--white); font-weight:900; letter-spacing:2px; margin-left:auto; }
+    .emergency-box .em-number { font-family:'Manrope','Noto Sans Tamil',sans-serif; font-size:48px; color:var(--white); font-weight:900; letter-spacing:2px; margin-left:auto; }
     @media(max-width:900px) {
       .patients-body { padding:40px 20px; }
       .schemes-grid { grid-template-columns:1fr; }
@@ -50,24 +50,24 @@
       <a href="/index.html" id="breadHome">Home</a> › <span id="breadCurrent">Patient Benefits</span>
     </div>
     <h1 id="pageTitle">Patient Benefits & Schemes</h1>
-    <p id="pageDesc">All services, medicines, diagnostics, and schemes available free of cost to patients of Erode Govt Hospital.</p>
+    <p id="pageDesc">Information about services, medicines, diagnostics, and schemes for patients of Erode Government Hospital. Eligibility and coverage vary by programme.</p>
   </div>
 </div>
 
 <div class="patients-body">
   <div class="intro-block">
     <div>
-      <h2 id="introTitle">Everything is Free. No hidden charges.</h2>
-      <p id="introDesc">Under the Government of Tamil Nadu's healthcare mandate, Thanthai Periyar Govt Hospital provides comprehensive medical care at zero cost to all patients. From medicines to surgeries to diagnostics — all covered under various central and state schemes.</p>
+      <h2 id="introTitle">Patient Services &amp; Government Schemes</h2>
+      <p id="introDesc">Explore the services and programmes available at Thanthai Periyar Government Headquarters Hospital. Eligibility and coverage depend on the scheme and patient category.</p>
     </div>
     <div class="intro-stats">
       <div><div class="intro-stat-val">₹5L</div><div class="intro-stat-lbl" id="stat1Lbl">Max CMCHIS Coverage</div></div>
-      <div><div class="intro-stat-val">250+</div><div class="intro-stat-lbl" id="stat2Lbl">Free Medicines</div></div>
+      <div><div class="intro-stat-val">250+</div><div class="intro-stat-lbl" id="stat2Lbl">Essential Medicines</div></div>
     </div>
   </div>
 
   <span class="section-label" id="schemesLabel">Government Schemes</span>
-  <h2 class="section-title" id="schemesTitle" style="margin-bottom:32px">What You Get — Free</h2>
+  <h2 class="section-title" id="schemesTitle" style="margin-bottom:32px">Available Programmes</h2>
   <div class="schemes-grid" id="schemesGrid">
     <div class="loading-box"><div class="spinner"></div>Loading...</div>
   </div>
@@ -75,8 +75,8 @@
   <div class="emergency-box">
     <div class="em-icon">🚑</div>
     <div>
-      <h3 id="emTitle">Free Emergency Ambulance — 24/7</h3>
-      <p id="emDesc">Call 108 from anywhere in Erode district for a fully equipped, staffed emergency ambulance — completely free of charge for all citizens.</p>
+      <h3 id="emTitle">Emergency Ambulance — 24/7</h3>
+      <p id="emDesc">Call 108 from anywhere in Erode district for an equipped emergency ambulance.</p>
     </div>
     <div class="em-number">108</div>
   </div>
@@ -92,15 +92,15 @@ function renderPatients(data) {
   document.getElementById('breadHome').textContent    = isTa ? 'முகப்பு'              : 'Home';
   document.getElementById('breadCurrent').textContent = isTa ? 'நோயாளி நலன்கள்'      : 'Patient Benefits';
   document.getElementById('pageTitle').textContent    = isTa ? 'நோயாளி நலன்கள் & திட்டங்கள்' : 'Patient Benefits & Schemes';
-  document.getElementById('pageDesc').textContent     = isTa ? 'ஈரோடு அரசு மருத்துவமனை நோயாளிகளுக்கு இலவசமாக கிடைக்கும் அனைத்து சேவைகள், மருந்துகள் மற்றும் திட்டங்கள்.' : 'All services, medicines, diagnostics, and schemes available free of cost to patients of Erode Govt Hospital.';
-  document.getElementById('introTitle').textContent   = isTa ? 'அனைத்தும் இலவசம். மறைக்கப்பட்ட கட்டணம் இல்லை.' : 'Everything is Free. No hidden charges.';
-  document.getElementById('introDesc').textContent    = isTa ? 'தமிழ்நாடு அரசின் சுகாதார உத்தரவின்படி, தந்தை பெரியார் அரசு மருத்துவமனை அனைத்து நோயாளிகளுக்கும் இலவச மருத்துவ சிகிச்சை வழங்குகிறது. மருந்துகள் முதல் அறுவை சிகிச்சை வரை — அனைத்தும் திட்டங்களில் உள்ளடக்கப்பட்டுள்ளன.' : 'Under the Government of Tamil Nadu\'s healthcare mandate, Thanthai Periyar Govt Hospital provides comprehensive medical care at zero cost to all patients.';
+  document.getElementById('pageDesc').textContent     = isTa ? 'ஈரோடு அரசு மருத்துவமனை நோயாளிகளுக்கான சேவைகள், மருந்துகள், பரிசோதனைகள் மற்றும் திட்டங்கள் பற்றிய தகவல். தகுதி மற்றும் காப்பீடு திட்டத்தைப் பொறுத்து மாறுபடும்.' : 'Information about services, medicines, diagnostics, and schemes for patients of Erode Government Hospital. Eligibility and coverage vary by programme.';
+  document.getElementById('introTitle').textContent   = isTa ? 'நோயாளி சேவைகள் மற்றும் அரசு திட்டங்கள்' : 'Patient Services & Government Schemes';
+  document.getElementById('introDesc').textContent    = isTa ? 'தந்தை பெரியார் அரசு தலைமை மருத்துவமனையில் கிடைக்கும் சேவைகள் மற்றும் திட்டங்களை அறியவும். தகுதி மற்றும் காப்பீடு திட்டம் மற்றும் நோயாளி வகையைப் பொறுத்து மாறுபடும்.' : 'Explore the services and programmes available at Thanthai Periyar Government Headquarters Hospital. Eligibility and coverage depend on the scheme and patient category.';
   document.getElementById('stat1Lbl').textContent     = isTa ? 'CMCHIS அதிகபட்ச காப்பீடு' : 'Max CMCHIS Coverage';
-  document.getElementById('stat2Lbl').textContent     = isTa ? 'இலவச மருந்துகள்'            : 'Free Medicines';
+  document.getElementById('stat2Lbl').textContent     = isTa ? 'அத்தியாவசிய மருந்துகள்'      : 'Essential Medicines';
   document.getElementById('schemesLabel').textContent = isTa ? 'அரசு திட்டங்கள்'            : 'Government Schemes';
-  document.getElementById('schemesTitle').textContent = isTa ? 'நீங்கள் பெறுவது — இலவசமாக'  : 'What You Get — Free';
-  document.getElementById('emTitle').textContent      = isTa ? 'இலவச அவசர ஆம்புலன்ஸ் — 24/7' : 'Free Emergency Ambulance — 24/7';
-  document.getElementById('emDesc').textContent       = isTa ? 'ஈரோடு மாவட்டம் எங்கிருந்தும் 108 அழைக்கவும் — அனைத்து குடிமக்களுக்கும் முற்றிலும் இலவசம்.' : 'Call 108 from anywhere in Erode district for a fully equipped, staffed emergency ambulance — completely free of charge for all citizens.';
+  document.getElementById('schemesTitle').textContent = isTa ? 'கிடைக்கும் திட்டங்கள்' : 'Available Programmes';
+  document.getElementById('emTitle').textContent      = isTa ? 'அவசர ஆம்புலன்ஸ் — 24/7' : 'Emergency Ambulance — 24/7';
+  document.getElementById('emDesc').textContent       = isTa ? 'ஈரோடு மாவட்டம் எங்கிருந்தும் 108 அழைத்து அவசர ஆம்புலன்ஸை அணுகவும்.' : 'Call 108 from anywhere in Erode district for an equipped emergency ambulance.';
 
   document.getElementById('schemesGrid').innerHTML = (data.schemes || []).map((s, i) => `
     <div class="scheme-card fade-up" style="animation-delay:${i*0.06}s">
@@ -116,8 +116,7 @@ function renderPatients(data) {
 
 async function loadPatients() {
   try {
-    const res  = await fetch('/hospital');
-    const data = await res.json();
+    const data = await loadHospitalData();
     renderPatients(data);
     document.addEventListener('langchange', () => renderPatients(data));
   } catch(e) { console.error(e); }
